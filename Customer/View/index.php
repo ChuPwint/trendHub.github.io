@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1 class="text-red-400">Hello World</h1>
+    <h1 class="text-red-400">Hello Nyi Ma Lay</h1>
 </body>
 
 </html>
