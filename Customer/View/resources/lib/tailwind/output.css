@@ -1685,36 +1685,6 @@ video {
     padding-bottom: 1.5rem;
   }
 
-  .md\:py-\[\] {
-    padding-top: ;
-    padding-bottom: ;
-  }
-
-  .md\:py-\[500px\] {
-    padding-top: 500px;
-    padding-bottom: 500px;
-  }
-
-  .md\:py-\[200px\] {
-    padding-top: 200px;
-    padding-bottom: 200px;
-  }
-
-  .md\:py-40 {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-
-  .md\:py-28 {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-
-  .md\:py-48 {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-
   .md\:pb-7 {
     padding-bottom: 1.75rem;
   }
