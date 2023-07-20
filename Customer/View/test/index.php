@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello</title>
 
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css" />
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css" />
 </head>
 
 <body>
-    <h1 class="text-red-400">Hello World</h1>
+    <h1 class="text-red-400">Hello</h1>
 </body>
 
 </html>
