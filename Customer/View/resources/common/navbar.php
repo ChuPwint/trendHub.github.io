@@ -7,7 +7,7 @@
     <title></title>
 
     <!-- tailwind link -->
-    <link href="./assets/tailwind/output.css" rel="stylesheet" />
+    <link href="../lib/tailwind/output.css" rel="stylesheet" />
 
      <!-- google font link -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -39,10 +39,10 @@
             <div class="flex justify-between items-center ">
     
                 <!-- desktop logo -->
-                <img class="md:block hidden" src="./assets/images/header/logo.svg" alt="">
+                <img class="md:block hidden" src="../img/header/logo.svg" alt="">
     
                 <!-- mobile logo -->
-                <img  class="md:hidden w-[90px] order-2" src="./assets/images/header/headerLogo.svg " alt="">
+                <img  class="md:hidden w-[90px] order-2" src="./img/header/headerLogo.svg " alt="">
     
                 <!-- mobile login -->
                 <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">Login</button>
@@ -72,7 +72,7 @@
                 </li>
     
                 <button
-                    class="bg-buttonColor text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+                    class="bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
                     Login
                 </button>
                 <h2 class=""></h2>
@@ -85,14 +85,14 @@
           <div class="flex">
             
             <!-- desktop categories -->
-            <div id="dropdownButton" class="relative  md:block hidden px-3 py-2  bg-buttonColor hover:bg-tertiary text-textWhite rounded-l-md cursor-pointer">
+            <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-tertiary hover:bg-tertiary text-textWhite rounded-l-md cursor-pointer">
               Categories
-                    <img class="inline" src="./assets/images/header/down-arrow.png" alt="">
+                    <img class="inline" src="../img/header/down-arrow.png" alt="">
               
                
     
                 <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Womens’s & Girls’s Fashion</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Womens’s & Girls’s Fashion</a></li>
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Mens’s & Boys’ Fashion</a></li>
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Sports & Outdoors</a></li>
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Health & Beauty</a></li>
@@ -107,10 +107,10 @@
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Others</a></li>
                   </ul>
             </div>
-            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="./assets/images/header/category.svg" alt="">
+            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../img/header/category.svg" alt="">
             <input type="search" placeholder="Search..." class="md:text-textBlack px-3  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
-          <img class="pr-2" src="./assets/images/header/cart.svg" alt="">
+          <img class="pr-2" src="../img/header/cart.svg" alt="">
         </div>
         </nav>
         <!-- end second navbar -->
@@ -148,9 +148,9 @@
 
 <!-- icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="./assets/js/homePage/header/navbarMobile.js"></script>
-    <script src="./assets/js/homePage/header/categoryDesktop.js"></script>
-    <script src="./assets//js/homePage/header/categoryMobile.js"></script>
+    <script src="../js/homePage/header/navbarMobile.js"></script>
+    <script src="../js/homePage/header/categoryDesktop.js"></script>
+    <script src="../js/homePage/header/categoryMobile.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
 
