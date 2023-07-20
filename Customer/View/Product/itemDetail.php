@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Detail</title>
-    <link rel="stylesheet" href="./assets/tailwind/output.css">
-    <link rel="stylesheet" href="./assets/styles/itemDetail.css">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+    <link rel="stylesheet" href="../resources/css/itemDetail.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -14,10 +14,10 @@
 <body class="bg-primary font-roboto">
     <!--Start of detail card-->
     <div class="py-10 px-5 md:px-28 md:py-6">
-        <div class="bg-[#F7F7F7] flex flex-col justify-center items-center md:flex-row md:w-99">
+        <div class="bg-productCardBgColor flex flex-col justify-center items-center md:flex-row md:w-99">
             <!-- image half -->
             <div class="p-5 mb-3 flex justify-center items-center">
-                <img class="p_detail_img w-[80%] md:w-full" src="./assets/images/item_detail/cpu-nb 384.png" alt="">
+                <img class="p_detail_img w-[80%] md:w-full" src="../resources/img/item_detail/cpu-nb 384.png" alt="">
             </div>
 
             <!-- detail info -->
@@ -40,9 +40,9 @@
                     </div>
                     <p class="font-semibold md:hidden">
                         Qty: 
-                        <button class="cursor-pointer ml-2 px-2 font-semibold bg-[#F7F7F7] rounded-lg">-</button>
+                        <button class="cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
                         <input type="number" name="qty" value="1" class="text-xl text-center w-10 h-10 rounded-md bg-[#F7F7F7]">
-                        <button class="cursor-pointer px-2 font-semibold text-center bg-[#F7F7F7] rounded-lg">+</button>
+                        <button class="cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
                 </div>
 
@@ -50,9 +50,9 @@
                 <div class="hidden md:mt-5 md:flex md:justify-between md:items-center">
                     <p class="font-semibold">
                             Qty: 
-                            <button class="cursor-pointer ml-2 px-2 font-semibold bg-[#F7F7F7] rounded-lg">-</button>
-                            <input type="number" name="qty" value="1" class="text-xl text-center w-10 h-10 rounded-md bg-[#F7F7F7]">
-                            <button class="cursor-pointer px-2 font-semibold text-center bg-[#F7F7F7] rounded-lg">+</button>
+                            <button class="cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
+                            <input type="number" name="qty" value="1" class="text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
+                            <button class="cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
                     <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
                 </div>
@@ -63,7 +63,7 @@
                         <ion-icon name="heart-circle" class="cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
                         <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
                     </div>
-                    <button class="md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-[#F36823]">Add to Wishlist</button>
+                    <button class="md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
                     <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
                 </div>
             </div>
@@ -73,7 +73,7 @@
 
     <!-- Start of product description -->
     <div class="px-5 md:px-28">
-        <div class="bg-[#F7F7F7] py-5 px-5">
+        <div class="bg-productCardBgColor py-5 px-5">
             <p class="text-xl font-bold underline mb-5">Product Description</p>
             <p class="p_descript md:pl-8">Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming.</p>
         </div>
@@ -81,7 +81,7 @@
     <!-- End of product description -->
 
     <!-- Start of reviews summary -->
-    <div class="px-5 mt-8 md:px-28 bg-[#F7F7F7]">
+    <div class="px-5 mt-8 md:px-28 bg-productCardBgColor">
         <p class="text-xl px-5 py-5 font-bold underline">Rating & Reviews</p>
 
         <div class="mt-3 px-10 flex justify-between items-center">
@@ -118,7 +118,7 @@
     </div>
     <!-- End of reviews summary -->
     <!-- Start of user reviews -->
-    <div class="py-10 px-5 md:px-28 bg-[#F7F7F7]">
+    <div class="py-10 px-5 md:px-28 bg-productCardBgColor">
         <div>
             
         </div>

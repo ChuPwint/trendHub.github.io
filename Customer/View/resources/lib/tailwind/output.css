@@ -841,11 +841,6 @@ video {
   border-color: rgb(217 217 217 / var(--tw-border-opacity));
 }
 
-.border-\[\#F36823\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 104 35 / var(--tw-border-opacity));
-}
-
 .border-\[\#FF5500\] {
   --tw-border-opacity: 1;
   border-color: rgb(255 85 0 / var(--tw-border-opacity));
@@ -854,6 +849,11 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-borderOrange {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 104 35 / var(--tw-border-opacity));
 }
 
 .border-textGray {
@@ -875,9 +875,19 @@ video {
   background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#FEFEFE\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 254 254 / var(--tw-bg-opacity));
+}
+
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(255 250 250 / var(--tw-bg-opacity));
+}
+
+.bg-productCardBgColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
 
 .bg-secondary {
@@ -895,31 +905,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-<<<<<<< HEAD:Customer/View/assets/tailwind/output.css
-.bg-\[\] {
-  background-color: ;
-}
-
-.bg-\[\#FEFEFE\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 254 254 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#FEFEFEnpm\] {
-  background-color: #FEFEFEnpm;
-}
-
-.bg-slate-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#\] {
-  background-color: #;
-}
-
-=======
->>>>>>> origin/main:Customer/View/resources/lib/tailwind/output.css
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
