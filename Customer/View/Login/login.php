@@ -30,7 +30,7 @@
     <div class="flex justify-center items-center flex-col px-5 ">
 
         <img src="../resources/img/login/TH Logo 3.png" alt="logo" class="w-16 md:w-24 object-cover top-2  relative md:mt-8 mt-12">
-        <div class="bg-primary relative  md:left-96 mx-10 md:w-1/2 flex justify-center items-center  shadow-2xl md:mt-5 mt-10 ">
+        <div class="bg-primary relative   mx-10 md:w-1/2 flex justify-center items-center  shadow-2xl md:mt-5 mt-10 ">
             <div class="hidden md:block w-1/2 p-8 mt-10 mb-10">
                 <img src="../resources/img/login/login.png" alt="Illustration Photo" class="w-full h-full object-cover">
             </div>
