@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
-    <link rel="stylesheet" href="./assets/tailwind/output.css">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
@@ -18,7 +18,7 @@
         <!-- card1 -->
         <div class="px-8 md:flex justify-evenly py-11 bg-[#FEFEFE] mt-10 drop-shadow md:space-x-20 md:px-20">
             <div>
-                <img src="./assets/images/services/vast_selection.svg" alt="vast_selection">
+                <img src="../resources/img/service_page/vast_selection.svg" alt="vast_selection">
             </div>
 
             <div class="mt-5 md:w-[70%]">
@@ -35,7 +35,7 @@
         <!-- card2 -->
         <div class="px-8 md:flex justify-evenly py-11 bg-[#FEFEFE] mt-10 drop-shadow md:space-x-20 md:px-20 md:my-20 md:py-20">
             <div class="md:w-[300px]">
-                <img src="./assets/images/services/effortless.svg" alt="vast_selection">
+                <img src="../resources/img/service_page/effortless.svg" alt="effortless">
             </div>
 
             <div class="mt-5 md:w-[70%]">
@@ -51,7 +51,7 @@
         <!-- card3 -->
         <div class="px-8 md:flex justify-evenly py-10 bg-[#FEFEFE] mt-10 drop-shadow md:space-x-20 md:px-20 md:py-5">
             <div>
-                <img src="./assets/images/services/earn_and_redeem.svg" alt="vast_selection">
+                <img src="../resources/img/service_page/earn_and_redeem.svg" alt="earn_and_redeem">
             </div>
 
             <div class="mt-5 md:w-[70%]">
