@@ -56,19 +56,19 @@
             <ul
                 class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
                 <li class="mx-4 my-6 md:my-0">
-                    <a href="#" class="text-md hover:text-tertiary  duration-500">Home</a>
+                    <a href="#" class="text-md hover:text-[#F36823]  duration-300">Home</a>
                 </li>
                 <li class="mx-4 my-6 md:my-0">
-                    <a href="#" class="text-md hover:text-tertiary  duration-500">About</a>
+                    <a href="#" class="text-md hover:text-[#F36823]  duration-300">About</a>
                 </li>
                 <li class="mx-4 my-6 md:my-0">
-                    <a href="#" class="text-md hover:text-tertiary  duration-500">Service</a>
+                    <a href="#" class="text-md hover:text-[#F36823]  duration-300">Service</a>
                 </li>
                 <li class="mx-4 my-6 md:my-0">
-                    <a href="#" class="text-md hover:text-tertiary  duration-500">Help</a>
+                    <a href="#" class="text-md hover:text-[#F36823]  duration-300">Help</a>
                 </li>
                 <li class="mx-4 my-6 md:my-0">
-                    <a href="#" class="text-md hover:text-tertiary duration-500">Contact</a>
+                    <a href="#" class="text-md hover:text-[#F36823] duration-300">Contact</a>
                 </li>
     
                 <button
@@ -93,18 +93,18 @@
     
                 <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Womens’s & Girls’s Fashion</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Mens’s & Boys’ Fashion</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Sports & Outdoors</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Health & Beauty</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Jewelry </a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Watches</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Home & Lifestyle</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Mother & Baby</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Bags</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Groceries</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Tv & Home Appliances</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Electronics Devices</a></li>
-                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-textWhite duration-400">Others</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mens’s & Boys’ Fashion</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Sports & Outdoors</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Health & Beauty</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Jewelry </a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Watches</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Home & Lifestyle</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mother & Baby</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Bags</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Groceries</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Tv & Home Appliances</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Electronics Devices</a></li>
+                    <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Others</a></li>
                   </ul>
             </div>
             <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../img/header/category.svg" alt="">
