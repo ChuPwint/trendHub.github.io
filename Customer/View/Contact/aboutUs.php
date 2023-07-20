@@ -76,12 +76,11 @@
     </section>
 
     <section class="container w-full mx-auto px-5 md:px-28">
-        <div class="text-center py-5 bg-[#F5F5F5] rounded drop-shadow-md px-5 md:px-30">
+        <div class="text-center py-5 bg-[#F5F5F5] rounded drop-shadow-md px-5 md:px-30 md:py-20">
             <p class="text-sm md:text-xl text-textGray mt-5 md:px-16">Thank you for choosing [Trend Hub]. We hope you enjoy exploring our extensive product rage and have a delightful shopping experience.If you have any quentions or need assistance ,
                 please don’t hesitate to reach out to our delicated customer service team.</p>
         </div>
     </section>
-
 </body>
 
 </html>
