@@ -13,7 +13,7 @@
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
     <div class="flex justify-center items-center flex-col px-5 w-2/3 h-2/3 ">
 
-        <div class="bg-primary relative w-full md:w-4/5 h-full flex flex-col mt-10  shadow-2xl ">
+        <div class="bg-primary relative w-full  h-full flex flex-col mt-10  shadow-2xl ">
             <p class="text-textWhite p-2 font-bold w-full bg-tertiary relative ">User Profile</p>
             <div class="flex">
         <!-- Left Sidebar -->
@@ -21,27 +21,27 @@
             
             <ul class="space-y-4">
                 <li>
-                    <a href="#" class="flex items-center text-textWhite hover:bg-red-500 hover:text-white p-2 rounded-md" id="menu-user-info">
-                        <img src="../resources/img/profile/user.png" alt="user info" class="w-6 mr-2">
+                    <a href="#" class="flex items-center hover:bg-red-500 hover:text-white p-2 rounded-md" id="menu-user-info">
+                        <img src="../resources/img/profile/user.png" alt="user info" class="w-4 mr-2">
                         <span class="font-medium">User Info</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center text-textWhite hover:bg-tertiary hover:text-white p-2 rounded-md" id="menu-wishlist">
-                        <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-6 mr-2">
+                    <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md" id="menu-wishlist">
+                        <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-4 mr-2">
                         <span class="font-medium">Wishlist</span>
                     </a>
                 </li>
                 <!-- Add more menu items as needed -->
                 <li>
-                    <a href="#" class="flex items-center text-textWhite hover:bg-tertiary hover:text-white p-2 rounded-md "id="menu-order-history">
-                        <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-6 mr-2">
+                    <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md "id="menu-order-history">
+                        <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2">
                         <span class="font-medium">Order History</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center text-textWhite hover:bg-tertiary hover:text-white p-2 rounded-md "id="menu-notification">
-                        <img src="../resources/img/profile/notify.png" alt="Notification Icon" class="w-6 mr-2">
+                    <a href="#" class="flex items-center  hover:bg-tertiary hover:text-white p-2 rounded-md "id="menu-notification">
+                        <img src="../resources/img/profile/notify.png" alt="Notification Icon" class="w-4 mr-2">
                         <span class="font-medium">Notifications</span>
                     </a>
                 </li>
@@ -105,7 +105,7 @@
 
     </div>
 
-    <button class="w-1/2 mx-auto ml-20 py-1 bg-tertiary text-white rounded mt-10 ">Save Changes</button>
+    <button class="px-4 py-4 mx-auto flex text-center align-middle justify-end  bg-tertiary text-white rounded mt-10 ">Save Changes</button>
 </div>
 
 </div>

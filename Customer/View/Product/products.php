@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="./assets/tailwind/output.css">
-    <link rel="stylesheet" href="./assets/styles/products.css">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+    <link rel="stylesheet" href="../resources/css/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -71,12 +71,12 @@
 
             <!-- 1st Banner -->
             <div class="mt-5">
-                <img src="./assets/images/products/banner 1.svg" alt="banner1">
+                <img src="../resources/img/products/banner 1.svg" alt="banner1">
             </div>
 
             <!-- 2nd Banner -->
             <div class="mt-2">
-                <img src="./assets/images/products/banner 1.svg" alt="banner1">
+                <img src="../resources/img/products/banner 1.svg" alt="banner1">
             </div>
 
         </div>
@@ -87,7 +87,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="./assets/images/products/msi_summit.svg" alt="msi">
+                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
@@ -95,11 +95,11 @@
                         i7-1260P Iris
                         Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
                     <div class="flex py-2">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/hollow_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
                     <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
@@ -114,7 +114,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="./assets/images/products/msi_summit.svg" alt="msi">
+                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
@@ -122,11 +122,11 @@
                         i7-1260P Iris
                         Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
                     <div class="flex py-2">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/hollow_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
                     <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
@@ -141,7 +141,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="./assets/images/products/msi_summit.svg" alt="msi">
+                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
@@ -149,11 +149,11 @@
                         i7-1260P Iris
                         Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
                     <div class="flex py-2">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/hollow_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
                     <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
@@ -168,7 +168,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="./assets/images/products/msi_summit.svg" alt="msi">
+                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
@@ -176,11 +176,11 @@
                         i7-1260P Iris
                         Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
                     <div class="flex py-2">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/hollow_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
                     <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
@@ -195,7 +195,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="./assets/images/products/msi_summit.svg" alt="msi">
+                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
@@ -203,11 +203,11 @@
                         i7-1260P Iris
                         Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
                     <div class="flex py-2">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/full_star.svg" alt="star">
-                        <img src="./assets/images/products/hollow_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/full_star.svg" alt="star">
+                        <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
                     <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
