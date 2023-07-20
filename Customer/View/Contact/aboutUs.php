@@ -22,7 +22,7 @@
 
     <!-- Our Mission -->
     <section class="container w-full mx-auto">
-        <div class="px-8 md:flex md:flex-row-reverse justify-between md:px-28 py-11">
+        <div class="px-8 md:flex md:flex-row-reverse justify-evenly md:px-28 py-11 md:items-center">
             <div>
                 <img src="../resources/img/aboutUs/our_mission.svg" alt="mission">
             </div>
@@ -37,7 +37,7 @@
 
     <!-- What We Offer? -->
     <section class="container w-full mx-auto px-5 md:px-28">
-        <div class="text-center py-5 bg-[#F5F5F5] rounded drop-shadow-md px-5 md:px-40">
+        <div class="text-center py-5 bg-[#F5F5F5] rounded drop-shadow-md px-5 md:px-40 md:py-20">
             <h1 class="font-bold text-xl md:text-3xl">What We Offer?</h1>
             <p class="text-sm md:text-xl text-textGray mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation, secure transaction,
                 and exceptional customer service.</p>
@@ -46,8 +46,8 @@
 
 
     <!-- Quality Assurance -->
-    <section class="container w-full mx-auto">
-        <div class="px-8 md:flex justify-between md:px-28 py-11">
+    <section class="container w-full mx-auto md:mt-8">
+        <div class="px-8 md:flex justify-evenly md:px-28 py-11 md:items-center">
             <div>
                 <img src="../resources/img/aboutUs/quallity_assurance.svg" alt="quality">
             </div>
@@ -62,7 +62,7 @@
 
     <!-- Customer Satisfaction -->
     <section class="container w-full mx-auto">
-        <div class="px-8 md:flex md:flex-row-reverse justify-between md:px-28 py-11">
+        <div class="px-8 md:flex md:flex-row-reverse justify-evenly md:px-28 py-11 md:items-center">
             <div>
                 <img src="../resources/img/aboutUs/customer_satisfaction.svg" alt="customer">
             </div>

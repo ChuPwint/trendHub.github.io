@@ -1126,11 +1126,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration-line: underline;
 }
@@ -1330,9 +1325,19 @@ video {
     padding-right: 0px;
   }
 
+  .md\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
   .md\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .md\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 
   .md\:px-28 {
@@ -1365,19 +1370,9 @@ video {
     padding-bottom: 1.5rem;
   }
 
-  .md\:px-5 {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
-  .md\:px-16 {
-    padding-left: 4rem;
-    padding-right: 4rem;
+  .md\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 
   .md\:pl-8 {
