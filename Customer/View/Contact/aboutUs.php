@@ -7,9 +7,13 @@
     <title>About Us</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body class="bg-primary font-roboto">
+
     <!-- Welcome -->
     <section class="container w-full mx-auto">
         <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-11">
@@ -81,6 +85,7 @@
                 please don’t hesitate to reach out to our delicated customer service team.</p>
         </div>
     </section>
+
 </body>
 
 </html>
