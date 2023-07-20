@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,31 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
     <!-- Include Tailwind CSS -->
-    <link href="./assets/tailwind/output.css" rel="stylesheet">
+    <link href="../resources/lib/tailwind/output.css" rel="stylesheet">
 
 </head>
 
 <body class="bg-secondary h-screen relative">
-    <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center">
-        <div class="absolute left-5 top-2 mt-4 hidden md:block">
+    <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute">
+    <div class="absolute left-5 top-2 mt-4 hidden md:block">
             <div class="flex">
-                <img src="./assets/images/TH Logo 3.png" alt="logo" class="w-12 object-cover">
+                <img src="../resources/img/login/TH Logo 3.png" alt="logo" class="w-12 object-cover">
                 <p class="-ml-2 text-sm font-semibold">TrendHub</p>
             </div>
         </div>
         <div class="block md:hidden absolute left-5 top-2 mt-4">
-            <img src="./assets/images/backIcon.png" alt="back to home" srcset="" class="w-4">
+            <img src="../resources/img/login/backIcon.png" alt="back to home" srcset="" class="w-4">
         </div>
 
         <p class="mt-4 text-xs md:text-base text-center absolute right-5 top-2">
-            Already have an account? <a href="/login"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-textWhite">Sign In</button></a>
+            Already have an account? <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 px-2 py-1 rounded-sm text-textWhite">Sign In</button></a>
         </p>
     </div>
-    <div class="flex justify-center items-center">
-        <img src="./assets/images/TH Logo 3.png" alt="logo" class="w-16 md:w-24 object-cover top-12 absolute md:left-1/2">
-        <div class="bg-primary absolute top-20 right-1/4 flex justify-center items-center w-1/2 shadow-2xl mt-4  md:mt-8">
+    <div class="flex justify-center items-center flex-col px-5 ">
+
+    <img src="../resources/img/login/TH Logo 3.png" alt="logo" class="w-16 md:w-24 object-cover top-2  relative md:mt-8 mt-12">
+        <div class="bg-primary relative  md:left-96 mx-10 md:w-1/2 flex justify-center items-center  shadow-2xl md:mt-5 mt-10 ">
             <div class="hidden md:block w-1/2 p-8 mt-10 mb-10">
-                <img src="./assets/images/signup.png" alt="Illustration Photo" class="w-full h-full object-cover">
+                <img src="../resources/img/login/signup.png" alt="Illustration Photo" class="w-full h-full object-cover">
             </div>
             <div class="p-8 md:w-1/2 text-center">
                 <h2 class="text-md md:text-2xl font-bold mb-4">
