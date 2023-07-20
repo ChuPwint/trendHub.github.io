@@ -45,6 +45,43 @@
     </section>
 
 
+    <!-- Quality Assurance -->
+    <section class="container w-full mx-auto">
+        <div class="px-8 md:flex justify-between md:px-28 py-11">
+            <div>
+                <img src="./assets/images/aboutUs/quallity_assurance.svg" alt="mission">
+            </div>
+
+            <div>
+                <h1 class="font-bold text-xl md:text-3xl">Quality Assurance</h1>
+                <p class="text-sm md:text-xl text-textGray md:w-[450px] mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation, 
+                    secure transaction, and exceptional customer service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction -->
+    <section class="container w-full mx-auto">
+        <div class="px-8 md:flex md:flex-row-reverse justify-between md:px-28 py-11">
+            <div>
+                <img src="./assets/images/aboutUs/customer_satisfaction.svg" alt="mission">
+            </div>
+
+            <div>
+                <h1 class="font-bold text-xl md:text-3xl">Customer Satisfaction</h1>
+                <p class="text-sm md:text-xl text-textGray md:w-[450px] mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation, 
+                    secure transaction, and exceptional customer service.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container w-full mx-auto px-5 md:px-28">
+        <div class="text-center py-5 bg-[#F5F5F5] rounded drop-shadow-md px-5 md:px-30">
+            <p class="text-sm md:text-xl text-textGray mt-5">Thank you for choosing [Trend Hub]. We hope you enjoy exploring our extensive product rage and have a delightful shopping  experience.If you have any quentions or need assistance , 
+                please don’t hesitate to reach out to our delicated customer service team.</p>
+        </div>
+    </section>
+
 </body>
 
 </html>
