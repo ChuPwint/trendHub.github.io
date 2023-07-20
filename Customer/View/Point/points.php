@@ -14,7 +14,7 @@
 <body class="bg-primary font-roboto">
     <!-- Star of Point History Modal Pop Up -->
     <!-- Modal background -->
-    <div id="pointHistoryModal" class="hidden z-1 fixed w-full h-full pt-28 bg-black bg-opacity-50">
+    <div id="pointHistoryModal" class="hidden z-1 fixed w-full h-full pt-16 bg-black bg-opacity-50">
         <div class="bg-white m-auto p-5 md:p-10 border rounded-sm md:rounded-md w-[80%] md:w-[60%]">
             <!-- Modal Content -->
             <p class="font-semibold md:text-2xl">Point History</p>

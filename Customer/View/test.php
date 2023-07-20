@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- tailwind  link -->
-    <link href="./assets/tailwind/output.css" rel="stylesheet" />
+    <link href="./resources/lib/tailwind/output.css" rel="stylesheet" />
 
     <!-- css link -->
-    <link href="./assets/styles/HomePage/effect.css" rel="stylesheet" />
+    <link href="./resources/css/HomePage/effect.css" rel="stylesheet" />
 
     <!-- font awesome icon css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
 </head>
 <body>
 <?php
-include "./navbar.php";
+include "./resources/common/navbar.php";
 
 ?>    
 
@@ -36,7 +36,7 @@ include "./navbar.php";
 <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-[#FDC6DB] cursor-pointer card ">
 <div class="flex justify-around px-4 mt-[10px] relative">
   <div class="mt-[50px] font-bold" >Make Up</div>
-  <img class="mt-[30px]" src="./assets/images/homePage/Deals/makeup.png" alt="">
+  <img class="mt-[30px]" src="./resources/img/homePage/Deals/makeup.png" alt="">
 </div>
 
   <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3  ">
@@ -47,7 +47,7 @@ include "./navbar.php";
 <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
 <div class="flex justify-around px-4 mt-[10px] relative">
 <div class="mt-[50px] font-bold" >Smart Watch</div>
-  <img class="mt-[20px]" src="./assets/images/homePage/Deals/watch.png" alt="">
+  <img class="mt-[20px]" src="./resources/img/homePage/Deals/watch.png" alt="">
 </div>
   <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3 ">
     <span class="text-textWhite leading-[50px] text-center mx-auto block">5%</span>
@@ -58,7 +58,7 @@ include "./navbar.php";
 <div class="-z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
 <div class="flex justify-around px-4 mt-[10px] relative">
 <div class="mt-[50px] font-bold" >Shoes</div>
-  <img class="mt-[30px]" src="./assets/images/homePage/Deals/shoes.png" alt="">
+  <img class="mt-[30px]" src="./resources//img/homePage/Deals/shoes.png" alt="">
 </div>
   <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3 ">
     <span class="text-textWhite leading-[50px] text-center mx-auto block">5%</span>
@@ -77,7 +77,7 @@ include "./navbar.php";
 
     <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
     <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./assets/images/homePage/Deals/watch.png" alt="">
+      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
       <div class="title text-center text-textBlack ">Summit E13 Flip Evo - A13M</div>
       <div class="price text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
       <div class="price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
@@ -86,7 +86,7 @@ include "./navbar.php";
 
     <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
     <Button onclick="toggleColor()" id="btnh2" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./assets/images/homePage/Deals/watch.png" alt="">
+      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
       <div class="title text-center text-textBlack ">Summit E13 Flip Evo - A13M</div>
       <div class="price text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
       <div class="price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
@@ -95,7 +95,7 @@ include "./navbar.php";
 
     <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
     <Button onclick="toggleColor()" id="btnh3" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./assets/images/homePage/Deals/watch.png" alt="">
+      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
       <div class="title text-center text-textBlack ">Summit E13 Flip Evo - A13M</div>
       <div class="price text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
       <div class="price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
@@ -104,7 +104,7 @@ include "./navbar.php";
 
     <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
     <Button onclick="toggleColor()" id="btnh4" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./assets/images/homePage/Deals/watch.png" alt="">
+      <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
       <div class="title text-center text-textBlack ">Summit E13 Flip Evo - A13M</div>
       <div class="price text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
       <div class="price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
@@ -119,10 +119,13 @@ include "./navbar.php";
 <!-- end trending products -->
 
 <?php
-include "./footer.html"
-?>
+include "./resources/common/footer.php";
+
+?>    
 
 
-<script src="./assets/js/body/wishlist.js"></script>
+
+
+<script src="./resources/js/body/wishlist.js"></script>
 </body>
 </html>

@@ -7,13 +7,12 @@
     <title>Document</title>
     
     <!-- tailwind link -->
-    <link href="./assets/tailwind/output.css" rel="stylesheet" />
+    <link href="../lib/tailwind/output.css" rel="stylesheet" />
 
      <!-- google font link -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-
 
 </body>
 
@@ -47,9 +46,9 @@
     <div class="">
         <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5">Follow Us</span>
       <div class="flex justify-center">
-        <img class="cursor-pointer" src="./assets/images/footer/facebook.svg" alt="">
-        <img class="cursor-pointer" src="./assets/images/footer/ig.svg" alt="">
-        <img class="cursor-pointer" src="./assets/images/footer/twitter.svg" alt="">
+        <img class="cursor-pointer" src="../img/footer/facebook.svg" alt="">
+        <img class="cursor-pointer" src="../img/footer/ig.svg" alt="">
+        <img class="cursor-pointer" src="../img/footer/twitter.svg" alt="">
       </div>
     </div>
 
