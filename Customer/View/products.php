@@ -59,10 +59,10 @@
             <div class="mt-5">
                 <p>Price</p>
                 <div>
-                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full number-input" placeholder="Min">
+                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Min">
                 </div>
                 <div class="py-2">
-                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full number-input" placeholder="Max">
+                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Max">
                 </div>
                 <div class="text-right">
                     <button class="bg-tertiary px-8 rounded text-textWhite py-[2px]">Go</button>
