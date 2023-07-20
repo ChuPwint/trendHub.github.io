@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>Products</title>
     <link rel="stylesheet" href="./assets/tailwind/output.css">
     <link rel="stylesheet" href="./assets/styles/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -59,10 +59,10 @@
             <div class="mt-5">
                 <p>Price</p>
                 <div>
-                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full number-input" placeholder="Min">
+                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Min">
                 </div>
                 <div class="py-2">
-                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full number-input" placeholder="Max">
+                    <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Max">
                 </div>
                 <div class="text-right">
                     <button class="bg-tertiary px-8 rounded text-textWhite py-[2px]">Go</button>
