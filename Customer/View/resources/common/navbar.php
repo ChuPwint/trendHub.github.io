@@ -27,13 +27,16 @@
     -ms-overflow-style: none;  
     scrollbar-width: none;  
 }
+#navbar{
+transition: top 0.3s;
+}
 </style>
 
 
 <body class="bg-primary font-roboto h-[140vh] scrollbar-hide">
 
     <!-- start header  -->
-<div class="fixed top-0 right-0 left-0 shadow-md z-40">
+<div id="navbar" class="fixed top-0 w-full shadow-md z-40">
         <!-- start first navbar -->
         <nav class="py-2 px-4 bg-white shadow md:flex md:items-center md:justify-between">
             <div class="flex justify-between items-center ">
@@ -87,7 +90,7 @@
             <!-- desktop categories -->
             <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-tertiary hover:bg-tertiary text-textWhite rounded-l-md cursor-pointer">
               Categories
-                    <img class="inline" src="../img/header/down-arrow.png" alt="">
+              <ion-icon name="chevron-down-outline"></ion-icon>
               
                
     
@@ -108,7 +111,7 @@
                   </ul>
             </div>
             <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../img/header/category.svg" alt="">
-            <input type="search" placeholder="Search..." class="md:text-textBlack px-3  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+            <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
           <img class="pr-2" src="../img/header/cart.svg" alt="">
         </div>
@@ -146,13 +149,14 @@
      
     <!-- end header  -->
 
-<!-- icon -->
+
+    <!-- navbar -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="../js/homePage/header/navbarMobile.js"></script>
     <script src="../js/homePage/header/categoryDesktop.js"></script>
     <script src="../js/homePage/header/categoryMobile.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- navbar -->
 
 </body>
 

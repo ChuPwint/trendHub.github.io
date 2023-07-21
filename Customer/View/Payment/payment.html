@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+     
+  <!-- google font link -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- font awesome icon css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- tailwind link -->
+  <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+</head>
+
+<body class="bg-primary font-roboto">
+
+
+    <div class="w-[1300px] h-[600px] mx-auto  flex mt-[100px] shadow-md rounded-lg">
+        <div class="w-[900px] bg-red-800 rounded-l-lg">
+            <span class=" text-xl my-[20px] font-semibold block ml-10">Payment Method</span>
+           <div class="paymentBox flex justify-evenly w-[700px] mt-8 ml-4 ">
+            <div id="pay1" class=" w-[200px] h-[110px] border-tertiary border-2 rounded-md relative">
+                <span class="block text-center font-semibold mt-1">Card</span>
+                <img src="../resources/img/payment/masterCard.png" class="w-[160px] inset-x-0 absolute mx-auto bottom-5" alt="">
+            </div>
+            <div id="pay2" class=" w-[200px] h-[110px] border-black border-2 rounded-md relative">
+                <span class="block text-center font-semibold mt-1">Cash on Delivery</span>
+                <img src="../resources/img/payment/cashOnDelivery.png" class="w-[160px] inset-x-0 absolute mx-auto bottom-4" alt="">
+
+            </div>
+            <div id="pay3" class=" w-[200px] h-[110px] border-black border-2 rounded-md relative">
+                <span class="block text-center font-semibold mt-1">Wave Pay</span>
+                <img src="../resources/img/payment/waePay.png" class="w-[100px] inset-x-0 absolute mx-auto bottom-4" alt="">
+
+            </div>
+           </div>
+
+        </div>
+        <div class="bg-secondary w-[400px] rounded-r-lg">
+            <div class="w-[330px] h-[230px] bg-primary mx-auto mt-7 rounded-md shadow-md relative">
+                <span class="text-lg font-semibold pl-5 pt-4 block">Order Summary</span>
+                <span class=" block mt-[18px] pl-5">Subtotal</span>
+                <span class="absolute right-[20px] top-[68px] ">$324</span>
+                <span class=" block mt-[18px] pl-5">Delivery</span>
+                <span class="absolute right-[20px] top-[111px] ">$2324</span>
+                <hr class="h-[1px] w-[290px] bg-black mx-auto mt-3">
+                <span class=" block mt-[18px] pl-5">Grand Total</span>
+                <span class="absolute right-[20px] top-[167px] ">$2648</span>
+    
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+    
+    
+
+</body>
+    
+
+</html>
