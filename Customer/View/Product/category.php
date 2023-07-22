@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-primary font-roboto">
@@ -85,8 +86,8 @@
         <!--Right Side Products -->
         <div class="flex flex-col space-y-5">
             <!-- Bannner -->
-            <div class="w-full">
-                <img src="../resources/img/products/banner2.svg" alt="">
+            <div class="rounded overflow-hidden">
+                <img class="w-full md:h-[170px] object-cover" src="../resources/img/products/banner2.svg" alt="banner">
             </div>
 
             <!-- product-card -->
