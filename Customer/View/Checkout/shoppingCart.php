@@ -87,7 +87,7 @@
                 <!-- start of order summary container -->
                 <div class="md:w-[28%]">
                     <!-- start of order summary card -->
-                    <div class="p-4 m-5 bg-secondary">
+                    <div class="p-4 m-5 bg-secondary text-lg md:text-xl">
                         <p class="hidden font-medium mb-5 text-lg md:block">Order Summary</p>
                         <!-- start of prices -->
                         <div class="flex justify-between items-center mb-5">
