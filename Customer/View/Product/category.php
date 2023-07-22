@@ -84,6 +84,11 @@
 
         <!--Right Side Products -->
         <div class="flex flex-col space-y-5">
+            <!-- Bannner -->
+            <div class="w-full">
+                <img src="../resources/img/products/banner2.svg" alt="">
+            </div>
+
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
