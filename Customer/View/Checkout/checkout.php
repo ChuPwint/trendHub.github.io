@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Out</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+    <script src="../resources/js/checkout/checkout.js" defer></script>
 </head>
 
 <body class="bg-primary font-roboto">
@@ -14,62 +15,65 @@
         <!--start of container -->
         <div class="px-4 py-4 bg-white shadow-md">
             <!-- start of delivery information and order summary container -->
-            <div class="md:flex md:justify-between">
+            <div class="md:flex md:justify-between md:p-5">
                 <!-- start of delivery information container -->
-                <form>
-                    <div class="space-y-12">
-                        <div class="border-b border-gray-900/10 pb-12">
+                <form class="md:py-4 md:px-10 py-4 px-4">
+                    <div class="md:space-y-12">
+                        <div class="md:pb-3">
                             <h2 class="md:text-xl font-semibold">Contact Information</h2>
-                            <p class="md:mt-1 text-gray-600">Check your delivery information carefully before proceeding.</p>
+                            <p class="md:mt-1 mt-2 text-gray-600">Check your delivery information carefully before proceeding.</p>
 
-                            <div class="md:mt-6">
+                            <div class="md:mt-6 mt-4">
                                 <div>
                                     <label for="name" class="block font-medium">Name</label>
-                                    <div>
-                                        <input type="text" name="deliverName" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                    <div class="mt-2">
+                                        <input type="text" name="deliverName" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="John Doe">
                                     </div>
                                 </div>
 
                                 <div class="mt-3">
                                     <label for="phone" class="block font-medium">Phone Number</label>
-                                    <div>
-                                        <input type="text" name="phone" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                    <div class="mt-2">
+                                        <input type="text" name="phone" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="09123456">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                                <div class="mt-3">
+                                    <label for="email" class="block font-medium">Email address</label>
                                     <div class="mt-2">
-                                        <input id="email" name="email" type="email" autocomplete="email" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                        <input name="email" type="email" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="trendhub123@gmail.com">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Region</label>
+                                <div class="mt-3">
+                                    <label for="region" class="block font-medium">Region</label>
                                     <div class="mt-2">
-                                        <select id="country" name="country" autocomplete="country-name" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                        <select name="region" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400">
+                                            <option value="Yangon" selected>Yangon</option>
+                                            <option value="Mandalay">Mandalay</option>
+                                            <option value="Naypyitaw">Naypyitaw</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
+                                <div class="mt-3">
+                                    <label for="city" class="block font-medium">City</label>
                                     <div class="mt-2">
-                                        <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                        <input type="text" name="city" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="Yangon">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                                <div class="mt-3">
+                                    <label for="township" class="block font-medium">Township</label>
                                     <div class="mt-2">
-                                        <input type="text" name="city" id="city" autocomplete="address-level2" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                        <input type="text" name="township" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="Dagon">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
+                                <div class="mt-3">
+                                    <label for="address" class="block font-medium">Address</label>
                                     <div class="mt-2">
-                                        <input type="text" name="region" id="region" autocomplete="address-level1" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 shadow-md  placeholder:text-gray-400">
+                                        <input type="text" name="region" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="12/A ABC Street DE Apartment 3rd floor">
                                     </div>
                                 </div>
 
@@ -77,15 +81,15 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 flex items-center justify-end gap-x-6">
-                        <button type="submit" class="rounded-md bg-tertiary md:px-10 md:py-3 md:text-lg font-semibold text-white">Save and Deliver Here</button>
+                    <div class="mt-6 flex items-center justify-center">
+                        <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-tertiary md:px-6 py-2 px-10 font-semibold text-white" onclick="canPlaceOrder()">Save and Deliver Here</button>
                     </div>
                 </form>
                 <!-- end of delivery information container -->
                 <!-- start of order summary container -->
-                <div class="md:w-[28%]">
+                <div class="md:w-[30%]">
                     <!-- start of order summary card -->
-                    <div class="p-4 m-5 bg-secondary">
+                    <div class="p-4 m-5 bg-secondary text-lg">
                         <p class="hidden font-medium mb-5 text-lg md:block">Order Summary</p>
                         <!-- start of prices -->
                         <div class="flex justify-between items-center mb-5">
@@ -105,7 +109,7 @@
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <button class="bg-tertiary rounded-md px-8 py-2 text-white">Place Order</button>
+                            <button id="placeOrderBtn" class="bg-tertiary bg-opacity-50 rounded-md px-8 py-2 text-white">Place Order</button>
                         </div>
                     </div>
                     <!-- end of order summary card -->
