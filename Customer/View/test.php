@@ -18,14 +18,14 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- end navbar -->
 
-  
- <!-- tailwind  link -->
- <link href="./resources/lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" />
+
+  <!-- tailwind  link -->
+  <link href="./resources/lib/tailwind/output.css" rel="stylesheet" />
 
   <!-- css link -->
   <link href="./resources/css/HomePage/effect.css" rel="stylesheet" />
 
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 
 
@@ -141,14 +141,36 @@
   </div>
  <!-- end header -->
 
+  <!-- Slider Start -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slide1 -->
+      <div class="swiper-slide">
+        <div class="w-full h-[320px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+          <div class="img w-[200px] h-[200px]  bg-red-800"></div>
+          <div class="content w-[400px] h-[250px] bg-green-400"></div>
+        </div>
+      </div>
 
-<!-- start slider  -->
-<div class="w-full h-[320px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
-<div class="img w-[200px] h-[200px]  bg-red-800"></div>
-<div class="content w-[400px] h-[250px] bg-green-400"></div>
-</div>
-<!-- end slider -->
+      <!-- Slide2 -->
+      <div class="swiper-slide">
+        <div class="w-full h-[320px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+          <div class="img w-[200px] h-[200px]  bg-green-800"></div>
+          <div class="content w-[400px] h-[250px] bg-red-400"></div>
+        </div>
+      </div>
 
+      <!-- Slide3 -->
+      <div class="swiper-slide">
+        <div class="w-full h-[320px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+          <div class="img w-[200px] h-[200px]  bg-blue-800"></div>
+          <div class="content w-[400px] h-[250px] bg-orange-400"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Slider end -->
 
 
   <!-- start deals -->
@@ -384,6 +406,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="./resources/js/homePage/header/slider.js"></script>
 
 </body>
 
