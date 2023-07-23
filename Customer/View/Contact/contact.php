@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-secondary md:bg-primary font-roboto">
@@ -67,11 +67,11 @@
                 <span><a href="tel:09403559701">09 40-355-9701</a></span>
             </div>
             <div class="flex items-start space-x-5">
-                <img class="pt-2" src="../resources/img/contact/address.svg" alt="address">
+                <img class="w-[30px] h-[30px]" class="pt-2" src="../resources/img/contact/address.svg" alt="address">
                 <span><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
             </div>
             <div class="flex items-center space-x-5">
-                <img src="../resources/img/contact/time.svg" alt="time">
+                <img class="w-[30px] h-[30px]" src="../resources/img/contact/time.svg" alt="time">
                 <span>09:00 - 17:00</span>
             </div>
         </div>
