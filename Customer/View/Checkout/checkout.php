@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Out</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
     <script src="../resources/js/checkout/checkout.js" defer></script>
 </head>
 
@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="mt-6 flex items-center justify-center">
-                        <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-tertiary md:px-6 py-2 px-10 font-semibold text-white" onclick="canPlaceOrder()">Save and Deliver Here</button>
+                        <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-tertiary md:px-6 py-2 px-10 font-semibold text-white">Save and Deliver Here</button>
                     </div>
                 </form>
                 <!-- end of delivery information container -->
