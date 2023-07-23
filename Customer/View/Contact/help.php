@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -26,7 +26,7 @@
     </section>
 
     <!-- Common Topics -->
-    <section class="container w-full mx-auto px-7 md:px-56">
+    <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div>
             <p class="text-sm font-semibold md:text-2xl">Common Topics</p>
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
@@ -53,7 +53,7 @@
     </section>
 
     <!-- Frequently Asked Questions -->
-    <section class="container w-full mx-auto px-7 md:px-56">
+    <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div class="mt-10 md:mt-20">
             <p class="text-sm font-semibold md:text-2xl">Frequently Asked Questions</p>
             <div class="text-xs md:text-2xl px-5 leading-6 md:leading-10 mt-3">
@@ -96,7 +96,7 @@
     </section>
 
     <!-- Contact Admin -->
-    <section class="container w-full mx-auto md:px-56">
+    <section class="container w-full mx-auto md:px-[200px]">
         <div class="text-center md:flex md:items-center md:space-x-32 md:mt-10 md:flex-wrap">
             <div class="text-sm md:text-2xl font-semibold py-5 md:flex md:flex-wrap">
                 <p>Still have some questions?</p>
