@@ -7,6 +7,7 @@
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
     <link rel="stylesheet" href="../resources/css/itemDetail.css">
+    <script src="../resources/js/shoppingCart/shoppingCart.js" defer></script>
 </head>
 
 <body class="bg-primary font-roboto">
@@ -27,9 +28,9 @@
                             <p class="pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
                             <p class="pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
                             <div class="font-semibold pt-1 md:ml-3">
-                                <button class="cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md">-</button>
-                                <input type="number" name="qty" value="1" class="text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
+                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                             </div>
                             <p class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
                             <div><img class="hidden md:mr-28 ml-5 md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Heart.svg" alt=""></div>
@@ -48,9 +49,9 @@
                             <p class="pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
                             <p class="pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
                             <div class="font-semibold pt-1 md:ml-3">
-                                <button class="cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md">-</button>
-                                <input type="number" name="qty" value="1" class="text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
+                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                             </div>
                             <p class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
                             <div><img class="hidden md:mr-28 ml-5 md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Heart.svg" alt=""></div>
@@ -69,9 +70,9 @@
                             <p class="pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
                             <p class="pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
                             <div class="font-semibold pt-1 md:ml-3">
-                                <button class="cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md">-</button>
-                                <input type="number" name="qty" value="1" class="text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
+                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                             </div>
                             <p class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
                             <div><img class="hidden md:mr-28 ml-5 md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Heart.svg" alt=""></div>
