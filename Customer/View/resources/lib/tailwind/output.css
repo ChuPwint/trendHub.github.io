@@ -2583,11 +2583,6 @@ video {
     padding-right: 10rem;
   }
 
-  .md\:px-56 {
-    padding-left: 14rem;
-    padding-right: 14rem;
-  }
-
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2601,6 +2596,11 @@ video {
   .md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .md\:px-\[200px\] {
+    padding-left: 200px;
+    padding-right: 200px;
   }
 
   .md\:py-0 {

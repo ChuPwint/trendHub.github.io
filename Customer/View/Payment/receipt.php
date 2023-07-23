@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
 </head>
 
-<body class="bg-primary font-roboto">
-    <div class="md:py-12 md:px-12">
+<body class="md:bg-primary bg-secondary font-roboto">
+    <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
+    </div>
+    <div class="md:py-12 md:px-10 px-2 z-10">
         <!-- start of receipt container -->
-        <div class="px-5 py-5 bg-secondary  md:shadow-md md:bg-primary md:flex md:justify-center md:items-center">
+        <div class="px-5 py-5 md:shadow-md md:flex md:justify-center md:items-center">
             <div class="hidden md:block">
                 <img src="../resources/img/receipt/undraw_super_thank_you_re_f8bo 1.svg" alt="">
             </div>
