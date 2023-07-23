@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./headerLogo.svg" type="image/icon type">
   <title>Trend Hub</title>
-
+  
   <!-- Start Navbar -->
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 
   
  <!-- tailwind  link -->
- <link href="./resources/lib/tailwind/output.css" rel="stylesheet" />
+ <link href="./resources/lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" />
 
   <!-- css link -->
   <link href="./resources/css/HomePage/effect.css" rel="stylesheet" />
@@ -115,10 +115,7 @@
     </nav>
     <!-- end second navbar -->
   </div>
-  <!-- end header -->
-
-
-
+ 
 
 
   <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
@@ -142,8 +139,15 @@
     </button>
 
   </div>
+ <!-- end header -->
 
 
+<!-- start slider  -->
+<div class="w-full h-[320px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+<div class="img w-[200px] h-[200px]  bg-red-800"></div>
+<div class="content w-[400px] h-[250px] bg-green-400"></div>
+</div>
+<!-- end slider -->
 
 
 
