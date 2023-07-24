@@ -29,9 +29,9 @@ for (let index = 0; index < minusBtn.length; index++) {
 }
 
 for (let index = 0; index < wishListAdd.length; index++) {
-    wishListAdd[index].addEventListener("click", () => { 
+    wishListAdd[index].addEventListener("click", () => {
         console.log("inside index " + index);
-        wishListTextAndIconToggle(); 
+        wishListTextAndIconToggle();
     });
 }
 
@@ -71,11 +71,12 @@ function enableQtyBtn(enabledBtn) {
 *No Return
 */
 function wishListTextAndIconToggle() {
+    console.log("inside");
     (wishListAdd[0].classList.contains("text-textOrange")) ? "" : wishListAdd[0].classList.add("text-textOrange");
-    if (wishListAdd[1].innerText == "Add to Wishlist"){
+    if (wishListAdd[1].innerText == "Add to Wishlist") {
         wishListAdd[1].innerText = "Added to Wishlist";
         wishListAdd[1].classList.add("text-textOrange");
-    }else{
+    } else {
         wishListAdd[1].innerText = "Add to Wishlist";
         wishListAdd[1].classList.remove("text-textOrange");
     }
