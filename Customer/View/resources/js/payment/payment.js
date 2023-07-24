@@ -65,7 +65,7 @@ style="border-bottom: 1px solid #7d7b7b;"
        </div>
        
        <div class="absolute bottom-14 w-[370px] ml-[25px] ">
-       <input required type="checkbox" class=" w-[20px] h-[20px]">
+       <input type="checkbox" class=" w-[20px] h-[20px]">
        <span class="text-md">Save this card.</span>
        <span class="block ml-6 text-sm mb-3">Lorem ipsum dolor sit amet consectetur. Volutpat elit faucibus in in. </span>
        </div>
@@ -160,3 +160,35 @@ style="border-bottom: 1px solid #7d7b7b;"
 
 
   
+
+
+
+  const openModalBtn = document.getElementById("openModalBtn");
+const modal = document.getElementById("modal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Event listeners to open and close the modal
+openModalBtn.addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", closeModal);
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+
+
+
+
+
+

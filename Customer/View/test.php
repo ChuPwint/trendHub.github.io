@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./headerLogo.svg" type="image/icon type">
   <title>Trend Hub</title>
-
+  
   <!-- Start Navbar -->
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -115,10 +115,7 @@
     </nav>
     <!-- end second navbar -->
   </div>
-  <!-- end header -->
-
-
-
+ 
 
 
   <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
@@ -142,6 +139,7 @@
     </button>
 
   </div>
+ <!-- end header -->
 
   <!-- Slider Start -->
   <div class="swiper">
