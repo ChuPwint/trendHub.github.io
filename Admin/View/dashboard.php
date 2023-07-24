@@ -13,7 +13,7 @@
     <section class="container w-full mx-auto flex">
 
         <!-- Left-side Categories Start-->
-    <aside class="bg-[#191C25] text-white w-[270px]">
+        <aside class="bg-[#191C25] text-white w-[270px]">
             <!-- Admin  -->
             <h1 class="text-[32px] font-medium text-center">Admin</h1>
 
@@ -101,36 +101,34 @@
             </div>
             <!-- Search End-->
 
-            <!-- Data Start -->
-            <div>
-                <!-- Analytics Data Start -->
-                <div id="analytics" class="px-20 py-16 data-output">
-                    <!-- Total Display -->
-                    <div class="text-white flex justify-between flex-wrap">
-                        <div class="bg-[#FF5500] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Users</p>
-                            <p class="text-4xl">230</p>
-                        </div>
 
-                        <div class="bg-[#2F3D40] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Merchants</p>
-                            <p class="text-4xl">20</p>
-                        </div>
+            <!-- Analytics Data Start -->
+            <div class="px-20 py-16">
+                <!-- Total Display -->
+                <div class="text-white flex justify-between flex-wrap">
+                    <div class="bg-[#FF5500] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
+                        <p>Total Users</p>
+                        <p class="text-4xl">230</p>
+                    </div>
 
-                        <div class="bg-[#00A1AB] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Orders</p>
-                            <p class="text-4xl">90</p>
-                        </div>
+                    <div class="bg-[#2F3D40] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
+                        <p>Total Merchants</p>
+                        <p class="text-4xl">20</p>
+                    </div>
 
-                        <div class="bg-[#1F563F] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Income</p>
-                            <p class="text-2xl">Ks 2,503,000</p>
-                        </div>
+                    <div class="bg-[#00A1AB] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
+                        <p>Total Orders</p>
+                        <p class="text-4xl">90</p>
+                    </div>
+
+                    <div class="bg-[#1F563F] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
+                        <p>Total Income</p>
+                        <p class="text-2xl">Ks 2,503,000</p>
                     </div>
                 </div>
-                <!-- Analytics Data End  -->
             </div>
-            <!-- Data End  -->
+            <!-- Analytics Data End  -->
+
         </div>
         <!-- Right-side End -->
 
