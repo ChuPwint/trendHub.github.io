@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
     <title>About Us</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -11,11 +12,24 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </head>
+<?php
+include "../resources/common/navbar.php";
+
+?>
+
 
 <body class="bg-primary font-roboto">
 
+
+
+
+
+
+
+
+
     <!-- Welcome -->
-    <section class="container w-full mx-auto">
+    <section class="container w-full mx-auto mt-[140px]">
         <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-11">
             <h1 class="md:text-3xl font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[#FB4949] md:text-tertiary">Trend Hub!</span></h1>
             <p class="text-sm md:w-[700px] px-10 md:px-0 text-center text-textGray">At [Trend Hub] ,we believe in providing an exceptional online shopping experience. We understand the importance of convenience
@@ -86,6 +100,21 @@
         </div>
     </section>
 
+
+<?php
+
+include "../resources/common/footer.php"
+?>
+
+
+      <!-- start navbar -->
+  <script src="../resources/js/homePage/header/navbarMobile.js"></script>
+  <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
+  <script src="../resources/js/navbar/navbar.js"></script>
+  <script src="../resources/js/homePage/header/categoryMobile.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- end navbar -->
 </body>
+
 
 </html>

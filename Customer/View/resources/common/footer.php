@@ -7,7 +7,10 @@
     <title>Document</title>
     
     <!-- tailwind link -->
-    <link href="../lib/tailwind/output.css" rel="stylesheet" />
+
+    <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" />
+
+    
 
      <!-- google font link -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -16,7 +19,7 @@
 
 </body>
 
-<footer class="bg-secondary w-full h-auto font-roboto mt-[120px]">
+<footer class="bg-secondary w-full h-auto font-roboto mt-[90px]">
 <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
     <div class="">
         <span class="block text-[18px] font-semibold py-3">Customer Care</span>
@@ -28,7 +31,7 @@
 
     <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Shop</span>
-        <span class="block cursor-pointer hover:text-tertiary">Shop</span>
+        <span class="block cursor-pointer hover:text-red-500">Shop</span>
         <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
         <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
         <span class="block cursor-pointer hover:text-tertiary">New Products</span>
@@ -56,4 +59,10 @@
 </div>
 <span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub  | Created by X-Tech</span>
 </footer>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
 </html>
