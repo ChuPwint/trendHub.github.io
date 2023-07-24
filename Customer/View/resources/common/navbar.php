@@ -7,7 +7,8 @@
     <title></title>
 
     <!-- tailwind link -->
-    <link href="../lib/tailwind/output.css" rel="stylesheet" />
+    <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" />
+   
 
      <!-- google font link -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -42,10 +43,10 @@ transition: top 0.3s;
             <div class="flex justify-between items-center ">
     
                 <!-- desktop logo -->
-                <img class="md:block hidden" src="../img/header/logo.svg" alt="">
+                <img class="md:block hidden" src="../resources/img/header/logo.svg" alt="">
     
                 <!-- mobile logo -->
-                <img  class="md:hidden w-[90px] order-2" src="./img/header/headerLogo.svg " alt="">
+                <img  class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
     
                 <!-- mobile login -->
                 <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">Login</button>
@@ -90,7 +91,7 @@ transition: top 0.3s;
             <!-- desktop categories -->
             <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-tertiary hover:bg-tertiary text-textWhite rounded-l-md cursor-pointer">
               Categories
-              <ion-icon name="chevron-down-outline"></ion-icon>
+              <img class="inline" src="../resources/img/header/down-arrow.png" alt="">
               
                
     
@@ -110,10 +111,10 @@ transition: top 0.3s;
                     <li><a href="#" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Others</a></li>
                   </ul>
             </div>
-            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../img/header/category.svg" alt="">
+            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
             <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
-          <img class="pr-2" src="../img/header/cart.svg" alt="">
+          <img class="pr-2" src="../resources/img/header/cart.svg" alt="">
         </div>
         </nav>
         <!-- end second navbar -->
@@ -124,9 +125,9 @@ transition: top 0.3s;
 
 
       
-      <div id="slide-menu" class="hidden fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+      <div id="slide-menu" class="hidden z-50 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
         <button id="menu-close">
-          <div class="mt-10 flex flex-wrap space-x-2">
+          <div class="mt-10 flex flex-wrap space-x-2 ml-2">
         <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Womens’s & Girls’s Fashion</span>
         <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Jewelry </span>
         <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Mens’s & Boys’ Fashion</span>

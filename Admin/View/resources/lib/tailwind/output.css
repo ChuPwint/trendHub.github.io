@@ -534,6 +534,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+<<<<<<< HEAD
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+=======
 .container {
   width: 100%;
 }
@@ -765,6 +770,7 @@ video {
 
 .font-medium {
   font-weight: 500;
+>>>>>>> origin/main
 }
 
 .text-red-600 {
