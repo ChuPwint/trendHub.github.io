@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Detail</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/itemDetail.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../resources/js/product/itemDetail.js" defer></script>
+    <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
 <body class="bg-primary font-roboto px-5 md:px-28">
@@ -27,8 +29,8 @@
 
                 <!-- brand and seller -->
                 <div class="md:flex md:flex-row md:justify-between md:items-center">
-                    <p class="font-semibold mb-5 md:mb-0">Brand: <span class="brand text-tertiary underline">MSI</span></p>
-                    <p class="font-semibold">From: <span class="seller text-tertiary underline">Merchant</span></p>
+                    <p class="font-semibold mb-5 md:mb-0">Brand: <span class="brand text-tertiary">MSI</span></p>
+                    <p class="font-semibold">From: <span class="seller text-tertiary">Merchant</span></p>
                 </div>
                 <hr class="mt-4 mb-4 border-black border-opacity-50">
 
@@ -38,9 +40,9 @@
                     <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt="">
                     <p class="font-semibold md:hidden">
                         Qty:
-                        <button class="cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
-                        <input type="number" name="qty" value="1" class="text-xl text-center w-10 h-10 rounded-md bg-[#F7F7F7]">
-                        <button class="cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
+                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
+                        <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
+                        <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
                 </div>
 
@@ -48,9 +50,9 @@
                 <div class="hidden md:mt-5 md:flex md:justify-between md:items-center">
                     <p class="font-semibold">
                         Qty:
-                        <button class="cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
-                        <input type="number" name="qty" value="1" class="text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
-                        <button class="cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
+                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
+                        <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
+                        <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
                     <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
                 </div>
@@ -58,10 +60,10 @@
                 <!-- icons or button for wishlist and add to cart -->
                 <div class="mt-6 flex justify-between items-center md:flex-col">
                     <div class="md:hidden">
-                        <ion-icon name="heart-circle" class="cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
+                        <ion-icon id="heartIcon" name="heart-circle" class="wishlistAdd cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
                         <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
                     </div>
-                    <button class="md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
+                    <button class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
                     <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
                 </div>
             </div>
@@ -189,6 +191,15 @@
         </div>
     </div>
     <!-- End of user reviews -->
+    <script>
+        $(document).ready(function() {
+
+            $(".wishlistAdd").click(function() {
+                $("#heartIcon").removeClass("text-gray-400");
+                $("#heartIcon").addClass("text-red-400");
+            })
+        });
+    </script>
 </body>
 
 </html>
