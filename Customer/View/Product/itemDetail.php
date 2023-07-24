@@ -50,7 +50,7 @@
                 <div class="hidden md:mt-5 md:flex md:justify-between md:items-center">
                     <p class="font-semibold">
                         Qty:
-                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg">-</button>
+                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
                         <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
                         <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
@@ -63,7 +63,7 @@
                         <ion-icon id="heartIcon" name="heart-circle" class="wishlistAdd cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
                         <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
                     </div>
-                    <button class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
+                    <button id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
                     <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
                 </div>
             </div>
@@ -191,15 +191,6 @@
         </div>
     </div>
     <!-- End of user reviews -->
-    <script>
-        $(document).ready(function() {
-
-            $(".wishlistAdd").click(function() {
-                $("#heartIcon").removeClass("text-gray-400");
-                $("#heartIcon").addClass("text-red-400");
-            })
-        });
-    </script>
 </body>
 
 </html>
