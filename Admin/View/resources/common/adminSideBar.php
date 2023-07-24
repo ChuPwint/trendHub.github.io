@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/tailwind/output.css?id=<?= time() ?>">
     <script src="./resources/lib/jquery3.6.0.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-[#12141B]">
-    <section class="container w-full mx-auto flex">
-
-        <!-- Left-side Categories Start-->
+<body>
+    <!-- Left-side Categories Start-->
     <aside class="bg-[#191C25] text-white w-[270px]">
             <!-- Admin  -->
             <h1 class="text-[32px] font-medium text-center">Admin</h1>
@@ -23,7 +20,7 @@
 
                 <div id="customers-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">
                     <p>Customers List</p>
-                    <img src="./resources/img/drop_down_arrow.svg" alt="drop_down">
+                    <img src="../resources/img/drop_down_arrow.svg" alt="drop_down">
                 </div>
 
                 <!-- Customers List Sub Menu  Start-->
@@ -37,7 +34,7 @@
 
                 <div id="merchant-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">
                     <p>Merchant List</p>
-                    <img src="./resources/img/drop_down_arrow.svg" alt="drop_down">
+                    <img src="../resources/img/drop_down_arrow.svg" alt="drop_down">
                 </div>
 
                 <!-- Merchant List Sub Menu  Start-->
@@ -51,7 +48,7 @@
 
                 <div id="manage-products" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">
                     <p>Manage Products</p>
-                    <img src="./resources/img/drop_down_arrow.svg" alt="drop_down">
+                    <img src="../resources/img/drop_down_arrow.svg" alt="drop_down">
                 </div>
 
                 <!-- Manage Products Sub Menu  Start-->
@@ -65,7 +62,7 @@
 
                 <div id="order-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">
                     <p>Order List</p>
-                    <img src="./resources/img/drop_down_arrow.svg" alt="drop_down">
+                    <img src="../resources/img/drop_down_arrow.svg" alt="drop_down">
                 </div>
 
                 <!-- Order List Sub Menu  Start-->
@@ -88,55 +85,9 @@
         </aside>
         <!-- Left-side Categories End-->
 
-        <!-- Right-side Start -->
-        <div class="h-screen overflow-hidden w-full">
-            <!-- Search Start-->
-            <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
-                <div class="text-white">
-                    <p class="text-2xl font-semibold">Analytics</p>
-                    <p>Date : Sun, Jul 16, 2023</p>
-                </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
-            </div>
-            <!-- Search End-->
 
-            <!-- Data Start -->
-            <div>
-                <!-- Analytics Data Start -->
-                <div id="analytics" class="px-20 py-16 data-output">
-                    <!-- Total Display -->
-                    <div class="text-white flex justify-between flex-wrap">
-                        <div class="bg-[#FF5500] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Users</p>
-                            <p class="text-4xl">230</p>
-                        </div>
-
-                        <div class="bg-[#2F3D40] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Merchants</p>
-                            <p class="text-4xl">20</p>
-                        </div>
-
-                        <div class="bg-[#00A1AB] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Orders</p>
-                            <p class="text-4xl">90</p>
-                        </div>
-
-                        <div class="bg-[#1F563F] w-[250px] h-[135px] py-5 text-center rounded flex flex-col justify-between">
-                            <p>Total Income</p>
-                            <p class="text-2xl">Ks 2,503,000</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Analytics Data End  -->
-            </div>
-            <!-- Data End  -->
-        </div>
-        <!-- Right-side End -->
-
-    </section>
-
-    <script>
+        <script>
         $(document).ready(function() {
 
             $("#customers-list").click(function() {
@@ -158,10 +109,4 @@
         })
     </script>
 </body>
-
 </html>
-
-
-
-
-<!--  -->

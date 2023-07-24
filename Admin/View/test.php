@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1 class="text-red-600">Hello</h1>
+
+    <h2 class="text-green-700">Testing</h2>
 </body>
 </html>
