@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body class=" font-roboto" >
 
 
   <!-- start header  -->
@@ -50,9 +50,11 @@
         <img class="md:hidden w-[90px] order-2" src="./resources/img/header/headerLogo.svg " alt="">
 
         <!-- mobile login -->
+        <a href="./Login/login.php">
         <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">
-          <a href="./Login/login.php">Login</a>
+          Login
         </button>
+        </a>
 
         <!-- mobile menu -->
         <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
@@ -77,9 +79,10 @@
           <a href="./Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
         </li>
 
-        <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
-          <a href="./Login/login.php">Login</a>
+        <a href="./Login/login.php"> <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+         Login
         </button>
+        </a>
         <h2 class=""></h2>
       </ul>
     </nav>
@@ -116,7 +119,7 @@
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-      <a href="#">  <img class="pr-2" src="./resources/img/header/cart.svg" alt=""></a>
+      <a href="./Checkout/shoppingCart.php">  <img class="pr-2 mt-2" src="./resources/img/header/cart.svg" alt=""></a>
       </div>
     </nav>
     <!-- end second navbar -->
@@ -244,14 +247,14 @@ The Ultimate Premium Laptop
   <!-- end deals -->
 
   <!-- start trending products -->
-  <div class="max-w-[1700px] mx-auto relative">
+  <div id="trending" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Trending Products</h2>
     <div class="flex justify-center flex-wrap">
 
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080] "><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -262,7 +265,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -274,7 +277,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -286,7 +289,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -304,67 +307,12 @@ The Ultimate Premium Laptop
 
 
 
-  <!-- start trending products -->
-  <div class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Trending Products</h2>
-    <div class="flex justify-center flex-wrap">
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
-        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
-        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
-      </div>
-
-
-
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
-        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
-      </div>
-
-
-
-
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
-        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
-      </div>
-
-
-
-
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
-        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
-        <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
-      </div>
-    </div>
-
-  </div>
-  <!-- end trending products -->
-
-
-  <!-- start beseller products -->
-  <div class="max-w-[1700px] mx-auto relative">
+  <!-- start bestsellers products -->
+  <div id="best" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Bestseller Products</h2>
     <div class="flex justify-center flex-wrap">
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -375,7 +323,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -387,7 +335,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -399,7 +347,7 @@ The Ultimate Premium Laptop
 
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
-        <Button onclick="toggleColor()" id="btnh1" class="heartBtn"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
@@ -407,23 +355,162 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
-
     </div>
 
   </div>
   <!-- end bestseller products -->
 
 
+  <!-- start new products -->
+  <div id="new" class="max-w-[1700px] mx-auto relative">
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">New Products</h2>
+    <div class="flex justify-center flex-wrap">
 
-  <?php
-  include "./resources/common/footer.php";
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+      </div>
 
-  ?>
+
+
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+      </div>
 
 
 
 
-  <script src="./resources/js/body/wishlist.js"></script>
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+      </div>
+
+
+
+
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+        <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end new products -->
+
+
+
+  <footer class="bg-secondary w-full h-auto font-roboto mt-[90px]">
+<div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
+    <div class="">
+        <span class="block text-[18px] font-semibold py-3">Customer Care</span>
+
+        <a href="./Contact/help.php">
+        <span class="cursor-pointer hover:text-tertiary block">FAQs</span>
+
+
+        </a>
+        <a href="./Point/points.php">
+        <span class="cursor-pointer hover:text-tertiary block">Exchange Points</span>
+
+        </a>
+        <a href="./Contact/privacyAndPolicy.php">
+        <span class="cursor-pointer hover:text-tertiary block">Privay & Policy</span>
+
+        </a>
+        <a href="../../Merchant/View/Login/login.php">
+        <span class="cursor-pointer hover:text-tertiary block">Sell on Shop</span>
+
+        </a>
+    </div>
+
+    <div class="">
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Shop</span>
+        <a href="./index.php">
+        <span class="block cursor-pointer hover:text-red-500">Shop</span>
+
+        </a>
+        <a href="#trending">
+        <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
+
+        </a>
+        <a href="#best">
+        <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
+
+        </a>
+
+        <a href="#new">
+        <span class="block cursor-pointer hover:text-tertiary">New Products</span>
+
+        </a>
+
+    </div>
+
+    <div class="">
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
+        <span class="block cursor-pointer hover:text-tertiary">Email : <a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
+        <span class="block cursor-pointer hover:text-tertiary">Phone : <a href="tel:09403559701">09 40-355-9701</a></span>
+        <span class="block cursor-pointer hover:text-tertiary w-[400px]"><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
+
+        
+    </div>
+
+    <div class="">
+        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5">Follow Us</span>
+      <div class="flex justify-center space-x-3">
+        <a href="https://web.facebook.com/extbrainedu">
+      <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
+
+        </a>
+      <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
+      <ion-icon class="text-2xl" name="logo-twitter"></ion-icon>
+      </div>
+    </div>
+
+  
+</div>
+<span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub  | Created by X-Tech</span>
+</footer>
+
+
+
+  <script>
+    function toggleColor(button) {
+    if (button.style.color === "tomato") {
+        button.style.color = "grey";
+    } else {
+        button.style.color = "tomato";
+    }
+}
+
+
+var buttons = document.getElementsByClassName("heartBtn");
+
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function() {
+        toggleColor(this);
+    });
+}
+
+  </script>
 
   <!-- start navbar -->
   <script src="./resources/js/homePage/header/navbarMobile.js"></script>
