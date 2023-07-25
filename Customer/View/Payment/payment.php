@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- tailwind link -->
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <link rel="stylesheet" href="./resources/lib/tailwind/output.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
@@ -117,7 +117,7 @@
                     <!-- Card -->
                     <div class="pay1">
                         <div class="flex md:justify-between justify-start flex-col space-x-0 md:space-x-8 md:flex-row md:space-y-0 space-y-4">
-                            <div class="rounded-lg w-[360px]   md:mx-0 h-[220px] bg-[#E2E2E2]">
+                            <div class="rounded-lg md:w-[360px] w-[340px]   md:mx-0 h-[220px] bg-[#E2E2E2]">
                                 <span class="text-[#7D7B7B] text-sm block mt-16 px-[20px] ">Card Number</span>
                                 <input required type="number" placeholder="0000 0000 0000 0000"
                                     class=" w-[165px] outline-none mx-[20px] bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
@@ -135,7 +135,7 @@
                                     <div>
                                         <span class="text-[#7D7B7B] text-sm mx-[20px] block mt-4">Expire</span>
                                         <input required type="date" placeholder=""
-                                            class="w-[145px] outline-none mx-[20px] bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                                            class="w-[105px] md:w-[145px] outline-none mx-[20px] bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                                             style="border-bottom: 1px solid #7d7b7b;" />
                                     </div>
 
@@ -144,7 +144,7 @@
 
                             </div>
 
-                            <div class="rounded-lg w-[360px] h-[220px] bg-[#E2E2E2] relative">
+                            <div class="rounded-lg md:w-[360px] w-[340px] h-[220px] bg-[#E2E2E2] relative">
                                 <div class="w-full h-[50px] mt-7 bg-[#C0BBBB]">
 
                                 </div>
@@ -157,12 +157,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="w-[370px] ml-[25px] ">
-                            <input required type="checkbox" class=" w-[20px] h-[20px]">
-                            <span class="text-md">Save this card.</span>
-                            <span class="block ml-6 text-sm mb-3">Lorem ipsum dolor sit amet consectetur. Volutpat elit
-                                faucibus in in. </span>
-                        </div> -->
+                   
                         <div class="py-5">
                             <input  type="checkbox" class=" w-[15px] h-[15px]">
                             <span class="text-md">Save this card.</span>
@@ -177,11 +172,11 @@
                         <span class="block pb-4 pt-5">Login with <span class="text-blue-500">Wave Id</span> to make the
                             purchase</span>
                         <input required type="number" placeholder="Wave Account Phone Number"
-                            class="border pl-3 mt-5 h-[40px] border-tertiary rounded-md w-[338px] outline-none bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                            class="border pl-3 mt-5 h-[40px] border-[#F36823] rounded-md w-[338px] outline-none bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
                         <div class="mt-5">
                             <input required type="number" placeholder="One Time Password"
-                                class="border pl-3 h-[40px] border-tertiary rounded-md w-[185px] outline-none  bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
-                            <button class="ml-7 h-[40px] w-[120px] bg-tertiary text-white rounded-sm shadow-md">GET
+                                class="border pl-3 h-[40px] border-[#F36823] rounded-md w-[185px] outline-none  bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                            <button class="ml-7 h-[40px] w-[120px] bg-[#F36823] text-white rounded-sm shadow-md">GET
                                 OTP</button>
                         </div>
                         <span class="pt-16 block">OTP SMS will be sent to your WavePay registered Phone Number.</span>
@@ -194,33 +189,33 @@
 
 
                 <div id="confirm" class="pl-10 submit">
-                    <button  class="px-10 py-2 mt-4 bg-tertiary text-white rounded">Confirm</button>
+                    <button  class="px-10 py-2 mt-4 bg-[#F36823] text-white rounded">Confirm</button>
                 </div>
             </form>
 
 
      
 
-            <div class="cod bg-white w-400px drop-shadow-2xl absolute top-[30%] left-[30%] px-10 py-10 z-10 hidden">
+            <div class="cod bg-white  w-[300px]  md:w-[600px] drop-shadow-2xl absolute md:top-[30%] md:left-[30%] left-[15%] top-[60%] px-10 py-10 z-10 hidden">
                 <span class="font-semibold block pb-3">Confirm Delivery</span>
-                <hr class="h-[2px] bg-[#00000094] w-[500px] mx-auto">
+                <hr class="h-[2px] bg-[#00000094] md:w-[500px] w-[200px]  mx-auto">
                 <span class="text-center block mt-12">Do you want to proceed Cash on Delivery?</span>
                 <button id="confirmCod"
-                class="mt-4 mx-auto block px-20 py-2 rounded-md bg-tertiary text-white">Confirm</button>
+                class="mt-4 mx-auto block px-20 py-2 rounded-md bg-[#F36823] text-white">Confirm</button>
 
 
                 <button id="closeModalButton"
-                    class="mt-4 mx-auto block px-20 py-2 rounded-md border border-tertiary text-black">Cancel</button>
+                    class="mt-4 mx-auto block px-20 py-2 rounded-md border border-[#F36823] text-black">Cancel</button>
             </div>
 
 
-            <div class="points bg-white w-400px drop-shadow-2xl absolute top-[30%] left-[30%] px-10 py-10 z-10 hidden">
+            <div class="points bg-white w-[300]px md:w-[400]px  left-[15%]  drop-shadow-2xl absolute top-[60%] md:top-[30%] md:left-[30%] px-10 py-10 z-10 hidden">
                 <span class="font-semibold block pb-3">Points received</span>
-                <hr class="h-[2px] bg-[#00000094] w-[500px] mx-auto">
-                <span class="text-center block mt-12">Congratuations! You have successfully</span>
-                <span class="text-center block">received 1000 points!</span>
+                <hr class="h-[2px] bg-[#00000094] md:w-[500px] w-[200px]  mx-auto">
+                <span class="text-center block mt-12 md:text-lg text-sm">Congratuations! You have successfully</span>
+                <span class="text-center block md:text-lg text-sm">received 1000 points!</span>
                 <button id="closePoints"
-                    class="mt-4 mx-auto block text-white px-20 py-2 rounded-md bg-tertiary">Ok</button>
+                    class="mt-4 mx-auto block text-white px-20 py-2 rounded-md bg-[#F36823]">Ok</button>
             </div>
 
             

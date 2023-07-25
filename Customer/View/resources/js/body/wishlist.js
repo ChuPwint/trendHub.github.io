@@ -1,15 +1,14 @@
 function toggleColor(button) {
-    if (button.style.color === "red") {
+    if (button.style.color === "tomato") {
         button.style.color = "grey";
     } else {
-        button.style.color = "red";
+        button.style.color = "tomato";
     }
 }
 
-// Get all elements with the class "toggle-btn"
+
 var buttons = document.getElementsByClassName("heartBtn");
 
-// Loop through each button and attach the event listener
 for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function() {
         toggleColor(this);
