@@ -23,18 +23,46 @@
 <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
     <div class="">
         <span class="block text-[18px] font-semibold py-3">Customer Care</span>
+
+        <a href="../Contact/help.php">
         <span class="cursor-pointer hover:text-tertiary block">FAQs</span>
+
+
+        </a>
+        <a href="../Point/points.php">
         <span class="cursor-pointer hover:text-tertiary block">Exchange Points</span>
+
+        </a>
+        <a href="../Contact/privacyAndPolicy.php">
         <span class="cursor-pointer hover:text-tertiary block">Privay & Policy</span>
+
+        </a>
+        <a href="../../../Merchant/View/Login/login.php">
         <span class="cursor-pointer hover:text-tertiary block">Sell on Shop</span>
+
+        </a>
     </div>
 
     <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Shop</span>
+        <a href="../index.php">
         <span class="block cursor-pointer hover:text-red-500">Shop</span>
+
+        </a>
+        <a href="../#trending">
         <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
+
+        </a>
+        <a href="../#best">
         <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
+
+        </a>
+
+        <a href="../#new">
         <span class="block cursor-pointer hover:text-tertiary">New Products</span>
+
+        </a>
+
     </div>
 
     <div class="">
@@ -49,7 +77,10 @@
     <div class="">
         <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5">Follow Us</span>
       <div class="flex justify-center space-x-3">
+        <a href="https://web.facebook.com/extbrainedu">
       <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
+
+        </a>
       <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
       <ion-icon class="text-2xl" name="logo-twitter"></ion-icon>
       </div>
