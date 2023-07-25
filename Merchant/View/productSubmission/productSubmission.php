@@ -16,7 +16,7 @@
         <!-- space for the main page to not move -->
         <div id="space" class="hidden w-20 h-screen p-2"></div>
         <!-- Left-side Categories Start-->
-        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2">
+        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2 z-20">
             <!-- Merchant  -->
             <div class="flex justify-center mb-2 cursor-pointer"><img id="toggleSideBar" class="w-12 h-12 rounded-full shadow-lg border border-slate-200" src="../resources/img/sideBarImg/TH Logo 6.svg" alt=""></div>
             <h1 class="text-lg font-medium text-center hidden sideFull">Merchant's</h1>
@@ -28,8 +28,8 @@
                     <img id="allProductHover" src="../resources/img/sideBarImg/all product.png" alt="">
                     <span class="sideFull hidden ml-2">All Products</span>
                 </p>
-                <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                    <img id="productSubmitHover" src="../resources/img/sideBarImg/product submission.png" alt="">
+                <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-darkGreenColor text-white rounded-md cursor-pointer">
+                    <img id="productSubmitHover" src="../resources/img/sideBarImg/product submission hover.png" alt="">
                     <span class="sideFull hidden ml-2">Product Submission</span>
                 </p>
                 <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
@@ -64,11 +64,29 @@
             <!-- Categories End-->
         </div>
         <!-- Left-side Categories End-->
-
+        <!-- Star of Logo Add Modal Pop Up -->
+        <!-- Modal background -->
+        <div class="addLogoModal hidden fixed w-full h-full pt-16 bg-black bg-opacity-50 z-20">
+            <div class="bg-white m-auto p-5 border rounded-sm w-[80%] ">
+                <!-- Modal Content -->
+                <p class="font-semibold md:text-2xl">Add Your Logo</p>
+                <hr class="border-black mt-4 mb-4">
+                <label class="block mb-2 font-medium" for="file_input">Upload file</label>
+                <input class="block ml-10 text-sm  rounded-lg cursor-pointer " id="file_input" type="file">
+                <!-- Modal Close Button -->
+                <div class="flex justify-center md:mt-6">
+                    <button class="closeLogoAddModal mt-5 bg-secondary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg">Close</button>
+                </div>
+                <!-- End of Modal Content -->
+            </div>
+        </div>
+        <!-- End of Logo Add Modal Pop Up -->
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
+
             <div>
-                <h1 class="text-secondary font-bold text-4xl">Your Logo Here</h1>
+                <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer">Your Logo Here</h1>
+                <img class="logoPhoto hidden w-44 h-20" src="" alt="">
             </div>
             <hr class="mt-5 mb-3 border border-black">
             <div>
@@ -128,7 +146,7 @@
                 </thead>
                 <tbody>
                     <tr class="">
-                        <td class="p-2 text-center">1</td>
+                        <td class="p-2 text-center ">1</td>
                         <td class="p-2 text-center">electronic device</td>
                         <td class="p-2 text-center">phone</td>
                         <td class="p-2 text-center">20</td>
@@ -176,6 +194,17 @@
         </div>
         <!-- Right-side End -->
     </section>
+    <script>
+        $(document).ready(function() {
+            $("#addLogo").click(function() {
+                $(".addLogoModal").toggle();
+            });
+
+            $(".closeLogoAddModal").click(function() {
+                $(".addLogoModal").toggle();
+            });
+        });
+    </script>
 </body>
 
 </html>

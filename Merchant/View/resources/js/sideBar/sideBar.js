@@ -39,10 +39,10 @@ function sideShowHide() {
 
     if ($("#sideBarContainer").hasClass("w-20")) {
         $("#sideBarContainer").removeClass("w-20");
-        $("#sideBarContainer").addClass("w-72 absolute top-0 left-0 z-20");
+        $("#sideBarContainer").addClass("w-72 absolute top-0 left-0");
     } else {
         $("#sideBarContainer").addClass("w-20");
-        $("#sideBarContainer").removeClass("w-72 absolute top-0 left-0 z-20");
+        $("#sideBarContainer").removeClass("w-72 absolute top-0 left-0");
     }
     $(".sideFull").toggle();
 }
