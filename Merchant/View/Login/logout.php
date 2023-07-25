@@ -25,7 +25,7 @@
             <h2 class="text-xl font-bold mb-4 ">Logout</h2>
             <hr>
             <p class="text-gray-600 mb-10">Are you sure you want to log out?</p>
-            <div class="mt-4 flex justify-center space-x-4">
+            <div class="mt-4 flex justify-around space-x-4">
                 <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
                 <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
             </div>

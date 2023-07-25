@@ -22,10 +22,12 @@
                
                 <input type="email" id="email" name="email" class="w-full border shadow-lg border-gray-300 rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Email">
             </div>
-            <button type="submit" class="w-full bg-secondary hover:bg-secondary shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary">Reset Password</button>
+           
+            <button type="submit" class="w-full bg-secondary hover:bg-secondary shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary"> <a href="./verify.php">Reset Password</a></button>
+           
         </form>
         <p class="mt-4 text-center">
-            <a href="#" class="text-black text-sm underline">Back to Login</a>
+            <a href="./login.php" class="text-black text-sm underline">Back to Login</a>
         </p>
     </div>
     </div>
