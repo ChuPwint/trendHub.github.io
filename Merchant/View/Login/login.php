@@ -27,7 +27,7 @@
                 <button type="submit" class="w-full bg-secondary mt-4  shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary">Login</button>
             </form>
             <div class="mt-4 text-center ">
-                <a href="./registration.php" class="text-black text-sm underline">
+                <a href="../registration/registration.php" class="text-black text-sm underline">
                     <p>Not yet registered?</p>
                 </a>
 

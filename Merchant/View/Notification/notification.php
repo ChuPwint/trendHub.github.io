@@ -48,8 +48,8 @@
                     <img id="financialHover" src="../resources/img/sideBarImg/financial.png" alt="">
                     <span class="sideFull hidden ml-2">Financials & Payment</span>
                 </p>
-                <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                    <img id="notiHover" src="../resources/img/sideBarImg/notification.png" alt="">
+                <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-darkGreenColor  rounded-md text-white cursor-pointer">
+                    <img id="notiHover" src="../resources/img/sideBarImg/notification hover.png" alt="">
                     <span class="sideFull hidden ml-2">Notifications</span>
                 </p>
                 <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
