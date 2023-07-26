@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchant Product Submission</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -39,7 +38,7 @@
                         <span class="sideFull hidden ml-2">Product Submission</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../allOrder/allOrder.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="allOrderHover" src="../resources/img/sideBarImg/all order.png" alt="">
                         <span class="sideFull hidden ml-2">All Orders</span>

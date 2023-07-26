@@ -550,14 +550,14 @@
                 <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modal">
                     <div class="bg-white rounded-lg p-6 shadow-xl">
                         <p class="text-center font-bold">Your profile change is complete!</p>
-                        <button class="block w-full mt-4 bg-tertiary text-white rounded" id="close-modal-btn">Close</button>
+                        <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
                     </div>
                 </div>
                 <!-- Modal Box for log out -->
                 <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="logoutModal">
                     <div class="bg-white p-8 rounded-md shadow-lg">
                         <p class="text-lg font-medium mb-4">Are you sure you want to log out?</p>
-                        <div class="flex justify-end">
+                        <div class="flex justify-around">
 
                             <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
                             <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
