@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchant All Product</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -38,7 +37,7 @@
                         <span class="sideFull hidden ml-2">Product Submission</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../allOrder/allOrder.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="allOrderHover" src="../resources/img/sideBarImg/all order.png" alt="">
                         <span class="sideFull hidden ml-2">All Orders</span>
@@ -91,87 +90,86 @@
             <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
                 <div class="closeViewDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
-                <!-- start of upper row -->
-                <div class="px-6 py-4 grid grid-cols-2 gap-4">
-                    <!-- start of add product text fields -->
-                    <div class="col-span-1">
-                        <div class="bg-secondary p-4">
-                            <div class="mb-4 relative">
-                                <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
-                                <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
-                                    <!-- Add options for categories here -->
-                                    <option value="electronic device">Electronic Device</option>
-                                    <option value="women's fashion" selected>Women's Fashion</option>
-                                    <!-- Add more options if needed -->
-                                </select>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
-                                <input type="text" id="productName" name="productName" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
-                                <input type="text" id="brand" name="brand" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
-                                <input type="number" id="sellPrice" name="sellPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
-                                <input type="number" id="buyPrice" name="buyPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="relative">
-                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
-                                <input type="number" id="quantity" name="quantity" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of add product text fields -->
-                    <!-- start of upload photo -->
-                    <div class="col-span-1">
-                        <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
-                            <div class="text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-                                </svg>
-                                <div class="mt-4 flex">
-                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
-                                        <span class="font-bold">Upload a file</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
+                <form action="">
+                    <!-- start of upper row -->
+                    <div class="px-6 py-4 grid grid-cols-2 gap-4">
+                        <!-- start of add product text fields -->
+                        <div class="col-span-1">
+                            <div class="bg-secondary p-4">
+                                <div class="mb-4 relative">
+                                    <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
+                                    <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                                        <!-- Add options for categories here -->
+                                        <option value="electronic device">Electronic Device</option>
+                                        <option value="women's fashion" selected>Women's Fashion</option>
+                                        <!-- Add more options if needed -->
+                                    </select>
                                 </div>
-                                <p>PNG, JPG up to 10MB</p>
+                                <div class="mb-4 relative">
+                                    <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
+                                    <input type="text" id="productName" name="productName" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                </div>
+                                <div class="mb-4 relative">
+                                    <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
+                                    <input type="text" id="brand" name="brand" value="Lenovo" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                                </div>
+                                <div class="mb-4 relative">
+                                    <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
+                                    <input type="text" id="sellPrice" name="sellPrice" value="450,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                </div>
+                                <div class="mb-4 relative">
+                                    <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
+                                    <input type="text" id="buyPrice" name="buyPrice" value="400,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                </div>
+                                <div class="relative">
+                                    <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
+                                    <input type="number" id="quantity" name="quantity" value="20" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                </div>
                             </div>
                         </div>
+                        <!-- end of add product text fields -->
+                        <!-- start of upload photo -->
+                        <div class="col-span-1">
+                            <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
+                                <div class="text-center">
+                                    <div class="mt-4">
+                                        <img src="../resources/img/allProduct/cpu-nb 385.svg" alt="">
+                                        <label for="file-upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                            <span class="font-bold">Upload a file: </span>
+                                        </label>
+                                        <input id="file-upload" name="file-upload" type="file" class=" mt-2 text-center">
+                                    </div>
+                                    <p>PNG, JPG up to 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of upload photo -->
                     </div>
-                    <!-- end of upload photo -->
-                </div>
-                <!-- end of upper row -->
+                    <!-- end of upper row -->
 
-                <!-- start of bottom row -->
-                <div class="px-6 py-2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="mb-4">
-                            <label for="productDetail" class="block font-medium">Product Detail:</label>
-                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
+                    <!-- start of bottom row -->
+                    <div class="px-6 py-2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="mb-4">
+                                <label for="productDetail" class="block font-medium">Product Detail:</label>
+                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
                             Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.
                             </textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="productDescription" class="block font-medium">Product Description:</label>
-                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="productDescription" class="block font-medium">Product Description:</label>
+                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
                             MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11
                             </textarea>
+                            </div>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 mr-10 bg-white text-darkGreenColor border border-darkGreenColor font-semibold rounded-md shadow-md">Delete Product</button>
+                            <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Edit Product</button>
                         </div>
                     </div>
-                    <div class="flex justify-end items-center">
-                        <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 mr-10 bg-white text-darkGreenColor border border-darkGreenColor font-semibold rounded-md shadow-md">Delete Product</button>
-                        <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Edit Product</button>
-                    </div>
-                </div>
-                <!-- end of bottom row -->
+                    <!-- end of bottom row -->
+                </form>
             </div>
             <!-- end of container box -->
         </div>
@@ -179,6 +177,7 @@
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
+            <h1 class="text-darkGreenColor text-3xl font-bold mb-5">All Products List</h1>
             <!-- start of pie chart -->
             <div class="p-2">
                 <div class="p-2 border border-darkGreenColor">
@@ -275,7 +274,6 @@
     </section>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     <script type="text/javascript">
         // Load google charts
         google.charts.load('current', {
