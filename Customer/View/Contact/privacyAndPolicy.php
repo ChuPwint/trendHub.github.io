@@ -10,9 +10,14 @@
 </head>
 
 <body class="bg-primary font-roboto">
+
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+
     <!-- Privacy and Policy -->
-    <section class="container w-full mx-auto">
-        <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-11">
+    <section class="container w-full mx-auto mt-[125px]">
+        <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-20">
             <h1 class="md:text-3xl font-semibold">Privacy & Policy</h1>
             <p class="text-sm md:w-[700px] px-10 md:px-0 text-center text-textGray">At [Trend Hub], we value the privacy
                 and security of our users. This Privacy Policy outlines how we collect, use, disclose, and protect the
@@ -92,6 +97,10 @@
                 please don’t hesitate to reach out to our delicated customer service team.</p>
         </div>
     </section>
+
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 
 </body>
 

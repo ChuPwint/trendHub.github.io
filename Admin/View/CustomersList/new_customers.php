@@ -19,7 +19,7 @@
             <!-- Search Start-->
             <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
                 <div class="text-white">
-                    <p class="text-2xl font-semibold">All Customers</p>
+                    <p class="text-2xl font-semibold">New Customers</p>
                     <p>Date : Sun, Jul 16, 2023</p>
                 </div>
 
@@ -31,16 +31,23 @@
             <!-- All Customers Data Start -->
             <div class="px-10 py-16 data-output">
                 <!-- Sort Start  -->
-                <div class="flex items-center justify-end space-x-2">
-                    <span class="text-white">Sort by:</span>
-                    <select name="" id="" class="outline-none rounded py-1 px-3">
-                        <option value="">Name</option>
-                        <option value="">Des Name</option>
-                        <option value="">Address</option>
-                        <option value="">Des Address</option>
-                        <option value="">Date</option>
-                        <option value="">Des Date</option>
-                    </select>
+                <div class="flex items-center justify-between space-x-2">
+                    <div>
+                        <input type="date" name="" id="" class="earance-none border border-gray-300 rounded px-3 py-2">
+                    </div>
+                    
+                    <div>
+                        <span class="text-white">Sort by:</span>
+                        <select name="" id="" class="outline-none rounded py-1 px-3">
+                            <option value="">Name</option>
+                            <option value="">Des Name</option>
+                            <option value="">Address</option>
+                            <option value="">Des Address</option>
+                            <option value="">Date</option>
+                            <option value="">Des Date</option>
+                        </select>
+                    </div>
+
                 </div>
                 <!-- Sort END  -->
 

@@ -11,7 +11,11 @@
 
 <body class="bg-primary font-roboto">
 
-    <section class="container w-full mx-auto py-10 px-10 md:px-20">
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+
+    <section class="container w-full mx-auto py-10 px-10 md:px-20 mt-[140px]">
 
         <h1 class="text-center text-lg md:text-3xl font-bold">What We Offer</h1>
 
@@ -65,6 +69,10 @@
         </div>
 
     </section>
+
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 </body>
 
 </html>

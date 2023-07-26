@@ -14,15 +14,19 @@
 
 <body class="bg-primary font-roboto">
 
-    <section class="w-full container mx-auto">
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+
+    <section class="w-full container mx-auto mt-[140px]">
         <!-- Nav Path -->
-        <div class="text-textGray py-2 text-xs md:text-sm">
+        <div class="text-textGray py-2 text-xs md:text-sm md:px-7 px-5">
             <span>Home > </span>
             <span>Search Results</span>
         </div>
 
         <!-- Found Items and Sort -->
-        <div class="flex justify-between items-center py-2 border-t-2 border-b-2 border-[#D9D9D9]">
+        <div class="flex justify-between items-center py-2 border-t-2 border-b-2 border-[#D9D9D9] md:px-7 px-5">
             <div class="text-textGray text-xs md:text-sm">
                 <span>47</span>
                 <span>items found for</span>
@@ -42,7 +46,7 @@
 
     <section class="w-full container mx-auto flex md:space-x-2 pt-5">
         <!--Left Side Brand, Price and Banner -->
-        <div class="hidden md:block w-80 px-5">
+        <div class="hidden md:block w-80 px-5 pr-5 pl-7">
             <!-- Brand -->
             <div>
                 <p>Brand</p>
@@ -83,7 +87,7 @@
         <!--Left Side Brand, Price and Banner End -->
 
         <!--Right Side Products -->
-        <div class="flex flex-col space-y-5">
+        <div class="flex flex-col space-y-5 md:pr-7 px-5">
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
@@ -231,6 +235,10 @@
 
         </div>
     </section>
+
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 
 </body>
 
