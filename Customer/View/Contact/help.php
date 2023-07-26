@@ -15,13 +15,15 @@
 
 <body class="bg-primary font-roboto">
 
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+
     <!-- Question about order -->
-    <section class="container w-full mx-auto">
+    <section class="container w-full mx-auto mt-[120px]">
         <div class="text-center py-5">
             <p class="text-sm md:text-2xl font-semibold py-5">Hello, What can we help you with?</p>
-            <input type="text" name="" id=""
-                class="border-2 border-tertiary bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded"
-                placeholder="Question about order">
+            <input type="text" name="" id="" class="border-2 border-tertiary bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
         </div>
     </section>
 
@@ -30,21 +32,18 @@
         <div>
             <p class="text-sm font-semibold md:text-2xl">Common Topics</p>
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
-                <div
-                    class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
+                <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../resources/img/help/my_profile.svg" alt="profile">
                     <p class="text-xs md:text-xl">My Profile</p>
                 </div>
 
-                <div
-                    class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
+                <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../resources/img/help/my_orders.svg" alt="order">
                     <p class="text-xs md:text-xl">My Orders</p>
                 </div>
 
 
-                <div
-                    class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
+                <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../resources/img/help/my_points.svg" alt="point">
                     <p class="text-xs md:text-xl">My Points</p>
                 </div>
@@ -106,7 +105,9 @@
         </div>
     </section>
 
-
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 
     <script src="../resources/js/help/help.js"></script>
 </body>
