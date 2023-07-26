@@ -26,7 +26,7 @@
                     
                     <input type="password" id="confirm-password" name="confirm-password" class="w-full shadow-lg border border-black rounded py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Confirm Password">
                 </div>
-                <button type="submit" class="w-full bg-secondary mt-4  shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary">Reset Password</button>
+                <button type="submit" class="w-full bg-secondary mt-4  shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary"><a href="./login.php">Reset Password</a></button>
             </form>
         </div>
     </div>

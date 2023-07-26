@@ -41,7 +41,7 @@
                     <input type="email" name="email" placeholder="Email" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
                     <button type="submit" class="w-full py-1 mt-3 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded  focus:outline-none focus:ring-2"><a href="./verifypassword.php"> Reset Password</a></button>
                 </form>
-                <p class="text-xs md:text-sm text-medium py-8 mt-4">Remember your password? <a href="/login" class="underline">Log in</a></p>
+                <p class="text-xs md:text-sm text-medium py-8 mt-4">Remember your password? <a href="./login.php" class="underline">Log in</a></p>
             </div>
         </div>
     </div>
