@@ -46,3 +46,11 @@ function sideShowHide() {
     }
     $(".sideFull").toggle();
 }
+
+
+
+    
+
+
+
+
