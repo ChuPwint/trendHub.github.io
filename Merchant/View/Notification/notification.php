@@ -38,7 +38,7 @@
                 </a>
                 <a href="../allOrder/allOrder.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50  hover:bg-darkGreenColor hover:text-white rounded-md cursor-pointer">
-                        <img id="allOrderHover" src="../resources/img/sideBarImg/all order hover.png" alt="">
+                        <img id="allOrderHover" src="../resources/img/sideBarImg/all order.png" alt="">
                         <span class="sideFull hidden ml-2">All Orders</span>
                     </p>
                 </a>
@@ -73,7 +73,7 @@
                     </p>
                 </a>
                 <a href="">
-                    <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer" >
+                    <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
                         <span class="sideFull hidden ml-2">Log Out</span>
                     </p>
@@ -82,20 +82,20 @@
             <!-- Categories End-->
         </div>
         <!-- Left-side Categories End-->
-          <!-- Logout Confirmation Modal -->
-    <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
-        <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
-            <h2 class="text-xl font-bold mb-4 ">Logout</h2>
-            <hr>
-          <div class="p-3">
-          <p class="text-gray-600 mb-10">Are you sure you want to log out?</p>
-            <div class="mt-4 flex justify-around space-x-4">
-                <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
-                <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
+        <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+            <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
+                <h2 class="text-xl font-bold mb-4 ">Logout</h2>
+                <hr>
+                <div class="p-3">
+                    <p class="mb-10">Are you sure you want to log out?</p>
+                    <div class="mt-4 flex justify-around space-x-4">
+                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                        <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-    </div>
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-6 container ml-20">
@@ -244,29 +244,20 @@
                                 TrendHub <br></p>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
 
         <!-- Right-side End -->
-        
+
     </section>
     <script>
-    $(document).ready(function() {
-    $("#logoutBtn").click(function() {
-        $("#logoutModal").toggle();
-    });
-
-    $("#cancelLogout").click(function() {
-        $("#logoutModal").toggle();
-    });
-    $("#confirmLogout").click(function() {
-        $("#logoutModal").toggle();
-    });
-    });
-</script>
+        $(document).ready(function() {
+            $("#logoutBtn").click(function() {
+                $("#logoutModal").toggle();
+            });
+        });
+    </script>
 </body>
 
 </html>
