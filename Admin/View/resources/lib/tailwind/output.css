@@ -622,6 +622,10 @@ video {
   margin-left: -32px;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -644,6 +648,10 @@ video {
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .mt-6 {
@@ -728,6 +736,10 @@ video {
 
 .w-\[250px\] {
   width: 250px;
+}
+
+.w-\[270px\] {
+  width: 270px;
 }
 
 .w-\[400px\] {
@@ -887,6 +899,11 @@ video {
   background-color: rgb(18 20 27 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#191C25\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(25 28 37 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#1F563F\] {
   --tw-bg-opacity: 1;
   background-color: rgb(31 86 63 / var(--tw-bg-opacity));
@@ -963,6 +980,11 @@ video {
   padding-right: 2.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -986,6 +1008,11 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-\[53px\] {
+  padding-left: 53px;
+  padding-right: 53px;
 }
 
 .py-1 {
@@ -1023,14 +1050,34 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-\[20px\] {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.px-14 {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+.px-\[\] {
+  padding-left: ;
+  padding-right: ;
+}
+
+.px-\[50px\] {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.px-\[52px\] {
+  padding-left: 52px;
+  padding-right: 52px;
 }
 
 .pb-20 {
@@ -1055,6 +1102,10 @@ video {
 
 .pl-3 {
   padding-left: 0.75rem;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
 }
 
 .pt-4 {
@@ -1085,6 +1136,10 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-\[32px\] {
+  font-size: 32px;
 }
 
 .text-sm {
@@ -1190,6 +1245,16 @@ video {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.hover\:bg-\[\#31374A\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 55 74 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .hover\:underline:hover {
