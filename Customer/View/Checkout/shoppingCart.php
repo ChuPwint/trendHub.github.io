@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/itemDetail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/js/shoppingCart/shoppingCart.js" defer></script>
 </head>
 
 <body class="bg-primary font-roboto">
-    <p class="px-5 py-4 md:px-10 md:pt-8 font-bold text-xl">Items in cart</p>
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+    <p class="px-5 py-4 mt-32 md:px-10 md:pt-8 font-bold text-xl">Items in cart</p>
     <div class="md:p-10">
         <!--start of container -->
         <div class="px-4 py-4 bg-white shadow-md">
@@ -111,7 +115,7 @@
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <button class="bg-tertiary rounded-md px-8 py-2 text-white">Proceed to Checkout (<span class="itemAmount">3</span>)</button>
+                            <a href="./checkout.php"><button class="bg-tertiary rounded-md px-8 py-2 text-white">Proceed to Checkout (<span class="itemAmount">3</span>)</button></a>
                         </div>
                     </div>
                     <!-- end of order summary card -->

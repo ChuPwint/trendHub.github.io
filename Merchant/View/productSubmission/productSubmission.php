@@ -85,8 +85,8 @@
         </div>
         <!-- Left-side Categories End-->
 
-          <!-- Logout Confirmation Modal -->
-          <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+        <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
             <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
                 <h2 class="text-xl font-bold mb-4 ">Logout</h2>
                 <hr>
