@@ -625,6 +625,7 @@ video {
   grid-column: span 12 / span 12;
 }
 
+<<<<<<< HEAD
 .m-auto {
   margin: auto;
 }
@@ -633,6 +634,8 @@ video {
   margin: 1rem;
 }
 
+=======
+>>>>>>> origin/main
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -642,10 +645,13 @@ video {
   margin-left: -32px;
 }
 
+<<<<<<< HEAD
 .-mr-5 {
   margin-right: -1.25rem;
 }
 
+=======
+>>>>>>> origin/main
 .ml-4 {
   margin-left: 1rem;
 }
@@ -670,6 +676,7 @@ video {
   margin-top: 0.75rem;
 }
 
+<<<<<<< HEAD
 .mt-4 {
   margin-top: 1rem;
 }
@@ -678,6 +685,8 @@ video {
   margin-top: 1.25rem;
 }
 
+=======
+>>>>>>> origin/main
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -690,6 +699,7 @@ video {
   margin-top: 120px;
 }
 
+<<<<<<< HEAD
 .mt-\[\] {
   margin-top: ;
 }
@@ -734,6 +744,8 @@ video {
   margin-top: 20px;
 }
 
+=======
+>>>>>>> origin/main
 .block {
   display: block;
 }
@@ -908,6 +920,7 @@ video {
 
 .w-\[150px\] {
   width: 150px;
+<<<<<<< HEAD
 }
 
 .w-\[165px\] {
@@ -916,10 +929,12 @@ video {
 
 .w-\[250px\] {
   width: 250px;
+=======
+>>>>>>> origin/main
 }
 
-.w-\[270px\] {
-  width: 270px;
+.w-\[250px\] {
+  width: 250px;
 }
 
 .w-\[400px\] {
@@ -938,6 +953,7 @@ video {
   width: 100%;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .w-\[1000px\] {
   width: 1000px;
@@ -1024,6 +1040,8 @@ video {
   max-width: 100%;
 }
 
+=======
+>>>>>>> origin/main
 .border-separate {
   border-collapse: separate;
 }
@@ -1038,6 +1056,7 @@ video {
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1074,6 +1093,10 @@ video {
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 >>>>>>> origin/main
 >>>>>>> origin/main
+=======
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+>>>>>>> origin/main
 }
 
 .cursor-pointer {
@@ -1081,12 +1104,15 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .resize-y {
   resize: vertical;
 }
 
 =======
 >>>>>>> origin/main
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 .flex-col {
   flex-direction: column;
@@ -1100,10 +1126,13 @@ video {
   align-items: center;
 }
 
+<<<<<<< HEAD
 .justify-start {
   justify-content: flex-start;
 }
 
+=======
+>>>>>>> origin/main
 .justify-end {
   justify-content: flex-end;
 }
@@ -1122,8 +1151,6 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-<<<<<<< HEAD
-=======
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1137,16 +1164,22 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/main
 >>>>>>> origin/main
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 .overflow-hidden {
   overflow: hidden;
@@ -1154,6 +1187,17 @@ video {
 
 .overflow-x-auto {
   overflow-x: auto;
+<<<<<<< HEAD
+=======
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+>>>>>>> origin/main
 }
 
 .overflow-y-auto {
@@ -1174,6 +1218,7 @@ video {
 
 .whitespace-nowrap {
   white-space: nowrap;
+<<<<<<< HEAD
 }
 
 .break-words {
@@ -1182,12 +1227,15 @@ video {
 
 .break-all {
   word-break: break-all;
+=======
+>>>>>>> origin/main
 }
 
 .rounded {
   border-radius: 0.25rem;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -1199,6 +1247,8 @@ video {
   border-top-right-radius: 0.25rem;
 =======
 <<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 .rounded-\[5px\] {
   border-radius: 5px;
@@ -1214,7 +1264,14 @@ video {
 
 .rounded-md {
   border-radius: 0.375rem;
->>>>>>> origin/main
+}
+
+.rounded-tl {
+  border-top-left-radius: 0.25rem;
+}
+
+.rounded-tr {
+  border-top-right-radius: 0.25rem;
 }
 
 .rounded-sm {
@@ -1232,15 +1289,19 @@ video {
 .border {
   border-width: 1px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 }
 
 .border-4 {
   border-width: 4px;
+=======
+>>>>>>> origin/main
 }
 
 .border-b {
   border-bottom-width: 1px;
+<<<<<<< HEAD
 }
 
 .border-solid {
@@ -1266,6 +1327,8 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+=======
+>>>>>>> origin/main
 }
 
 .border-gray-300 {
@@ -1354,6 +1417,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bg-\[red\] {
 =======
 <<<<<<< HEAD
@@ -1425,6 +1489,8 @@ video {
   --tw-bg-opacity: 0.6;
 }
 
+=======
+>>>>>>> origin/main
 .p-2 {
   padding: 0.5rem;
 }
@@ -1438,10 +1504,14 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
 .p-4 {
   padding: 1rem;
 }
 
+<<<<<<< HEAD
 .p-1 {
   padding: 0.25rem;
 }
@@ -1454,6 +1524,8 @@ video {
 =======
 >>>>>>> origin/main
 >>>>>>> origin/main
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 .px-10 {
   padding-left: 2.5rem;
@@ -1514,13 +1586,19 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/main
 =======
 >>>>>>> origin/main
 .py-5 {
@@ -1538,6 +1616,7 @@ video {
   padding-bottom: 20px;
 }
 
+<<<<<<< HEAD
 .py-\[30px\] {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -1581,6 +1660,11 @@ video {
 .px-\[100px\] {
   padding-left: 100px;
   padding-right: 100px;
+=======
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+>>>>>>> origin/main
 }
 
 .pb-20 {
@@ -1595,10 +1679,13 @@ video {
   padding-bottom: 30px;
 }
 
+<<<<<<< HEAD
 .pb-\[40px\] {
   padding-bottom: 40px;
 }
 
+=======
+>>>>>>> origin/main
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -1611,6 +1698,7 @@ video {
   padding-left: 0.75rem;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -1637,6 +1725,8 @@ video {
 >>>>>>> origin/main
 }
 
+=======
+>>>>>>> origin/main
 .pt-4 {
   padding-top: 1rem;
 }
@@ -1645,6 +1735,7 @@ video {
   padding-top: 1.25rem;
 }
 
+<<<<<<< HEAD
 .pt-0 {
   padding-top: 0px;
 }
@@ -1669,6 +1760,8 @@ video {
   padding-bottom: 60px;
 }
 
+=======
+>>>>>>> origin/main
 .text-left {
   text-align: left;
 }
@@ -1736,6 +1829,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .leading-normal {
   line-height: 1.5;
 }
@@ -1766,6 +1860,9 @@ video {
 =======
 .text-green-700 {
 >>>>>>> origin/main
+>>>>>>> origin/main
+=======
+.text-black {
 >>>>>>> origin/main
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1802,6 +1899,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .text-indigo-500 {
 =======
 <<<<<<< HEAD
@@ -1829,6 +1927,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+=======
+.opacity-75 {
+  opacity: 0.75;
+>>>>>>> origin/main
 }
 
 .shadow-md {
@@ -1849,17 +1951,21 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+<<<<<<< HEAD
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+=======
+>>>>>>> origin/main
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .outline {
   outline-style: solid;
@@ -1867,6 +1973,8 @@ video {
 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/main
 =======
 >>>>>>> origin/main
 .drop-shadow-lg {
@@ -1886,6 +1994,7 @@ video {
   transition-duration: 150ms;
 }
 
+<<<<<<< HEAD
 .hover\:bg-\[\#31374A\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(49 55 74 / var(--tw-bg-opacity));
@@ -1916,20 +2025,26 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+=======
+>>>>>>> origin/main
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
 
+<<<<<<< HEAD
 .focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
+=======
+>>>>>>> origin/main
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .focus\:ring:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1957,6 +2072,8 @@ video {
 >>>>>>> origin/main
 }
 
+=======
+>>>>>>> origin/main
 @media (prefers-color-scheme: dark) {
   .dark\:border-gray-700 {
     --tw-border-opacity: 1;

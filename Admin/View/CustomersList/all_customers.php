@@ -7,6 +7,24 @@
     <title>All Customers</title>
     <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
+
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* For IE, Edge and Firefox */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .table {
+            border-spacing: 0 10px;
+        }
+    </style>
 </head>
 
 <body class="bg-[#12141B]">
@@ -29,7 +47,7 @@
 
 
             <!-- All Customers Data Start -->
-            <div class="px-10 py-16 data-output">
+            <div class="px-10 py-10 data-output">
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-end space-x-2">
                     <span class="text-white">Sort by:</span>
@@ -45,89 +63,347 @@
                 <!-- Sort END  -->
 
                 <!-- Table Start  -->
-                <div class="">
+                <div class="flex justify-center min-h-screen relative">
+                    <div class="col-span-12">
+                        <div class="h-[600px] overflow-y-scroll scrollbar-hide">
+                            <table class="table text-textBlack border-separate space-y-6 text-sm w-[1200px] overflow-y-scroll">
+                                <thead class="bg-[#fffafa] text-textBlack ">
+                                    <tr>
+                                        <th class="px-3 py-6 text-center">No.</th>
+                                        <th class="px-3 py-6 text-center">Business Name</th>
+                                        <th class="px-3 py-6 text-center">Personal Name</th>
+                                        <th class="px-3 py-6 text-center">Email</th>
+                                        <th class="px-3 py-6 text-center">Phone Number</th>
+                                        <th class="px-3 py-6 text-center">Address</th>
+                                        <th class="px-3 py-6 text-center">License</th>
+                                        <th class="px-3 py-6 text-center">Date</th>
+                                        <th class="px-3 py-6 text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
 
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border-spacing-y-1.5">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-4 p-4 rounded-tl rounded-tr">
-                                        No
-                                    </th>
-                                    <th scope="col" class="px-6 py-4">
-                                        Name
-                                    </th>
-                                    <th scope="col" class="px-6 py-4">
-                                        Email
-                                    </th>
-                                    <th scope="col" class="px-6 py-4">
-                                        Phone No
-                                    </th>
-                                    <th scope="col" class="px-6 py-4">
-                                        Address
-                                    </th>
-                                    <th scope="col" class="px-6 py-4">
-                                        Date
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 p-4 rounded-tl rounded-tr">
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Silver
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Laptop
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Microsoft Surface Pro
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        White
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Laptop PC
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $1999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Magic Mouse 2
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Black
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Accessories
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $99
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+
+                                    </tr>
+
+                                    <tr class="bg-[#fffafa]">
+                                        <td class="p-3 text-center">
+                                            1
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Shwe Ya Ti
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            Casper
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            casper@gmail.com
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            09 769 243 353
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Yangon
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            32432
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            Jul 16, 2023
+                                        </td>
+                                        <td class="p-3 text-center ">
+                                            <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </div>
