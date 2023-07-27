@@ -49,7 +49,7 @@
                         <span class="sideFull hidden ml-2">Customer Reviews</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../contactAdmin/contactAdmin.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="contactHover" src="../resources/img/sideBarImg/contact.png" alt="">
                         <span class="sideFull hidden ml-2">Contact Admin</span>
@@ -67,23 +67,36 @@
                         <span class="sideFull hidden ml-2">Notifications</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../ProfileEdit/profile.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="editProfileHover" src="../resources/img/sideBarImg/edit profile.png" alt="">
                         <span class="sideFull hidden ml-2">Edit Profile</span>
                     </p>
                 </a>
-                <a href="">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                        <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
-                        <span class="sideFull hidden ml-2">Log Out</span>
-                    </p>
-                </a>
+
+                <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
+                    <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
+                    <span class="sideFull hidden ml-2">Log Out</span>
+                </p>
+
             </div>
             <!-- Categories End-->
         </div>
         <!-- Left-side Categories End-->
-
+        <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+            <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
+                <h2 class="text-xl font-bold mb-4 ">Logout</h2>
+                <hr>
+                <div class="p-3">
+                    <p class="mb-10">Are you sure you want to log out?</p>
+                    <div class="mt-4 flex justify-around space-x-4">
+                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                        <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- start of product detail modal box -->
         <div class="viewDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
@@ -320,6 +333,21 @@
 
             $(".closeViewDetailModal").click(function() {
                 $(".viewDetailModal").toggle();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#logoutBtn").click(function() {
+                $("#logoutModal").toggle();
+            });
+
+            $("#confirmLogout").click(function() {
+                $("#logoutModal").toggle();
+            });
+            $("#cancelLogout").click(function() {
+                $("#logoutModal").toggle();
             });
         });
     </script>

@@ -4,25 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Customers</title>
+  <title>New Merchant</title>
   <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  
+  <!-- flowBite link -->
+  <script src="../path/to/flowbite/dist/datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
+
+
+  <link href="../resources/css/new_merchant.css" >
 </head>
 <style>
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 
-  /* For IE, Edge and Firefox */
   .scrollbar-hide {
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
+
+  }
+
+  .table {
+    border-spacing: 0 10px;
   }
 </style>
+
 
 <body class="bg-[#12141B] font-roboto ">
   <section class="container w-full mx-auto flex">
@@ -34,7 +45,7 @@
       <!-- Search Start-->
       <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
         <div class="text-white">
-          <p class="text-2xl font-semibold">All Customers</p>
+          <p class="text-2xl font-semibold tracking-wider">New Merchants</p>
           <p>Date : Sun, Jul 16, 2023</p>
         </div>
 
@@ -43,9 +54,45 @@
       <!-- Search End-->
 
 
-      <!-- Analytics Data Start -->
-      <div class="px-20 py-16 data-output">
-        <!-- component -->
+     
+      <div class="px-20 data-output">
+     
+        <!-- start Date -->
+        <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[20px] pb-[30px] relative">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+              </svg>
+            </div>
+            <input name="start" type="text" class=" border-gray-300 text-black text-sm rounded-lg  block w-full pl-10 p-2.5" placeholder="Date From">
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+              </svg>
+            </div>
+            <input name="end" type="text" class=" border-gray-300 text-black text-sm rounded-lg  block w-full pl-10 p-2.5" placeholder="Date To">
+          </div>
+          <div class="absolute -right-[30px]">
+            <label class="inline-flex text-white" for="">Sort By:</label>
+            <select id="dropdown" class="inline-block mt-1  w-[150px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+              <option selected value="personal">Personal Name</option>
+              <option value="business">Business Name</option>
+              <option value="address">Address</option>
+              <option value="date">Date</option>
+            </select>
+          </div>
+        </div>
+        <!-- end Date -->
+
+
+      
+
+
+      <!-- Start table -->
         <div class="flex justify-center min-h-screen relative">
           <div class="col-span-12">
             <div class="h-[600px] overflow-y-scroll scrollbar-hide">
@@ -403,13 +450,11 @@
 
 
         </div>
-        <style>
-          .table {
-            border-spacing: 0 10px;
-          }
-        </style>
+        <!-- End table -->
+
+      
       </div>
-      <!-- Analytics Data End  -->
+
 
     </div>
     <!-- Right-side End -->
@@ -469,8 +514,9 @@
 
 
 
-<script src="../resources/lib/jquery3.6.0.js"></script>
-<script src="../resources/js/modal_box.js"></script>
+  <script src="../resources/lib/jquery3.6.0.js"></script>
+  <script src="../resources/js/modal_box.js"></script>
+  <script src="../resources/js/drop_down.js"></script>
 
 </body>
 
