@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body class="md:bg-primary bg-secondary font-roboto">
+    <!-- start of nav bar -->
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+    <!-- end of nav bar -->
+
     <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
     </div>
-    <div class="md:py-12 md:px-10 px-2 z-10">
+    <div class="md:py-12 md:px-10 px-2 z-10 mt-32">
         <!-- start of receipt container -->
         <div class="px-5 py-5 md:shadow-md md:flex md:justify-center md:items-center">
             <div class="hidden md:block">
@@ -85,6 +92,9 @@
         </div>
         <!-- end of receipt container -->
     </div>
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 </body>
 
 </html>

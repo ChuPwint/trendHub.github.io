@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Page</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/js/points.js" defer></script>
 </head>
 
 <body class="bg-primary font-roboto">
+    <!-- start of nav bar -->
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+    <!-- end of nav bar -->
+    
     <!-- Star of Point History Modal Pop Up -->
     <!-- Modal background -->
-    <div id="pointHistoryModal" class="hidden z-1 fixed w-full h-full pt-16 bg-black bg-opacity-50">
+    <div id="pointHistoryModal" class="hidden z-1 fixed w-full h-full pt-2 bg-black bg-opacity-50">
         <div class="bg-white m-auto p-5 md:p-10 border rounded-sm md:rounded-md w-[80%] md:w-[60%]">
             <!-- Modal Content -->
             <p class="font-semibold md:text-2xl">Point History</p>
@@ -57,7 +64,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Modal Close Button -->
             <div class="flex justify-center md:mt-6">
                 <button class="mt-5 bg-tertiary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg" onclick="closePointHistory()">Close</button>
@@ -69,7 +76,7 @@
 
     <!-- Star of Claim Reward Modal Pop Up -->
     <!-- Modal background -->
-    <div id="claimRewardModal" class="hidden z-1 fixed w-full h-full pt-28 bg-black bg-opacity-50">
+    <div id="claimRewardModal" class="hidden z-1 fixed w-full h-full pt-2 bg-black bg-opacity-50">
         <div class="bg-white m-auto p-5 md:p-8 border rounded-sm md:rounded-md w-[80%] md:w-[40%]">
             <!-- Modal Content -->
             <p class="font-semibold md:text-2xl">Claim Reward</p>
@@ -80,7 +87,7 @@
                 <p class="mb-3 font-bold">Reward: <span class="pl-6">20,000 phone bill</span></p>
                 <p class="font-bold">Cost: <span class="text-tertiary pl-11 md:pl-12"><span>20</span> points</span></p>
             </div>
-            
+
             <!-- Modal Confirm or Cancel Button -->
             <div class="flex justify-around items-center md:mt-6">
                 <button class="mt-5 bg-[#F5F5F5] text-gray-600 text-center px-8 py-1 rounded-md md:text-lg md:px-12" onclick="cancelRewardClaim()">Cancel</button>
@@ -93,7 +100,7 @@
 
     <!-- Star of Reward Claimed Modal Pop Up -->
     <!-- Modal background -->
-    <div id="rewardClaimedModal" class="hidden z-1 fixed w-full h-full pt-28 bg-black bg-opacity-50">
+    <div id="rewardClaimedModal" class="hidden z-1 fixed w-full h-full pt-2 bg-black bg-opacity-50">
         <div class="bg-white m-auto p-5 md:p-8 border rounded-sm md:rounded-md w-[80%] md:w-[40%]">
             <!-- Modal Content -->
             <p class="font-semibold md:text-2xl">Reward Claimed</p>
@@ -102,7 +109,7 @@
             <div class="md:text-xl">
                 <p>Congratulations! You have successfully claimed the reward!</p>
             </div>
-            
+
             <!-- Modal Close Button -->
             <div class="flex justify-around items-center md:mt-6">
                 <button class="mt-5 bg-tertiary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg" onclick="closeRewardClaimed()">Close</button>
@@ -113,7 +120,7 @@
     <!-- End of Reward Claimed Modal Pop Up -->
 
     <!-- Start of hero-section -->
-    <h2 class="font-bold text-2xl p-5 ">Redeem Points</h2>
+    <h2 class="mt-32 font-bold text-2xl p-5 ">Redeem Points</h2>
     <div class="bg-secondary flex justify-between items-center">
         <div class="pl-5">
             <div>
@@ -128,7 +135,7 @@
     </div>
     <!-- End of hero-section -->
 
-    
+
     <!-- Start of point system explanation -->
     <div class="mt-5 mb-5 px-3 md:px-8">
         <p class="text-lg font-semibold mb-3">How to earn points?</p>
@@ -243,5 +250,9 @@
         <!-- Pagination End-->
     </section>
     <!-- Start of pagination section -->
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 </body>
+
 </html>
