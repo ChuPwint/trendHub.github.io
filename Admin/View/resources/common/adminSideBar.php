@@ -18,9 +18,9 @@
 
         <!-- Categories Start-->
         <div class="px-3 mt-5">
-            <p class="py-1 px-2 rounded hover:bg-red-400 cursor-pointer categories"><a href="">Analytics</a></p>
+            <p class="py-1 px-2 rounded hover:bg-red-400 cursor-pointer categorie"><a href="">Analytics</a></p>
 
-            <div id="customers-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">
+            <div id="customers-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400  categories">
                 <p>Customers List</p>
                 <img src="../resources/img/drop_down_arrow.svg" alt="drop_down">
             </div>
@@ -41,10 +41,29 @@
 
             <!-- Merchant List Sub Menu  Start-->
             <div id="merchant-list-sub-menu" class="cursor-pointer rounded text-sm hidden">
-                <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">All Merchants</p>
-                <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">New Merchants</p>
-                <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Pending Merchants</p>
-                <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Banned Merchants</p>
+
+
+            <a href="./all_merchant.php">
+            <p class="all_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">All Merchants</p>
+
+            </a>
+
+
+                <a href="./new_merchant.php">
+                <p class="new_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">New Merchants</p>
+                </a>
+
+                <a href="./pending_merchant.php">
+                <p class="pen_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Pending Merchants</p>
+
+                </a>
+
+
+                <a href="./ban_merchant.php">
+                <p class="ban_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Banned Merchants</p>
+
+                </a>
+
             </div>
             <!-- Merchant List Sub Menu  End-->
 
