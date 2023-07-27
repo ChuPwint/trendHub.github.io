@@ -43,8 +43,8 @@
                     </p>
                 </a>
                 <a href="../review/productReview.php">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                        <img id="reviewHover" src="../resources/img/sideBarImg/review.png" alt="">
+                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md  bg-darkGreenColor text-white  cursor-pointer">
+                        <img id="reviewHover" src="../resources/img/sideBarImg/review hover.png" alt="">
                         <span class="sideFull hidden ml-2">Customer Reviews</span>
                     </p>
                 </a>
@@ -67,8 +67,8 @@
                     </p>
                 </a>
                 <a href="../ProfileEdit/profile.php">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md  bg-darkGreenColor text-white rounded-md  cursor-pointer">
-                        <img id="editProfileHover" src="../resources/img/sideBarImg/edit profile hover.png" alt="">
+                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md  bg-opacity-50  hover:bg-darkGreenColor hover:text-white rounded-md  cursor-pointer">
+                        <img id="editProfileHover" src="../resources/img/sideBarImg/edit profile.png" alt="">
                         <span class="sideFull hidden ml-2">Edit Profile</span>
                     </p>
                 </a>
@@ -98,96 +98,103 @@
         </div>
 
         <!-- Right-side Start -->
-        <div class="flex justify-center  items-center flex-col px-5 w-full  h-2/3 ">
-            <div class="bg-primary relative w-5/6  h-full flex flex-col mt-12  shadow-2xl ">
-                <div id="profile" class="p-8 container w-2/3">
-                    <p class="p-6 text-2xl font-bold">Edit Profile</p>
-                    <div class="flex flex-col items-center justify-center"> <!-- Adding a flex container -->
-
-                        <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="rounded-full w-32 shadow-md">
-
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-8">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="username" class="text-md font-semibold">Name:</label>
-                            <input type="text" value="John" id="username" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="business_name" class="text-md font-semibold">Business Name:</label>
-                            <input type="text" value="The Fox" id="business_name" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-4">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="business_license" class="text-md font-semibold">Business License:</label>
-                            <input type="text" value="45621" id="business_license" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="phone" class="text-md font-semibold">Phone Number:</label>
-                            <input type="tel" value="09-1236555555" id="phone" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-4">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="email" class="text-md font-semibold">Email Address:</label>
-                            <input type="email" value="theFox@gmail.com" id="email" class="w-full p-2 border border-secondary rounded shadow-md">
-                        </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="address" class="text-md font-semibold">Address:</label>
-                            <input type="text" value="Yangon" id="address" class="w-full p-2 border border-secondary rounded shadow-md">
-                        </div>
-                    </div>
-
-
-                    <button class="px-14 py-2 mx-auto flex shadow-md text-center align-middle justify-end hover:text-textBlack bg-secondary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
-                    <!-- Modal for save change-->
-                    <div class="fixed w-full h-full inset-0 z-40 flex items-center justify-center bg-opacity-50 hidden" id="modal">
-                        <div class="bg-white rounded-lg  shadow-2xl py-6 w-1/4 flex flex-col justify-center items-center">
-                            <p class="text-center font-bold">Your profile Info is Updated!</p>
-                            <button class="px-12 py-1 mt-4 bg-secondary text-white rounded " id="close-modal-btn">Close</button>
-                        </div>
-                    </div>
-
-
-
-
-
+        <div class="mainPage h-screen overflow-hidden w-full p-3">
+            <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Customer Reviews</h1>
+            
+            <!-- start of search button and select box -->
+            <div class="flex justify-between items-center p-2">
+                <!-- start of search button -->
+                <div class="relative">
+                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for order" required>
+                    <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
+                        <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </button>
                 </div>
-                <div class="w-1/4 absolute right-0  h-full bg-secondary" id="retangle"></div>
+                <!-- end of search button -->
+                <!-- start of select box -->
+                <div>
+                    <span class="mr-2 font-medium">Sort By</span>
+                    <select name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
+                        <option class="p-2" value="pending">Category</option>
+                        <option class="p-2" value="delivered">Product</option>
+                    </select>
+                </div>
+                <!-- end of select box -->
             </div>
+            <!-- end of search button and select box -->
 
-        </div>
+         <!-- Start of order table -->
+         <div class="flex justify-between items-center p-2">
+         <table class="table-fixed mt-10 w-full">
+                <thead class="bg-darkGreenColor text-white font-semibold text-lg">
+                    <tr>
+                        <th class="p-2 w-20">Product Id</th>
+                        <th class="p-2 w-40">Product Name</th>
+                        <th class="p-2 w-20">Category</th>
+                        <th class="p-2 w-32">Stocks</th>
+                        <th class="p-2 w-32">Price</th>
+                        <th class="p-2 w-32">Total amount</th>
+                        <th class="p-2 w-32">Action</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="orderList">
+                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">123</td>
+                        <td class="p-2 text-center">T-shirt</td>
+                        <td class="p-2 text-center">Fashion</td>
+                        <td class="p-2 text-center">20</td>
+                        <td class="p-2 text-center">$750.00</td>
+                        <td class="p-2 text-center">$15,000.00</td>
 
+                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
+                    </tr>
+                    <tr class="orderList bg-[#C4C9C9]">
+                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
+                        <td class="p-2 text-center">Skirt</td>
+                        <td class="p-2 text-center">Girl's Fashion</td>
+                        <td class="p-2 text-center">20</td>
+                        <td class="p-2 text-center">$750.00</td>
+                        <td class="p-2 text-center">$15,000.00</td>
+                  
+                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
+                    </tr>
+                    <tr class="orderList">
+                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
+                        <td class="p-2 text-center">Phone</td>
+                        <td class="p-2 text-center">Electronic Device</td>
+                        <td class="p-2 text-center">20</td>
+                        <td class="p-2 text-center">$750.00</td>
+                        <td class="p-2 text-center">$15,000.00</td>
+                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
+                    </tr>
+                    <tr class="orderList bg-[#C4C9C9]">
+                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
+                        <td class="p-2 text-center">Laptop</td>
+                        <td class="p-2 text-center">Electronic Device</td>
+                        <td class="p-2 text-center">20</td>
+                        <td class="p-2 text-center">$750.00</td>
+                        <td class="p-2 text-center">$15,000.00</td>
+                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
+                    </tr>
+                    <tr class="orderList ">
+                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
+                        <td class="p-2 text-center">Necklace</td>
+                        <td class="p-2 text-center">Accessories</td>
+                        <td class="p-2 text-center">20</td>
+                        <td class="p-2 text-center">$750.00</td>
+                        <td class="p-2 text-center">$15,000.00</td>
+
+                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- End of order table -->
         </div>
         <!-- Right-side End -->
-        <script>
-            // JavaScript to handle the modal dialog
-            const modal = document.getElementById("modal");
-            const closeModalBtn = document.getElementById("close-modal-btn");
-
-            // Function to show the modal
-            function showModal() {
-                modal.classList.remove("hidden");
-            }
-
-            // Function to hide the modal
-            function hideModal() {
-                modal.classList.add("hidden");
-            }
-            // Event listener for the Close button in the modal
-            closeModalBtn.addEventListener("click", function() {
-                hideModal();
-            });
-
-            // Add event listener to the "Save Changes" button
-            const saveProfileBtn = document.getElementById("save-profile-btn");
-            saveProfileBtn.addEventListener("click", function() {
-                showModal();
-                // Add your logic to save the changes or perform any other actions here
-            });
-        </script>
+     
         <script>
             $(document).ready(function() {
                 $("#logoutBtn").click(function() {
