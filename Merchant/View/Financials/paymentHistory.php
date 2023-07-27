@@ -38,8 +38,8 @@
                     </p>
                 </a>
                 <a href="../allOrder/allOrder.php">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-darkGreenColor text-white rounded-md cursor-pointer">
-                        <img id="allOrderHover" src="../resources/img/sideBarImg/all order hover.png" alt="">
+                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md  bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
+                        <img id="allOrderHover" src="../resources/img/sideBarImg/all order.png" alt="">
                         <span class="sideFull hidden ml-2">All Orders</span>
                     </p>
                 </a>
@@ -49,15 +49,15 @@
                         <span class="sideFull hidden ml-2">Customer Reviews</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../contactAdmin/contactAdmin.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="contactHover" src="../resources/img/sideBarImg/contact.png" alt="">
                         <span class="sideFull hidden ml-2">Contact Admin</span>
                     </p>
                 </a>
                 <a href="../Financials/earningOverview.php">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                        <img id="financialHover" src="../resources/img/sideBarImg/financial.png" alt="">
+                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-darkGreenColor text-white rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
+                        <img id="financialHover" src="../resources/img/sideBarImg/financial hover.png" alt="">
                         <span class="sideFull hidden ml-2">Financials & Payment</span>
                     </p>
                 </a>
@@ -67,18 +67,16 @@
                         <span class="sideFull hidden ml-2">Notifications</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../ProfileEdit/profile.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="editProfileHover" src="../resources/img/sideBarImg/edit profile.png" alt="">
                         <span class="sideFull hidden ml-2">Edit Profile</span>
                     </p>
                 </a>
-                <a href="">
-                    <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
-                        <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
-                        <span class="sideFull hidden ml-2">Log Out</span>
-                    </p>
-                </a>
+                <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
+                    <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
+                    <span class="sideFull hidden ml-2">Log Out</span>
+                </p>
             </div>
             <!-- Categories End-->
         </div>
@@ -190,6 +188,21 @@
         </div>
         <!-- Right-side End -->
     </section>
+    <script>
+        $(document).ready(function() {
+            $("#logoutBtn").click(function() {
+                $("#logoutModal").toggle();
+            });
+
+            $("#confirmLogout").click(function() {
+                $("#logoutModal").toggle();
+            });
+            
+            $("#cancelLogout").click(function() {
+                $("#logoutModal").toggle();
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -7,18 +7,28 @@
     <title>Item Detail</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/itemDetail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/js/product/itemDetail.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
-<body class="bg-primary font-roboto px-5 md:px-28">
+<body class="bg-primary font-roboto">
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+    <!-- Nav Path -->
+    <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">
+        <span>Home > </span>
+        <span>Search Results ></span>
+        <span>Item Details</span>
+    </div>
     <!--Start of detail card-->
-    <div class="py-10 md:py-6">
+    <div class="px-5 md:px-28 py-10 md:py-6">
         <div class="bg-productCardBgColor flex flex-col justify-center items-center shadow-md md:flex-row md:w-99">
             <!-- image half -->
-            <div class="p-5 mb-3 flex justify-center items-center md:flex-grow md:w-[60%]">
+            <div class="p-5 mb-3 flex justify-center items-center md:flex-grow md:w-[50%]">
                 <img class="p_detail_img w-[80%] md:w-full" src="../resources/img/item_detail/cpu-nb 385.svg" alt="">
             </div>
 
@@ -72,7 +82,7 @@
     <!--End of detail card-->
 
     <!-- Start of product description -->
-    <div>
+    <div class="px-5 md:px-28 ">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
             <p class="text-xl font-bold underline mb-5">Product Description</p>
             <p class="p_descript md:pl-8">Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming.</p>
@@ -81,7 +91,7 @@
     <!-- End of product description -->
 
     <!-- Start of reviews summary -->
-    <div class="mt-8">
+    <div class="px-5 md:px-28 mt-8">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
             <p class="text-xl font-bold underline">Rating & Reviews</p>
 
@@ -134,7 +144,7 @@
     <!-- End of reviews summary -->
 
     <!-- Start of user reviews -->
-    <div class="mt-5">
+    <div class="mt-5 px-5 md:px-28">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
             <div class="flex justify-between items-center">
                 <!-- user img and rating star img -->
@@ -172,7 +182,7 @@
         </div>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5 px-5 md:px-28">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
             <div class="flex justify-between items-center">
                 <!-- user img and rating star img -->
@@ -191,6 +201,9 @@
         </div>
     </div>
     <!-- End of user reviews -->
+    <?php
+    include "../resources/common/footer.php"
+    ?>
 </body>
 
 </html>

@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Out</title>
-    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?=time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="../resources/js/checkout/checkout.js" defer></script>
 </head>
 
 <body class="bg-primary font-roboto">
-    <p class="px-5 py-4 md:px-10 md:pt-8 font-bold text-xl">Delivery Information</p>
+    <?php
+    include "../resources/common/navbar.php";
+    ?>
+    <p class="px-5 mt-36 md:mt-28 md:px-10 md:pt-8 font-bold text-xl">Delivery Information</p>
     <div class="md:p-10">
         <!--start of container -->
         <div class="px-4 py-4 bg-white shadow-md">
@@ -76,11 +80,9 @@
                                         <input type="text" name="region" class="border border-1 p-2 border-tertiary w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" placeholder="12/A ABC Street DE Apartment 3rd floor">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-6 flex items-center justify-center">
                         <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-tertiary md:px-6 py-2 px-10 font-semibold text-white">Save and Deliver Here</button>
                     </div>

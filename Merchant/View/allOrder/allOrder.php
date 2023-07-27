@@ -74,18 +74,16 @@
                         <span class="sideFull hidden ml-2">Edit Profile</span>
                     </p>
                 </a>
-
                 <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                     <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
                     <span class="sideFull hidden ml-2">Log Out</span>
                 </p>
-
             </div>
             <!-- Categories End-->
         </div>
         <!-- Left-side Categories End-->
-          <!-- Logout Confirmation Modal -->
-          <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+        <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
             <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
                 <h2 class="text-xl font-bold mb-4 ">Logout</h2>
                 <hr>
@@ -302,6 +300,7 @@
             $("#confirmLogout").click(function() {
                 $("#logoutModal").toggle();
             });
+            
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
