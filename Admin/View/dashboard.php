@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <!-- <link href="./resources/css/analytics.css"> -->
     <script src="./resources/lib/jquery3.6.0.js"></script>
 </head>
 
@@ -42,7 +43,7 @@
 
                 <!-- Merchant List Sub Menu  Start-->
                 <div id="merchant-list-sub-menu" class="cursor-pointer rounded text-sm hidden">
-                    <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">All Merchants</p>
+                    <p class="all_merchants pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">All Merchants</p>
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">New Merchants</p>
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Pending Merchants</p>
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Banned Merchants</p>
