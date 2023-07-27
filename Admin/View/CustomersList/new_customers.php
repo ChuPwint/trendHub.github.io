@@ -363,7 +363,7 @@
             </div>
             <div class="flex justify-center space-x-4 mt-6">
 
-              <button id="closeModalButton1" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
+              <button id="closeModalButton1" class="rounded-[5px] px-4 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
               <button id="closeModalButton1" class="bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
 
             </div>

@@ -67,50 +67,18 @@ function openModal(modalId) {
   });
 
 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
   
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  function showModal() {
-    $('#myModal').removeClass('hidden');
-  }
-
-  function hideModal() {
-    $('#myModal').addClass('hidden');
-  }
-
-
-  $('#openModalButton').on('click', function() {
-    showModal();
-  });
-
-
-  $('#closeModalButton').on('click', function() {
-    hideModal();
-  });
-
-
-  $('#addToListButton').on('click', function() {
-    hideModal();
-  });
-
-
-  $('#myModal').on('click', function(event) {
-    if (event.target === $('#myModal')[0]) {
-      hideModal();
-    }
-  });
-
-  $('.modal-content').on('click', function(event) {
-    event.stopPropagation();
-  });
