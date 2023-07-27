@@ -56,7 +56,7 @@
                         <span class="sideFull hidden ml-2">Contact Admin</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../Financials/earningOverview.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="financialHover" src="../resources/img/sideBarImg/financial.png" alt="">
                         <span class="sideFull hidden ml-2">Financials & Payment</span>
@@ -74,12 +74,10 @@
                         <span class="sideFull hidden ml-2">Edit Profile</span>
                     </p>
                 </a>
-
                 <p id="logoutBtn" class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                     <img id="logOutHover" src="../resources/img/sideBarImg/logout.png" alt="">
                     <span class="sideFull hidden ml-2">Log Out</span>
                 </p>
-
             </div>
             <!-- Categories End-->
         </div>
@@ -343,7 +341,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>
