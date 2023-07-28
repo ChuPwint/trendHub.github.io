@@ -7,7 +7,7 @@
     <title></title>
 
     <!-- tailwind link -->
-    <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" />
+    <!-- <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" /> -->
    
 
      <!-- google font link -->
@@ -155,9 +155,9 @@ transition: top 0.3s;
 
     <!-- navbar -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="../js/homePage/header/navbarMobile.js"></script>
-    <script src="../js/homePage/header/categoryDesktop.js"></script>
-    <script src="../js/homePage/header/categoryMobile.js"></script>
+    <script src="../resources/js/homePage/header/navbarMobile.js"></script>
+    <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
+    <script src="../resources/js/homePage/header/categoryMobile.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- navbar -->
 
