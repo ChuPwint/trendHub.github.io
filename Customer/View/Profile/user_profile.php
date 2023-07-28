@@ -62,10 +62,10 @@
     </script>
     <!--End  profile menu nav bar -->
 
-    <div class="flex justify-center items-center flex-col w-full  h-2/3  ">
-        <div class="bg-primary relative w-5/6  h-full flex flex-col mt-12  shadow-2xl ">
-            <p class="text-textWhite p-2 px-4 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
-            <div class="flex">
+    <div class="flex justify-center items-center flex-col w-full   md:mt-36">
+        <div class="bg-primary relative w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+            <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
+            <div class="md:flex">
                 <!--Start Left Side menu bar -->
                 <div class="w-1/4 bg-secondary px-4 py-8 hidden md:block">
                     <ul class="space-y-4">
@@ -106,9 +106,9 @@
 
 
                 <!-- Profile Form Card -->
-                <div class="flex-1  relative " id="profileEdit">
+                <div class="flex-1  md:p-5  relative " id="profileEdit">
                     <!-- Start Profile Edit Card -->
-                    <div id="profile-edit" class="p-8">
+                    <div id="profile-edit" class="md:p-8 p-3">
                         <div class="flex md:flex-row flex-col justify-start items-center mb-4">
                             <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
                             <div class="flex flex-col">
@@ -159,7 +159,7 @@
 
                         </div>
 
-                        <button class="px-6 py-1 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                        <button class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                     </div>
                 </div>
                 <!-- End Profile Edit Card -->
