@@ -24,55 +24,7 @@
 </head>
 
 <body class="bg-secondary">
- <div id="navbar" class="fixed top-0 w-full shadow-md z-40 ">
-       
-        <nav class="py-2 px-4 bg-white shadow md:flex md:items-center md:justify-between">
-            <div class="flex justify-between items-center ">
-    
-                <!-- desktop logo -->
-                <img class="md:block hidden" src="../resources/img/header/logo.svg" alt="">
-    
-                <!-- mobile logo -->
-                <img  class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
-    
-                <!-- mobile login -->
-                <button class="bg-[#F36823] text-[#FFFFFF] py-2 px-6 rounded md:hidden order-3">
-                <a href="../Login/login.php">Login</a>
-</button>
-    
-                <!-- mobile menu -->
-                <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
-                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
-                </span>
-            </div>
-    
-            <ul
-                class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-                <li class="mx-4 my-6 md:my-0">
-          <a href="../index.php" class="text-md hover:text-[#F36823]  duration-300">Home</a>
-        </li>
-        <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/aboutUs.php" class="text-md hover:text-[#F36823]  duration-300">About</a>
-        </li>
-        <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/services.php" class="text-md hover:text-[#F36823]  duration-300">Service</a>
-        </li>
-        <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/help.php" class="text-md hover:text-[#F36823]  duration-300">Help</a>
-        </li>
-        <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
-        </li>
-        <a href="../Login/login.php">  <button
-                    class="bg-[#F36823] text-[#FFFFFF]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-[#F36823] rounded ">
-                  Login
-                </button>
-                </a>
-                <h2 class=""></h2>
-            </ul>
-        </nav>
-        <!-- end first navbar -->
-</div> 
+     <?php include "../resources/common/navbar.php" ?>
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
     <!--Start  profile menu nav bar -->
     <nav class="p-5  md:items-center md:justify-between block md:hidden ">
