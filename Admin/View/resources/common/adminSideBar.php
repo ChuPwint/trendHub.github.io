@@ -99,12 +99,55 @@
 
             <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories"><a href="./Notification/notification.php">Notifications</a></p>
 
-            <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">Logout</p>
+            <p onclick="showLogout()" class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">Logout</p>
 
         </div>
         <!-- Categories End-->
     </aside>
     <!-- Left-side Categories End-->
+
+
+
+
+ 
+
+
+
+
+    <div id="modalLogout" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+        <div class="modal-content bg-[#FEFEFE] w-[340px] h-[300px] rounded shadow-md relative">
+            <button onclick="hideLogout()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+                <svg class="h-6 w-6 text-[grey] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <div class=" mt-[50px]">
+                <span class="block text-center text-xl font-semibold">Oh no! You’re leaving...</span>
+                <span class="block text-center text-xl font-semibold mt-3">Are you sure?</span>
+            </div>
+
+            <button onclick="hideLogout()" class="block px-4 py-3 rounded-md bg-[#12141B] text-white mx-auto w-[200px] mt-4">Just Kidding</button>
+            <button onclick="hideLogout()" class="block px-4 py-3 rounded-md border border-black text-black mx-auto w-[200px] mt-4">Yes, Log Me Out</button>
+
+   
+
+           
+
+          
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -127,7 +170,30 @@
                 $("#order-list-sub-menu").toggle();
             })
         })
+
+
+
+
+
+
+ function showLogout() {
+    document.getElementById('modalLogout').classList.remove('hidden');
+  }
+  
+  
+  function hideLogout() {
+    document.getElementById('modalLogout').classList.add('hidden');
+  }
+
+
+
+
+
+
+
+
+
     </script>
 </body>
-
+<script src=".../resources/lib/jquery3.6.0.js"></script>
 </html>

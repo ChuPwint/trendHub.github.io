@@ -158,7 +158,7 @@ transition: top 0.3s;
     <script src="../js/homePage/header/navbarMobile.js"></script>
     <script src="../js/homePage/header/categoryDesktop.js"></script>
     <script src="../js/homePage/header/categoryMobile.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- navbar -->
 
 </body>
