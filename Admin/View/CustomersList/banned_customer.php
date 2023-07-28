@@ -30,7 +30,9 @@
 <body class="bg-[#12141B]">
     <section class="container w-full mx-auto flex">
         <!-- Import side bar  -->
+        <?php $indexpage = 2 ?>
         <?php include "../resources/common/adminSideBar.php" ?>
+        <?php $indexpage = 0 ?>
 
         <!-- Right-side Start -->
         <div class="h-screen overflow-hidden w-full">
