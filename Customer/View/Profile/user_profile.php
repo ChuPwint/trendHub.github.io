@@ -24,6 +24,55 @@
 </head>
 
 <body class="bg-secondary">
+ <div id="navbar" class="fixed top-0 w-full shadow-md z-40 ">
+       
+        <nav class="py-2 px-4 bg-white shadow md:flex md:items-center md:justify-between">
+            <div class="flex justify-between items-center ">
+    
+                <!-- desktop logo -->
+                <img class="md:block hidden" src="../resources/img/header/logo.svg" alt="">
+    
+                <!-- mobile logo -->
+                <img  class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
+    
+                <!-- mobile login -->
+                <button class="bg-[#F36823] text-[#FFFFFF] py-2 px-6 rounded md:hidden order-3">
+                <a href="../Login/login.php">Login</a>
+</button>
+    
+                <!-- mobile menu -->
+                <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+                </span>
+            </div>
+    
+            <ul
+                class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+                <li class="mx-4 my-6 md:my-0">
+          <a href="../index.php" class="text-md hover:text-[#F36823]  duration-300">Home</a>
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+          <a href="../Contact/aboutUs.php" class="text-md hover:text-[#F36823]  duration-300">About</a>
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+          <a href="../Contact/services.php" class="text-md hover:text-[#F36823]  duration-300">Service</a>
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+          <a href="../Contact/help.php" class="text-md hover:text-[#F36823]  duration-300">Help</a>
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+          <a href="../Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
+        </li>
+        <a href="../Login/login.php">  <button
+                    class="bg-[#F36823] text-[#FFFFFF]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-[#F36823] rounded ">
+                  Login
+                </button>
+                </a>
+                <h2 class=""></h2>
+            </ul>
+        </nav>
+        <!-- end first navbar -->
+</div> 
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
     <!--Start  profile menu nav bar -->
     <nav class="p-5  md:items-center md:justify-between block md:hidden ">
@@ -60,10 +109,10 @@
     </script>
     <!--End  profile menu nav bar -->
 
-    <div class="flex justify-center items-center flex-col w-full  h-2/3  ">
-        <div class="bg-primary relative w-5/6  h-full flex flex-col mt-12  shadow-2xl ">
-            <p class="text-textWhite p-2 px-4 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
-            <div class="flex">
+    <div class="flex justify-center items-center flex-col w-full   md:mt-36">
+        <div class="bg-primary relative w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+            <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
+            <div class="md:flex">
                 <!--Start Left Side menu bar -->
                 <div class="w-1/4 bg-secondary px-4 py-8 hidden md:block">
                     <ul class="space-y-4">
@@ -104,9 +153,9 @@
 
 
                 <!-- Profile Form Card -->
-                <div class="flex-1  relative " id="profileEdit">
+                <div class="flex-1  md:p-5  relative " id="profileEdit">
                     <!-- Start Profile Edit Card -->
-                    <div id="profile-edit" class="p-8">
+                    <div id="profile-edit" class="md:p-8 p-3">
                         <div class="flex md:flex-row flex-col justify-start items-center mb-4">
                             <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
                             <div class="flex flex-col">
@@ -157,7 +206,7 @@
 
                         </div>
 
-                        <button class="px-6 py-1 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                        <button class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                     </div>
                 </div>
                 <!-- End Profile Edit Card -->
