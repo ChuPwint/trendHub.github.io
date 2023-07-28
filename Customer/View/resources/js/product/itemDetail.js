@@ -23,6 +23,10 @@ $(document).ready(() => {
     $(".wishlistAdd").click(() => {
         wishListTextAndIconToggle();
     });
+
+    $("#shareLinkIcon").click(() => {
+        $(".quantityInput").removeClass("hidden");
+    });
 });
 
 /*

@@ -18,12 +18,13 @@
     <?php
     include "../resources/common/navbar.php";
     ?>
-    <!-- Nav Path -->
+
     <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">
         <span>Home > </span>
         <span>Search Results ></span>
         <span>Item Details</span>
     </div>
+
     <!--Start of detail card-->
     <div class="px-5 md:px-28 py-10 md:py-6">
         <div class="bg-productCardBgColor flex flex-col justify-center items-center shadow-md md:flex-row md:w-99">
@@ -64,14 +65,14 @@
                         <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
                         <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
                     </p>
-                    <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
+                    <ion-icon name="share-social" class="cursor-pointer text-4xl shareLinkIcon"></ion-icon>
                 </div>
 
                 <!-- icons or button for wishlist and add to cart -->
                 <div class="mt-6 flex justify-between items-center md:flex-col">
                     <div class="md:hidden">
                         <ion-icon id="heartIcon" name="heart-circle" class="wishlistAdd cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
-                        <ion-icon name="share-social" class="cursor-pointer text-4xl"></ion-icon>
+                        <ion-icon name="share-social" class="cursor-pointer text-4xl shareLinkIcon"></ion-icon>
                     </div>
                     <button id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
                     <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
@@ -80,6 +81,23 @@
         </div>
     </div>
     <!--End of detail card-->
+
+    <!-- Share Link Modal -->
+    <div id="shareLinkModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+        <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
+            <h2 class="text-xl font-bold mb-4">Share Product</h2>
+            <hr>
+            <div class="p-3">
+                <p class="mb-10">Share this product by copying this link and posting it on social media: </p>
+                <div class="mt-4 flex justify-around">
+                    www.trendhub.com
+                </div>
+            </div>
+            <div>
+                <button class="bg-tertiary px-4 py-2">Close Sharing</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Start of product description -->
     <div class="px-5 md:px-28 ">
