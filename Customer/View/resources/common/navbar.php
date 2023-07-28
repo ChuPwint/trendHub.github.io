@@ -85,6 +85,7 @@
     </nav>
     <!-- end first navbar -->
     <!-- start second navbar -->
+    <?php if(!isset($view)){ ?>   
     <nav class="bg-[#E4E4D2] py-2 px-3 md:px-7">
       <div class="flex justify-between">
         <div class="flex">
@@ -118,6 +119,7 @@
         <a href="../Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="../resources/img/header/cart.svg" alt=""></a>
       </div>
     </nav>
+    <?php  } ?>
     <!-- end second navbar -->
   </div>
   <!-- end header -->

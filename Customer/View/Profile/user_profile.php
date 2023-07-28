@@ -24,7 +24,8 @@
 </head>
 
 <body class="bg-secondary">
-     <?php include "../resources/common/navbar.php" ?>
+    <?php  $view = 1 ?>
+    <?php include "../resources/common/navbar.php" ?>
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
     <!--Start  profile menu nav bar -->
     <nav class="p-5  md:items-center md:justify-between block md:hidden ">
