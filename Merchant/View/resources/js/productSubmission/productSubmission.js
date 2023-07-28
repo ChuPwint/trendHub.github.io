@@ -1,21 +1,48 @@
-$(document).ready(function() {
-    $("#addLogo").click(function() {
+$(document).ready(function () {
+    var uploadedImage = null;
+    $("#addLogo").click(function () {
         $(".addLogoModal").toggle();
     });
 
-    $(".closeLogoAddModal").click(function() {
+    $("#file_input").on("change", function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            uploadedImage = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+
+    $(".closeLogoAddModal").click(function () {
         $(".addLogoModal").toggle();
+        if (uploadedImage) {
+            $(".logoPhoto").attr("src", uploadedImage);
+            $(".logoPhoto").removeClass("hidden");
+            $("#addLogo").addClass("hidden");
+        }
     });
 
-    $("#addProductBtn").click(function() {
+    $("#addProductBtn").click(function () {
         $(".addProductModal").toggle();
     });
 
-    $(".closeAddProductModal").click(function() {
+    $(".closeAddProductModal").click(function () {
         $(".addProductModal").toggle();
     });
 
-    $("#submitProductBtn").click(function() {
+    $("#logoutBtn").click(function () {
+        $("#logoutModal").toggle();
+    });
+
+    $("#confirmLogout").click(function () {
+        $("#logoutModal").toggle();
+    });
+
+    $("#cancelLogout").click(function () {
+        $("#logoutModal").toggle();
+    });
+
+    $("#submitProductBtn").click(function () {
         $(".productSubmitFinishModal").toggle();
         $("#name").val($("#name").val());
         $("#storeName").val($("#storeName").val());
@@ -28,7 +55,7 @@ $(document).ready(function() {
         $("#submitProductBtn").addClass("hidden");
     });
 
-    $("#closeProductSubmitFinishModal").click(function() {
+    $("#closeProductSubmitFinishModal").click(function () {
         $(".productSubmitFinishModal").toggle();
     });
 });

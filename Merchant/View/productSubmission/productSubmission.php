@@ -106,7 +106,7 @@
                 <p class="font-semibold md:text-2xl">Add Your Logo</p>
                 <hr class="border-black mt-4 mb-4">
                 <label class="block mb-2 font-medium" for="file_input">Upload file</label>
-                <input class="block ml-10 text-sm  rounded-lg cursor-pointer " id="file_input" type="file">
+                <input class="block ml-10 text-sm rounded-lg cursor-pointer " id="file_input" type="file">
                 <!-- Modal Close Button -->
                 <div class="flex justify-center md:mt-6">
                     <button class="closeLogoAddModal mt-5 bg-secondary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg">Close</button>
@@ -218,7 +218,7 @@
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <div>
-                <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer">Your Logo Here</h1>
+                <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer underline">Your Logo Here</h1>
                 <img class="logoPhoto hidden w-44 h-20" src="" alt="">
             </div>
             <hr class="mt-5 mb-3 border border-black">
@@ -327,20 +327,6 @@
         </div>
         <!-- Right-side End -->
     </section>
-    <script>
-        $(document).ready(function() {
-            $("#logoutBtn").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#confirmLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-            $("#cancelLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-        });
-    </script>
 </body>
 
 </html>

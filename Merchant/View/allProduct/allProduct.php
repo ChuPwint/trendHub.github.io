@@ -7,6 +7,7 @@
     <title>Merchant All Product</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
+    <script src="../resources/js/allProduct/allProduct.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
@@ -144,11 +145,11 @@
                             <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                                 <div class="text-center">
                                     <div class="mt-4">
-                                        <img src="../resources/img/allProduct/cpu-nb 385.svg" alt="">
-                                        <label for="file-upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
-                                            <span class="font-bold">Upload a file: </span>
+                                        <div class="flex justify-center"><img class="p_Image" src="../resources/img/allProduct/cpu-nb 385.svg" alt=""></div>
+                                        <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                            <span class="font-bold underline">Upload a file: </span>
                                         </label>
-                                        <input id="file-upload" name="file-upload" type="file" class=" mt-2 text-center">
+                                        <input id="file_upload" name="file_upload" type="file" class="hidden mt-2 text-center">
                                     </div>
                                     <p>PNG, JPG up to 10MB</p>
                                 </div>
@@ -321,30 +322,6 @@
             chart1.draw(data, options1);
             chart2.draw(data, options2);
         }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(".viewDetailBtn").click(function() {
-                $(".viewDetailModal").toggle();
-            });
-
-            $(".closeViewDetailModal").click(function() {
-                $(".viewDetailModal").toggle();
-            });
-
-            $("#logoutBtn").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#confirmLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#cancelLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-        });
     </script>
 </body>
 

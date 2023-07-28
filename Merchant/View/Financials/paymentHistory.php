@@ -118,7 +118,6 @@
                         <th class="p-2 w-20">Payment Date</th>
                         <th class="p-2 w-32">Payment Via</th>
                         <th class="p-2 w-32">Payment Amount</th>
-                        <th class="p-2 w-32">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -128,7 +127,6 @@
                         <td class="p-2 text-center">2023/07/27</td>
                         <td class="p-2 text-center">card</td>
                         <td class="p-2 text-center">23,000 kyat</td>
-                        <td class="p-2 text-center underline font-semibold cursor-pointer">View Detail</td>
                     </tr>
                     <tr class="paymentListCustomer bg-[#C4C9C9]">
                         <td class="p-2 text-center">1234</td>
@@ -136,7 +134,6 @@
                         <td class="p-2 text-center">2023/07/27</td>
                         <td class="p-2 text-center">card</td>
                         <td class="p-2 text-center">23,000 kyat</td>
-                        <td class="p-2 text-center underline font-semibold cursor-pointer">View Detail</td>
                     </tr>
                     <tr class="paymentListCustomer">
                         <td class="p-2 text-center">1234</td>
@@ -144,7 +141,6 @@
                         <td class="p-2 text-center">2023/07/27</td>
                         <td class="p-2 text-center">card</td>
                         <td class="p-2 text-center">23,000 kyat</td>
-                        <td class="p-2 text-center underline font-semibold cursor-pointer">View Detail</td>
                     </tr>
                     <tr class="paymentListCustomer bg-[#C4C9C9]">
                         <td class="p-2 text-center">1234</td>
@@ -152,7 +148,6 @@
                         <td class="p-2 text-center">2023/07/27</td>
                         <td class="p-2 text-center">card</td>
                         <td class="p-2 text-center">23,000 kyat</td>
-                        <td class="p-2 text-center underline font-semibold cursor-pointer">View Detail</td>
                     </tr>
                 </tbody>
             </table>
