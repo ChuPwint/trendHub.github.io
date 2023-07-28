@@ -164,15 +164,11 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="mb-4">
                                 <label for="productDetail" class="block font-medium">Product Detail:</label>
-                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
-                            Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.
-                            </textarea>
+                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
                             </div>
                             <div class="mb-4">
                                 <label for="productDescription" class="block font-medium">Product Description:</label>
-                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
-                            MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11
-                            </textarea>
+                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
                             </div>
                         </div>
                         <div class="flex justify-end items-center">

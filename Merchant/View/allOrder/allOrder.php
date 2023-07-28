@@ -162,7 +162,7 @@
         <!-- start of order status change modal box -->
         <div class="changeStatusModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
-            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+            <div class="bg-white m-auto p-2 border rounded-sm w-[40%] relative">
                 <div class="closeChangeStatusModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Change Order Status</h2>
                 <div class="px-8 py-3">
@@ -174,6 +174,9 @@
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
                     </select>
+                </div>
+                <div class="flex justify-center items-center mb-10">
+                    <button type="submit" class="closeChangeStatusModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Confirm Change</button>
                 </div>
             </div>
             <!-- end of container box -->
@@ -300,7 +303,7 @@
             $("#confirmLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-            
+
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
