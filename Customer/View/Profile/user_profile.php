@@ -62,7 +62,7 @@
     <!--End  profile menu nav bar -->
 
     <div class="flex justify-center items-center flex-col w-full   md:mt-36">
-        <div class="bg-primary relative w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+        <div class="bg-primary relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
             <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
             <div class="md:flex">
                 <!--Start Left Side menu bar -->
