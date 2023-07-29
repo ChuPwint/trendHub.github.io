@@ -35,8 +35,8 @@
 </style>
 
 
-<body class="bg-[#12141B] font-roboto ">
-  <section class="container w-full mx-auto flex">
+<body class="font-roboto ">
+  <section class=" w-full bg-[#12141B] max-w-[1600px] mx-auto flex">
     <!-- Import side bar  -->
     <?php $menu = "merchantList" ?>
     <?php $subMenu = "newMerchants" ?>
