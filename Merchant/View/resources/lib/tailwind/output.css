@@ -865,8 +865,8 @@ video {
   height: 42px;
 }
 
-.h-\[650px\] {
-  height: 650px;
+.h-\[680px\] {
+  height: 680px;
 }
 
 .h-full {
@@ -1015,6 +1015,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .table-fixed {
@@ -1448,6 +1452,10 @@ video {
   padding-top: 4rem;
 }
 
+.pt-28 {
+  padding-top: 7rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -1458,6 +1466,10 @@ video {
 
 .pt-64 {
   padding-top: 16rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
 }
 
 .text-center {
@@ -1640,36 +1652,6 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.transition-\[width\] {
-  transition-property: width;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.delay-1000 {
-  transition-delay: 1000ms;
-}
-
-.delay-\[550ms\] {
-  transition-delay: 550ms;
-}
-
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-
-.hover\:w-72:hover {
-  width: 18rem;
-}
-
-.hover\:w-80:hover {
-  width: 20rem;
-}
-
 .hover\:border-secondary:hover {
   --tw-border-opacity: 1;
   border-color: rgb(47 68 70 / var(--tw-border-opacity));
@@ -1724,22 +1706,6 @@ video {
 .focus\:ring-secondary:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(47 68 70 / var(--tw-ring-opacity));
-}
-
-.active\:absolute:active {
-  position: absolute;
-}
-
-.active\:left-0:active {
-  left: 0px;
-}
-
-.active\:top-0:active {
-  top: 0px;
-}
-
-.active\:w-72:active {
-  width: 18rem;
 }
 
 @media (min-width: 640px) {
