@@ -37,12 +37,10 @@ function sideShowHide() {
     ($(".hoverImg").hasClass("justify-center")) ? $(".hoverImg").removeClass("justify-center"): $(".hoverImg").addClass("justify-center");
     ($(".mainPage").hasClass("ml-40")) ? $(".mainPage").removeClass("ml-40"): $(".mainPage").addClass("ml-40");
 
-    if ($("#sideBarContainer").hasClass("w-20")) {
-        $("#sideBarContainer").removeClass("w-20");
-        $("#sideBarContainer").addClass("w-72 absolute top-0 left-0");
+    if ($("#sideBarContainer").hasClass("expanded")) {
+        $("#sideBarContainer").removeClass("expanded absolute top-0 left-0");
     } else {
-        $("#sideBarContainer").addClass("w-20");
-        $("#sideBarContainer").removeClass("w-72 absolute top-0 left-0");
+        $("#sideBarContainer").addClass("expanded absolute top-0 left-0");
     }
     $(".sideFull").toggle();
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchant Product Submission</title>
+    <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
@@ -18,7 +19,7 @@
         <!-- space for the main page to not move -->
         <div id="space" class="hidden w-20 h-screen p-2"></div>
         <!-- Left-side Categories Start-->
-        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2 z-20">
+        <div id="sideBarContainer" class="bg-tertiary h-screen p-2 z-20">
             <!-- Merchant  -->
             <div class="flex justify-center mb-2 cursor-pointer"><img id="toggleSideBar" class="w-12 h-12 rounded-full shadow-lg border border-slate-200" src="../resources/img/sideBarImg/TH Logo 6.svg" alt=""></div>
             <h1 class="text-lg font-medium text-center hidden sideFull">Merchant's</h1>
