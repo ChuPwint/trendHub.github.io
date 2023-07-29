@@ -114,7 +114,7 @@
 
 
 
-    <div id="modalLogout" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+    <div id="modalLogout" class="modal hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[340px] h-[300px] rounded shadow-md relative">
             <button onclick="hideLogout()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[grey] " fill="none" viewBox="0 0 24 24" stroke="currentColor">

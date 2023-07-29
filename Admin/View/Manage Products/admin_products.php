@@ -426,12 +426,12 @@
 
                     <!-- start input data -->
                     <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                        <input class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                        <input class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                        <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                             <option value="" disabled selected>Category</option>
                             <option value="option1">Men's & Boy's Fashion</option>
                             <option value="option2">Women's & Girl's Fashion</option>
@@ -450,9 +450,9 @@
 
                         <br>
 
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                     </div>
                     <!-- end input data -->
 
@@ -745,12 +745,12 @@
 
                     <!-- start input data -->
                     <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input value="MSI Summit E13 Flip Evo" class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input value="MSI" class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                        <input value="MSI Summit E13 Flip Evo" class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                        <input value="MSI" class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                        <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                             <option value="" disabled>Category</option>
                             <option value="option1">Men's & Boy's Fashion</option>
                             <option value="option2">Women's & Girl's Fashion</option>
@@ -769,9 +769,9 @@
 
                         <br>
 
-                        <input value="2,100,000" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input value="2,150,000" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input value="10" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                        <input value="2,100,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                        <input value="2,150,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                        <input value="10" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                     </div>
                     <!-- end input data -->
 
@@ -796,7 +796,13 @@
 
                     <!-- start product description -->
                     <div>
-                        <input placeholder="Product Description" value="Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis." type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none overflow-x-scroll">
+                        <!-- <input placeholder="Product Description" value="" type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none overflow-x-scroll"> -->
+                        <textarea class="bg-[#EDCFCF] resize-none outline-none shadow-md rounded-md focus:none p-4" name="" id="" cols="38" rows="7">
+                            <span>
+                        Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis.
+
+                            </span>
+                        </textarea>
                     </div>
                     <!-- end product description -->
 
