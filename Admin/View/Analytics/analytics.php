@@ -9,8 +9,8 @@
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
-<body class="bg-[#12141B]">
-    <section class="container w-full mx-auto flex">
+<body class="">
+    <section class="bg-[#12141B] w-full max-w-[1600px] mx-auto flex">
 
         <!-- Import side bar  -->
         <?php $menu = "analytics" ?>
