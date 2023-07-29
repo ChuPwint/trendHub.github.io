@@ -151,6 +151,15 @@
   </div>
 
 
+<<<<<<< HEAD
+    <!-- navbar -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="../js/homePage/header/navbarMobile.js"></script>
+    <script src="../js/homePage/header/categoryDesktop.js"></script>
+    <script src="../js/homePage/header/categoryMobile.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- navbar -->
+=======
   <!-- end header  -->
 
 
@@ -161,6 +170,7 @@
   <script src="../resources/js/homePage/header/categoryMobile.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- navbar -->
+>>>>>>> origin/main
 
 </body>
 

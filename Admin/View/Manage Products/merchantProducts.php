@@ -37,6 +37,8 @@
 <body class="bg-[#12141B] font-roboto ">
   <section class="container w-full mx-auto flex">
     <!-- Import side bar  -->
+    <?php $menu = "manageProducts" ?>
+    <?php $subMenu = "merchantProducts" ?>
     <?php include "../resources/common/adminSideBar.php" ?>
 
     <!-- Right-side Start -->

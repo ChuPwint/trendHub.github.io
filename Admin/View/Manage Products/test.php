@@ -432,12 +432,12 @@
 
             <!-- start input data -->
             <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                    <input class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                    <input class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                    <input class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                    <input class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                    <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                    <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                         <option value="" disabled selected>Category</option>
                         <option value="option1">Men's & Boy's Fashion</option>
                         <option value="option2">Women's & Girl's Fashion</option>
@@ -456,9 +456,9 @@
 
                     <br>
 
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                 </div>
             <!-- end input data -->
 
@@ -533,12 +533,12 @@
 
             <!-- start input data -->
             <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                    <input class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                    <input class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                    <input class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                    <input class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                    <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                    <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                         <option value="" disabled selected>Category</option>
                         <option value="option1">Men's & Boy's Fashion</option>
                         <option value="option2">Women's & Girl's Fashion</option>
@@ -557,9 +557,9 @@
 
                     <br>
 
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                    <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                    <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                 </div>
             <!-- end input data -->
 

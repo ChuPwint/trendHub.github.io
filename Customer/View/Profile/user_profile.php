@@ -21,49 +21,18 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- end navbar -->
     <script src="../resources/lib/jquery3.6.0.js"></script>
+
+
 </head>
 
 <body class="bg-secondary">
-    <?php  $view = 1 ?>
+    <?php $view = 1 ?>
     <?php include "../resources/common/navbar.php" ?>
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
-    <!--Start  profile menu nav bar -->
-    <nav class="p-5  md:items-center md:justify-between block md:hidden ">
-        <div class="flex justify-between items-center ">
-            <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-                <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
-            </span>
-        </div>
 
-        <ul class="md:flex md:items-center z-50 md:z-auto absolute md:static  bg-tertiary  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500 flex flex-row" id="mobile-user"><img src="../resources/img/profile/user.png" alt="" srcset="" class="w-4 mr-2"> User Info</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-wishlist"><img src="../resources/img/profile/wishlist.png" alt="" srcset="" class="w-4 mr-2 "> Wishlist</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-order"><img src="../resources/img/profile/orderhistory.png" alt="" srcset="" class="w-4 mr-2">Order History</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-notify"><img src="../resources/img/profile/notify.png" alt="" srcset="" class="w-4 mr-2">Notifications</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0 ">
-                <a href="#" class=" text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-logout"><img src="../resources/img/login/logout.png" alt="" srcset="" class="w-4 mr-2">Log Out</a>
-            </li>
-            <h2 class=""></h2>
-        </ul>
-    </nav>
-    <script>
-        function Menu(e) {
-            let list = document.querySelector('ul');
-            e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
-        }
-    </script>
-    <!--End  profile menu nav bar -->
 
-    <div class="flex justify-center items-center flex-col w-full   md:mt-36">
-        <div class="bg-primary relative w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+    <div class="flex justify-center items-center flex-col w-full mt-20   md:mt-18">
+        <div class="bg-primary relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
             <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
             <div class="md:flex">
                 <!--Start Left Side menu bar -->
@@ -248,7 +217,7 @@
                     </div>
                 </div>
                 <!-- wishlist mobile view -->
-                <div class="wishlistMobile container mt-2 hidden relative">
+                <div class="wishlistMobile container mt-2 hidden md:hidden relative">
 
                     <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
                     <div class="bg-secondary shadow-lg m-4 p-4 flex">
@@ -366,7 +335,7 @@
                     </div>
                 </div>
                 <!--Mobile View: order history -->
-                <div class="orderHistoryMobile container mx-auto mt-2 hidden relative">
+                <div class="orderHistoryMobile container mx-auto mt-2 hidden  md:hidden relative">
                     <!-- Start Order History Card -->
 
                     <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
@@ -550,35 +519,67 @@
 
                     <!-- End Notifications Card -->
 
+
                 </div>
-                
+
+
                 <!-- Modal for save change-->
                 <div class="flex justify-center items-center">
-                <div class="fixed w-full mr-52  flex items-center justify-center hidden" id="modal">
-                    <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
-                        <p class="text-center font-bold">Your profile change is complete!</p>
-                        <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
-                    </div>
-                </div>
-                </div>
-                <!-- Modal Box for log out -->
-                <div class="flex justify-center items-center ">
-                <div class="fixed  w-full  mr-52 flex items-center justify-center hidden" id="logoutModal">
-                    <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
-                        <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
-                        <div class="flex justify-around">
-
-                            <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
-                            <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
+                    <div class="fixed w-full   flex items-center justify-center hidden" id="modal">
+                        <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
+                            <p class="text-center font-bold">Your profile change is complete!</p>
+                            <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
                         </div>
                     </div>
                 </div>
+                <!-- Modal Box for log out -->
+                <div class="flex justify-center items-center ">
+                    <div class="fixed  w-full flex items-center justify-center hidden" id="logoutModal">
+                        <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
+                            <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
+                            <div class="flex justify-around">
+
+                                <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
+                                <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
 
             </div>
+
+
         </div>
     </div>
+
+    <!-- Mobile menu button-->
+    <div class="fixed md:hidden w-full bottom-0  flex justify-center bg-tertiary rounded-lg shadow-lg p-2">
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-user" src="../resources/img/profile/user.png" alt="" class="w-6">
+        </div>
+
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-wishlist" src="../resources/img/profile/wishlist.png" alt="" class="w-6">
+        </div>
+
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-order" src="../resources/img/profile/orderhistory.png" alt="" class="w-6">
+        </div>
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-notify" src="../resources/img/profile/notify.png" alt="" class="w-6">
+        </div>
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-logout" src="../resources/img/login/logout1.png" alt="" class="w-6">
+        </div>
+
+    </div>
+    <!-- Mobile menu button End-->
     <script>
         // for mobile view
         $(document).ready(function() {
@@ -652,7 +653,7 @@
             $("#logoutBtn").click(function() {
                 $("#logoutModal").toggle();
             });
-            
+
             $("#mobile-logout").click(function() {
                 $("#logoutModal").toggle();
             });

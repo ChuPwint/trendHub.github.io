@@ -30,6 +30,7 @@
 <body class="bg-[#12141B]">
     <section class="container w-full mx-auto flex">
         <!-- Import side bar  -->
+        <?php $menu = "notifications" ?>
         <?php include "../resources/common/adminSideBar.php" ?>
 
         <!-- Right-side Start -->
@@ -188,7 +189,7 @@
                 <!-- Noti End  -->
 
                 <div class="text-right mt-5">
-                    <button class="py-1 bg-white px-5 rounded">Send New Noti</button>
+                    <a href="./sendNoti.php"><button class="py-1 bg-white px-5 rounded">Send New Noti</button></a>
                 </div>
 
             </div>
