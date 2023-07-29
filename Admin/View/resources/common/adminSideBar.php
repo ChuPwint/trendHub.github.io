@@ -26,7 +26,7 @@
             </div>
 
             <!-- Customers List Sub Menu  Start-->
-            <div id="customers-list-sub-menu" class="cursor-pointer rounded text-sm hidden">
+            <div id="customers-list-sub-menu" class="cursor-pointer rounded text-sm <?php echo ($indexpage == 2)? "block":"hidden"  ?> ">
                 <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">All Customers</p>
                 <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">New Customers</p>
                 <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu">Total Orders</p>
