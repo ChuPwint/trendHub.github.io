@@ -30,6 +30,7 @@
 <body class="bg-[#12141B]">
     <section class="container w-full mx-auto flex">
         <!-- Import side bar  -->
+        <?php $menu = "productRequest" ?>
         <?php include "../resources/common/adminSideBar.php" ?>
 
         <!-- Right-side Start -->
