@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Customers</title>
+  <title>New Merchant</title>
   <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+  
   <!-- flowBite link -->
   <script src="../path/to/flowbite/dist/datepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
 
-  <link href="../resources/css/all_merchant.css">
 
-
+  <link href="../resources/css/new_merchant.css" >
 </head>
 <style>
   .scrollbar-hide::-webkit-scrollbar {
@@ -34,9 +34,12 @@
   }
 </style>
 
+
 <body class="bg-[#12141B] font-roboto ">
   <section class="container w-full mx-auto flex">
     <!-- Import side bar  -->
+    <?php $menu = "merchantList" ?>
+    <?php $subMenu = "newMerchants" ?>
     <?php include "../resources/common/adminSideBar.php" ?>
 
     <!-- Right-side Start -->
@@ -44,7 +47,7 @@
       <!-- Search Start-->
       <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
         <div class="text-white">
-          <p class="text-2xl font-semibold tracking-wider">All Merchants</p>
+          <p class="text-2xl font-semibold tracking-wider">New Merchants</p>
           <p>Date : Sun, Jul 16, 2023</p>
         </div>
 
@@ -53,11 +56,9 @@
       <!-- Search End-->
 
 
-
-      <div class="px-20  data-output">
-
-
-
+     
+      <div class="px-20 data-output">
+     
         <!-- start Date -->
         <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[20px] pb-[30px] relative">
           <div class="relative">
@@ -90,8 +91,10 @@
         <!-- end Date -->
 
 
+      
 
-        <!-- start table -->
+
+      <!-- Start table -->
         <div class="flex justify-center min-h-screen relative">
           <div class="col-span-12">
             <div class="h-[600px] overflow-y-scroll scrollbar-hide">
@@ -430,16 +433,34 @@
 
 
                   </tr>
+
+
+
+
+
+
+
+
                 </tbody>
               </table>
             </div>
           </div>
+
+
+
+
+
+
         </div>
-        <!-- end table -->
+        <!-- End table -->
+
+      
       </div>
-      <!-- Analytics Data End  -->
+
+
     </div>
     <!-- Right-side End -->
+
   </section>
 
 
@@ -483,7 +504,16 @@
         <!-- End Modal Content -->
       </div>
     </div>
+
+
+
+
   </div>
+
+
+
+
+
 
 
   <script src="../resources/lib/jquery3.6.0.js"></script>

@@ -7,6 +7,7 @@
     <title>Merchant All Product</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
+    <script src="../resources/js/allProduct/allProduct.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
@@ -43,7 +44,7 @@
                         <span class="sideFull hidden ml-2">All Orders</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../review/productReview.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="reviewHover" src="../resources/img/sideBarImg/review.png" alt="">
                         <span class="sideFull hidden ml-2">Customer Reviews</span>
@@ -144,11 +145,11 @@
                             <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                                 <div class="text-center">
                                     <div class="mt-4">
-                                        <img src="../resources/img/allProduct/cpu-nb 385.svg" alt="">
-                                        <label for="file-upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
-                                            <span class="font-bold">Upload a file: </span>
+                                        <div class="flex justify-center"><img class="p_Image" src="../resources/img/allProduct/cpu-nb 385.svg" alt=""></div>
+                                        <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                            <span class="font-bold underline">Upload a file: </span>
                                         </label>
-                                        <input id="file-upload" name="file-upload" type="file" class=" mt-2 text-center">
+                                        <input id="file_upload" name="file_upload" type="file" class="hidden mt-2 text-center">
                                     </div>
                                     <p>PNG, JPG up to 10MB</p>
                                 </div>
@@ -163,15 +164,11 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="mb-4">
                                 <label for="productDetail" class="block font-medium">Product Detail:</label>
-                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
-                            Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.
-                            </textarea>
+                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
                             </div>
                             <div class="mb-4">
                                 <label for="productDescription" class="block font-medium">Product Description:</label>
-                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>
-                            MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11
-                            </textarea>
+                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
                             </div>
                         </div>
                         <div class="flex justify-end items-center">
@@ -321,30 +318,6 @@
             chart1.draw(data, options1);
             chart2.draw(data, options2);
         }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(".viewDetailBtn").click(function() {
-                $(".viewDetailModal").toggle();
-            });
-
-            $(".closeViewDetailModal").click(function() {
-                $(".viewDetailModal").toggle();
-            });
-
-            $("#logoutBtn").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#confirmLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#cancelLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-        });
     </script>
 </body>
 

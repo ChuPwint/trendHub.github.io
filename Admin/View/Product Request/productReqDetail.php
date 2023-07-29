@@ -30,6 +30,7 @@
 <body class="bg-[#12141B]">
     <section class="container w-full mx-auto flex">
         <!-- Import side bar  -->
+        <?php $menu = "productRequest" ?>
         <?php include "../resources/common/adminSideBar.php" ?>
 
         <!-- Right-side Start -->
@@ -103,7 +104,7 @@
                                             $15,000.00
                                         </td>
                                         <td class="p-3 text-center ">
-                                            <span class="underline cursor-pointer open-modal">Check</span>
+                                            <span class="underline cursor-pointer check">Check</span>
                                         </td>
                                     </tr>
 
@@ -127,7 +128,7 @@
                                             $15,000.00
                                         </td>
                                         <td class="p-3 text-center ">
-                                            <span class="underline cursor-pointer open-modal">Check</span>
+                                            <span class="underline cursor-pointer check">Check</span>
                                         </td>
                                     </tr>
 
@@ -151,7 +152,7 @@
                                             $15,000.00
                                         </td>
                                         <td class="p-3 text-center ">
-                                            <span class="underline cursor-pointer open-modal">Check</span>
+                                            <span class="underline cursor-pointer check">Check</span>
                                         </td>
                                     </tr>
 
@@ -161,11 +162,6 @@
                         </div>
 
                     </div>
-
-
-
-
-
 
                 </div>
                 <!-- Table End  -->
@@ -177,6 +173,103 @@
         <!-- Right-side End -->
 
     </section>
+
+    <!-- Start Modal box to edit product-->
+    <div id="myModalEdit" class="hidden">
+        <div class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+            <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[700px] rounded shadow-md relative">
+                <button id="closeModalButton" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <div class="w-[800px] h-[650px] mt-[30px] mx-auto">
+
+                    <!-- start top -->
+                    <div class="h-[425px] w-[800px] mx-auto flex space-x-5 ">
+
+                        <!-- start input data -->
+                        <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
+                            <input class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                            <input class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+
+
+
+                            <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                                <option value="" disabled selected>Category</option>
+                                <option value="option1">Men's & Boy's Fashion</option>
+                                <option value="option2">Women's & Girl's Fashion</option>
+                                <option value="option3">Sports & Outdoors</option>
+                                <option value="option3">Health & Beauty</option>
+                                <option value="option3">Jewelry</option>
+                                <option value="option3">Watches</option>
+                                <option value="option3">Home & Lifestyle</option>
+                                <option value="option3">Mother & Baby</option>
+                                <option value="option3">Bags</option>
+                                <option value="option3">Groceries</option>
+                                <option value="option3">TV & Home Appliances</option>
+                                <option value="option3">Electronics Devices</option>
+                                <option value="option3">Others</option>
+                            </select>
+
+                            <br>
+
+                            <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                            <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                            <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                        </div>
+                        <!-- end input data -->
+
+                        <!-- start upload  -->
+                        <div class="w-[400px]">
+
+                            <label class="w-full h-[420px]  flex flex-col items-center bg-white rounded-lg shadow-lg tracking-wide">
+                                <img class="mt-[170px] block" src="../resources/img/Admin Product/upload.png" alt="">
+                                <span class="mt-2 text-[#959595] text-lg font-semibold">Upload Your Product Here</span>
+                                <input type='file' class="hidden" />
+                            </label>
+                        </div>
+                        <!-- end upload  -->
+
+
+                    </div>
+                    <!-- end top -->
+
+
+                    <!-- start bottom -->
+                    <div class="w-[800px] h-[200px] mt-5 flex space-x-5">
+
+                        <!-- start product description -->
+                        <div>
+                            <input placeholder="Product Description" type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none  ">
+                        </div>
+                        <!-- end product description -->
+
+                        <!-- start product details -->
+                        <div>
+                            <input placeholder="Product Details" type="text" class="w-[390px] h-[130px] bg-[#EDCFCF] shadow-md rounded-md pb-[60px] pl-2 ">
+                            <div class="flex">
+                                <button id="reject" class="px-8 mt-7 shadow-md block mx-auto py-2 bg-[#AC2E2E] text-white rounded-md outline-none ">Reject</button>
+                                <button id="approve" class="px-5 mt-7 shadow-md block mx-auto py-2 bg-[#456265] text-white rounded-md outline-none ">Approve</button>
+                            </div>
+                        </div>
+                        <!-- end product details -->
+
+                    </div>
+                    <!-- end bottoom -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End Modal box to edit product-->
+
+    <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script src="../resources/js/product_req_detail.js"></script>
+    <script src="../resources/js/drop_down.js"></script>
 
     
 </body>

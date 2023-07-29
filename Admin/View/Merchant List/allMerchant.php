@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pending Merchants</title>
+  <title>All Customers</title>
   <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->
@@ -14,8 +14,9 @@
   <script src="../path/to/flowbite/dist/datepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
 
+  <link href="../resources/css/all_merchant.css">
 
-  <link href="../resources/css/pending_merchant.css">
+
 </head>
 <style>
   .scrollbar-hide::-webkit-scrollbar {
@@ -25,16 +26,19 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+
   }
 
   .table {
-            border-spacing: 0 10px;
-          }
+    border-spacing: 0 10px;
+  }
 </style>
 
 <body class="bg-[#12141B] font-roboto ">
   <section class="container w-full mx-auto flex">
     <!-- Import side bar  -->
+    <?php $menu = "merchantList" ?>
+    <?php $subMenu = "allMerchants" ?>
     <?php include "../resources/common/adminSideBar.php" ?>
 
     <!-- Right-side Start -->
@@ -42,7 +46,7 @@
       <!-- Search Start-->
       <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
         <div class="text-white">
-          <p class="text-2xl font-semibold">Pending Merchants</p>
+          <p class="text-2xl font-semibold tracking-wider">All Merchants</p>
           <p>Date : Sun, Jul 16, 2023</p>
         </div>
 
@@ -51,12 +55,13 @@
       <!-- Search End-->
 
 
-      <!-- Analytics Data Start -->
-      <div class="px-20 data-output">
-      
 
-         <!-- start Date -->
-         <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[20px] pb-[30px] relative">
+      <div class="px-20  data-output">
+
+
+
+        <!-- start Date -->
+        <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[20px] pb-[30px] relative">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -88,7 +93,7 @@
 
 
 
-
+        <!-- start table -->
         <div class="flex justify-center min-h-screen relative">
           <div class="col-span-12">
             <div class="h-[600px] overflow-y-scroll scrollbar-hide">
@@ -96,8 +101,9 @@
                 <thead class="bg-[#fffafa] text-textBlack ">
                   <tr>
                     <th class="px-3 py-6 text-center">No.</th>
-                    <th class="px-3 py-6 text-center">Logo</th>
-                    <th class="px-3 py-6 text-center">Store Name</th>
+                    <th class="px-3 py-6 text-center">Business Name</th>
+                    <th class="px-3 py-6 text-center">Personal Name</th>
+                    <th class="px-3 py-6 text-center">Email</th>
                     <th class="px-3 py-6 text-center">Phone Number</th>
                     <th class="px-3 py-6 text-center">Address</th>
                     <th class="px-3 py-6 text-center">License</th>
@@ -111,14 +117,14 @@
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -132,8 +138,7 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
@@ -144,14 +149,14 @@
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -165,42 +170,7 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
-                    </td>
-
-
-                  </tr>
-
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
-                    </td>
-                    <td class="p-3 text-center">
-                      ShweYaTi
-                    </td>
-
-                    <td class="p-3 text-center ">
-                      09 769 243 353
-                    </td>
-                    <td class="p-3 text-center ">
-                      Yangon
-                    </td>
-                    <td class="p-3 text-center ">
-                      32432
-                    </td>
-                    <td class="p-3 text-center ">
-                      Jul 16, 2023
-                    </td>
-                    <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
@@ -212,14 +182,14 @@
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -233,27 +203,25 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
                   </tr>
-
 
                   <tr class="bg-[#fffafa]">
                     <td class="p-3 text-center">
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -267,27 +235,25 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
                   </tr>
-
 
                   <tr class="bg-[#fffafa]">
                     <td class="p-3 text-center">
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -301,27 +267,25 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
                   </tr>
-
 
                   <tr class="bg-[#fffafa]">
                     <td class="p-3 text-center">
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -335,27 +299,25 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
 
 
                   </tr>
-
 
                   <tr class="bg-[#fffafa]">
                     <td class="p-3 text-center">
                       1
                     </td>
                     <td class="p-3 text-center">
-                      <span class="w-[70px] h-[70px] rounded-full  block mx-auto shadow-md">
-                        <img src="../resources/img/msi.png" alt="">
-                      </span>
+                      Shwe Ya Ti
                     </td>
                     <td class="p-3 text-center">
-                      ShweYaTi
+                      Casper
                     </td>
-
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
                     <td class="p-3 text-center ">
                       09 769 243 353
                     </td>
@@ -369,34 +331,123 @@
                       Jul 16, 2023
                     </td>
                     <td class="p-3 text-center ">
-                      <span data-modal-id="" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                      <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">REJECT</span>
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
                     </td>
+
+
+                  </tr>
+
+                  <tr class="bg-[#fffafa]">
+                    <td class="p-3 text-center">
+                      1
+                    </td>
+                    <td class="p-3 text-center">
+                      Shwe Ya Ti
+                    </td>
+                    <td class="p-3 text-center">
+                      Casper
+                    </td>
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
+                    <td class="p-3 text-center ">
+                      09 769 243 353
+                    </td>
+                    <td class="p-3 text-center ">
+                      Yangon
+                    </td>
+                    <td class="p-3 text-center ">
+                      32432
+                    </td>
+                    <td class="p-3 text-center ">
+                      Jul 16, 2023
+                    </td>
+                    <td class="p-3 text-center ">
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                    </td>
+
+
+                  </tr>
+
+                  <tr class="bg-[#fffafa]">
+                    <td class="p-3 text-center">
+                      1
+                    </td>
+                    <td class="p-3 text-center">
+                      Shwe Ya Ti
+                    </td>
+                    <td class="p-3 text-center">
+                      Casper
+                    </td>
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
+                    <td class="p-3 text-center ">
+                      09 769 243 353
+                    </td>
+                    <td class="p-3 text-center ">
+                      Yangon
+                    </td>
+                    <td class="p-3 text-center ">
+                      32432
+                    </td>
+                    <td class="p-3 text-center ">
+                      Jul 16, 2023
+                    </td>
+                    <td class="p-3 text-center ">
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                    </td>
+
+
+                  </tr>
+
+                  <tr class="bg-[#fffafa]">
+                    <td class="p-3 text-center">
+                      1
+                    </td>
+                    <td class="p-3 text-center">
+                      Shwe Ya Ti
+                    </td>
+                    <td class="p-3 text-center">
+                      Casper
+                    </td>
+                    <td class="p-3 text-center">
+                      casper@gmail.com
+                    </td>
+                    <td class="p-3 text-center ">
+                      09 769 243 353
+                    </td>
+                    <td class="p-3 text-center ">
+                      Yangon
+                    </td>
+                    <td class="p-3 text-center ">
+                      32432
+                    </td>
+                    <td class="p-3 text-center ">
+                      Jul 16, 2023
+                    </td>
+                    <td class="p-3 text-center ">
+                      <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                    </td>
+
+
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-
-
-
-
-
-
         </div>
-    
+        <!-- end table -->
       </div>
       <!-- Analytics Data End  -->
-
     </div>
     <!-- Right-side End -->
-
   </section>
 
 
 
 
-<!-- Start modal box -->
+
   <div id="modals-container">
     <div id="modal1" class="hidden fixed z-10 inset-0 overflow-y-auto">
       <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -415,9 +466,9 @@
                 </svg>
               </div>
               <div class="mt-3  ml-4 text-left">
-                <span class="text-center block pb-4 mt-7">You are about to Reject the following user:</span>
-                <h1 class=" font-semibold mt-2  ">Store Name: <span class="ml-[9px] font-normal">Shwe Ya Ti</span></h1>
-                <h1 class="font-semibold mt-2 "> license: <span class="font-normal ml-[13px]"> 32432</span></h1>
+                <span class="text-center block pb-4 mt-7">You are about to ban the following user:</span>
+                <h1 class=" font-semibold mt-2  ">Name: <span class="ml-[9px] font-normal">casper</span></h1>
+                <h1 class="font-semibold mt-2 "> Email: <span class="font-normal ml-[13px]">casper@gmail.com</span></h1>
                 <h1 class="font-semibold mt-2 ">Reason: <input class="font-normal drop-shadow-lg pl-2 " placeholder="Reason" type="text"></h1>
 
               </div>
@@ -434,17 +485,7 @@
         <!-- End Modal Content -->
       </div>
     </div>
-
-
-
-
   </div>
-  <!-- end modal box -->
-
-
-
-
-
 
 
   <script src="../resources/lib/jquery3.6.0.js"></script>

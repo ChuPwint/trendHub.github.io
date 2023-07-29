@@ -42,7 +42,7 @@
                         <span class="sideFull hidden ml-2">All Orders</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../review/productReview.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="reviewHover" src="../resources/img/sideBarImg/review.png" alt="">
                         <span class="sideFull hidden ml-2">Customer Reviews</span>
@@ -54,7 +54,7 @@
                         <span class="sideFull hidden ml-2">Contact Admin</span>
                     </p>
                 </a>
-                <a href="">
+                <a href="../Financials/earningOverview.php">
                     <p class="hoverImg py-2 px-2 mt-4 flex justify-center shadow-md bg-[#FBFBFB] bg-opacity-50 rounded-md hover:bg-darkGreenColor hover:text-white cursor-pointer">
                         <img id="financialHover" src="../resources/img/sideBarImg/financial.png" alt="">
                         <span class="sideFull hidden ml-2">Financials & Payment</span>

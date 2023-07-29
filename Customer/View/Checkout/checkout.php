@@ -111,7 +111,7 @@
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <button id="placeOrderBtn" class="bg-tertiary bg-opacity-50 rounded-md px-8 py-2 text-white">Place Order</button>
+                            <a href="../Payment/payment.php"><button id="placeOrderBtn" class="bg-tertiary bg-opacity-50 rounded-md px-8 py-2 text-white">Place Order</button></a>
                         </div>
                     </div>
                     <!-- end of order summary card -->

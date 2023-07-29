@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <script src="../resources/js/userInfo/profile.js" defer></script>
+
     <!-- Start Navbar -->
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-   
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -20,50 +20,21 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- end navbar -->
+    <script src="../resources/lib/jquery3.6.0.js"></script>
+
 
 </head>
 
 <body class="bg-secondary">
+    <?php $view = 1 ?>
+    <?php include "../resources/common/navbar.php" ?>
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
-    <!--Start  profile menu nav bar -->
-    <nav class="p-5  md:items-center md:justify-between block md:hidden ">
-        <div class="flex justify-between items-center ">
-            <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-                <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
-            </span>
-        </div>
 
-        <ul class="md:flex md:items-center z-50 md:z-auto absolute md:static  bg-tertiary  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500 flex flex-row" id="mobile-user"><img src="../resources/img/profile/user.png" alt="" srcset="" class="w-4 mr-2"> User Info</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-wishlist"><img src="../resources/img/profile/wishlist.png" alt="" srcset="" class="w-4 mr-2 "> Wishlist</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-order"><img src="../resources/img/profile/orderhistory.png" alt="" srcset="" class="w-4 mr-2">Order History</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-notify"><img src="../resources/img/profile/notify.png" alt="" srcset="" class="w-4 mr-2">Notifications</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0 ">
-                <a href="#" class="text-sm  hover:bg-tertiary hover:text-white p-2 rounded-md duration-500  flex flex-row" id="mobile-log-out"><img src="../resources/img/login/logout.png" alt="" srcset="" class="w-4 mr-2">Log Out</a>
-            </li>
-            <h2 class=""></h2>
-        </ul>
-    </nav>
-    <script>
-        function Menu(e) {
-            let list = document.querySelector('ul');
-            e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
-        }
-    </script>
-    <!--End  profile menu nav bar -->
 
-    <div class="flex justify-center items-center flex-col px-5 w-full  h-2/3  ">
-        <div class="bg-primary relative w-5/6  h-full flex flex-col mt-12  shadow-2xl ">
-           <p class="text-textWhite p-2 px-4 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
-            <div class="flex">
+    <div class="flex justify-center items-center flex-col w-full mt-20   md:mt-18">
+        <div class="bg-primary relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+            <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
+            <div class="md:flex">
                 <!--Start Left Side menu bar -->
                 <div class="w-1/4 bg-secondary px-4 py-8 hidden md:block">
                     <ul class="space-y-4">
@@ -79,7 +50,7 @@
                                 <span class="font-medium">Wishlist</span>
                             </a>
                         </li>
-                       
+
                         <li>
                             <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md " id="menu-order-history">
                                 <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2">
@@ -102,10 +73,11 @@
                 </div>
                 <!--End Left Side menu bar -->
 
+
                 <!-- Profile Form Card -->
-                <div class="flex-1  relative " id="profileEdit">
-                <!-- Start Profile Edit Card -->
-                    <div id="profile-edit" class="p-8">
+                <div class="flex-1  md:p-5  relative " id="profileEdit">
+                    <!-- Start Profile Edit Card -->
+                    <div id="profile-edit" class="md:p-8 p-3">
                         <div class="flex md:flex-row flex-col justify-start items-center mb-4">
                             <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
                             <div class="flex flex-col">
@@ -156,7 +128,7 @@
 
                         </div>
 
-                        <button class="px-6 py-1 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                        <button class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                     </div>
                 </div>
                 <!-- End Profile Edit Card -->
@@ -245,14 +217,15 @@
                     </div>
                 </div>
                 <!-- wishlist mobile view -->
-                <div class="container mx-auto mt-8 hidden" id="wishlistMobile ">
-                    <p class="flex justify-center items-center mt-4 text-lg font-semibold">My Wishlists</p>
+                <div class="wishlistMobile container mt-2 hidden md:hidden relative">
+
+                    <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
                     <div class="bg-secondary shadow-lg m-4 p-4 flex">
                         <img src="../resources/img/orderHistory/product1.png" alt="">
                         <div class="p-4">
                             <div>Product 1</div>
                             <div>$250</div>
-                            <button class="bg-tertiary px-2 py-1">Add To cart</button>
+                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
                         </div>
                         <div class="py-8">
                             <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
@@ -265,7 +238,7 @@
                         <div class="p-4">
                             <div>Product 1</div>
                             <div>$250</div>
-                            <button class="bg-tertiary px-2 py-1">Add To cart</button>
+                            <button class="bg-tertiary  text-white text-sm px-2 py-1">Add</button>
                         </div>
                         <div class="py-8">
                             <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
@@ -278,7 +251,7 @@
                         <div class="p-4">
                             <div>Product 1</div>
                             <div>$250</div>
-                            <button class="bg-tertiary px-2 py-1">Add To cart</button>
+                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
                         </div>
                         <div class="py-8">
                             <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
@@ -291,7 +264,7 @@
                         <div class="p-4">
                             <div>Product 1</div>
                             <div>$250</div>
-                            <button class="bg-tertiary px-2 py-1">Add To cart</button>
+                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
                         </div>
                         <div class="py-8">
                             <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
@@ -299,6 +272,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- End Wishlist card -->
 
                 <!-- Start Order History Card -->
@@ -361,15 +335,15 @@
                     </div>
                 </div>
                 <!--Mobile View: order history -->
-                <div class="container mx-auto mt-2 hidden" id="orderHistoryMobile">
+                <div class="orderHistoryMobile container mx-auto mt-2 hidden  md:hidden relative">
                     <!-- Start Order History Card -->
 
-                    <h2 class="text-2xl font-semibold mb-4 ">Order History</h2>
+                    <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
                     <!-- Mobile View: Each row in a separate card -->
-                    <div class="space-y-4">
+                    <div class="space-y-4 px-4">
                         <!-- Sample Order History Entry 1 -->
-                        <div class="bg-primary shadow-md rounded-lg p-6 border-spacing ">
-                            <div class="bg-slate-100 p-4 rounded-lg">
+                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
+                            <div class="bg-secondary p-4 rounded-lg ">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-lg font-semibold">Order ID:</span>
                                     <span class="text-sm">2023001</span>
@@ -401,8 +375,8 @@
                         </div>
 
                         <!-- Sample Order History Entry 2 -->
-                        <div class="bg-primary shadow-md rounded-lg p-6 border-spacing ">
-                            <div class="bg-slate-100 p-4 rounded-lg">
+                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
+                            <div class="bg-secondary p-4 rounded-lg">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-lg font-semibold">Order ID:</span>
                                     <span class="text-sm">2023002</span>
@@ -434,8 +408,8 @@
                         </div>
 
                         <!-- Sample Order History Entry 3 -->
-                        <div class="bg-primary shadow-md rounded-lg p-6 border-spacing ">
-                            <div class="bg-slate-100 p-4 rounded-lg">
+                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
+                            <div class="bg-secondary p-4 rounded-lg">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-lg font-semibold">Order ID:</span>
                                     <span class="text-sm">2023003</span>
@@ -467,8 +441,8 @@
                         </div>
 
                         <!-- Sample Order History Entry 4 -->
-                        <div class="bg-primary shadow-md rounded-lg p-6 border-spacing ">
-                            <div class="bg-slate-100 p-4 rounded-lg">
+                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
+                            <div class="bg-secondary p-4 rounded-lg">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-lg font-semibold">Order ID:</span>
                                     <span class="text-sm">2023004</span>
@@ -501,6 +475,7 @@
                     </div>
                 </div>
                 <!-- End Order History Card -->
+
 
                 <!-- Start Notifications Card -->
                 <div class="container mx-auto mt-8 p-4 hidden" id="notification">
@@ -544,29 +519,171 @@
 
                     <!-- End Notifications Card -->
 
+
                 </div>
+
 
                 <!-- Modal for save change-->
-                <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modal">
-                    <div class="bg-white rounded-lg p-6 shadow-xl">
-                        <p class="text-center font-bold">Your profile change is complete!</p>
-                        <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
-                    </div>
-                </div>
-                <!-- Modal Box for log out -->
-                <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="logoutModal">
-                    <div class="bg-white p-8 rounded-md shadow-lg">
-                        <p class="text-lg font-medium mb-4">Are you sure you want to log out?</p>
-                        <div class="flex justify-around">
-
-                            <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
-                            <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
+                <div class="flex justify-center items-center">
+                    <div class="fixed w-full   flex items-center justify-center hidden" id="modal">
+                        <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
+                            <p class="text-center font-bold">Your profile change is complete!</p>
+                            <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
                         </div>
                     </div>
                 </div>
+                <!-- Modal Box for log out -->
+                <div class="flex justify-center items-center ">
+                    <div class="fixed  w-full flex items-center justify-center hidden" id="logoutModal">
+                        <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
+                            <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
+                            <div class="flex justify-around">
+
+                                <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
+                                <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
             </div>
+
+
         </div>
     </div>
+
+    <!-- Mobile menu button-->
+    <div class="fixed md:hidden w-full bottom-0  flex justify-center bg-tertiary rounded-lg shadow-lg p-2">
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-user" src="../resources/img/profile/user.png" alt="" class="w-6">
+        </div>
+
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-wishlist" src="../resources/img/profile/wishlist.png" alt="" class="w-6">
+        </div>
+
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-order" src="../resources/img/profile/orderhistory.png" alt="" class="w-6">
+        </div>
+
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-notify" src="../resources/img/profile/notify.png" alt="" class="w-6">
+        </div>
+        <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
+            <img id="mobile-logout" src="../resources/img/login/logout1.png" alt="" class="w-6">
+        </div>
+
+    </div>
+    <!-- Mobile menu button End-->
+    <script>
+        // for mobile view
+        $(document).ready(function() {
+            $("#mobile-user").click(function() {
+                $("#profileEdit").removeClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+
+            $("#mobile-wishlist").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $(".wishlistMobile").removeClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+
+            $("#mobile-order").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+                $(".orderHistoryMobile").removeClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+            $("#mobile-notify").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
+                $("#notification").removeClass("hidden");
+            });
+
+
+        });
+    </script>
+    <script>
+        // for destop view
+        $(document).ready(function() {
+            $("#menu-user-info").click(function() {
+                $("#profileEdit").removeClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+            $("#menu-wishlist").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $("#wishlistDestop").removeClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+
+                $("#orderHistoryDestop").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+            $("#menu-order-history").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $("#orderHistoryDestop").removeClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
+                $("#notification").addClass("hidden");
+            });
+            $("#menu-notification").click(function() {
+                $("#profileEdit").addClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
+                $("#notification").removeClass("hidden");
+            });
+        });
+
+
+        // for log out model
+        $(document).ready(function() {
+            $("#logoutBtn").click(function() {
+                $("#logoutModal").toggle();
+            });
+
+            $("#mobile-logout").click(function() {
+                $("#logoutModal").toggle();
+            });
+
+            $("#confirmLogout").click(function() {
+                $("#logoutModal").toggle();
+            });
+            $("#cancelLogout").click(function() {
+                $("#logoutModal").toggle();
+            });
+        });
+
+        // for save change model
+        $(document).ready(function() {
+            $("#save-profile-btn").click(function() {
+                $("#modal").toggle();
+            });
+
+            $("#close-modal-btn").click(function() {
+                $("#modal").toggle();
+            });
+
+        });
+    </script>
+
+
+
+
+
+
 
 
 </body>
