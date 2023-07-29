@@ -16,7 +16,7 @@
         <!-- space for the main page to not move -->
         <div id="space" class="hidden w-20 h-screen p-2"></div>
         <!-- Left-side Categories Start-->
-        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2">
+        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2 z-20">
             <!-- Merchant  -->
             <div class="flex justify-center mb-2 cursor-pointer"><img id="toggleSideBar" class="w-12 h-12 rounded-full shadow-lg border border-slate-200" src="../resources/img/sideBarImg/TH Logo 6.svg" alt=""></div>
             <h1 class="text-lg font-medium text-center hidden sideFull">Merchant's</h1>
@@ -386,25 +386,18 @@
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
+        
             $(".replyBtn").click(function() {
                 // Hide all other screens and show screenOne
-
                 $("#reply").removeClass("hidden");
                 $(".replyBtn").addClass("hidden");
-
-
-
             });
+
             $(".replySend").click(function() {
                 // Hide all other screens and show screenOne
                 $("#reply").addClass("hidden");
                 $(".replyBtn").removeClass("hidden");
             });
-
 
             $(".changeStatusBtn").click(function() {
                 $("#modalReview").removeClass("hidden");
@@ -415,11 +408,8 @@
             document.getElementById('modalReview').classList.remove('hidden');
         }
 
-
         function hideReview() {
             document.getElementById('modalReview').classList.add('hidden');
-
-
         }
     </script>
 

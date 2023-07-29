@@ -16,7 +16,7 @@
         <!-- space for the main page to not move -->
         <div id="space" class="hidden w-20 h-screen p-2"></div>
         <!-- Left-side Categories Start-->
-        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2">
+        <div id="sideBarContainer" class="bg-tertiary w-20 h-screen p-2 z-20">
             <!-- Merchant  -->
             <div class="flex justify-center mb-2 cursor-pointer"><img id="toggleSideBar" class="w-12 h-12 rounded-full shadow-lg border border-slate-200" src="../resources/img/sideBarImg/TH Logo 6.svg" alt=""></div>
             <h1 class="text-lg font-medium text-center hidden sideFull">Merchant's</h1>
@@ -187,8 +187,7 @@
                 showModal();
                 // Add your logic to save the changes or perform any other actions here
             });
-        </script>
-        <script>
+            
             $(document).ready(function() {
                 $("#logoutBtn").click(function() {
                     $("#logoutModal").toggle();
