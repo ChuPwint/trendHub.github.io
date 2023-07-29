@@ -61,36 +61,22 @@
             <div class="px-20 data-output">
 
 
-                <!-- start Date -->
-                <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[20px] pb-[30px] relative">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
-                        </div>
-                        <input name="start" type="text" class=" border-gray-300 text-black text-sm rounded-lg  block w-full pl-10 p-2.5" placeholder="Date From">
-                    </div>
+                 <!-- start Date -->
+        <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[30px] pb-[40px] relative">
+        <span class="text-white">47 products found.</span>
+          <div class="absolute -right-[30px]">
+            <label class="inline-flex text-white" for="">Sort By:</label>
+            <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+             
+              <option value="business">Product Name</option>
+              <option value="address">Category</option>
+              <option value="date">Stock</option>
+              <option value="date">Sell Price</option>
+            </select>
+          </div>
+        </div>
+        <!-- end Date -->
 
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
-                        </div>
-                        <input name="end" type="text" class=" border-gray-300 text-black text-sm rounded-lg  block w-full pl-10 p-2.5" placeholder="Date To">
-                    </div>
-                    <div class="absolute -right-[30px]">
-                        <label class="inline-flex text-white" for="">Sort By:</label>
-                        <select id="dropdown" class="inline-block mt-1  w-[150px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
-                            <option selected value="personal">Personal Name</option>
-                            <option value="business">Business Name</option>
-                            <option value="address">Address</option>
-                            <option value="date">Date</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- end Date -->
 
 
 
@@ -442,12 +428,12 @@
 
                     <!-- start input data -->
                     <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                        <input class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                        <input class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                        <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                             <option value="" disabled selected>Category</option>
                             <option value="option1">Men's & Boy's Fashion</option>
                             <option value="option2">Women's & Girl's Fashion</option>
@@ -466,9 +452,9 @@
 
                         <br>
 
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                     </div>
                     <!-- end input data -->
 
@@ -515,25 +501,6 @@
 
     <!-- End Modal box to create product-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Start Product Details -->
 
     <div id="modalDetail" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
@@ -579,8 +546,6 @@
 
                 <button onclick="showReview()" class="rounded-md shadow-md font-semibold block px-4 py-1 bg-[#456265] mx-auto text-white mt-[90px]">View Customer's Review</button>
 
-
-
             </div>
 
 
@@ -588,20 +553,6 @@
     </div>
 
     <!-- End Product Details -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -779,40 +730,6 @@
 
     <!-- end review -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Start Modal box to Edit product-->
 
     <div id="modalEdit" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
@@ -830,12 +747,12 @@
 
                     <!-- start input data -->
                     <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input value="MSI Summit E13 Flip Evo" class=" mt-8 block w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input value="MSI" class="block  w-52  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
+                        <input value="MSI Summit E13 Flip Evo" class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
+                        <input value="MSI" class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
 
 
 
-                        <select id="dropdown" class="block  w-52  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
+                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
                             <option value="" disabled>Category</option>
                             <option value="option1">Men's & Boy's Fashion</option>
                             <option value="option2">Women's & Girl's Fashion</option>
@@ -854,9 +771,9 @@
 
                         <br>
 
-                        <input value="2,100,000" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input value="2,150,000" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input value="10" class="  w-52 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+                        <input value="2,100,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
+                        <input value="2,150,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
+                        <input value="10" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
                     </div>
                     <!-- end input data -->
 
@@ -881,7 +798,13 @@
 
                     <!-- start product description -->
                     <div>
-                        <input placeholder="Product Description" value="Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis." type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none overflow-x-scroll">
+                        <!-- <input placeholder="Product Description" value="" type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none overflow-x-scroll"> -->
+                        <textarea class="bg-[#EDCFCF] resize-none outline-none shadow-md rounded-md focus:none p-4" name="" id="" cols="38" rows="7">
+                            <span>
+                        Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis.
+
+                            </span>
+                        </textarea>
                     </div>
                     <!-- end product description -->
 
@@ -902,13 +825,6 @@
     </div>
 
     <!-- End Modal box to Edit product-->
-
-
-
-
-
-
-
 
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
