@@ -99,7 +99,7 @@
 
 
         <!-- start review -->
-        <div id="modalReview" class="modal  hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+        <div id="modalReview" class="modal   hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
             <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
                 <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
                 <button onclick="hideReview(),hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
@@ -281,8 +281,8 @@
             <!-- start of search button and select box -->
             <div class="flex justify-between items-center p-2">
                 <!-- start of search button -->
-                <div class="relative">
-                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for order" required>
+                <div class="relative ">
+                    <input type="text" class="block z-20 w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for order" required>
                     <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
                         <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
