@@ -99,8 +99,13 @@
 
 
         <!-- start review -->
+<<<<<<< HEAD
         <div id="modalReview" class="modal   hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
             <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
+=======
+        <div id="modalReview" class="hidden fixed pt-28 bg-gray-900 bg-opacity-50 w-full h-full z-20">
+            <div class="modal-content bg-[#FEFEFE] p-5 w-[1000px] h-[680px] m-auto rounded shadow-md relative">
+>>>>>>> fd8a37f6a860bdeb3e364ecbbec4593494f57a65
                 <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
                 <button onclick="hideReview(),hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                     <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,7 +113,7 @@
                     </svg>
                 </button>
 
-                <div class="w-[950px] h-[180px] mt-[25px] mx-auto flex justify-between">
+                <div class="w-[950px] h-[180px] overflow-scroll mt-[25px] mx-auto flex justify-between p-3">
                     <div class="flex">
                         <div class="w-32">
                             <img src="../resources/img/reviewProduct/download 2.png" alt="">
@@ -137,8 +142,6 @@
                                     <span class="starColor">&#9733;</span>
                                     <span class="starColor">&#9733;</span>
                                     <span class="">15</span>
-
-
                                 </div>
 
                                 <div class="rating text">
@@ -148,8 +151,6 @@
                                     <span class="starColor">&#9733;</span>
                                     <span class="">&#9733;</span>
                                     <span class="">5</span>
-
-
                                 </div>
 
                                 <div class="rating text">
@@ -169,8 +170,6 @@
                                     <span class="">&#9733;</span>
                                     <span></span>
                                 </div>
-
-
                                 <div class="rating text">
                                     <span class="starColor">&#9733;</span>
                                     <span class="">&#9733;</span>
@@ -180,48 +179,32 @@
                                     <span></span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-
                 </div>
 
-
-                <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] shadow-sm">
-                    <div class="w-[900px] h-[30px] relative px-4 py-4">
-                        <div class="profile flex ">
-                            <div class="w-[30px] h-[30px] rounded-full mt-1">
-                                <img class="leading-[30px]" src="../resources/img/reviewProduct/c2 3.png" alt="">
-                                <div class="rating text flex ">
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="">&#9733;</span>
-
-
-
-                                </div>
+                <div class=" mx-auto bg-[#F7F7F7] shadow-sm">
+                    <div class="px-4 py-4">
+                        <div class="flex justify-between items-center">
+                            <!-- user img and rating star img -->
+                            <div class="flex justify-start items-center">
+                                <img class="w-10" src="../resources/img/reviewProduct/c2 3.png" alt="">
                             </div>
-
-                            <span class=" font-semibold text-lg p-2">User A</span>
-
-
+                            <!-- Date review written -->
                             <div>
-                                <span class="absolute right-0">2023/07/12</span>
-                                <button class="replyBtn px-5 rounded-sm py-1 bg-[#304547] text-white absolute right-0 top-10">Reply</button>
+                                <p class="review_createDate">2023/07/20</p>
                             </div>
                         </div>
-                        <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
+                        <p class="review_title font-bold text-lg pl-12">Nice graphics</p>
+                        <p class="review_text mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, laborum?</p>
+                        <div class="text-right">
+                            <button class="replyBtn px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
+                        </div>
                     </div>
-
-
                 </div>
 
                 <!-- reply review -->
-                <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2 shadow-sm px-4 py-4 hidden" id="reply">
-
+                <div class="ml-[100px] bg-[#F7F7F7] mt-2 shadow-sm px-4 py-4 hidden" id="reply">
                     <div>
                         <span class="text-md font-semibold">
                             <img class="inline" src="../resources/img/reviewProduct/arrow.svg" alt="">
@@ -231,53 +214,35 @@
                         <input type="text" placeholder="Message" class="w-[320px] h-[40px] border border-black rounded-sm ml-5 pl-4">
                         <button class="replySend px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
                     </div>
-
                 </div>
 
-                <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] mt-2 shadow-sm">
-                    <div class="w-[900px] h-[30px] relative px-4 py-4">
-                        <div class="profile flex ">
-                            <div class="w-[30px] h-[30px] rounded-full mt-1">
-                                <img class="leading-[30px]" src="../resources/img/reviewProduct/c2 3.png" alt="">
-                                <div class="rating text flex">
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="starColor">&#9733;</span>
-                                    <span class="">&#9733;</span>
-
-
-
-                                </div>
+                <div class="mt-2 mx-auto bg-[#F7F7F7] shadow-sm">
+                    <div class="px-4 py-4">
+                        <div class="flex justify-between items-center">
+                            <!-- user img and rating star img -->
+                            <div class="flex justify-start items-center">
+                                <img class="w-10" src="../resources/img/reviewProduct/c2 3.png" alt="">
                             </div>
-
-                            <span class=" font-semibold text-lg ">User A</span>
-
-
+                            <!-- Date review written -->
                             <div>
-                                <span class="absolute right-0">2023/07/12</span>
-                                <button class=" px-5 rounded-sm py-1 bg-[#304547] text-white absolute right-0 top-10">Reply</button>
+                                <p class="review_createDate">2023/07/20</p>
                             </div>
                         </div>
-                        <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
+                        <p class="review_title font-bold text-lg pl-12">Nice graphics</p>
+                        <p class="review_text mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, laborum?</p>
+                        <div class="text-right">
+                            <button class="replyBtn px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
+                        </div>
                     </div>
-
-
                 </div>
-
-
-
             </div>
         </div>
-
-
         <!-- end review -->
 
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Customer Reviews</h1>
-
             <!-- start of search button and select box -->
             <div class="flex justify-between items-center p-2">
                 <!-- start of search button -->
@@ -386,7 +351,7 @@
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-        
+
             $(".replyBtn").click(function() {
                 // Hide all other screens and show screenOne
                 $("#reply").removeClass("hidden");

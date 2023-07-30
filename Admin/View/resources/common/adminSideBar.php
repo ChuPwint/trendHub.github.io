@@ -101,11 +101,17 @@
             </div>
             <!-- Order List Sub Menu  End-->
 
-            <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">Financial Reviews</p>
+            <a href="../Finicial Reviews/finicial.php">
+                <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "financialReview") ? "bg-red-400" : false ?>">Financial Reviews</p>
+            </a>
 
-            <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">UI Elements</p>
+            <a href="../UI Elements/ui.php">
+                <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "uiElement") ? "bg-red-400" : false ?>">UI Elements</p>
+            </a>
 
-            <a href="../Notification/viewNoti.php"><p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "notifications") ? "bg-red-400" : false ?>">Notifications</p></a>
+            <a href="../Notification/viewNoti.php">
+                <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "notifications") ? "bg-red-400" : false ?>">Notifications</p>
+            </a>
 
             <p onclick="showLogout()" class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories">Logout</p>
 
@@ -117,7 +123,7 @@
 
 
 
- 
+
 
 
 
@@ -138,15 +144,15 @@
             <button onclick="hideLogout()" class="block px-4 py-3 rounded-md bg-[#12141B] text-white mx-auto w-[200px] mt-4">Just Kidding</button>
             <button onclick="hideLogout()" class="block px-4 py-3 rounded-md border border-black text-black mx-auto w-[200px] mt-4">Yes, Log Me Out</button>
 
-   
 
-           
 
-          
 
-            </div>
+
+
 
         </div>
+
+    </div>
     </div>
 
 
@@ -184,24 +190,16 @@
 
 
 
- function showLogout() {
-    document.getElementById('modalLogout').classList.remove('hidden');
-  }
-  
-  
-  function hideLogout() {
-    document.getElementById('modalLogout').classList.add('hidden');
-  }
+        function showLogout() {
+            document.getElementById('modalLogout').classList.remove('hidden');
+        }
 
 
-
-
-
-
-
-
-
+        function hideLogout() {
+            document.getElementById('modalLogout').classList.add('hidden');
+        }
     </script>
 </body>
 <script src=".../resources/lib/jquery3.6.0.js"></script>
+
 </html>

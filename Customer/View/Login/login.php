@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +43,9 @@
                     <span class="text-tertiary">TrendHub</span>
                 </h2>
                 <p class="text-sm md:text-lg font-medium mb-4 ">Login</p>
+                <small class="text-textRed"><?php 
+                    if(isset($_SESSION["registerd"])) echo $_SESSION["registerd"];
+                ?></small>
                 <form action="#" method="POST">
                     <input type="text" name="username" placeholder="Username" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
                     <input type="password" name="password" placeholder="Password" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
@@ -53,4 +60,6 @@
 </body>
 
 </html>
+
+<?php $_SESSION["registerd"] = "" ?>
 
