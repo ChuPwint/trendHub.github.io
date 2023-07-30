@@ -1,3 +1,10 @@
+<?php 
+include "../../Controller/profileEditController.php";
+print_r($userData);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,14 +82,15 @@
 
 
                 <!-- Profile Form Card -->
+                <?php foreach ($userData as $user) { ?> 
                 <div class="flex-1  md:p-5  relative " id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
                         <div class="flex md:flex-row flex-col justify-start items-center mb-4">
                             <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
                             <div class="flex flex-col">
-                                <span class="font-bold">Merry James</span>
-                                <span class="text-xs font-bold">New York, USA</span>
+                                <span class="font-bold"><?= $user["c_name"]; ?></span>
+                                <span class="text-xs font-bold"><?= $user["c_address"]; ?></span>
                             </div>
                         </div>
 
@@ -90,11 +98,11 @@
                             <div class="flex flex-col md:flex-row items-center justify-between  ">
                                 <div class="md:w-1/2 w-full p-2">
 
-                                    <input type="text" id="username" class="w-full p-2  rounded border border-borderOrange" placeholder="Username">
+                                    <input type="text" id="username" value="<?= $user["c_name"]; ?>" class="w-full p-2  rounded border border-borderOrange" placeholder="Username">
                                 </div>
                                 <div class="md:w-1/2 w-full p-2 ">
 
-                                    <input type="tel" id="phone" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number">
+                                    <input type="tel" id="phone" value="<?= $user["c_phone"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number">
                                 </div>
                             </div>
 
@@ -118,11 +126,11 @@
                             <div class="flex flex-col md:flex-row  items-center justify-between ">
                                 <div class="md:w-1/2 w-full p-2 ">
 
-                                    <input type="email" id="email" class="w-full p-2 border border-borderOrange rounded" placeholder="Email Address">
+                                    <input type="email" id="email" value="<?= $user["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Email Address">
                                 </div>
                                 <div class="md:w-1/2 w-full p-2">
 
-                                    <input type="text" id="address" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
+                                    <input type="text" id="address" value="<?= $user["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
                                 </div>
                             </div>
 
@@ -131,6 +139,7 @@
                         <button class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                     </div>
                 </div>
+                <?php } ?>
                 <!-- End Profile Edit Card -->
 
                 <!-- start Wishlist card -->
