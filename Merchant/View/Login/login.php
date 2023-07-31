@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +20,9 @@
         <div class="bg-white w-96 p-6 shadow-lg rounded-md ">
             <h1 class="text-2xl font-bold mb-6 text-center"><span>Welcome to </span><span class="text-orange-500">TrendHub</span></h1>
             <h1 class="text-xl font-semibold mb-6 text-center">Login</h1>
+            <small class="text-red-600"><?php
+                                            if (isset($_SESSION["registerd"])) echo $_SESSION["registerd"];
+                                            ?></small>
             <form>
                 <div class="mb-4">
 
@@ -40,3 +48,7 @@
 </body>
 
 </html>
+
+<?php
+$_SESSION["registerd"] = "";
+?>

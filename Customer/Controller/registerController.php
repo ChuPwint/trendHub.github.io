@@ -102,7 +102,7 @@ if(!isset($_POST["register"])){
             $cEmail,
             "Welcome To TrendHUB", 
             "<p>Thank you for registeration!</p>
-            <a href='http://$domain/Customer/Controller/verifyController.php?token=$token'>Click here to veirfy your account!</a>"
+            <a href='http://$domain/Trend_HUB/Customer/Controller/verifyController.php?token=$token'>Click here to veirfy your account!</a>"
         );
 
         $_SESSION["registerd"] = "Registration is completed! You need to verify your account before login. Please Check your email to verify your account!";

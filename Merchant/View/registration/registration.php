@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,42 +39,60 @@
 
 <body class="merchantBg w-screen h-screen overflow-hidden">
     <div class="flex justify-center items-center p-6">
-        <div class="bg-white w-2/3 p-6 shadow-lg rounded-md grid grid-cols-2 gap-4">
+
+        <form class="bg-white w-2/3 p-6 shadow-lg rounded-md grid grid-cols-2 gap-4" action="../../Controller/registerController.php" method="post">
             <div class="col-span-2 ">
                 <h1 class="text-2xl font-bold mb-6 text-start"><span>Welcome to </span><span class="text-orange-500">TrendHub</span></h1>
             </div>
             <div class="col-span-1">
 
-                <input type="text" id="business-name" name="business-name" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business Name">
+                <input type="text" id="business-name" name="business-name" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business Name" required <?php
+                                                                                                                                                                                                                                                if (isset($_SESSION["mbusinessName"])) { ?> value="<?= $_SESSION["mbusinessName"] ?>" <?php }
+                                                                                                                                                                                                                                                                                                                                        ?>>
             </div>
             <div class="col-span-1">
 
-                <input type="text" id="business-license" name="business-license" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business License">
+                <input type="text" id="business-license" name="business-license" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business License" required <?php
+                                                                                                                                                                                                                                                        if (isset($_SESSION["mLicense"])) { ?> value="<?= $_SESSION["mLicense"] ?>" <?php }
+                                                                                                                                                                                                                                                                                                                                    ?>>
             </div>
             <div class="col-span-1">
 
-                <input type="text" id="name" name="name" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Name">
+                <input type="text" id="name" name="name" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Name" required <?php
+                                                                                                                                                                                                                    if (isset($_SESSION["mName"])) { ?> value="<?= $_SESSION["mName"] ?>" <?php }
+                                                                                                                                                                                                                                                                                            ?>>
             </div>
             <div class="col-span-1">
 
-                <input type="text" id="address" name="address" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Address">
+                <input type="text" id="address" name="address" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Address" required <?php
+                                                                                                                                                                                                                                if (isset($_SESSION["mAddress"])) { ?> value="<?= $_SESSION["mAddress"] ?>" <?php }
+                                                                                                                                                                                                                                                                                                            ?>>
+            </div>
+            <div class="col-span-1">
+                <small class="text-red-600"><?php
+                                            if (isset($_SESSION["emailError"])) echo $_SESSION["emailError"];
+                                            ?></small>
+                <input type="email" id="email" name="email" class="w-full shadow-md border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Email address" required <?php
+                                                                                                                                                                                                                                if (isset($_SESSION["mEmail"])) { ?> value="<?= $_SESSION["mEmail"] ?>" <?php }
+                                                                                                                                                                                                                                                                                                        ?>>
             </div>
             <div class="col-span-1">
 
-                <input type="email" id="email" name="email" class="w-full shadow-md border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Email address">
+                <input type="tel" id="phone" name="phone" class="w-full shadow-md   border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Phone number" required <?php
+                                                                                                                                                                                                                                if (isset($_SESSION["mPhone"])) { ?> value="<?= $_SESSION["mPhone"] ?>" <?php }
+                                                                                                                                                                                                                                                                                                        ?>>
+            </div>
+            <div class="col-span-1">
+               
+                <input type="password" id="password" name="password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Password" required>
             </div>
             <div class="col-span-1">
 
-                <input type="tel" id="phone" name="phone" class="w-full shadow-md   border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Phone number">
+                <input type="password" id="confirm-password" name="confirm_password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Confirm Password" required>
             </div>
-            <div class="col-span-1">
-
-                <input type="password" id="password" name="password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Password">
-            </div>
-            <div class="col-span-1">
-
-                <input type="password" id="confirm-password" name="confirm-password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Confirm Password">
-            </div>
+            <small class="text-red-600"><?php
+                                            if (isset($_SESSION["pwdError"])) echo $_SESSION["pwdError"];
+                                            ?></small>
             <div class="col-span-2">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox border border-secondary rounded focus:outline-none focus:ring " id="terms">
@@ -83,7 +107,7 @@
             </div>
             <div class="col-span-1"></div>
             <div class="col-span-1">
-                <button type="submit" class="w-full bg-secondary shadow-md text-white font-semibold py-2 px-4 rounded focus:outline-none  focus:ring focus:ring-secondary" id="register">Register</button>
+                <button type="submit" name="register" class="w-full bg-secondary shadow-md text-white font-semibold py-2 px-4 rounded focus:outline-none  focus:ring focus:ring-secondary" id="register">Register</button>
             </div>
             <div class="col-span-1"></div>
             <div class="col-span-1">
@@ -91,14 +115,14 @@
                     <p>Already registered?</p>
                 </a>
             </div>
-            <div id="registrationModal" class="hidden  fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+            <!-- <div id="registrationModal" class="hidden  fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                 <div class="bg-white w-1/3 p-6 shadow-lg rounded-md text-center">
                     <h2 class="text-xl font-bold mb-4">Registration To <span class="text-orange-500">TrendHub</span> is complete.</h2>
                     <hr>
                     <p class="text-gray-600 mt-6">Your merchant account sign-up requires admin approval for access to our platform. The review process may take some time. Please check your email for your approval.</p>
                     <button id="closeModal" class="mt-4 w-1/2 bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Close</button>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -136,7 +160,7 @@
                 </div>
             </div>
 
-        
+
             <!--privacy and policy Modal -->
             <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
                 <div class="bg-white p-6 rounded-lg shadow-lg w-3/4">
@@ -169,106 +193,122 @@
                 </div>
             </div>
 
-        
-            <script>
-                const registerBtn = document.getElementById("register");
-                const registeredModelBox = document.getElementById("registrationModal");
-                registerBtn.addEventListener("click", () => registeredModelBox.classList.remove("hidden"));
-
-                // JavaScript to handle the modal
-                document.getElementById("closeModal").addEventListener("click", () => {
-                    document.getElementById("registrationModal").classList.add("hidden");
-                });
-                // JavaScript to handle modal open and close and checkbox behavior
-                const openModalBtn = document.getElementById('openModalBtn');
-                const termText = document.getElementById('term');
-                const modal = document.getElementById('modal');
-                const acceptBtn = document.getElementById('accept');
-                const declineBtn = document.getElementById('decline');
-                const checkbox = document.querySelector('.form-checkbox');
-                const checkboxTerms = document.querySelector('.form-checkbox#terms');
-                const checkboxPrivacy = document.querySelector('.form-checkbox#privacy');
-                const openModalPrivacy = document.getElementById('openPrivacyModal');
-                const privacyText = document.getElementById('privacyText');
-                const privacyModal = document.getElementById('privacyModal');
-                const acceptBtnPrivacy = document.getElementById('acceptPrivacy');
-                const declineBtnPrivacy = document.getElementById('declinePrivacy');
-
-                function updateRegisterBtn() {
-                    if (checkboxTerms.checked && checkboxPrivacy.checked) {
-                        registerBtn.removeAttribute("disabled");
-                        registerBtn.classList.remove("opacity-50");
-                        registerBtn.classList.add("opacity-100");
-                    } else {
-                        registerBtn.setAttribute("disabled", "disabled");
-                        registerBtn.classList.add("opacity-50");
-                    }
-                }
-                acceptBtn.setAttribute("disabled", "disabled");
-                acceptBtn.classList.add("opacity-50");
-
-                function updateAcceptTermBtn() {
-                    if (termText.scrollHeight - termText.scrollTop === termText.clientHeight) {
-                        acceptBtn.removeAttribute("disabled");
-                        acceptBtn.classList.remove("opacity-50");
-                        acceptBtn.classList.add("opacity-100");
-                    }
-
-                }
-                acceptBtnPrivacy.setAttribute("disabled", "disabled");
-                acceptBtnPrivacy.classList.add("opacity-50");
-
-                function updateAcceptPrivacyBtn() {
-                    if (privacyText.scrollHeight - privacyText.scrollTop === privacyText.clientHeight) {
-                        acceptBtnPrivacy.removeAttribute("disabled");
-                        acceptBtnPrivacy.classList.remove("opacity-50");
-                        acceptBtnPrivacy.classList.add("opacity-100");
-                    }
-                }
-
-                checkboxTerms.addEventListener('change', updateRegisterBtn);
-                checkboxPrivacy.addEventListener('change', updateRegisterBtn);
-
-                updateRegisterBtn();
-
-                openModalBtn.addEventListener('click', () => {
-                    modal.classList.remove('hidden');
-                });
-
-                acceptBtn.addEventListener('click', () => {
-                    checkboxTerms.checked = true;
-                    checkbox.checked = true;
-                    modal.classList.add('hidden');
-                });
-
-                declineBtn.addEventListener('click', () => {
-                    checkboxTerms.checked = false;
-                    checkbox.checked = false;
-                    modal.classList.add('hidden');
-                });
-
-                openModalPrivacy.addEventListener('click', () => {
-                    privacyModal.classList.remove('hidden');
-                });
-
-                acceptBtnPrivacy.addEventListener('click', () => {
-                    checkboxPrivacy.checked = true;
-                    checkbox.checked = true;
-                    privacyModal.classList.add('hidden');
-                });
-
-                declineBtnPrivacy.addEventListener('click', () => {
-                    checkboxPrivacy.checked = false;
-                    checkbox.checked = false;
-                    privacyModal.classList.add('hidden');
-                });
-                termText.addEventListener('scroll', updateAcceptTermBtn);
-                privacyText.addEventListener('scroll', updateAcceptPrivacyBtn);
-            </script>
 
 
-        </div>
+
+
+        </form>
     </div>
+
+
+
+
+    <script>
+        const registerBtn = document.getElementById("register");
+        const registeredModelBox = document.getElementById("registrationModal");
+        // registerBtn.addEventListener("click", () => registeredModelBox.classList.remove("hidden"));
+
+        // JavaScript to handle the modal
+        document.getElementById("closeModal").addEventListener("click", () => {
+            document.getElementById("registrationModal").classList.add("hidden");
+        });
+        // JavaScript to handle modal open and close and checkbox behavior
+        const openModalBtn = document.getElementById('openModalBtn');
+        const termText = document.getElementById('term');
+        const modal = document.getElementById('modal');
+        const acceptBtn = document.getElementById('accept');
+        const declineBtn = document.getElementById('decline');
+        const checkbox = document.querySelector('.form-checkbox');
+        const checkboxTerms = document.querySelector('.form-checkbox#terms');
+        const checkboxPrivacy = document.querySelector('.form-checkbox#privacy');
+        const openModalPrivacy = document.getElementById('openPrivacyModal');
+        const privacyText = document.getElementById('privacyText');
+        const privacyModal = document.getElementById('privacyModal');
+        const acceptBtnPrivacy = document.getElementById('acceptPrivacy');
+        const declineBtnPrivacy = document.getElementById('declinePrivacy');
+
+        function updateRegisterBtn() {
+            if (checkboxTerms.checked && checkboxPrivacy.checked) {
+                registerBtn.removeAttribute("disabled");
+                registerBtn.classList.remove("opacity-50");
+                registerBtn.classList.add("opacity-100");
+            } else {
+                registerBtn.setAttribute("disabled", "disabled");
+                registerBtn.classList.add("opacity-50");
+            }
+        }
+        acceptBtn.setAttribute("disabled", "disabled");
+        acceptBtn.classList.add("opacity-50");
+
+        function updateAcceptTermBtn() {
+            if (termText.scrollHeight - termText.scrollTop === termText.clientHeight) {
+                acceptBtn.removeAttribute("disabled");
+                acceptBtn.classList.remove("opacity-50");
+                acceptBtn.classList.add("opacity-100");
+            }
+
+        }
+        acceptBtnPrivacy.setAttribute("disabled", "disabled");
+        acceptBtnPrivacy.classList.add("opacity-50");
+
+        function updateAcceptPrivacyBtn() {
+            if (privacyText.scrollHeight - privacyText.scrollTop === privacyText.clientHeight) {
+                acceptBtnPrivacy.removeAttribute("disabled");
+                acceptBtnPrivacy.classList.remove("opacity-50");
+                acceptBtnPrivacy.classList.add("opacity-100");
+            }
+        }
+
+        checkboxTerms.addEventListener('change', updateRegisterBtn);
+        checkboxPrivacy.addEventListener('change', updateRegisterBtn);
+
+        updateRegisterBtn();
+
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        acceptBtn.addEventListener('click', () => {
+            checkboxTerms.checked = true;
+            checkbox.checked = true;
+            modal.classList.add('hidden');
+        });
+
+        declineBtn.addEventListener('click', () => {
+            checkboxTerms.checked = false;
+            checkbox.checked = false;
+            modal.classList.add('hidden');
+        });
+
+        openModalPrivacy.addEventListener('click', () => {
+            privacyModal.classList.remove('hidden');
+        });
+
+        acceptBtnPrivacy.addEventListener('click', () => {
+            checkboxPrivacy.checked = true;
+            checkbox.checked = true;
+            privacyModal.classList.add('hidden');
+        });
+
+        declineBtnPrivacy.addEventListener('click', () => {
+            checkboxPrivacy.checked = false;
+            checkbox.checked = false;
+            privacyModal.classList.add('hidden');
+        });
+        termText.addEventListener('scroll', updateAcceptTermBtn);
+        privacyText.addEventListener('scroll', updateAcceptPrivacyBtn);
+    </script>
 </body>
 
 </html>
+
+<?php
+$_SESSION["emailError"] = "";
+$_SESSION["pwdError"] = "";
+$_SESSION["mbusinessName"] = "";
+$_SESSION["mLicense"] = "";
+$_SESSION["mName"] = "";
+$_SESSION["mAddress"] = "";
+$_SESSION["mEmail"] = "";
+$_SESSION["mPhone"] = "";
+?>

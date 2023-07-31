@@ -641,6 +641,10 @@ video {
   left: 0px;
 }
 
+.left-1\/2 {
+  left: 50%;
+}
+
 .left-5 {
   left: 1.25rem;
 }
@@ -717,6 +721,8 @@ video {
   top: 68px;
 }
 
+<<<<<<< HEAD
+=======
 .bottom-10 {
   bottom: 2.5rem;
 }
@@ -741,6 +747,7 @@ video {
   bottom: 0.5rem;
 }
 
+>>>>>>> origin/main
 .-z-50 {
   z-index: -50;
 }
@@ -956,6 +963,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -1040,10 +1051,13 @@ video {
   margin-top: 90px;
 }
 
+<<<<<<< HEAD
+=======
 .mt-20 {
   margin-top: 5rem;
 }
 
+>>>>>>> origin/main
 .block {
   display: block;
 }
@@ -1376,10 +1390,13 @@ video {
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
 .w-8 {
   width: 2rem;
 }
 
+>>>>>>> origin/main
 .max-w-\[1700px\] {
   max-width: 1700px;
 }
@@ -1411,6 +1428,11 @@ video {
 .border-spacing-y-3 {
   --tw-border-spacing-y: 0.75rem;
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
+}
+
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-x-full {
@@ -1757,6 +1779,11 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -2342,10 +2369,6 @@ video {
   opacity: 0;
 }
 
-.opacity-100 {
-  opacity: 1;
-}
-
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -2467,6 +2490,11 @@ video {
 .hover\:bg-tertiary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 104 35 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:text-\[\#F36823\]:hover {
@@ -2639,10 +2667,13 @@ video {
     margin-top: 7rem;
   }
 
+<<<<<<< HEAD
+=======
   .md\:mt-36 {
     margin-top: 9rem;
   }
 
+>>>>>>> origin/main
   .md\:mt-5 {
     margin-top: 1.25rem;
   }

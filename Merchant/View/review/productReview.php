@@ -99,13 +99,8 @@
 
 
         <!-- start review -->
-<<<<<<< HEAD
-        <div id="modalReview" class="modal   hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-            <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
-=======
         <div id="modalReview" class="hidden fixed pt-28 bg-gray-900 bg-opacity-50 w-full h-full z-20">
             <div class="modal-content bg-[#FEFEFE] p-5 w-[1000px] h-[680px] m-auto rounded shadow-md relative">
->>>>>>> fd8a37f6a860bdeb3e364ecbbec4593494f57a65
                 <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
                 <button onclick="hideReview(),hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                     <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
