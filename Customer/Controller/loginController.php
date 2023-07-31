@@ -21,6 +21,9 @@ if(!isset($_POST["login"])){
     if(count($result) == 0){
         $_SESSION["wrongEmail"] = "Wrong email!";
         header("Location: ../View/Login/login.php");
+    }elseif($result[0]["verify"] == 0){
+        $_SESSION["needVerify"] = "You need to verify your account before login! Please Check your email for varification link!";
+        header("Location: ../View/Login/login.php");
     }elseif(!$passwordCorrect){
         $_SESSION["wrongPassword"] = "Password Incorrect!";
         header("Location: ../View/Login/login.php");
