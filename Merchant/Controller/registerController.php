@@ -6,7 +6,7 @@ if(!isset($_POST["register"])){
     header("Location: ../View/Error/error.php");
 }else{
     $businessName = $_POST["business-name"];
-    $mLicense = $_POST["business-license"];
+    $mLicense = ($_POST["business-license"] == "") ? null : $_POST["business-license"];
     $mName = $_POST["name"];
     $mAddress = $_POST["address"];
     $mEmail = $_POST["email"];
