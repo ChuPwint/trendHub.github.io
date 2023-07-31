@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+$_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

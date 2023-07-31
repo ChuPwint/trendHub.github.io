@@ -22,7 +22,7 @@ if(count($result) > 0){
     
     $sql->bindValue(":id",$id);
     $sql->execute();
-    // header("Location: ../View/Login/login.php");
+    header("Location: ../View/Login/login.php");
 } else {
     header("Location: ../View/Error/error.php");
 }
