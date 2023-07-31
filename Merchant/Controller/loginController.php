@@ -11,12 +11,12 @@ if(!isset($_POST["login"])){
     include "../Model/model.php";
 
     $sql = $pdo->prepare(
-        "SELECT * FROM m_customers WHERE c_email = :email"
+        "SELECT * FROM m_marchents WHERE m_email = :email"
     );
     $sql->bindValue(":email", $loginEmail);
     $sql->execute();
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-    $passwordCorrect = password_verify($loginPassword, $result[0]["c_password"]);
+    $passwordCorrect = password_verify($loginPassword, $result[0]["m_password"]);
 
     if(count($result) == 0){
         $_SESSION["wrongEmail"] = "Wrong email!";
@@ -24,12 +24,15 @@ if(!isset($_POST["login"])){
     }elseif($result[0]["verify"] == 0){
         $_SESSION["needVerify"] = "You need to verify your account before login! Please Check your email for varification link!";
         header("Location: ../View/Login/login.php");
+    }elseif($result[0]["approval"] == 0){
+        $_SESSION["needApproval"] = "Your account has not been approved by admin yet! We will let you know by email when your account is approved by the admin.";
+        header("Location: ../View/Login/login.php");
     }elseif(!$passwordCorrect){
         $_SESSION["wrongPassword"] = "Password Incorrect!";
         header("Location: ../View/Login/login.php");
     }else{
         $_SESSION["currentLoginUser"] = $result[0]["id"];
-        header("Location: ../View/test.php");
+        header("Location: ../View/allProduct/allProduct.php");
     }
     
 }

@@ -46,6 +46,7 @@ session_start();
                 <small class="text-textRed"><?php 
                     if(isset($_SESSION["registerd"])) echo $_SESSION["registerd"];
                     if(isset($_SESSION["wrongEmail"])) echo $_SESSION["wrongEmail"];
+                    if(isset($_SESSION["needVerify"])) echo $_SESSION["needVerify"];       
                 ?></small>
                 <form action="../../Controller/loginController.php" method="POST">
                     <input type="text" name="email" placeholder="Email" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
@@ -69,7 +70,7 @@ session_start();
 $_SESSION["registerd"] = ""; 
 $_SESSION["wrongEmail"] = "";
 $_SESSION["wrongPassword"] = "";
-
+$_SESSION["needVerify"] = "";
 ?>
 
 
