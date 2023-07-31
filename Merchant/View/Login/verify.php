@@ -1,3 +1,11 @@
+<?php
+session_start();
+//if user tried to assess the page with direct link
+if (!isset($_SESSION["m_verifyPwToken"])) {
+    header("Location: ../Error/error.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +27,26 @@
             <h1 class="text-sm  mb-6 text-center">
                 Please enter the 4 digit code that send to your email address.
             </h1>
-            <form action="../">
+            <form action="../../Controller/pwVerifyTokenController.php" method="post">
                 <div class="mb-4">
-                    <input type="text" id="m_verfiyCode" name="password" maxlength="4" class="w-full border shadow-lg border-secondary rounded-md py-2 px-3 mt-1 tracking-[1.2em] text-center focus:outline-none focus:ring focus:ring-secondary" placeholder="____">
+                    <input type="text" name="mVerify_code" maxlength="4" class="w-full border shadow-lg border-secondary rounded-md py-2 px-3 mt-1 tracking-[1.2em] text-center focus:outline-none focus:ring focus:ring-secondary" placeholder="____">
                 </div>
-                <button type="submit" class="w-full shadow-lg bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary"><a href="./reset.php"> Verify</a></button>
+                <small class="text-textRed">
+                    <?php
+                    if (isset($_SESSION["m_verifyCodeError"])) echo $_SESSION["m_verifyCodeError"]
+                    ?>
+                </small>
+                <button type="submit" name="mVerifyBtn" class="w-full shadow-lg bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary">Verify</button>
             </form>
+            <form action="../../Controller/pwVerifyTokenController.php" method="post">
+                If you dont receive code <button type="submit" name="m_resendToken" class="text-xs md:text-sm text-medium mt-2 ml-2 font-bold underline text-tertiary">Resend</button>
+
+            </form>
+            <small class="text-textRed">
+                <?php
+                if (isset($_SESSION["m_resendStatus"])) echo $_SESSION["m_resendStatus"]
+                ?>
+            </small>
             <p class="mt-4 text-center">
                 <a href="./login.php" class="text-black text-sm underline">Back to Login</a>
             </p>
@@ -33,3 +55,7 @@
 </body>
 
 </html>
+<?php
+$_SESSION["m_verifyCodeError"] = "";
+$_SESSION["m_resendStatus"] = "";
+?>

@@ -28,7 +28,7 @@ session_start();
                 </div>
                 <small class="text-textRed">
                     <?php
-                    if (isset($_SESSION["forgotError"])) echo $_SESSION["forgotError"]
+                    if (isset($_SESSION["m_forgotError"])) echo $_SESSION["m_forgotError"]
                     ?>
                 </small>
                 <button type="submit" name="m_forgotPw" class="w-full bg-secondary hover:bg-secondary shadow-lg text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary">Reset Password</button>
@@ -42,5 +42,5 @@ session_start();
 
 </html>
 <?php
-$_SESSION["forgotError"] = "";
+$_SESSION["m_forgotError"] = "";
 ?>
