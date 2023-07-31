@@ -1,29 +1,18 @@
-
 <?php
+session_start();
 
-include "../../Model/model.php";
+if (!isset($_POST["login"])) {
+    header("Location: ../View/Error/error.php");
+} else {
+    include "../Model/model.php";
+    $email = $_POST["email"];
+    echo $username;
+    $sql = $pdo->prepare("SELECT * FROM m_customers WHERE c_email = :email;");
+    $sql->bindValue(":email", $email);
+    $sql->execute();
 
-
-$sql = $pdo->prepare(
-    "SELECT * FROM m_customers ;"
-);
-
-$sql->execute(); //real sql run
-
-$userData = $sql->fetchAll(PDO::FETCH_ASSOC);
-//db connection
-
-$sql = $pdo->prepare(
-    "SELECT * FROM m_regions"
-);
-$sql->execute();
-$totalRegions = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-$sql = $pdo->prepare(
-    "SELECT * FROM m_townships"
-);
-$sql->execute();
-$totalTsp = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-
+    $_SESSION["edit"] = $sql->fetchAll(PDO::FETCH_ASSOC);
+    header("Location: ../View/Profile/user_profile.php");
+    print_r( $_SESSION["edit"]);
+}
 ?>

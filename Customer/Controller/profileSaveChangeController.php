@@ -42,7 +42,6 @@ if(!isset($_POST["saveChange"])){
    
  
    $sql->execute();
-  header("Location: ../View/Profile/user_profile.php");
-  
+   header("Location: ./profileDataShowController.php");
  
 }

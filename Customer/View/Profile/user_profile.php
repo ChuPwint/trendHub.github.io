@@ -160,7 +160,7 @@ $totalTsp = $sql->fetchAll(PDO::FETCH_ASSOC);
                                             <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
                                         </div>
                                     </div>
-                                  <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack bg-black bg-tertiary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                                  <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                                 </div>
 
                             </form>
