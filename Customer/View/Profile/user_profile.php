@@ -1,6 +1,10 @@
 <?php
+
 session_start();
-$edit =$_SESSION["edit"];
+
+$edit = $_SESSION["edit"];
+$notifications = $_SESSION["notificationMessages"];
+
 
 include "../../Model/model.php";
 $sql = $pdo->prepare(
@@ -22,7 +26,7 @@ $totalTsp = $sql->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
 
     <!-- Start Navbar -->
@@ -93,80 +97,80 @@ $totalTsp = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
                 <!-- Profile Form Card -->
-              
-                    <div class="flex-1 md:p-5 relative" id="profileEdit">
-                        <!-- Start Profile Edit Card -->
-                        <div id="profile-edit" class="md:p-8 p-3">
-                            <form action="../../Controller/profileSaveChangeController.php" method="post">
-                                <div class="flex md:flex-row flex-col justify-start items-center mb-4">
-                                    <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
-                                    <div class="flex flex-col">
-                                        <span class="font-bold"><?= $edit[0]["c_name"]; ?></span>
-                                        <span class="text-xs font-bold"><?= $edit[0]["c_address"]; ?></span>
+
+                <div class="flex-1 md:p-5 relative" id="profileEdit">
+                    <!-- Start Profile Edit Card -->
+                    <div id="profile-edit" class="md:p-8 p-3">
+                        <form action="../../Controller/profileSaveChangeController.php" method="post">
+                            <div class="flex md:flex-row flex-col justify-start items-center mb-4">
+                                <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
+                                <div class="flex flex-col">
+                                    <span class="font-bold"><?= $edit[0]["c_name"]; ?></span>
+                                    <span class="text-xs font-bold"><?= $edit[0]["c_address"]; ?></span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex flex-col md:flex-row items-center justify-between  ">
+                                    <div class="md:w-1/2 w-full p-2">
+                                        <input type="text" name="username" value="<?= $edit[0]["c_name"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Username">
+                                    </div>
+                                    <div class="md:w-1/2 w-full p-2 ">
+                                        <input type="tel" name="phone" value="<?= $edit[0]["c_phone"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <div class="flex flex-col md:flex-row items-center justify-between  ">
-                                        <div class="md:w-1/2 w-full p-2">
-                                            <input type="text" name="username" value="<?= $edit[0]["c_name"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Username">
-                                        </div>
-                                        <div class="md:w-1/2 w-full p-2 ">
-                                            <input type="tel" name="phone" value="<?= $edit[0]["c_phone"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number">
-                                        </div>
-                                    </div>
+                                <div class="flex flex-col md:flex-row items-center justify-between  ">
+                                    <div class="w-full p-2 ">
+                                        <select name="region" id="region" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
+                                            <?php
+                                            $selectedRegionID = $edit[0]["region_id"];
 
-                                    <div class="flex flex-col md:flex-row items-center justify-between  ">
-                                        <div class="w-full p-2 ">
-                                            <select name="region" id="region" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
-                                                <?php
-                                                $selectedRegionID = $edit[0]["region_id"];
-                                                
-                                                foreach ($totalRegions as $region) {
-                                                ?>
-                                                    <option value="<?= $region["id"] ?>" <?php
-                                                                                            if ($region['id'] == $selectedRegionID) {
-                                                                                                echo "selected";
-                                                                                            }
-                                                                                            ?>>
-                                                        <?= $region["name"] ?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="w-full p-2 ">
-                                            <select name="township" id="township" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
-                                                <?php
-                                                $selectedTownshipID = $edit[0]["township_id"];
-                                                foreach ($totalTsp as $township) {
-                                                ?>
-                                                    <option value="<?= $township["id"] ?>" <?php
-                                                                                            if ($township['id'] == $selectedTownshipID) {
-                                                                                                echo "selected";
-                                                                                            }
-                                                                                            ?>>
-                                                        <?= $township["name"] ?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
+                                            foreach ($totalRegions as $region) {
+                                            ?>
+                                                <option value="<?= $region["id"] ?>" <?php
+                                                                                        if ($region['id'] == $selectedRegionID) {
+                                                                                            echo "selected";
+                                                                                        }
+                                                                                        ?>>
+                                                    <?= $region["name"] ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
-
-                                    <div class="flex flex-col md:flex-row  items-center justify-between ">
-                                        <div class="md:w-1/2 w-full p-2 ">
-                                            <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Email Address">
-                                        </div>
-                                        <div class="md:w-1/2 w-full p-2">
-                                            <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
-                                        </div>
+                                    <div class="w-full p-2 ">
+                                        <select name="township" id="township" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
+                                            <?php
+                                            $selectedTownshipID = $edit[0]["township_id"];
+                                            foreach ($totalTsp as $township) {
+                                            ?>
+                                                <option value="<?= $township["id"] ?>" <?php
+                                                                                        if ($township['id'] == $selectedTownshipID) {
+                                                                                            echo "selected";
+                                                                                        }
+                                                                                        ?>>
+                                                    <?= $township["name"] ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
-                                  <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                                 </div>
 
-                            </form>
-                        </div>
+                                <div class="flex flex-col md:flex-row  items-center justify-between ">
+                                    <div class="md:w-1/2 w-full p-2 ">
+                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" readonly placeholder="Email Address">
+                                    </div>
+                                    <div class="md:w-1/2 w-full p-2">
+                                        <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
+                                    </div>
+                                </div>
+                                <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                            </div>
+
+                        </form>
                     </div>
-               
+                </div>
+
                 <!-- End Profile Edit Card -->
 
 
@@ -517,56 +521,32 @@ $totalTsp = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Start Notifications Card -->
                 <div class="container mx-auto mt-8 p-4 hidden" id="notification">
                     <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
-                    <!-- Notification Card 1 - Success -->
-                    <div class="w-full mx-auto mt-8">
-                        <div class="bg-white shadow-lg rounded-lg px-6 py-4 mb-4">
-                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-lg">
-                                Your order has been successfully processed.
-                            </div>
-                            <div class="text-gray-500 text-sm mt-2">
-                                From: Sales Team, Date: 2023-07-21
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Notification Card 2 - Warning -->
-                    <div class="w-full mx-auto">
-                        <div class="bg-white shadow-lg rounded-lg px-6 py-4 mb-4">
-                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-2 rounded-lg">
-                                Low stock for some products in your wishlist.
-                            </div>
-                            <div class="text-gray-500 text-sm mt-2">
-                                From: Inventory Team, Date: 2023-07-20
+                    <?php foreach ($notifications as $notification) { ?>
+                        <div class="w-full mx-auto mt-8">
+                            <div class="bg-white shadow-lg rounded-lg px-6 py-4 mb-4">
+                                <div class="bg-orange-200 border border-green-400 text-green-700 px-4 py-2 rounded-lg">
+                                    <?= ($notification['message']); ?>
+                                </div>
+                                <div class="text-gray-500 text-sm mt-2">
+                                    From:<?= ($notification['from']); ?>, Date: <?= ($notification['create_date']); ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Notification Card 3 - Error -->
-                    <div class="w-full mx-auto">
-                        <div class="bg-white shadow-lg rounded-lg px-6 py-4 mb-4">
-                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-lg">
-                                Oops! Something went wrong while processing your payment.
-                            </div>
-                            <div class="text-gray-500 text-sm mt-2">
-                                From: Finance Team, Date: 2023-07-19
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php } ?>
 
                     <!-- End Notifications Card -->
 
 
                 </div>
                 <!-- Modal for save change-->
-                <!-- <div class="flex justify-center items-center">
+                <div class="flex justify-center items-center">
                     <div class="fixed w-full   flex items-center justify-center hidden" id="modal">
                         <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
                             <p class="text-center font-bold">Your profile change is complete!</p>
                             <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- Modal Box for log out -->
                 <div class="flex justify-center items-center ">

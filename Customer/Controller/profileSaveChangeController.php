@@ -7,7 +7,7 @@ if(!isset($_POST["saveChange"])){
    
     include "../Model/model.php";
     $username = $_POST["username"];
-    echo $username;
+  
     $phone = $_POST["phone"];
     $regionID = $_POST["region"];
     $townshipID = $_POST["township"];
@@ -22,6 +22,7 @@ if(!isset($_POST["saveChange"])){
     $sql->execute();
     $searchId = $sql->fetchAll(PDO::FETCH_ASSOC);
     $userID = $searchId[0]["id"];
+
     $sql = $pdo->prepare("UPDATE m_customers SET
      c_name = :name, 
      c_phone= :phone,
@@ -42,6 +43,7 @@ if(!isset($_POST["saveChange"])){
    
  
    $sql->execute();
-   header("Location: ./profileDataShowController.php");
+   include "./profileDataShowController.php";
+ 
  
 }
