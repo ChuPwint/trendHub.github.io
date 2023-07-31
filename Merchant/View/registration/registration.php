@@ -52,7 +52,7 @@ session_start();
             </div>
             <div class="col-span-1">
 
-                <input type="text" id="business-license" name="business-license" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business License" required <?php
+                <input type="text" id="business-license" name="business-license" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business License" <?php
                                                                                                                                                                                                                                                         if (isset($_SESSION["mLicense"])) { ?> value="<?= $_SESSION["mLicense"] ?>" <?php }
                                                                                                                                                                                                                                                                                                                                     ?>>
             </div>
