@@ -11,7 +11,7 @@ require '../View/resources/lib/PHPMailer/src/SMTP.php';
 
 class SendMail
 {
-    public function sendMail($toMail,$subject,$body)
+    public function sendMail($toMail,$subject,$body, $embedImage = false)
     {
         $mail = new PHPMailer(true);
 
@@ -25,11 +25,13 @@ class SendMail
             $mail->Password   = 'sqkkoxwigwhdtfdh';          //<< change                     
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
             $mail->Port       = 465;  
-
-            // for ($i=0; $i < count($imgs); $i++) {
-            //     $mail->addEmbeddedImage($imgs[$i], "img$i");
-            // }
-
+            
+            if($embedImage){
+                //path is from the point of view of resetPasswordController.php
+                $imagePath = '../Mail/resetPasswordCompleteTemplate/images/image-1.gif';
+                $mail->addEmbeddedImage($imagePath, 'img1');
+            }
+            
             //Recipients
             $mail->setFrom('warmanethepriest@gmail.com',"TrendHUB"); //<<change
             $mail->addAddress($toMail);      
