@@ -1,8 +1,5 @@
 <?php 
 session_start();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +45,15 @@ session_start();
                 <p class="text-sm md:text-lg font-medium mb-4 ">Login</p>
                 <small class="text-textRed"><?php 
                     if(isset($_SESSION["registerd"])) echo $_SESSION["registerd"];
+                    if(isset($_SESSION["wrongEmail"])) echo $_SESSION["wrongEmail"];
                 ?></small>
-                <form action="../../Controller/editController.php" method="POST">
-                    <input type="text" name="username" placeholder="Username" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
+                <form action="../../Controller/loginController.php" method="POST">
+                    <input type="text" name="email" placeholder="Email" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
+                    <small class="text-textRed"><?php 
+                    if(isset($_SESSION["wrongPassword"])) echo $_SESSION["wrongPassword"];
+                ?></small>
                     <input type="password" name="password" placeholder="Password" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
-                    <a href="./profile.php"><button type="submit" class="w-full py-1 md:py-2 mb-10 mt-4 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2">Login</button></a>
+                    <button name="login" type="submit" class="w-full py-1 md:py-2 mb-10 mt-4 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2">Login</button>
                     <a href="./forgotPassword.php">
                         <p class="text-decoration-line: underline text-xs md:text-sm text-medium py-8">Forget your password?</p>
                     </a>
@@ -64,7 +65,12 @@ session_start();
 
 </html>
 
-<?php $_SESSION["registerd"] = "" ?>
+<?php 
+$_SESSION["registerd"] = ""; 
+$_SESSION["wrongEmail"] = "";
+$_SESSION["wrongPassword"] = "";
+
+?>
 
 
 

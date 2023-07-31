@@ -641,10 +641,6 @@ video {
   left: 0px;
 }
 
-.left-1\/2 {
-  left: 50%;
-}
-
 .left-5 {
   left: 1.25rem;
 }
@@ -721,33 +717,6 @@ video {
   top: 68px;
 }
 
-<<<<<<< HEAD
-=======
-.bottom-10 {
-  bottom: 2.5rem;
-}
-
-.left-1\/2 {
-  left: 50%;
-}
-
-.top-\[80px\] {
-  top: 80px;
-}
-
-.bottom-12 {
-  bottom: 3rem;
-}
-
-.bottom-6 {
-  bottom: 1.5rem;
-}
-
-.bottom-2 {
-  bottom: 0.5rem;
-}
-
->>>>>>> origin/main
 .-z-50 {
   z-index: -50;
 }
@@ -939,10 +908,6 @@ video {
   margin-right: 1rem;
 }
 
-.mr-52 {
-  margin-right: 13rem;
-}
-
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -961,10 +926,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
 }
 
 .mt-3 {
@@ -1051,13 +1012,6 @@ video {
   margin-top: 90px;
 }
 
-<<<<<<< HEAD
-=======
-.mt-20 {
-  margin-top: 5rem;
-}
-
->>>>>>> origin/main
 .block {
   display: block;
 }
@@ -1390,13 +1344,6 @@ video {
   width: 100%;
 }
 
-<<<<<<< HEAD
-=======
-.w-8 {
-  width: 2rem;
-}
-
->>>>>>> origin/main
 .max-w-\[1700px\] {
   max-width: 1700px;
 }
@@ -1430,18 +1377,8 @@ video {
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 
-.-translate-x-1\/2 {
-  --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .translate-x-full {
   --tw-translate-x: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-x-1\/2 {
-  --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1612,11 +1549,6 @@ video {
   border-bottom-right-radius: 0.5rem;
 }
 
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
 .rounded-bl-none {
   border-bottom-left-radius: 0px;
 }
@@ -1761,11 +1693,6 @@ video {
   background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#FBFBFB\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 251 251 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#FDC6DB\] {
   --tw-bg-opacity: 1;
   background-color: rgb(253 198 219 / var(--tw-bg-opacity));
@@ -1779,11 +1706,6 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -1840,17 +1762,8 @@ video {
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
-}
-
-.bg-opacity-90 {
-  --tw-bg-opacity: 0.9;
 }
 
 .bg-cover {
@@ -2424,12 +2337,6 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.backdrop-blur-lg {
-  --tw-backdrop-blur: blur(16px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2667,13 +2574,6 @@ video {
     margin-top: 7rem;
   }
 
-<<<<<<< HEAD
-=======
-  .md\:mt-36 {
-    margin-top: 9rem;
-  }
-
->>>>>>> origin/main
   .md\:mt-5 {
     margin-top: 1.25rem;
   }
