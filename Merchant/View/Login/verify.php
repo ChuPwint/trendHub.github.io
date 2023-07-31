@@ -16,10 +16,10 @@
         <div class="bg-white w-full sm:w-96 p-6 shadow-lg rounded-md">
             <h1 class="text-2xl font-bold mb-6 text-center"><span>Welcome to </span><span class="text-orange-500">TrendHub</span></h1>
             <h1 class="text-xl font-semibold mb-6 text-center">Verify Password</h1>
-            <h1 class="text-sm  mb-6 text-center">Please enter the 4 digit code that
-                send to your email address.</h1>
-
-            <form>
+            <h1 class="text-sm  mb-6 text-center">
+                Please enter the 4 digit code that send to your email address.
+            </h1>
+            <form action="../">
                 <div class="mb-4">
                     <input type="text" id="m_verfiyCode" name="password" maxlength="4" class="w-full border shadow-lg border-secondary rounded-md py-2 px-3 mt-1 tracking-[1.2em] text-center focus:outline-none focus:ring focus:ring-secondary" placeholder="____">
                 </div>

@@ -209,9 +209,9 @@ session_start();
         // registerBtn.addEventListener("click", () => registeredModelBox.classList.remove("hidden"));
 
         // JavaScript to handle the modal
-        document.getElementById("closeModal").addEventListener("click", () => {
-            document.getElementById("registrationModal").classList.add("hidden");
-        });
+        // document.getElementById("closeModal").addEventListener("click", () => {
+        //     document.getElementById("registrationModal").classList.add("hidden");
+        // });
         // JavaScript to handle modal open and close and checkbox behavior
         const openModalBtn = document.getElementById('openModalBtn');
         const termText = document.getElementById('term');
