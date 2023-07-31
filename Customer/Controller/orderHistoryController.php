@@ -11,8 +11,8 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $orderId = $result[0]["order_id"];
 
-$sql = $pdo->prepare("SELECT * FROM t_order_details WHERE order_id = :id ORDER BY create_date DESC;");
-
+$sql = $pdo->prepare("SELECT * FROM t_order_details WHERE order_id = :orderId ;");
+$sql->bindValue(":id", $id);
 echo "<pre>";
 print_r($result);
 session_start();

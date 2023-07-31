@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// if (!isset($_POST["login"])) {
-//     header("Location: ../View/Error/error.php");
-// } else {
     include "../../Model/model.php";
     // $id = $_SESSION["currentUserID"];
     $id = 18;
