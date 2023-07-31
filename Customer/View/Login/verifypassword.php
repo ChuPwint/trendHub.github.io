@@ -1,3 +1,11 @@
+<?php
+session_start();
+//if user tried to assess the page with direct link
+if (!isset($_SESSION["verifyPwToken"])) {
+    header("Location: ../Error/error.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,14 +45,31 @@
                     <span>Email Verification</span>
                 </h2>
                 <p class="text-xs md:text-sm  mb-4">Please enter the 4 digit code that send to your email address.</p>
-                <form action="#" method="POST">
-                    <input type="text" name="verify_code"  required class="w-full py-1 md:py-2 px-3 tracking-[1.2em] text-center rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
-                    <a href="./resetpassword.php"><button type="submit" class="w-full py-1 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2 mt-3">Verify</button></a>
+                <form action="../../Controller/pwVerifyTokenController.php" method="post">
+                    <input type="text" name="verify_code" required maxlength="4" class="w-full py-1 md:py-2 px-3 tracking-[1.2em] text-center rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
+                    <small class="text-textRed">
+                        <?php
+                        if (isset($_SESSION["verifyCodeError"])) echo $_SESSION["verifyCodeError"]
+                        ?>
+                    </small>
+                    <button type="submit" name="verifyBtn" class="w-full py-1 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2 mt-3">Verify</button>
                 </form>
-                <p class="text-xs md:text-sm text-medium mt-2">If you dont receive code <a href="./verifypassword.php" class="underline text-tertiary mt-4"> Resend</a></p>
+                <form action="../../Controller/pwVerifyTokenController.php" method="post">
+                    If you dont receive code <button type="submit" name="resendToken" class="text-xs md:text-sm text-medium mt-2 ml-2 font-bold underline text-tertiary">Resend</button>
+
+                </form>
+                <small class="text-textRed">
+                    <?php
+                    if (isset($_SESSION["resendStatus"])) echo $_SESSION["resendStatus"]
+                    ?>
+                </small>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<?php
+$_SESSION["verifyCodeError"] = "";
+$_SESSION["resendStatus"] = "";
+?>

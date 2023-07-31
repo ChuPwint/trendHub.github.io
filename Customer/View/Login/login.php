@@ -52,10 +52,8 @@ session_start();
                 <form action="../../Controller/editController.php" method="POST">
                     <input type="text" name="username" placeholder="Username" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
                     <input type="password" name="password" placeholder="Password" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
-                    
-                    
-                    <a href="./profile.php"><button type="submit" name="login" class="w-full py-1 md:py-2 mb-10 mt-4 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2">Login</button></a>
-                    <a href="./forgotpassword.php">
+                    <a href="./profile.php"><button type="submit" class="w-full py-1 md:py-2 mb-10 mt-4 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2">Login</button></a>
+                    <a href="./forgotPassword.php">
                         <p class="text-decoration-line: underline text-xs md:text-sm text-medium py-8">Forget your password?</p>
                     </a>
                 </form>

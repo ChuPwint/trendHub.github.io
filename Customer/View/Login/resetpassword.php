@@ -1,3 +1,11 @@
+<?php
+session_start();
+//if user tried to assess the page with direct link
+if (!isset($_SESSION["changeAccept"])) {
+    header("Location: ../Error/error.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +31,7 @@
         </div>
 
         <p class="mt-4 text-xs md:text-base text-center absolute right-5 top-2">
-        <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-textWhite px-2 py-1">Log In</button></a>
+            <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-textWhite px-2 py-1">Log In</button></a>
         </p>
     </div>
     <div class="flex justify-center items-center flex-col px-5">
@@ -37,15 +45,22 @@
                     <span>Reset Password</span>
                 </h2>
                 <p class="text-xs md:text-sm font-medium mb-4"> Your new password must be different from previously used password.</p>
-                <form action="#" method="POST">
+                <form action="../../Controller/resetPasswordController.php" method="post">
                     <input type="password" name="new_password" placeholder="New Password" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
                     <input type="password" name="confirm_password" placeholder="Confirm Password" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
-                    <a href="./verifypassword.php"><button type="submit" class="w-full py-1 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2 mt-4" >Continue </button></a>
+                    <small class="text-textRed">
+                        <?php
+                        if (isset($_SESSION["diffPwd"])) echo $_SESSION["diffPwd"]
+                        ?>
+                    </small>
+                    <button type="submit" name="changePwd" class="w-full py-1 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2 mt-4">Change Password</button>
                 </form>
-              
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<?php
+$_SESSION["diffPwd"] = "";
+?>
