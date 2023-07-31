@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +26,7 @@
         </div>
 
         <p class="mt-4 text-xs md:text-base text-center absolute right-5 top-2">
-        <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-textWhite">Log In</button></a>
+            <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-textWhite">Log In</button></a>
         </p>
     </div>
     <div class="flex justify-center items-center flex-col px-5">
@@ -37,14 +40,21 @@
                     <span>Forgot Your Password?</span>
                 </h2>
                 <p class="text-sm md:text-lg font-medium mb-4">Enter your email to reset your password</p>
-                <form action="#" method="POST">
+                <form action="../../Controller/forgotPasswordController.php" method="post">
                     <input type="email" name="email" placeholder="Email" required class="w-full py-1 md:py-2 px-3 rounded border border-borderOrange mb-4 focus:outline-none focus:ring-2">
-                    <button type="submit" class="w-full py-1 mt-3 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded  focus:outline-none focus:ring-2"><a href="./verifypassword.php"> Reset Password</a></button>
+                    <small class="text-textRed">
+                        <?php
+                            if (isset($_SESSION["forgotEmailError"])) echo $_SESSION["forgotEmailError"]
+                        ?>
+                    </small>
+                    <button type="submit" name="forgotPw" class="w-full py-1 mt-3 md:py-2 px-4 text-sm md:text-base bg-tertiary text-white rounded  focus:outline-none focus:ring-2">Reset Password</button>
                 </form>
-                <p class="text-xs md:text-sm text-medium py-8 mt-4">Remember your password? <a href="./login.php" class="underline">Log in</a></p>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<?php
+$_SESSION["forgotEmailError"] = "";
+?>

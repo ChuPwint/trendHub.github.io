@@ -21,8 +21,7 @@
 
             <form>
                 <div class="mb-4">
-                 
-                    <input type="password" id="password" name="password" class="w-full border shadow-lg border-secondary rounded-md py-2 px-3 mt-1 tracking-[1.2em] text-center focus:outline-none focus:ring focus:ring-secondary" placeholder="____">
+                    <input type="text" id="m_verfiyCode" name="password" maxlength="4" class="w-full border shadow-lg border-secondary rounded-md py-2 px-3 mt-1 tracking-[1.2em] text-center focus:outline-none focus:ring focus:ring-secondary" placeholder="____">
                 </div>
                 <button type="submit" class="w-full shadow-lg bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-secondary"><a href="./reset.php"> Verify</a></button>
             </form>
