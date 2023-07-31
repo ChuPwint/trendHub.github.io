@@ -7,17 +7,25 @@ $id = 18;
 $sql = $pdo->prepare("SELECT * FROM t_orders WHERE customer_id = :id ORDER BY create_date DESC;");
 $sql->bindValue(":id", $id);
 $sql->execute();
-$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+$orderHistory = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-$orderId = $result[0]["order_id"];
+$orderId = $orderHistory[0]["id"];
+echo "<pre>";
+print_r($orderId);
 
 $sql = $pdo->prepare("SELECT * FROM t_order_details WHERE order_id = :orderId ;");
-$sql->bindValue(":id", $id);
-echo "<pre>";
-print_r($result);
-session_start();
-$_SESSION["orderHistory"] = $result;
+$sql->bindValue(":orderId", $orderId);
+$sql->execute();
+$detail = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+
+
+
+echo "<pre>";
+$_SESSION["orderHistory"] = $orderHistory;
+$_SESSION["orderDetail"] = $detail;
+
+print_r($_SESSION["orderDetail"]);
 // header("Location: ../View/Profile/order.php");
 
 ?>
