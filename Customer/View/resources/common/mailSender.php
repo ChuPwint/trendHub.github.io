@@ -11,7 +11,7 @@ require '../View/resources/lib/PHPMailer/src/SMTP.php';
 
 class SendMail
 {
-    public function sendMail($toMail,$subject,$body, $embedImage = false)
+    public function sendMail($toMail,$subject,$body,$embedImage = false)
     {
         $mail = new PHPMailer(true);
 
