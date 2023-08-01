@@ -3,7 +3,9 @@ session_start();
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
-include "../../../Controller/categoryController.php";
+if (!isset($view)) { 
+  include "../../../Controller/categoryController.php";
+}
 ?>
 
 <!DOCTYPE html>
