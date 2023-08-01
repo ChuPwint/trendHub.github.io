@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-session_start();
-// if (isset($_SESSION["currentLoginUser"])) {
-//   $loginId = $_SESSION["currentLoginUser"];
-// }
-if (!isset($view)) { 
-=======
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -13,7 +6,6 @@ if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
 if (!isset($view)) {
->>>>>>> 361d62934a35391a5e276bdd42b2a7363f65d262
   include "../../../Controller/categoryController.php";
 }
 ?>
