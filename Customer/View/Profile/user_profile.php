@@ -34,6 +34,18 @@ include "../../Controller/notifyController.php";
 
 
 </head>
+<style>
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
 
 <body class="bg-secondary">
     <?php $view = 1 ?>
@@ -86,7 +98,7 @@ include "../../Controller/notifyController.php";
 
                 <!-- Profile Form Card -->
 
-                <div class="flex-1 md:p-5 relative" id="profileEdit">
+                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll " id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
                         <form action="../../Controller/profileSaveChangeController.php" method="post">
@@ -164,7 +176,7 @@ include "../../Controller/notifyController.php";
 
                 <!-- start Wishlist card -->
                 <!-- wishlist destop view  -->
-                <div class="container mx-auto mt-8 hidden" id="wishlistDestop">
+                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll" id="wishlistDestop">
                     <div class="bg-white shadow-md rounded-lg p-6">
                         <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
                         <table class="w-full border-collapse">
@@ -246,7 +258,7 @@ include "../../Controller/notifyController.php";
                     </div>
                 </div>
                 <!-- wishlist mobile view -->
-                <div class="wishlistMobile container mt-2 hidden md:hidden relative">
+                <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
 
                     <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
                     <div class="bg-secondary shadow-lg m-4 p-4 flex">
@@ -306,7 +318,7 @@ include "../../Controller/notifyController.php";
 
                 <!-- Start Order History Card -->
                 <!-- Destop View: order history-->
-                <div class="container mx-auto mt-2 hidden" id="orderHistoryDestop">
+                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll" id="orderHistoryDestop">
                     <div class="bg-primary shadow-md rounded-lg p-6 ">
                         <h2 class="text-2xl font-semibold mb-4">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
@@ -446,7 +458,7 @@ include "../../Controller/notifyController.php";
 
 
                 <!-- Start Notifications Card -->
-                <div class="container mx-auto mt-8 p-4 hidden" id="notification">
+                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll" id="notification">
                     <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
                     <?php foreach ($notifications as $notification) { ?>
                         <div class="w-full mx-auto mt-8">
