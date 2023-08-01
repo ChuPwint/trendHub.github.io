@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
 <body class="bg-secondary md:bg-primary font-roboto">
