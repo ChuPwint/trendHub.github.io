@@ -1,3 +1,12 @@
+<?php
+
+include "../../Controller/adminProductController.php";
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,21 +70,21 @@
             <div class="px-20 data-output">
 
 
-                 <!-- start Date -->
-        <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[30px] pb-[40px] relative">
-        <span class="text-white">47 products found.</span>
-          <div class="absolute -right-[30px]">
-            <label class="inline-flex text-white" for="">Sort By:</label>
-            <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
-             
-              <option value="business">Product Name</option>
-              <option value="address">Category</option>
-              <option value="date">Stock</option>
-              <option value="date">Sell Price</option>
-            </select>
-          </div>
-        </div>
-        <!-- end Date -->
+                <!-- start Date -->
+                <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[30px] pb-[40px] relative">
+                    <span class="text-white"><?= $totalCount ?> products found.</span>
+                    <div class="absolute -right-[30px]">
+                        <label class="inline-flex text-white" for="">Sort By:</label>
+                        <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+
+                            <option value="business">Product Name</option>
+                            <option value="address">Category</option>
+                            <option value="date">Stock</option>
+                            <option value="date">Sell Price</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- end Date -->
 
 
 
@@ -97,238 +106,42 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
 
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
+                                    <?php
+                                    $count = 1;
+                                    foreach ($adminProducts as $product) {
+                                    ?>
+                                        <tr class="bg-[#fffafa]">
+                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <?= $count++ ?>
+                                            </td>
+                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <?= $product["p_name"] ?>
 
-                                        <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                            10
+                                            </td>
+                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <?= $product["category_name"] ?>
+                                            </td>
 
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                            2,100,000
-                                        </td>
+                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <?= $product["p_stock"] ?>
 
-                                        <td class="p-3 text-center  space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <?= number_format($product["buy_price"]) ?>
+                                            </td>
+                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <?= number_format($product["sell_price"]) ?>
+                                            </td>
 
+                                            <td class="p-3 text-center  space-x-2 ">
+                                                <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
+                                                <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
+                                            </td>
+                                        </tr>
+                                    <?php }
 
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center  cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center  cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail() ">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center  cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            MSI Summit E13 Flip Evo
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            Electronics Devices
-                                        </td>
-
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            10
-
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,090,000
-                                        </td>
-                                        <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                            2,100,000errerwer
-                                        </td>
-
-                                        <td class="p-3 text-center space-x-2 ">
-                                            <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                            <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                        </td>
-                                    </tr>
+                                    ?>
 
 
 
@@ -560,7 +373,7 @@
     <div id="modalReview" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
             <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
-            <button onclick="hideReview(),hideDetail()"  class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+            <button onclick="hideReview(),hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>

@@ -2,18 +2,18 @@
 session_start();
 ob_start();
 
-if (!isset($_POST["verifyBtn"]) && !isset($_POST["resendToken"])) {
+if (!isset($_POST["mVerifyBtn"]) && !isset($_POST["m_resendToken"])) {
     header("Location: ../View/Error/error.php");
 } else {
-    if(isset($_POST["verifyBtn"])){
-        $verifyCode = $_POST["verify_code"];
-        $generatedToken = $_SESSION["verifyPwToken"];
+    if(isset($_POST["mVerifyBtn"])){
+        $verifyCode = $_POST["mVerify_code"];
+        $generatedToken = $_SESSION["m_verifyPwToken"];
         if($verifyCode == $generatedToken){
-            $_SESSION["changeAccept"] = "true";
-            header("Location: ../View/Login/resetPassword.php");
+            $_SESSION["m_changeAccept"] = "true";
+            header("Location: ../View/Login/reset.php");
         }else{
-            $_SESSION["verifyCodeError"] = "You have entered wrong token! Please recheck!";
-            header("Location: ../View/Login/verifyPassword.php");
+            $_SESSION["m_verifyCodeError"] = "You have entered wrong token! Please recheck!";
+            header("Location: ../View/Login/verify.php");
         }
     }else{
         //if resend is clicked
@@ -24,8 +24,8 @@ if (!isset($_POST["verifyBtn"]) && !isset($_POST["resendToken"])) {
         // Genereate token 
         $token = getVerifyEmailToken();
         // send email 
-        $c_mail = $_SESSION["c_verifyEmail"];
-        $name = $_SESSION["c_emailUsername"];
+        $c_mail = $_SESSION["m_verifyEmail"];
+        $name = $_SESSION["m_emailUsername"];
         $domain = $_SERVER["SERVER_NAME"];
         $body = file_get_contents("../Mail/verifyEmailTemplate/index.html");
         $body = str_replace("REPLACE", "$token", $body);
@@ -37,9 +37,9 @@ if (!isset($_POST["verifyBtn"]) && !isset($_POST["resendToken"])) {
             $body
         );
         ob_clean();
-        $_SESSION["verifyPwToken"] = $token;
-        $_SESSION["resendStatus"] = "We have sent a new token! Check your Email again!";
-        header("Location: ../View/Login/verifyPassword.php");
+        $_SESSION["m_verifyPwToken"] = $token;
+        $_SESSION["m_resendStatus"] = "We have sent a new token! Check your Email again!";
+        header("Location: ../View/Login/verify.php");
     }    
 }
 ?>

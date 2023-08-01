@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION["currentLoginUser"])) {
+  $loginId = $_SESSION["currentLoginUser"];
+}
+include "../../../Controller/categoryController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,6 @@
 
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
 
 </head>
 
@@ -50,9 +57,15 @@
         <img class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
 
         <!-- mobile login -->
-        <button class="bg-[#F36823] text-textWhite py-2 px-6 rounded md:hidden order-3">
-          <a href="../Login/login.php">Login</a>
-        </button>
+        <?php if (!isset($loginId)) { ?>
+          <button class="bg-[#F36823] text-textWhite py-2 px-6 rounded md:hidden order-3">
+            <a href="../Login/login.php">Login</a>
+          </button>
+        <?php  } else { ?>
+          <div class="md:hidden order-3">
+            <a href=""><img class="w-12 cursor-pointer" src="../resources/img/profile/profile.png" alt=""></a>
+          </div>
+        <?php  } ?>
 
         <!-- mobile menu -->
         <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
@@ -76,101 +89,70 @@
         <li class="mx-4 my-6 md:my-0">
           <a href="../Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
         </li>
-        <a href="../Login/login.php"> <button class="bg-[#F36823] text-[#FFFFFF]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-[#F36823] rounded ">
-            Login
-          </button>
-        </a>
+        <?php if (!isset($loginId)) { ?>
+          <a href="./Login/login.php">
+            <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+              Login
+            </button>
+          </a>
+        <?php  } else { ?>
+          <div>
+            <a href=""><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
+          </div>
+        <?php  } ?>
         <h2 class=""></h2>
       </ul>
     </nav>
     <!-- end first navbar -->
     <!-- start second navbar -->
-    <?php if(!isset($view)){ ?>   
-    <nav class="bg-[#E4E4D2] py-2 px-3 md:px-7">
-      <div class="flex justify-between">
-        <div class="flex">
+    <?php if (!isset($view)) { ?>
+      <nav class="bg-[#E4E4D2] py-2 px-3 md:px-7">
+        <div class="flex justify-between">
+          <div class="flex">
 
-          <!-- desktop categories -->
-          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[#F36823] hover:bg-[#F36823] text-textWhite rounded-l-md cursor-pointer">
-            Categories
-            <img class="inline" src="../resources/img/header/down-arrow.png" alt="">
+            <!-- desktop categories -->
+            <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[#F36823] hover:bg-[#F36823] text-textWhite rounded-l-md cursor-pointer">
+              Categories
+              <img class="inline" src="../resources/img/header/down-arrow.png" alt="">
 
-
-
-            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
-              <li><a href="../Categories/men.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Womens’s & Girls’s Fashion</a></li>
-              <li><a href="../Categories/women.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mens’s & Boys’ Fashion</a></li>
-              <li><a href="../Categories/sport.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Sports & Outdoors</a></li>
-              <li><a href="../Categories/health.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Health & Beauty</a></li>
-              <li><a href="../Categories/jewelry.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Jewelry </a></li>
-              <li><a href="../Categories/watches.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Watches</a></li>
-              <li><a href="../Categories/home.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Home & Lifestyle</a></li>
-              <li><a href="../Categories/mother.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mother & Baby</a></li>
-              <li><a href="../Categories/bags.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Bags</a></li>
-              <li><a href="../Categories/groceries.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Groceries</a></li>
-              <li><a href="../Categories/tv.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Tv & Home Appliances</a></li>
-              <li><a href="../Categories/electronics.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Electronics Devices</a></li>
-              <li><a href="../Categories/others.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Others</a></li>
-            </ul>
+              <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
+                <?php foreach ($categoriesResult as $category) { ?>
+                  <li><a href="../Product/category.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400"><?= $category["category_name"] ?></a></li>
+                <?php } ?>
+              </ul>
+            </div>
+            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
+            <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
-          <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
-          <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+          <a href="../Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="../resources/img/header/cart.svg" alt=""></a>
+          <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-tertiary">0</span>
         </div>
-        <a href="../Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="../resources/img/header/cart.svg" alt=""></a>
-      </div>
-    </nav>
+      </nav>
     <?php  } ?>
     <!-- end second navbar -->
   </div>
   <!-- end header -->
 
-
-
-
-
   <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
-        <a href="./Categories/women.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Womens’s & Girls’s Fashion</span></a>
-        <a href="./Categories/jewelry.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Jewelry </span></a>
-        <a href="./Categories/men.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Mens’s & Boys’ Fashion</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/sport.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Sports & Outdoors</span></a>
-        <a href="./Categories/health.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Health & Beauty</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/home.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Home & Lifestyle</span></a>
-        <a href="./Categories/bags.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Bags</span></a>
-        <a href="./Categories/groceries.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Groceries</span></a>
-        <a href="./Categories/tv.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Tv & Home Appliances</span></a>
-        <a href="./Categories/electronics.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Electronics Devices</span></a>
-        <a href="./Categories/others.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Others</span></a>
-
+        <?php foreach ($categoriesResult as $category) { ?>
+          <a href="../Product/category.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
+        <?php } ?>
       </div>
     </button>
-
   </div>
-
-
-<<<<<<< HEAD
-    <!-- navbar -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="../js/homePage/header/navbarMobile.js"></script>
-    <script src="../js/homePage/header/categoryDesktop.js"></script>
-    <script src="../js/homePage/header/categoryMobile.js"></script>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- navbar -->
-=======
   <!-- end header  -->
-
 
   <!-- navbar -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="../resources/js/homePage/header/navbarMobile.js"></script>
   <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="../resources/js/homePage/header/categoryMobile.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="../resources/lib/jquery3.6.0.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
->>>>>>> origin/main
 
 </body>
 

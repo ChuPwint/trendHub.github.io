@@ -2,26 +2,26 @@
 session_start();
 ob_start();
 
-if (!isset($_POST["changePwd"])) {
+if (!isset($_POST["mChangePwd"])) {
     header("Location: ../View/Error/error.php");
 } else {
-    $changePwd = $_POST["new_password"];
-    $confirmChangePwd = $_POST["confirm_password"];
+    $changePwd = $_POST["m_newPassword"];
+    $confirmChangePwd = $_POST["m_confirmPassword"];
     if ($changePwd == $confirmChangePwd) {
         include "../Model/model.php";
         include "../View/resources/common/mailSender.php";
-        $c_mail = $_SESSION["c_verifyEmail"];
-        $name = $_SESSION["c_emailUsername"];
+        $m_mail = $_SESSION["m_verifyEmail"];
+        $name = $_SESSION["m_emailUsername"];
 
         $sql = $pdo->prepare(
             "
-                UPDATE m_customers SET
-                    c_password = :pwd
-                WHERE c_email = :email 
+                UPDATE m_marchents SET
+                    m_password = :pwd
+                WHERE m_email = :email 
             "
         );
         $sql->bindValue(":pwd", password_hash($changePwd, PASSWORD_DEFAULT));
-        $sql->bindValue(":email", $c_mail);
+        $sql->bindValue(":email", $m_mail);
         $sql->execute();
 
         // send email 
@@ -36,12 +36,12 @@ if (!isset($_POST["changePwd"])) {
             true
         );
 
-        $_SESSION["verifyPwToken"] = "";
-        $_SESSION["changeAccept"] = "";
+        $_SESSION["m_verifyPwToken"] = "";
+        $_SESSION["m_changeAccept"] = "";
         ob_clean();
         header("Location: ../View/Login/login.php");
     } else {
-        $_SESSION["diffPwd"] = "You have entered different passwords. Please redo!";
-        header("Location: ../View/Login/resetPassword.php");
+        $_SESSION["m_diffPwd"] = "You have entered different passwords. Please redo!";
+        header("Location: ../View/Login/reset.php");
     }
 }

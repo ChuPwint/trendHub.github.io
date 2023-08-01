@@ -1,7 +1,10 @@
-<?php 
+<?php
 
 session_start();
-$_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
+if (isset($_SESSION["currentLoginUser"])) {
+  $loginId = $_SESSION["currentLoginUser"];
+}
+include "../Controller/categoryController.php";
 
 ?>
 
@@ -13,7 +16,7 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./resources/img/header/headerLogo.svg" type="image/icon type">
   <title>Trend Hub</title>
-  
+
   <!-- Start Navbar -->
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -23,6 +26,7 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="./resources/lib/jquery3.6.0.js"></script>
   <!-- end navbar -->
 
 
@@ -38,7 +42,7 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
 
 </head>
 
-<body class=" font-roboto" >
+<body class=" font-roboto">
 
 
   <!-- start header  -->
@@ -50,18 +54,24 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
         <!-- desktop logo -->
         <!-- <img class="md:block hidden" src="./resources/img/header/logo.svg" alt=""> -->
         <img class="md:block hidden" src="./resources/img/header/logo.svg" alt="">
-        
-  
 
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="./resources/img/header/headerLogo.svg " alt="">
 
         <!-- mobile login -->
-        <a href="./Login/login.php">
-        <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">
-          Login
-        </button>
-        </a>
+        <?php if (!isset($loginId)) { ?>
+          <a href="./Login/login.php">
+            <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">
+              Login
+            </button>
+          </a>
+        <?php  } else { ?>
+          <div class="md:hidden order-3">
+            <a href="../View/Profile/user_profile.php">
+              <img class="w-12 cursor-pointer" src="../View/resources/img/profile/profile.png" alt="">
+            </a>
+          </div>
+        <?php  } ?>
 
         <!-- mobile menu -->
         <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
@@ -86,10 +96,17 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
           <a href="./Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
         </li>
 
-        <a href="./Login/login.php"> <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
-         Login
-        </button>
-        </a>
+        <?php if (!isset($loginId)) { ?>
+          <a href="./Login/login.php">
+            <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+              Login
+            </button>
+          </a>
+        <?php  } else { ?>
+          <div>
+            <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../View/resources/img/profile/profile.png" alt=""></a>
+          </div>
+        <?php  } ?>
         <h2 class=""></h2>
       </ul>
     </nav>
@@ -105,57 +122,33 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <img class="inline" src="./resources/img/header/down-arrow.png" alt="">
 
-
-
             <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
-              <li><a href="./Categories/men.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Womens’s & Girls’s Fashion</a></li>
-              <li><a href="./Categories/women.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mens’s & Boys’ Fashion</a></li>
-              <li><a href="./Categories/sport.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Sports & Outdoors</a></li>
-              <li><a href="./Categories/health.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Health & Beauty</a></li>
-              <li><a href="./Categories/jewelry.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Jewelry </a></li>
-              <li><a href="./Categories/watches.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Watches</a></li>
-              <li><a href="./Categories/home.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Home & Lifestyle</a></li>
-              <li><a href="./Categories/mother.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Mother & Baby</a></li>
-              <li><a href="./Categories/bags.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Bags</a></li>
-              <li><a href="./Categories/groceries.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Groceries</a></li>
-              <li><a href="./Categories/tv.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Tv & Home Appliances</a></li>
-              <li><a href="./Categories/electronics.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Electronics Devices</a></li>
-              <li><a href="./Categories/others.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">Others</a></li>
+              <?php foreach ($categoriesResult as $category) { ?>
+                <li><a href="./Product/category.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400"><?= $category["category_name"] ?></a></li>
+              <?php } ?>
             </ul>
           </div>
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-      <a href="./Checkout/shoppingCart.php">  <img class="pr-2 mt-2" src="./resources/img/header/cart.svg" alt=""></a>
+        <a href="./Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="./resources/img/header/cart.svg" alt=""></a>
+        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-tertiary">0</span>
       </div>
     </nav>
     <!-- end second navbar -->
   </div>
- 
-
 
   <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
-        <a href="./Categories/women.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Womens’s & Girls’s Fashion</span></a>
-        <a href="./Categories/jewelry.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Jewelry </span></a>
-        <a href="./Categories/men.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Mens’s & Boys’ Fashion</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/sport.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Sports & Outdoors</span></a>
-        <a href="./Categories/health.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Health & Beauty</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/home.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Home & Lifestyle</span></a>
-        <a href="./Categories/bags.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Bags</span></a>
-        <a href="./Categories/groceries.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Groceries</span></a>
-        <a href="./Categories/tv.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Tv & Home Appliances</span></a>
-        <a href="./Categories/electronics.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Electronics Devices</span></a>
-        <a href="./Categories/others.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Others</span></a>
-
+        <?php foreach ($categoriesResult as $category) { ?>
+          <a href="./Product/category.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
+        <?php } ?>
       </div>
     </button>
 
   </div>
- <!-- end header -->
+  <!-- end header -->
 
   <!-- Slider Start -->
   <div class="swiper">
@@ -164,43 +157,43 @@ $_SESSION["currentUserID"] = $_SESSION["currentLoginUser"];
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[#2F2E41] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
-            <img  src="./resources/img/homePage/slider/msi.svg" alt="">
+            <img src="./resources/img/homePage/slider/msi.svg" alt="">
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">Intel® Evo™ Platform 
-The Ultimate Premium Laptop
- Experience</span>
- <span class="md:text-md text-sm mt-5  text-white hidden md:block">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">Intel® Evo™ Platform
+              The Ultimate Premium Laptop
+              Experience</span>
+            <span class="md:text-md text-sm mt-5  text-white hidden md:block">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
           </div>
         </div>
       </div>
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-      <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+        <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
           <div class="  img w-[300px]  ">
-            <img  src="./resources/img/homePage/slider/dell.png" alt="">
+            <img src="./resources/img/homePage/slider/dell.png" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">Intel® Evo™ Platform 
-The Ultimate Premium Laptop
- Experience</span>
- <span class="text-md mt-5 hidden md:block text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">Intel® Evo™ Platform
+              The Ultimate Premium Laptop
+              Experience</span>
+            <span class="text-md mt-5 hidden md:block text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
           </div>
         </div>
       </div>
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-      <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+        <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
           <div class="img w-[300px] ">
             <img src="./resources/img/homePage/slider/acer.png" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-white block md:mt-0 mt-16">Intel® Evo™ Platform 
-The Ultimate Premium Laptop
- Experience</span>
- <span class="text-md mt-5 md:block hidden text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md text-white block md:mt-0 mt-16">Intel® Evo™ Platform
+              The Ultimate Premium Laptop
+              Experience</span>
+            <span class="text-md mt-5 md:block hidden text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
           </div>
         </div>
       </div>
@@ -237,7 +230,6 @@ The Ultimate Premium Laptop
           </div>
         </div>
 
-
         <div class="-z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
           <div class="flex justify-around px-4 mt-[10px] relative">
             <div class="mt-[50px] font-bold">Shoes</div>
@@ -258,8 +250,6 @@ The Ultimate Premium Laptop
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Trending Products</h2>
     <div class="flex justify-center flex-wrap">
 
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080] "><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -269,8 +259,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -280,9 +268,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -291,9 +276,6 @@ The Ultimate Premium Laptop
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
-
-
-
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
@@ -304,11 +286,7 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
-
-
-
     </div>
-
   </div>
   <!-- end trending products -->
 
@@ -327,8 +305,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -338,9 +314,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -349,9 +322,6 @@ The Ultimate Premium Laptop
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
-
-
-
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
@@ -382,8 +352,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -393,9 +361,6 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
 
-
-
-
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
@@ -404,9 +369,6 @@ The Ultimate Premium Laptop
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
       </div>
-
-
-
 
       <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
@@ -417,106 +379,93 @@ The Ultimate Premium Laptop
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
-
     </div>
-
   </div>
   <!-- end new products -->
 
 
 
   <footer class="bg-secondary w-full h-auto font-roboto mt-[90px]">
-<div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
-    <div class="">
+    <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
+      <div class="">
         <span class="block text-[18px] font-semibold py-3">Customer Care</span>
 
         <a href="./Contact/help.php">
-        <span class="cursor-pointer hover:text-tertiary block">FAQs</span>
-
-
+          <span class="cursor-pointer hover:text-tertiary block">FAQs</span>
         </a>
+
         <a href="./Point/points.php">
-        <span class="cursor-pointer hover:text-tertiary block">Exchange Points</span>
-
+          <span class="cursor-pointer hover:text-tertiary block">Exchange Points</span>
         </a>
+
         <a href="./Contact/privacyAndPolicy.php">
-        <span class="cursor-pointer hover:text-tertiary block">Privay & Policy</span>
-
+          <span class="cursor-pointer hover:text-tertiary block">Privay & Policy</span>
         </a>
+
         <a href="../../Merchant/View/Login/login.php">
-        <span class="cursor-pointer hover:text-tertiary block">Sell on Shop</span>
-
+          <span class="cursor-pointer hover:text-tertiary block">Sell on Shop</span>
         </a>
-    </div>
+      </div>
 
-    <div class="">
+      <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Shop</span>
         <a href="./index.php">
-        <span class="block cursor-pointer hover:text-red-500">Shop</span>
+          <span class="block cursor-pointer hover:text-red-500">Shop</span>
 
         </a>
         <a href="#trending">
-        <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
+          <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
 
         </a>
         <a href="#best">
-        <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
-
+          <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
         </a>
 
         <a href="#new">
-        <span class="block cursor-pointer hover:text-tertiary">New Products</span>
-
+          <span class="block cursor-pointer hover:text-tertiary">New Products</span>
         </a>
+      </div>
 
-    </div>
-
-    <div class="">
+      <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
         <span class="block cursor-pointer hover:text-tertiary">Email : <a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
         <span class="block cursor-pointer hover:text-tertiary">Phone : <a href="tel:09403559701">09 40-355-9701</a></span>
         <span class="block cursor-pointer hover:text-tertiary w-[400px]"><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
+      </div>
 
-        
-    </div>
-
-    <div class="">
+      <div class="">
         <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5">Follow Us</span>
-      <div class="flex justify-center space-x-3">
-        <a href="https://web.facebook.com/extbrainedu">
-      <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
-
-        </a>
-      <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
-      <ion-icon class="text-2xl" name="logo-twitter"></ion-icon>
+        <div class="flex justify-center space-x-3">
+          <a href="https://web.facebook.com/extbrainedu">
+            <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
+          </a>
+          <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
+          <ion-icon class="text-2xl" name="logo-twitter"></ion-icon>
+        </div>
       </div>
     </div>
-
-  
-</div>
-<span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub  | Created by X-Tech</span>
-</footer>
+    <span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub | Created by X-Tech</span>
+  </footer>
 
 
 
   <script>
     function toggleColor(button) {
-    if (button.style.color === "tomato") {
+      if (button.style.color === "tomato") {
         button.style.color = "grey";
-    } else {
+      } else {
         button.style.color = "tomato";
+      }
     }
-}
 
 
-var buttons = document.getElementsByClassName("heartBtn");
+    var buttons = document.getElementsByClassName("heartBtn");
 
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", function() {
         toggleColor(this);
-    });
-}
-
+      });
+    }
   </script>
 
   <!-- start navbar -->
@@ -524,6 +473,7 @@ for (var i = 0; i < buttons.length; i++) {
   <script src="./resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="./resources/js/navbar/navbar.js"></script>
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
+  <script src="./resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
