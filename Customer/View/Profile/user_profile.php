@@ -2,8 +2,10 @@
 
 session_start();
 
-$edit = $_SESSION["edit"];
-$notifications = $_SESSION["notificationMessages"];
+// $edit = $_SESSION["edit"];
+// $notifications = $_SESSION["notificationMessages"];
+include "../../Controller/notifyController.php";
+include "../../Controller/profileDataShowController.php";
 include "../../Controller/regionAndTownshipController.php";
 
 
