@@ -1,51 +1,37 @@
 <?php
-session_start();
-
-include "../Model/model.php";
-// $id = $_SESSION["currentUserID"];
-$id = 18;
-
-$sql = $pdo->prepare("SELECT * FROM t_orders WHERE customer_id = :id ORDER BY create_date DESC;");
-$sql->bindValue(":id", $id);
-$sql->execute();
-$orderHistory = $sql->fetchAll(PDO::FETCH_ASSOC);
-echo "<pre>";
-$_SESSION["orderHistory"] = $orderHistory;
-print_r($_SESSION["orderHistory"]);
-
-
-
-$orderId = array(); 
-foreach ($orderHistory as $order) {
-    $orderId[] = $order["id"];
-}
-echo "<pre>";
-print_r($orderId);
-
-
-$allDetails = array();
-// Loop through the $orderId array
-foreach ($orderId as $orderIdValue) {
-    $sql = $pdo->prepare("SELECT * FROM t_order_details WHERE order_id = :orderId;");
-    $sql->bindValue(":orderId", $orderIdValue);
-    $sql->execute();
-    $details = $sql->fetchAll(PDO::FETCH_ASSOC);
-    // Store the details for each order in the $allDetails array
-    $allDetails[$orderIdValue] = $details;
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
 }
 
+include "../../Model/model.php";
+// $id =  $_SESSION["currentLoginUser"];
+$id =  $_SESSION["currentLoginUser"];
 
-$_SESSION["details"] = $allDetails;
-print_r($_SESSION["details"]);
-
-
-$sql = $pdo->prepare(
-    "SELECT * FROM t_payment_method"
+// First query to join t_orders and t_payment_method
+$sql1 = $pdo->prepare(
+    "SELECT t_orders.*, t_payment_method.payment_method 
+    FROM t_orders
+    JOIN t_payment_method ON t_orders.payment_method_id = t_payment_method.id
+    WHERE t_orders.customer_id = :id"
 );
-$sql->execute();
-$paymentMethod = $sql->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION["payment"] = $paymentMethod;
-print_r($paymentMethod);
+$sql1->bindValue(":id", $id);
+$sql1->execute();
+$orderPaymentInfo = $sql1->fetchAll(PDO::FETCH_ASSOC);
 
-header ("Location: ../View/Profile/order.php");
+// Second query to join t_order_details and m_products.p_name
+$sql2 = $pdo->prepare(
+    "SELECT t_order_details.*, m_products.p_name 
+    FROM t_order_details
+    JOIN m_products ON t_order_details.product_id = m_products.id
+    WHERE t_order_details.order_id IN (
+        SELECT id FROM t_orders WHERE customer_id = :id
+    )"
+);
+$sql2->bindValue(":id", $id);
+$sql2->execute();
+$orderDetailsInfo = $sql2->fetchAll(PDO::FETCH_ASSOC);
+
+
+
 ?>

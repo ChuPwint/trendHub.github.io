@@ -1,12 +1,5 @@
 <?php
-session_start();
-$orderHistorys = $_SESSION["orderHistory"];
-$orderDetails = $_SESSION["details"];
-$payment = $_SESSION["payment"];
-echo "<pre>";
-print_r($orderHistorys);
-print_r($orderDetails);
-
+include "../../Controller/orderController.php";
 
 
 ?>
@@ -40,60 +33,46 @@ print_r($orderDetails);
                     </tr>
                 </thead>
                 <tbody class="col space-y-4">
-                    <?php foreach ($orderHistorys as $order) : ?>
+                    <!-- Loop through $orderHistory and generate rows -->
+                    <?php foreach ($orderPaymentInfo as $order) : ?>
                         <tr class="bg-slate-100">
                             <td class="px-4 py-2"><?php echo $order['id']; ?></td>
                             <td class="px-4 py-2">
                                 <?php
-                                $items = array();
-                                foreach ($orderDetails as $detail) {
-                                    
-                                    if ($detail['order_id'] === $order['id']) {
-                                        $productId = $detail['product_id'];
-                                        print_r($productId);
-                                        // Retrieve the product name from the database based on the product_id
-                                        $sql = $pdo->prepare("SELECT p_name FROM m_products WHERE id = :productId;");
-                                        $sql->bindValue(":productId", $productId);
-                                        $sql->execute();
-                                        $product = $sql->fetch(PDO::FETCH_ASSOC);
 
-                                        if ($product) {
-                                            $items[] = $product['p_name'];
-                                        } else {
-                                            // Handle the case when product not found in the database (optional)
-                                            $items[] = 'Product ID ' . $productId;
-                                        }
+                                foreach ($orderDetailsInfo as $detail) {
+                                    if ($detail['order_id'] === $order['id']) {
+                                        echo $detail['p_name'] . ", ";
                                     }
                                 }
-                                echo implode(', ', $items);
                                 ?>
                             </td>
                             <td class="px-4 py-2">
                                 <?php
-                                $quantities = array();
-                                foreach ($orderDetails as $detail) {
+
+                                foreach ($orderDetailsInfo as $detail) {
                                     if ($detail['order_id'] === $order['id']) {
-                                        $quantities[] = $detail['qty'];
+                                        echo $detail['qty'] . ", ";
                                     }
                                 }
-                                echo implode(', ', $quantities);
                                 ?>
                             </td>
-
-                            <?php
-                            $selectedPaymentId = $order["payment_method_id"];
-                            foreach ($payment as $method) {
-                                if ($method['id'] == $selectedPaymentId) {
-                                    $selectedMethod = $method["payment_method"];
-                                    break;
+                            <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
+                            <td class="px-4 py-2"><?php echo "$" . $order['total_amt']; ?></td>
+                            <td class="px-4 py-2">
+                                <?php
+                                
+                                if ($order['order_status'] == 0) {
+                                    echo "Pending";
+                                } elseif ($order['order_status'] == 1) {
+                                    echo "Delivered";
+                                } else {
+                                    // Handle other cases if needed
+                                    echo "Unknown";
                                 }
-                            ?>
-                            <?php } ?>
-
-                            <td class="px-4 py-2"><?= $selectedMethod ?></td>
-                            <td class="px-4 py-2">$<?php echo $order['total_amt']; ?></td>
-                            <td class="px-4 py-2">Delivered</td> <!-- Replace with actual order status if available -->
-                            <td class="px-4 py-2"><img src="../resources/img/orderHistory/carbon_review.svg" alt=""></td>
+                                ?>
+                            </td>
+                            <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

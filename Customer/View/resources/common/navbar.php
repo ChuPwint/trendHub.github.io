@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION["currentLoginUser"])) {
-  $loginId = $_SESSION["currentLoginUser"];
-}
+// if (isset($_SESSION["currentLoginUser"])) {
+//   $loginId = $_SESSION["currentLoginUser"];
+// }
 if (!isset($view)) { 
   include "../../../Controller/categoryController.php";
 }
