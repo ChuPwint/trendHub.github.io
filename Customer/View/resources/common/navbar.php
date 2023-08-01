@@ -1,9 +1,11 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
-if (!isset($view)) { 
+if (!isset($view)) {
   include "../../../Controller/categoryController.php";
 }
 ?>
@@ -18,7 +20,6 @@ if (!isset($view)) {
 
   <!-- tailwind link -->
   <!-- <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" /> -->
-
 
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -149,8 +150,10 @@ if (!isset($view)) {
   <!-- navbar -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="../resources/js/homePage/header/navbarMobile.js"></script>
-  <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
-  <script src="../resources/js/homePage/header/categoryMobile.js"></script>
+  <?php if (!isset($view)) { ?>
+    <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
+    <script src="../resources/js/homePage/header/categoryMobile.js"></script>
+  <? } ?>
   <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
