@@ -153,7 +153,7 @@ if (!isset($view)) {
   <?php if (!isset($view)) { ?>
     <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
     <script src="../resources/js/homePage/header/categoryMobile.js"></script>
-  <? } ?>
+  <?php } ?>
   <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
