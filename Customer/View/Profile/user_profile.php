@@ -35,16 +35,16 @@ include "../../Controller/notifyController.php";
 
 </head>
 <style>
-  /* For Webkit-based browsers (Chrome, Safari and Opera) */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
-  /* For IE, Edge and Firefox */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 </style>
 
 <body class="bg-secondary">
@@ -177,7 +177,7 @@ include "../../Controller/notifyController.php";
                 <!-- start Wishlist card -->
                 <!-- wishlist destop view  -->
                 <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll" id="wishlistDestop">
-                    <div class="bg-white shadow-md rounded-lg p-6">
+                    <div class="toggleWishlist  bg-white shadow-md rounded-lg p-6 md:block hidden">
                         <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
                         <table class="w-full border-collapse">
                             <thead>
@@ -259,57 +259,58 @@ include "../../Controller/notifyController.php";
                 </div>
                 <!-- wishlist mobile view -->
                 <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
+                    <div class="block md:hidden">
+                        <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
+                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
+                            <img src="../resources/img/orderHistory/product1.png" alt="">
+                            <div class="p-4">
+                                <div>Product 1</div>
+                                <div>$250</div>
+                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
+                            </div>
+                            <div class="py-8">
+                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
+                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
+                            </div>
+                        </div>
 
-                    <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
-                    <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                        <img src="../resources/img/orderHistory/product1.png" alt="">
-                        <div class="p-4">
-                            <div>Product 1</div>
-                            <div>$250</div>
-                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
+                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
+                            <img src="../resources/img/orderHistory/product2.png" alt="">
+                            <div class="p-4">
+                                <div>Product 1</div>
+                                <div>$250</div>
+                                <button class="bg-tertiary  text-white text-sm px-2 py-1">Add</button>
+                            </div>
+                            <div class="py-8">
+                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
+                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
+                            </div>
                         </div>
-                        <div class="py-8">
-                            <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                        </div>
-                    </div>
 
-                    <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                        <img src="../resources/img/orderHistory/product2.png" alt="">
-                        <div class="p-4">
-                            <div>Product 1</div>
-                            <div>$250</div>
-                            <button class="bg-tertiary  text-white text-sm px-2 py-1">Add</button>
+                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
+                            <img src="../resources/img/orderHistory/product3.png" alt="">
+                            <div class="p-4">
+                                <div>Product 1</div>
+                                <div>$250</div>
+                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
+                            </div>
+                            <div class="py-8">
+                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
+                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
+                            </div>
                         </div>
-                        <div class="py-8">
-                            <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                        </div>
-                    </div>
 
-                    <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                        <img src="../resources/img/orderHistory/product3.png" alt="">
-                        <div class="p-4">
-                            <div>Product 1</div>
-                            <div>$250</div>
-                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
-                        </div>
-                        <div class="py-8">
-                            <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                        </div>
-                    </div>
-
-                    <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                        <img src="../resources/img/orderHistory/product4.png" alt="">
-                        <div class="p-4">
-                            <div>Product 1</div>
-                            <div>$250</div>
-                            <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
-                        </div>
-                        <div class="py-8">
-                            <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
+                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
+                            <img src="../resources/img/orderHistory/product4.png" alt="">
+                            <div class="p-4">
+                                <div>Product 1</div>
+                                <div>$250</div>
+                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
+                            </div>
+                            <div class="py-8">
+                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
+                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -319,7 +320,7 @@ include "../../Controller/notifyController.php";
                 <!-- Start Order History Card -->
                 <!-- Destop View: order history-->
                 <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll" id="orderHistoryDestop">
-                    <div class="bg-primary shadow-md rounded-lg p-6 ">
+                    <div class="bg-primary shadow-md rounded-lg p-6  hidden md:block">
                         <h2 class="text-2xl font-semibold mb-4">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
                             <thead class="bg-secondary">
@@ -382,79 +383,80 @@ include "../../Controller/notifyController.php";
                     </div>
                 </div>
                 <!--Mobile View: order history -->
-                <div class="orderHistoryMobile container mx-auto mt-2 hidden  md:hidden relative">
-                    <!-- Start Order History Card -->
+                <div class="orderHistoryMobile container mx-auto mt-2 hidden relative">
+                    <div class="block md:hidden">
 
-                    <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
-                    <!-- Mobile View: Each row in a separate card -->
-                    <div class="space-y-4 px-4">
-                        <!-- Loop through $orderPaymentInfo and generate order history entries -->
-                        <?php foreach ($orderPaymentInfo as $order) : ?>
-                            <div class="bg-primary shadow-md rounded-lg p-4 mb-4">
-                                <div class="bg-secondary p-4 rounded-lg">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Order ID:</span>
-                                        <span class="text-sm"><?php echo $order['id']; ?></span>
-                                    </div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Items:</span>
-                                        <span class="text-sm">
-                                            <?php
-                                            foreach ($orderDetailsInfo as $detail) {
-                                                if ($detail['order_id'] === $order['id']) {
-                                                    echo $detail['p_name'] . ", ";
+                        <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
+
+                        <div class="space-y-4 px-4 ">
+                            <!-- Loop through $orderPaymentInfo and generate order history entries -->
+                            <?php foreach ($orderPaymentInfo as $order) : ?>
+                                <div class="bg-primary shadow-md rounded-lg p-4 mb-4">
+                                    <div class="bg-secondary p-4 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Order ID:</span>
+                                            <span class="text-sm"><?php echo $order['id']; ?></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Items:</span>
+                                            <span class="text-sm">
+                                                <?php
+                                                foreach ($orderDetailsInfo as $detail) {
+                                                    if ($detail['order_id'] === $order['id']) {
+                                                        echo $detail['p_name'] . ", ";
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Quantity:</span>
-                                        <span class="text-sm">
-                                            <?php
-                                            foreach ($orderDetailsInfo as $detail) {
-                                                if ($detail['order_id'] === $order['id']) {
-                                                    echo $detail['qty'] . ", ";
+                                                ?>
+                                            </span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Quantity:</span>
+                                            <span class="text-sm">
+                                                <?php
+                                                foreach ($orderDetailsInfo as $detail) {
+                                                    if ($detail['order_id'] === $order['id']) {
+                                                        echo $detail['qty'] . ", ";
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Payment:</span>
-                                        <span class="text-sm"><?php echo $order['payment_method']; ?></span>
-                                    </div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Total:</span>
-                                        <span class="text-sm"><?php echo "$" . $order['total_amt']; ?></span>
-                                    </div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-lg font-semibold">Status:</span>
-                                        <span class="text-sm">
-                                            <?php
-                                            if ($order['order_status'] == 0) {
-                                                echo "Pending";
-                                            } elseif ($order['order_status'] == 1) {
-                                                echo "Delivered";
-                                            } else {
-                                                echo "Unknown";
-                                            }
-                                            ?>
-                                        </span>
-                                    </div>
-                                    <div class="flex justify-end">
-                                        <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
+                                                ?>
+                                            </span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Payment:</span>
+                                            <span class="text-sm"><?php echo $order['payment_method']; ?></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Total:</span>
+                                            <span class="text-sm"><?php echo "$" . $order['total_amt']; ?></span>
+                                        </div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-lg font-semibold">Status:</span>
+                                            <span class="text-sm">
+                                                <?php
+                                                if ($order['order_status'] == 0) {
+                                                    echo "Pending";
+                                                } elseif ($order['order_status'] == 1) {
+                                                    echo "Delivered";
+                                                } else {
+                                                    echo "Unknown";
+                                                }
+                                                ?>
+                                            </span>
+                                        </div>
+                                        <div class="flex justify-end">
+                                            <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
 
-                      
 
+                        </div>
                     </div>
                 </div>
                 <!-- End Order History Card -->
+
 
 
                 <!-- Start Notifications Card -->
@@ -494,7 +496,7 @@ include "../../Controller/notifyController.php";
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
 
-                                <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancle</button>
+                                <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
                                 <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
                             </div>
                         </div>
@@ -538,7 +540,36 @@ include "../../Controller/notifyController.php";
     <script>
         // for mobile view
         $(document).ready(function() {
+            var wishToggle = false;
+            var orderToggle = false;
+            $(window).resize(function() {
+                if (wishToggle) {
+                    if ($(window).width() <= 768 && (!$("#wishlistDestop").hasClass("hidden"))) {
+                       
+                        $("#mobile-wishlist").trigger("click");
+                    } else if ($(window).width() >= 768 && ($("#wishlistDestop").hasClass("hidden"))) {
+                      
+                        $("#menu-wishlist").trigger("click");
+                    }
+                }
+                
+                if(orderToggle){
+                    if ($(window).width() <= 768 && (!$("#orderHistoryDestop").hasClass("hidden"))) {
+                      
+                        $("#mobile-order").trigger("click");
+                    } else if ($(window).width() >= 768 && ($("#orderHistoryDestop").hasClass("hidden"))) {
+                        
+                        $("#menu-order-history").trigger("click");
+                    } 
+                }
+
+            });
+         
+           
+
             $("#mobile-user").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#profileEdit").removeClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
@@ -548,6 +579,8 @@ include "../../Controller/notifyController.php";
             });
 
             $("#mobile-wishlist").click(function() {
+                wishToggle = true;
+                orderToggle = false;
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").removeClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
@@ -557,6 +590,9 @@ include "../../Controller/notifyController.php";
             });
 
             $("#mobile-order").click(function() {
+                wishToggle = false;
+                orderToggle = true;
+                
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
@@ -565,6 +601,8 @@ include "../../Controller/notifyController.php";
                 $("#notification").addClass("hidden");
             });
             $("#mobile-notify").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
@@ -574,6 +612,8 @@ include "../../Controller/notifyController.php";
             });
 
             $("#menu-user-info").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#profileEdit").removeClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
@@ -583,6 +623,8 @@ include "../../Controller/notifyController.php";
             });
 
             $("#menu-wishlist").click(function() {
+                wishToggle = true;
+                orderToggle = false;
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").removeClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
@@ -592,6 +634,8 @@ include "../../Controller/notifyController.php";
             });
 
             $("#menu-order-history").click(function() {
+                wishToggle = false;
+                orderToggle = true;
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
@@ -601,6 +645,8 @@ include "../../Controller/notifyController.php";
             });
 
             $("#menu-notification").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
@@ -610,25 +656,37 @@ include "../../Controller/notifyController.php";
             });
 
             $("#logoutBtn").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#logoutModal").toggle();
             });
 
             $("#mobile-logout").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#logoutModal").toggle();
             });
 
             $("#confirmLogout").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#logoutModal").toggle();
             });
             $("#cancelLogout").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#logoutModal").toggle();
             });
 
             $("#save-profile-btn").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#modal").toggle();
             });
 
             $("#close-modal-btn").click(function() {
+                wishToggle = false;
+                orderToggle = false;
                 $("#modal").toggle();
             });
         });
