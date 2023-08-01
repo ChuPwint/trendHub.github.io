@@ -617,18 +617,13 @@ include "../../Controller/regionAndTownshipController.php";
                 $("#notification").removeClass("hidden");
             });
 
-
-        });
-    </script>
-    <script>
-        // for destop view
-        $(document).ready(function() {
             $("#menu-user-info").click(function() {
                 $("#profileEdit").removeClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
+
             $("#menu-wishlist").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").removeClass("hidden");
@@ -637,6 +632,7 @@ include "../../Controller/regionAndTownshipController.php";
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
+
             $("#menu-order-history").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
@@ -644,17 +640,14 @@ include "../../Controller/regionAndTownshipController.php";
                 $(".orderHistoryMobile").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
+
             $("#menu-notification").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").removeClass("hidden");
             });
-        });
-
-
-        // for log out model
-        $(document).ready(function() {
+        
             $("#logoutBtn").click(function() {
                 $("#logoutModal").toggle();
             });
@@ -669,10 +662,7 @@ include "../../Controller/regionAndTownshipController.php";
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-        });
-
-        // for save change model
-        $(document).ready(function() {
+        
             $("#save-profile-btn").click(function() {
                 $("#modal").toggle();
             });
@@ -680,17 +670,8 @@ include "../../Controller/regionAndTownshipController.php";
             $("#close-modal-btn").click(function() {
                 $("#modal").toggle();
             });
-
         });
     </script>
-
-
-
-
-
-
-
-
 </body>
 
 </html>

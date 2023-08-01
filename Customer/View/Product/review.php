@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Page with Tailwind CSS</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-
+    <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
 <body class="bg-primary">
