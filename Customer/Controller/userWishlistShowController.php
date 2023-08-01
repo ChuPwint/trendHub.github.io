@@ -1,28 +1,22 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
-include "../Model/model.php";
-// $id =  $_SESSION["currentLoginUser"];
-// $id =  $_SESSION["currentLoginUser"];
+include "../../Model/model.php";
+$id =  $_SESSION["currentLoginUser"];
 
 
-$sql = $pdo->prepare("SELECT p_name,sell_price FROM m_products;");
+// Fetch wishlist details along with product information from the t_wishlist_details and m_products tables
+$sql = $pdo->prepare("
+    SELECT t_wishlist_details.*, m_products.p_name, m_products.sell_price
+    FROM t_wishlist_details
+    JOIN m_products ON t_wishlist_details.product_id = m_products.id
+    JOIN m_customers ON t_wishlist_details.wishlist_id = m_customers.wishlist_id
+    WHERE m_customers.id = :id;
+");
+
+$sql->bindValue(":id", $id);
 $sql->execute();
-$wishlist = $sql->fetchAll(PDO::FETCH_ASSOC);
+$wishlistProducts = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-
-echo "<pre>";
-print_r($wishlist);
-
-
-
-$id = 1;
-$sql = $pdo->prepare("SELECT * FROM t_wishlist_details WHERE wishlist_id = :id;");
-$sql1->bindValue(":id", $id);
-$sql->execute();
-$wishlistDetail = $sql->fetchAll(PDO::FETCH_ASSOC);
-echo "<pre>";
-print_r($wishlistDetail);
-?> 
+?>
