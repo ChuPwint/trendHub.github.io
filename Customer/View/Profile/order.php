@@ -1,10 +1,12 @@
 <?php
 session_start();
-
-$orderDetails = $_SESSION["orderDetail"];
+$orderHistorys = $_SESSION["orderHistory"];
+$orderDetails = $_SESSION["details"];
+$payment = $_SESSION["payment"];
 echo "<pre>";
-
+print_r($orderHistorys);
 print_r($orderDetails);
+
 
 
 ?>
@@ -45,8 +47,22 @@ print_r($orderDetails);
                                 <?php
                                 $items = array();
                                 foreach ($orderDetails as $detail) {
+                                    
                                     if ($detail['order_id'] === $order['id']) {
-                                        // $items[] = 'Product ' . $detail['product_id'];
+                                        $productId = $detail['product_id'];
+                                        print_r($productId);
+                                        // Retrieve the product name from the database based on the product_id
+                                        $sql = $pdo->prepare("SELECT p_name FROM m_products WHERE id = :productId;");
+                                        $sql->bindValue(":productId", $productId);
+                                        $sql->execute();
+                                        $product = $sql->fetch(PDO::FETCH_ASSOC);
+
+                                        if ($product) {
+                                            $items[] = $product['p_name'];
+                                        } else {
+                                            // Handle the case when product not found in the database (optional)
+                                            $items[] = 'Product ID ' . $productId;
+                                        }
                                     }
                                 }
                                 echo implode(', ', $items);
@@ -57,13 +73,24 @@ print_r($orderDetails);
                                 $quantities = array();
                                 foreach ($orderDetails as $detail) {
                                     if ($detail['order_id'] === $order['id']) {
-                                        // $quantities[] = $detail['qty'];
+                                        $quantities[] = $detail['qty'];
                                     }
                                 }
                                 echo implode(', ', $quantities);
                                 ?>
                             </td>
-                            <td class="px-4 py-2">Credit Card</td> <!-- Replace with actual payment method if available -->
+
+                            <?php
+                            $selectedPaymentId = $order["payment_method_id"];
+                            foreach ($payment as $method) {
+                                if ($method['id'] == $selectedPaymentId) {
+                                    $selectedMethod = $method["payment_method"];
+                                    break;
+                                }
+                            ?>
+                            <?php } ?>
+
+                            <td class="px-4 py-2"><?= $selectedMethod ?></td>
                             <td class="px-4 py-2">$<?php echo $order['total_amt']; ?></td>
                             <td class="px-4 py-2">Delivered</td> <!-- Replace with actual order status if available -->
                             <td class="px-4 py-2"><img src="../resources/img/orderHistory/carbon_review.svg" alt=""></td>
