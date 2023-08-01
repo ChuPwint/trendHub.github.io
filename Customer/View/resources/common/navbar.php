@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
+include "../../../Controller/categoryController.php";
 ?>
 
 <!DOCTYPE html>
@@ -135,36 +136,21 @@ if (isset($_SESSION["currentLoginUser"])) {
   <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
-        <a href="./Categories/women.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Womens’s & Girls’s Fashion</span></a>
-        <a href="./Categories/jewelry.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Jewelry </span></a>
-        <a href="./Categories/men.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Mens’s & Boys’ Fashion</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/sport.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Sports & Outdoors</span></a>
-        <a href="./Categories/health.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Health & Beauty</span></a>
-        <a href="./Categories/watches.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Watches</span></a>
-        <a href="./Categories/home.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Home & Lifestyle</span></a>
-        <a href="./Categories/bags.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Bags</span></a>
-        <a href="./Categories/groceries.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Groceries</span></a>
-        <a href="./Categories/tv.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Tv & Home Appliances</span></a>
-        <a href="./Categories/electronics.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Electronics Devices</span></a>
-        <a href="./Categories/others.php"> <span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md">Others</span></a>
-
+        <?php foreach ($categoriesResult as $category) { ?>
+          <a href="../Product/category.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
+        <?php } ?>
       </div>
     </button>
   </div>
-
-
   <!-- end header  -->
-
 
   <!-- navbar -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="../resources/js/homePage/header/navbarMobile.js"></script>
   <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="../resources/js/homePage/header/categoryMobile.js"></script>
-  <!-- <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
-  <script src="../lib/jquery3.6.0.js"></script> -->
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 
