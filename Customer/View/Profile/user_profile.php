@@ -53,7 +53,7 @@ include "../../Controller/notifyController.php";
     <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
 
 
-    <div class="flex justify-center items-center flex-col w-full   ">
+    <div class="flex justify-center items-center flex-col w-full mt-20  ">
         <div class="bg-primary relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
             <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
             <div class="md:flex">
@@ -541,6 +541,8 @@ include "../../Controller/notifyController.php";
             $("#mobile-user").click(function() {
                 $("#profileEdit").removeClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
                 $(".orderHistoryMobile").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
@@ -550,12 +552,14 @@ include "../../Controller/notifyController.php";
                 $(".wishlistMobile").removeClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
                 $(".orderHistoryMobile").addClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
 
             $("#mobile-order").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
                 $(".orderHistoryMobile").removeClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
@@ -563,6 +567,8 @@ include "../../Controller/notifyController.php";
             $("#mobile-notify").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
+                $("#wishlistDestop").addClass("hidden");
+                $("#orderHistoryDestop").addClass("hidden");
                 $(".orderHistoryMobile").addClass("hidden");
                 $("#notification").removeClass("hidden");
             });
@@ -572,13 +578,15 @@ include "../../Controller/notifyController.php";
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
             });
 
             $("#menu-wishlist").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").removeClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
-
+                $(".orderHistoryMobile").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").addClass("hidden");
             });
@@ -586,6 +594,7 @@ include "../../Controller/notifyController.php";
             $("#menu-order-history").click(function() {
                 $("#profileEdit").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
                 $("#orderHistoryDestop").removeClass("hidden");
                 $(".orderHistoryMobile").addClass("hidden");
                 $("#notification").addClass("hidden");
@@ -596,6 +605,8 @@ include "../../Controller/notifyController.php";
                 $("#wishlistDestop").addClass("hidden");
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").removeClass("hidden");
+                $(".wishlistMobile").addClass("hidden");
+                $(".orderHistoryMobile").addClass("hidden");
             });
 
             $("#logoutBtn").click(function() {
