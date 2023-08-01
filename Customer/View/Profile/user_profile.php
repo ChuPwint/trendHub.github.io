@@ -1,10 +1,9 @@
 <?php
-
-session_start();
-
-$edit = $_SESSION["edit"];
-$notifications = $_SESSION["notificationMessages"];
 include "../../Controller/regionAndTownshipController.php";
+
+include "../../Controller/profileDataShowController.php";
+include "../../Controller/orderController.php";
+include "../../Controller/notifyController.php";
 
 
 
@@ -35,6 +34,18 @@ include "../../Controller/regionAndTownshipController.php";
 
 
 </head>
+<style>
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
 
 <body class="bg-secondary">
     <?php $view = 1 ?>
@@ -87,7 +98,7 @@ include "../../Controller/regionAndTownshipController.php";
 
                 <!-- Profile Form Card -->
 
-                <div class="flex-1 md:p-5 relative" id="profileEdit">
+                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll " id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
                         <form action="../../Controller/profileSaveChangeController.php" method="post">
@@ -165,7 +176,7 @@ include "../../Controller/regionAndTownshipController.php";
 
                 <!-- start Wishlist card -->
                 <!-- wishlist destop view  -->
-                <div class="container mx-auto mt-8 hidden" id="wishlistDestop">
+                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll" id="wishlistDestop">
                     <div class="bg-white shadow-md rounded-lg p-6">
                         <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
                         <table class="w-full border-collapse">
@@ -247,7 +258,7 @@ include "../../Controller/regionAndTownshipController.php";
                     </div>
                 </div>
                 <!-- wishlist mobile view -->
-                <div class="wishlistMobile container mt-2 hidden md:hidden relative">
+                <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
 
                     <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
                     <div class="bg-secondary shadow-lg m-4 p-4 flex">
@@ -307,7 +318,7 @@ include "../../Controller/regionAndTownshipController.php";
 
                 <!-- Start Order History Card -->
                 <!-- Destop View: order history-->
-                <div class="container mx-auto mt-2 hidden" id="orderHistoryDestop">
+                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll" id="orderHistoryDestop">
                     <div class="bg-primary shadow-md rounded-lg p-6 ">
                         <h2 class="text-2xl font-semibold mb-4">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
@@ -323,44 +334,50 @@ include "../../Controller/regionAndTownshipController.php";
                                 </tr>
                             </thead>
                             <tbody class="col space-y-4">
-                                <!-- Sample Order History Entries -->
-                                <tr class=" bg-slate-100  ">
-                                    <td class="px-4 py-2">2023001</td>
-                                    <td class="px-4 py-2 ">Product A, Product B</td>
-                                    <td class="px-4 py-2 ">2, 1</td>
-                                    <td class="px-4 py-2 ">Credit Card</td>
-                                    <td class="px-4 py-2 ">$150.00</td>
-                                    <td class="px-4 py-2 ">Delivered</td>
-                                    <td class="px-4 py-2 "><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
-                                </tr>
-                                <tr class="mt-4 bg-slate-100  ">
-                                    <td class="px-4 py-2 ">2023002</td>
-                                    <td class="px-4 py-2 ">Product C</td>
-                                    <td class="px-4 py-2 ">3</td>
-                                    <td class="px-4 py-2 ">PayPal</td>
-                                    <td class="px-4 py-2 ">$75.99</td>
-                                    <td class="px-4 py-2 ">Shipped</td>
-                                    <td class="px-4 py-2 "><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
-                                </tr>
-                                <tr class="mt-4 bg-slate-100 ">
-                                    <td class="px-4 py-2 ">2023003</td>
-                                    <td class="px-4 py-2 ">Product D, Product E, Product F</td>
-                                    <td class="px-4 py-2 ">1, 2, 2</td>
-                                    <td class="px-4 py-2 ">Google Pay</td>
-                                    <td class="px-4 py-2 ">$225.50</td>
-                                    <td class="px-4 py-2 ">Delivered </td>
-                                    <td class="px-4 py-2 "><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
-                                </tr>
-                                <tr class="py-4 bg-slate-100 ">
-                                    <td class="px-4 py-2 ">2023004</td>
-                                    <td class="px-4 py-2 ">Product G</td>
-                                    <td class="px-4 py-2 ">5</td>
-                                    <td class="px-4 py-2 ">Apple Pay</td>
-                                    <td class="px-4 py-2 ">$42.00</td>
-                                    <td class="px-4 py-2 ">Cancelled </td>
-                                    <td class="px-4 py-2 "><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
-                                </tr>
+                                <!-- Loop through $orderHistory and generate rows -->
+                                <?php foreach ($orderPaymentInfo as $order) : ?>
+                                    <tr class="bg-slate-100">
+                                        <td class="px-4 py-2"><?php echo $order['id']; ?></td>
+                                        <td class="px-4 py-2">
+                                            <?php
+
+                                            foreach ($orderDetailsInfo as $detail) {
+                                                if ($detail['order_id'] === $order['id']) {
+                                                    echo $detail['p_name'] . ", ";
+                                                }
+                                            }
+                                            ?>
+                                        </td>
+                                        <td class="px-4 py-2">
+                                            <?php
+
+                                            foreach ($orderDetailsInfo as $detail) {
+                                                if ($detail['order_id'] === $order['id']) {
+                                                    echo $detail['qty'] . ", ";
+                                                }
+                                            }
+                                            ?>
+                                        </td>
+                                        <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
+                                        <td class="px-4 py-2"><?php echo "$" . $order['total_amt']; ?></td>
+                                        <td class="px-4 py-2">
+                                            <?php
+
+                                            if ($order['order_status'] == 0) {
+                                                echo "Pending";
+                                            } elseif ($order['order_status'] == 1) {
+                                                echo "Delivered";
+                                            } else {
+                                                // Handle other cases if needed
+                                                echo "Unknown";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -371,144 +388,77 @@ include "../../Controller/regionAndTownshipController.php";
                     <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
                     <!-- Mobile View: Each row in a separate card -->
                     <div class="space-y-4 px-4">
-                        <!-- Sample Order History Entry 1 -->
-                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
-                            <div class="bg-secondary p-4 rounded-lg ">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Order ID:</span>
-                                    <span class="text-sm">2023001</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Items:</span>
-                                    <span class="text-sm">Product A, Product B</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Quantity:</span>
-                                    <span class="text-sm">2, 1</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Payment:</span>
-                                    <span class="text-sm">Credit Card</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Total:</span>
-                                    <span class="text-sm">$150.00</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Status:</span>
-                                    <span class="text-sm">Delivered</span>
-                                </div>
-                                <div class="flex justify-end">
-                                    <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
+                        <!-- Loop through $orderPaymentInfo and generate order history entries -->
+                        <?php foreach ($orderPaymentInfo as $order) : ?>
+                            <div class="bg-primary shadow-md rounded-lg p-4 mb-4">
+                                <div class="bg-secondary p-4 rounded-lg">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Order ID:</span>
+                                        <span class="text-sm"><?php echo $order['id']; ?></span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Items:</span>
+                                        <span class="text-sm">
+                                            <?php
+                                            foreach ($orderDetailsInfo as $detail) {
+                                                if ($detail['order_id'] === $order['id']) {
+                                                    echo $detail['p_name'] . ", ";
+                                                }
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Quantity:</span>
+                                        <span class="text-sm">
+                                            <?php
+                                            foreach ($orderDetailsInfo as $detail) {
+                                                if ($detail['order_id'] === $order['id']) {
+                                                    echo $detail['qty'] . ", ";
+                                                }
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Payment:</span>
+                                        <span class="text-sm"><?php echo $order['payment_method']; ?></span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Total:</span>
+                                        <span class="text-sm"><?php echo "$" . $order['total_amt']; ?></span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-lg font-semibold">Status:</span>
+                                        <span class="text-sm">
+                                            <?php
+                                            if ($order['order_status'] == 0) {
+                                                echo "Pending";
+                                            } elseif ($order['order_status'] == 1) {
+                                                echo "Delivered";
+                                            } else {
+                                                echo "Unknown";
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
 
-                        <!-- Sample Order History Entry 2 -->
-                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
-                            <div class="bg-secondary p-4 rounded-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Order ID:</span>
-                                    <span class="text-sm">2023002</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Items:</span>
-                                    <span class="text-sm">Product C</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Quantity:</span>
-                                    <span class="text-sm">3</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Payment:</span>
-                                    <span class="text-sm">PayPal</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Total:</span>
-                                    <span class="text-sm">$75.99</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Status:</span>
-                                    <span class="text-sm">Shipped</span>
-                                </div>
-                                <div class="flex justify-end">
-                                    <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Sample Order History Entry 3 -->
-                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
-                            <div class="bg-secondary p-4 rounded-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Order ID:</span>
-                                    <span class="text-sm">2023003</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Items:</span>
-                                    <span class="text-sm">Product D, Product E, Product F</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Quantity:</span>
-                                    <span class="text-sm">1, 2, 2</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Payment:</span>
-                                    <span class="text-sm">Google Pay</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Total:</span>
-                                    <span class="text-sm">$225.50</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Status:</span>
-                                    <span class="text-sm">Delivered</span>
-                                </div>
-                                <div class="flex justify-end">
-                                    <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
+                      
 
-                        <!-- Sample Order History Entry 4 -->
-                        <div class="bg-primary shadow-md rounded-lg p-4 border-spacing ">
-                            <div class="bg-secondary p-4 rounded-lg">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Order ID:</span>
-                                    <span class="text-sm">2023004</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Items:</span>
-                                    <span class="text-sm">Product G</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Quantity:</span>
-                                    <span class="text-sm">5</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Payment:</span>
-                                    <span class="text-sm">Apple Pay</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Total:</span>
-                                    <span class="text-sm">$42.00</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-lg font-semibold">Status:</span>
-                                    <span class="text-sm">Cancelled</span>
-                                </div>
-                                <div class="flex justify-end">
-                                    <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- End Order History Card -->
 
 
                 <!-- Start Notifications Card -->
-                <div class="container mx-auto mt-8 p-4 hidden" id="notification">
+                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll" id="notification">
                     <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
                     <?php foreach ($notifications as $notification) { ?>
                         <div class="w-full mx-auto mt-8">
@@ -647,7 +597,7 @@ include "../../Controller/regionAndTownshipController.php";
                 $("#orderHistoryDestop").addClass("hidden");
                 $("#notification").removeClass("hidden");
             });
-        
+
             $("#logoutBtn").click(function() {
                 $("#logoutModal").toggle();
             });
@@ -662,7 +612,7 @@ include "../../Controller/regionAndTownshipController.php";
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-        
+
             $("#save-profile-btn").click(function() {
                 $("#modal").toggle();
             });

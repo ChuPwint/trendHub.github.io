@@ -1,10 +1,5 @@
 <?php
-session_start();
-
-$orderDetails = $_SESSION["orderDetail"];
-echo "<pre>";
-
-print_r($orderDetails);
+include "../../Controller/orderController.php";
 
 
 ?>
@@ -38,35 +33,46 @@ print_r($orderDetails);
                     </tr>
                 </thead>
                 <tbody class="col space-y-4">
-                    <?php foreach ($orderHistorys as $order) : ?>
+                    <!-- Loop through $orderHistory and generate rows -->
+                    <?php foreach ($orderPaymentInfo as $order) : ?>
                         <tr class="bg-slate-100">
                             <td class="px-4 py-2"><?php echo $order['id']; ?></td>
                             <td class="px-4 py-2">
                                 <?php
-                                $items = array();
-                                foreach ($orderDetails as $detail) {
+
+                                foreach ($orderDetailsInfo as $detail) {
                                     if ($detail['order_id'] === $order['id']) {
-                                        // $items[] = 'Product ' . $detail['product_id'];
+                                        echo $detail['p_name'] . ", ";
                                     }
                                 }
-                                echo implode(', ', $items);
                                 ?>
                             </td>
                             <td class="px-4 py-2">
                                 <?php
-                                $quantities = array();
-                                foreach ($orderDetails as $detail) {
+
+                                foreach ($orderDetailsInfo as $detail) {
                                     if ($detail['order_id'] === $order['id']) {
-                                        // $quantities[] = $detail['qty'];
+                                        echo $detail['qty'] . ", ";
                                     }
                                 }
-                                echo implode(', ', $quantities);
                                 ?>
                             </td>
-                            <td class="px-4 py-2">Credit Card</td> <!-- Replace with actual payment method if available -->
-                            <td class="px-4 py-2">$<?php echo $order['total_amt']; ?></td>
-                            <td class="px-4 py-2">Delivered</td> <!-- Replace with actual order status if available -->
-                            <td class="px-4 py-2"><img src="../resources/img/orderHistory/carbon_review.svg" alt=""></td>
+                            <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
+                            <td class="px-4 py-2"><?php echo "$" . $order['total_amt']; ?></td>
+                            <td class="px-4 py-2">
+                                <?php
+                                
+                                if ($order['order_status'] == 0) {
+                                    echo "Pending";
+                                } elseif ($order['order_status'] == 1) {
+                                    echo "Delivered";
+                                } else {
+                                    // Handle other cases if needed
+                                    echo "Unknown";
+                                }
+                                ?>
+                            </td>
+                            <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

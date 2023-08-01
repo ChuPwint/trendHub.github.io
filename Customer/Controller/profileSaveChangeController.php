@@ -1,11 +1,12 @@
 <?php
 // profile_controller.php
-
+session_start();
 if(!isset($_POST["saveChange"])){
     header("Location: ../View/Error/error.php");
 }else{
    
     include "../Model/model.php";
+    $id =  $_SESSION["currentLoginUser"];
     $username = $_POST["username"];
   
     $phone = $_POST["phone"];
@@ -14,15 +15,7 @@ if(!isset($_POST["saveChange"])){
     $email = $_POST["email"];
     $address = $_POST["address"];
 
-    $sql = $pdo->prepare(
-        "SELECT id FROM m_customers WHERE c_email = :email"
-    );
-
-    $sql->bindValue(":email", $email);
-    $sql->execute();
-    $searchId = $sql->fetchAll(PDO::FETCH_ASSOC);
-    $userID = $searchId[0]["id"];
-
+   
     $sql = $pdo->prepare("UPDATE m_customers SET
      c_name = :name, 
      c_phone= :phone,
@@ -39,11 +32,12 @@ if(!isset($_POST["saveChange"])){
    $sql->bindValue(":township",$townshipID);
    $sql->bindValue(":email",$email);
    $sql->bindValue(":address",$address);
-   $sql->bindValue(":id",$userID);
+   $sql->bindValue(":id",$id);
    
  
    $sql->execute();
-   include "./profileDataShowController.php";
+   header("Location: ../View/Profile/user_profile.php");
+ 
  
  
 }
