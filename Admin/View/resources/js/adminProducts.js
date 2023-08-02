@@ -72,6 +72,51 @@ $(document).ready(function () {
     });
   });
 
+  //Admin Product Delete Model Box
+  $(".deleteProduct").click(function (){
+    $("#modal1").removeClass("hidden");
+
+    $.ajax({
+      url: "../../Controller/manageProducts/adminDeleteProductShowController.php",
+      type: "POST",
+      data: {
+        id: $(this).attr("deleteID"),
+      },
+      success: function (result) {
+        let product = JSON.parse(result);
+        $("#deleteProductName").text(product[0].p_name);
+        $("#deleteProductImg").attr("src", "../../.." + product[0].p_path);
+        $("#deleteProductID").val(product[0].id);
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  })
+
+  //Admin Product Delete
+  $("#confirmDeleteProduct").click(function (){
+    $("#modal1").addClass("hidden");
+
+    $.ajax({
+      url: "../../Controller/manageProducts/adminDeleteProductController.php",
+      type: "POST",
+      data: {
+        id: $("#deleteProductID").val(),
+      },
+      success: function (result) {
+        window.location.href = "../../Controller/manageProducts/adminProductController.php";
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  })
+
+  $("#closeModal1,#cancelDeleteProduct").click(function (){
+    $("#modal1").addClass("hidden");
+  })
+
 
   $("#save").click(function () {
     $("#modalEdit").addClass("hidden");
@@ -84,4 +129,7 @@ $(document).ready(function () {
   $("#closeModalButton").on("click", function () {
     $('#myModal').addClass('hidden');
   });
+
+
+
 });

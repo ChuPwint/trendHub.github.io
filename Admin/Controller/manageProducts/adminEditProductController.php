@@ -12,22 +12,6 @@ if(!isset($_POST["saveEdit"])){
     $image = $_FILES["editProductImg"]["name"];
     $imageTmp = $_FILES["editProductImg"]["tmp_name"];
 
-    // echo $id;
-    // echo "<br/>";
-    // echo $sellPrice;
-    // echo "<br/>";
-    // echo $buyPrice;
-    // echo "<br/>";
-    // echo $stock;
-    // echo "<br/>";
-    // echo $detail;
-    // echo "<br/>";
-    // echo $description;
-    // echo "<br/>";
-    // echo $image;
-    // echo "<br/>";
-    // echo $imageTmp;
-
     include "../../Model/model.php";
 
     if(move_uploaded_file($imageTmp,"../../../Storage/adminProducts/".$image)){

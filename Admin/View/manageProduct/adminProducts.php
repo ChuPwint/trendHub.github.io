@@ -114,7 +114,7 @@ $allCategories = $_SESSION["allCategories"];
                                         $count = 1;
                                         foreach ($adminProducts as $product) {
                                     ?>
-                                            <tr class="bg-[#fffafa]">
+                                            <tr class="bg-[#fffafa] group hover:scale-[0.99] transition-transform">
                                                 <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
                                                     <?= $count++ ?>
                                                 </td>
@@ -139,7 +139,7 @@ $allCategories = $_SESSION["allCategories"];
 
                                                 <td class="p-3 text-center  space-x-2 ">
                                                     <span id="<?= $product["id"] ?>"  class="editProduct px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                                    <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
+                                                    <span deleteID="<?= $product["id"] ?>" class="deleteProduct px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
                                                 </td>
                                             </tr>
                                     <?php }
@@ -189,16 +189,16 @@ $allCategories = $_SESSION["allCategories"];
                             </div>
                             <div class="mt-3  ml-4 text-left">
                                 <span class="text-center block pb-4 mt-7">You are about to Delete the following item:</span>
-                                <h1 class=" font-semibold mt-2  text-center "> MSI Summit E13 Flip Evo</h1>
-                                <img src="../../../Customer/View/resources/img/homePage/slider/msi.svg" class=" h-[100px] mx-auto mt-4 mb-4" alt="">
+                                <h1 id="deleteProductName" class=" font-semibold mt-2  text-center "> MSI Summit E13 Flip Evo</h1>
+                                <img src="" id="deleteProductImg" class=" h-[100px] mx-auto mt-4 mb-4" alt="">
 
 
                             </div>
                         </div>
                         <div class="flex justify-center space-x-4 mt-6">
-
-                            <button id="" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
-                            <button id="" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                            <input type="hidden" name="" id="deleteProductID">        
+                            <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
+                            <button id="confirmDeleteProduct" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
 
                         </div>
                     </div>
@@ -268,7 +268,7 @@ $allCategories = $_SESSION["allCategories"];
                         <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                             <div class="text-center">
                                 <div class="mt-4">
-                                    <div class="flex justify-center"><img class="p_Image max-w-xs" id="photoimg" src="" alt=""></div>
+                                    <div class="flex justify-center"><img class="p_Image max-w-xs max-h-60" id="photoimg" src="" alt=""></div>
                                     <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
                                         <span class="font-bold underline">Upload a file: </span>
                                     </label>
@@ -581,7 +581,7 @@ $allCategories = $_SESSION["allCategories"];
                         <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                             <div class="text-center">
                                 <div class="mt-4">
-                                    <div class="flex justify-center"><img id="editImage" class="p_Image max-w-xs" src="" alt=""></div>
+                                    <div class="flex justify-center"><img id="editImage" class="p_Image max-w-xs max-h-60" src="" alt=""></div>
                                     <label for="editFile_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
                                         <span class="font-bold underline">Upload a file: </span>
                                     </label>

@@ -75,7 +75,7 @@
                 <a href="">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "merchantProducts") ? "bg-[#31374A]" : false ?>">Merchant”s Products</p>
                 </a>
-                <a href="">
+                <a href="../../Controller/manageProducts/adminProductController.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "adminProducts") ? "bg-[#31374A]" : false ?>">Admin’s Products</p>
                 </a>
             </div>
