@@ -63,6 +63,7 @@ if(!isset($_POST["register"])){
                     region_id,
                     township_id,
                     c_address,
+                    wishlist_id,
                     token,
                     create_date
                 )
@@ -75,12 +76,13 @@ if(!isset($_POST["register"])){
                     :cRegion,
                     :cTownship,
                     :cAddress,
+                    :wishlist
                     :token,
                     :createDate
                 )           
             "
         );
-
+        $id = $searchEmailResult[0]["id"];
         $sql->bindValue(":cUsername", $cUsername);
         $sql->bindValue(":cEmail", $cEmail);
         $sql->bindValue(":cPhone", $cPhone);
@@ -88,6 +90,7 @@ if(!isset($_POST["register"])){
         $sql->bindValue(":cRegion", $cRegion);
         $sql->bindValue(":cTownship", $cTownship);
         $sql->bindValue(":cAddress", $cAddress);
+        $sql->bindValue(":wishlist", $id);
         $sql->bindValue(":token", $token);
         $sql->bindValue(":createDate", date("Y-m-d"));
 
