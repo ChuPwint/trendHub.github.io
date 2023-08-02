@@ -1,18 +1,22 @@
 <?php
-session_start();
-
-if (!isset($_POST["login"])) {
-    header("Location: ../View/Error/error.php");
-} else {
-    include "../Model/model.php";
-    $email = $_POST["email"];
-    echo $username;
-    $sql = $pdo->prepare("SELECT * FROM m_customers WHERE c_email = :email;");
-    $sql->bindValue(":email", $email);
-    $sql->execute();
-
-    $_SESSION["edit"] = $sql->fetchAll(PDO::FETCH_ASSOC);
-    header("Location: ../View/Profile/user_profile.php");
-    print_r( $_SESSION["edit"]);
+if (!isset($_SESSION)) {
+    session_start();
 }
+include "../../Model/model.php";
+$id =  $_SESSION["currentLoginUser"];
+
+
+// Fetch wishlist details along with product information from the t_wishlist_details and m_products tables
+$sql = $pdo->prepare("
+    SELECT t_wishlist_details.*, m_products.p_name, m_products.sell_price
+    FROM t_wishlist_details
+    JOIN m_products ON t_wishlist_details.product_id = m_products.id
+    JOIN m_customers ON t_wishlist_details.wishlist_id = m_customers.wishlist_id
+    WHERE m_customers.id = :id;
+");
+
+$sql->bindValue(":id", $id);
+$sql->execute();
+$wishlistProducts = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
