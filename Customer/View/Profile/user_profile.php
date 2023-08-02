@@ -2,6 +2,7 @@
 include "../../Controller/regionAndTownshipController.php";
 
 include "../../Controller/profileDataShowController.php";
+include "../../Controller/userWishlistShowController.php";
 include "../../Controller/orderController.php";
 include "../../Controller/notifyController.php";
 
@@ -61,32 +62,32 @@ include "../../Controller/notifyController.php";
                 <div class="w-1/4 bg-secondary px-4 py-8 hidden md:block">
                     <ul class="space-y-4">
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md" id="menu-user-info">
+                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-user-info">
                                 <img src="../resources/img/profile/user.png" alt="user info" class="w-4 mr-2">
                                 <span class="font-medium">User Info</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md" id="menu-wishlist">
+                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-wishlist">
                                 <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-4 mr-2">
                                 <span class="font-medium">Wishlist</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md " id="menu-order-history">
+                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-order-history">
                                 <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2">
                                 <span class="font-medium">Order History</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center  hover:bg-tertiary hover:text-white p-2 rounded-md " id="menu-notification">
+                            <a href="#" class="flex items-center  hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-notification">
                                 <img src="../resources/img/profile/notify.png" alt="Notification Icon" class="w-4 mr-2">
                                 <span class="font-medium">Notifications</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-32 bg-primary hover:bg-secondary border border-borderOrange hover:text-textWhite p-2 rounded-md" id="logoutBtn">
+                            <a href="#" class="flex items-center w-32 bg-primary hover:bg-secondary border border-borderOrange hover:text-textWhite p-2 rounded-md cursor-pointer" id="logoutBtn">
                                 <img src="../resources/img/login/logout.png" alt="log out Icon" class="w-4 mr-2">
                                 <span class="font-medium text-textOrange">Log Out</span>
                             </a>
@@ -192,67 +193,25 @@ include "../../Controller/notifyController.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Sample Wishlist Entries -->
-                                <tr>
-                                    <td class="px-4 py-2"><img src="../resources/img/orderHistory/product1.png" alt="Product Thumbnail" class="w-16 h-16 object-contain"></td>
-                                    <td class="px-4 py-2">Product A</td>
-                                    <td class="px-4 py-2">$49.99</td>
-                                    <td class="px-4 py-2">
-                                        <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to card</button>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/share.svg" alt="share">
-                                    </td>
+                                <?php foreach ($wishlistProducts as $product) : ?>
+                                    <tr>
+                                        <td class="px-4 py-2">
+                                            <img src="../resources/img/orderHistory/product1.png" alt="Product Thumbnail" class="w-16 h-16 object-contain">
+                                        </td>
+                                        <td class="px-4 py-2"><?php echo $product['p_name']; ?></td>
+                                        <td class="px-4 py-2"><?php echo "$" . $product['sell_price']; ?></td>
+                                        <td class="px-4 py-2">
+                                            <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                        </td>
+                                        <td class="px-4 py-2">
+                                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
+                                        </td>
+                                        <td class="px-4 py-2">
+                                            <img src="../resources/img/orderHistory/share.svg" alt="share">
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
 
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-2"><img src="../resources/img/orderHistory/product2.png" alt="Product Thumbnail" class="w-16 h-16 object-contain"></td>
-                                    <td class="px-4 py-2">Product B</td>
-                                    <td class="px-4 py-2">$29.99</td>
-                                    <td class="px-4 py-2">
-                                        <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to card</button>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/share.svg" alt="share">
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-2"><img src="../resources/img/orderHistory/product3.png" alt="Product Thumbnail" class="w-16 h-16 object-contain"></td>
-                                    <td class="px-4 py-2">Product C</td>
-                                    <td class="px-4 py-2">$19.99</td>
-                                    <td class="px-4 py-2">
-                                        <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to card</button>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/share.svg" alt="share">
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-2"><img src="../resources/img/orderHistory/product4.png" alt="Product Thumbnail" class="w-16 h-16 object-contain"></td>
-                                    <td class="px-4 py-2">Product D</td>
-                                    <td class="px-4 py-2">$59.99</td>
-                                    <td class="px-4 py-2">
-                                        <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to card</button>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <img src="../resources/img/orderHistory/share.svg" alt="share">
-                                    </td>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -261,57 +220,25 @@ include "../../Controller/notifyController.php";
                 <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
                     <div class="block md:hidden">
                         <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
-                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                            <img src="../resources/img/orderHistory/product1.png" alt="">
-                            <div class="p-4">
-                                <div>Product 1</div>
-                                <div>$250</div>
-                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
+                       
+                        <!-- Loop through the $wishlistProducts array and display each product in a div -->
+                        <?php foreach ($wishlistProducts as $product) : ?>
+                            <div class="bg-secondary shadow-lg m-4 p-4 flex">
+                                <img src="../resources/img/orderHistory/product2.png" alt="Product Thumbnail" class="w-18 h-18 object-contain">
+                                <div class="p-4">
+                                    <div><?php echo $product['p_name']; ?></div>
+                                    <div>$<?php echo $product['sell_price']; ?></div>
+                                    <button class="bg-tertiary text-white text-sm px-2 py-1">Add</button>
+                                </div>
+                                <div class="py-8">
+                                    <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2">
+                                    <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2">
+                                </div>
                             </div>
-                            <div class="py-8">
-                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
 
-                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                            <img src="../resources/img/orderHistory/product2.png" alt="">
-                            <div class="p-4">
-                                <div>Product 1</div>
-                                <div>$250</div>
-                                <button class="bg-tertiary  text-white text-sm px-2 py-1">Add</button>
-                            </div>
-                            <div class="py-8">
-                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                            </div>
-                        </div>
 
-                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                            <img src="../resources/img/orderHistory/product3.png" alt="">
-                            <div class="p-4">
-                                <div>Product 1</div>
-                                <div>$250</div>
-                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
-                            </div>
-                            <div class="py-8">
-                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                            </div>
-                        </div>
-
-                        <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                            <img src="../resources/img/orderHistory/product4.png" alt="">
-                            <div class="p-4">
-                                <div>Product 1</div>
-                                <div>$250</div>
-                                <button class="bg-tertiary text-sm text-white px-2 py-1">Add</button>
-                            </div>
-                            <div class="py-8">
-                                <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2 ">
-                                <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2 ">
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -545,27 +472,27 @@ include "../../Controller/notifyController.php";
             $(window).resize(function() {
                 if (wishToggle) {
                     if ($(window).width() <= 768 && (!$("#wishlistDestop").hasClass("hidden"))) {
-                       
+
                         $("#mobile-wishlist").trigger("click");
                     } else if ($(window).width() >= 768 && ($("#wishlistDestop").hasClass("hidden"))) {
-                      
+
                         $("#menu-wishlist").trigger("click");
                     }
                 }
-                
-                if(orderToggle){
+
+                if (orderToggle) {
                     if ($(window).width() <= 768 && (!$("#orderHistoryDestop").hasClass("hidden"))) {
-                      
+
                         $("#mobile-order").trigger("click");
                     } else if ($(window).width() >= 768 && ($("#orderHistoryDestop").hasClass("hidden"))) {
-                        
+
                         $("#menu-order-history").trigger("click");
-                    } 
+                    }
                 }
 
             });
-         
-           
+
+
 
             $("#mobile-user").click(function() {
                 wishToggle = false;
@@ -592,7 +519,7 @@ include "../../Controller/notifyController.php";
             $("#mobile-order").click(function() {
                 wishToggle = false;
                 orderToggle = true;
-                
+
                 $("#profileEdit").addClass("hidden");
                 $(".wishlistMobile").addClass("hidden");
                 $("#wishlistDestop").addClass("hidden");
