@@ -1,6 +1,7 @@
 <?php
-include "../../Controller/merchantList/merchantListController.php";
-
+// include "../../Controller/merchantList/merchantListController.php";
+session_start();
+$allMerchantList = $_SESSION["allMerchantList"];
 ?>
 
 <!DOCTYPE html>
@@ -171,7 +172,7 @@ include "../../Controller/merchantList/merchantListController.php";
     </div>
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
-    <!-- <script src="../resources/js/drop_down.js"></script> -->
+    <script src="../resources/js/drop_down.js"></script>
     <script>
         function banMerchant(name, email) {
             document.getElementById("modal1").classList.remove("hidden");
@@ -183,21 +184,22 @@ include "../../Controller/merchantList/merchantListController.php";
                 $("#modal1").addClass("hidden");
             });
 
-            $("#dropdown").change(function() {
-                const selectedValue = $(this).val();
-                $.ajax({
-                    url: './allMerchant.php',
-                    data: {
-                        sortBy: selectedValue
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        // Handle the response data here
-                        console.log("ok");
-                    }
-                });
-                // console.log("Selected Value:", selectedValue);
-            });
+            // $("#dropdown").change(function() {
+            //     const selectedValue = $(this).val();
+            //     console.log("Selected Value:", selectedValue);
+            //     $.ajax({
+            //         url: './allMerchant.php',
+            //         data: {
+            //             sortBy: selectedValue
+            //         },
+            //         dataType: 'json',
+            //         success: function(response) {
+            //             // Handle the response data here
+            //             console.log("ok");
+            //         }
+            //     });
+                
+            // });
 
         });
     </script>

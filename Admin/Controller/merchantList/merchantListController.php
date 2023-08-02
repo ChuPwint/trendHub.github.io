@@ -1,12 +1,19 @@
 <?php
-
+session_start();
 include "../../Model/model.php";
 
-$sql = $pdo->prepare(
-    "SELECT * FROM m_marchents WHERE approval = 1 and banned = 0 ORDER BY m_name"
-);
-$sql->execute();
-$allMerchantList = $sql->fetchAll(PDO::FETCH_ASSOC);
+if(($_GET["name"]) == "allMerchant"){
+    $sql = $pdo->prepare(
+        "SELECT * FROM m_marchents WHERE approval = 1 and banned = 0 ORDER BY m_name"
+    );
+    $sql->execute();
+    $allMerchantList = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION["allMerchantList"] = $allMerchantList;
+    //print_r($allMerchantList);
+    //print_r($_SESSION["allMerchantList"]);
+    header("Location: ../../View/merchantList/allMerchant.php");
+}
+
 
 $todayDate = date("Y-m-d");
 $sql = $pdo->prepare(

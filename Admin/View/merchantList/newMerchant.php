@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Merchant</title>
-  <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+  <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">

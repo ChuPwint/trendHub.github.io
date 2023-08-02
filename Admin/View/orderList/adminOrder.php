@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchant Orders</title>
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <title>Admin's Orders</title>
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -33,7 +33,7 @@
     <section class=" w-full bg-[#12141B] max-w-[1600px] mx-auto flex">
         <!-- Import side bar  -->
         <?php $menu = "orderList" ?>
-        <?php $subMenu = "merchantOrder" ?>
+        <?php $subMenu = "adminOrder" ?>
         <?php include "../resources/common/adminSideBar.php" ?>
 
         <!-- Right-side Start -->
@@ -41,7 +41,7 @@
             <!-- Search Start-->
             <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
                 <div class="text-white">
-                    <p class="text-2xl font-semibold">Merchant Orders</p>
+                    <p class="text-2xl font-semibold">Admin's Orders</p>
                     <p>Date : Sun, Jul 16, 2023</p>
                 </div>
 
@@ -75,7 +75,9 @@
                                 <thead class="bg-[#fffafa] text-textBlack ">
                                     <tr>
                                         <th class="px-3 py-6 text-center">Order ID</th>
-                                        <th class="px-3 py-6 text-center">Merchnat Name</th>
+                                        <th class="px-3 py-6 text-center">Product Name</th>
+                                        <th class="px-3 py-6 text-center">Qty</th>
+                                        <th class="px-3 py-6 text-center">Price</th>
                                         <th class="px-3 py-6 text-center">Total Amount</th>
                                         <th class="px-3 py-6 text-center">Payment</th>
                                         <th class="px-3 py-6 text-center">Order Date</th>
@@ -92,6 +94,12 @@
                                             MSI
                                         </td>
                                         <td class="p-3 text-center">
+                                            2
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            $750.00
+                                        </td>
+                                        <td class="p-3 text-center">
                                             $15,000.00
                                         </td>
                                         <td class="p-3 text-center">
@@ -104,7 +112,7 @@
                                             Pending
                                         </td>
                                         <td class="p-3 text-center ">
-                                            <span class="underline detail cursor-pointer">View Details</span>
+                                            <button class="bg-[#456265] text-white px-4 py-1 rounded change">Change</button>
                                         </td>
                                     </tr>
 
@@ -116,6 +124,12 @@
                                             MSI
                                         </td>
                                         <td class="p-3 text-center">
+                                            2
+                                        </td>
+                                        <td class="p-3 text-center">
+                                            $750.00
+                                        </td>
+                                        <td class="p-3 text-center">
                                             $15,000.00
                                         </td>
                                         <td class="p-3 text-center">
@@ -125,10 +139,10 @@
                                             Jul 16, 2023
                                         </td>
                                         <td class="p-3 text-center">
-                                            Pending
+                                            Completed
                                         </td>
                                         <td class="p-3 text-center ">
-                                        <span class="underline detail cursor-pointer">View Details</span>
+                                            <button class="bg-[#456265] text-white px-4 py-1 rounded change">Change</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -149,79 +163,42 @@
 
 
 
-    <!-- start of order detail modal box -->
-    <div class="viewOrderDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 top-0">
+    <!-- start of order status change modal box -->
+    <div class="changeStatusModal hidden fixed top-0 w-full h-full pt-12 bg-black bg-opacity-50 z-20">
         <!-- start of container box -->
         <div class="h-[80vh] flex justify-center items-center">
-            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
-                <div class="closeViewOrderDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
-                <h2 class="text-2xl font-bold px-6 py-3 underline">Order Details</h2>
-                <!-- start of all details -->
-                <div class="flex justify-between items-start px-6 py-5">
-                    <!-- start of order detail texts -->
-                    <div>
-                        <p class="mb-2 text-lg font-medium">Order Id: <span>12345</span></p>
-                        <p class="mb-2 text-lg font-medium">Order Date: <span>2023/07/26</span></p>
-                        <p class="mb-2 text-lg font-medium">Order From: <span>John Doe</span></p>
-                        <p class="mb-2 text-lg font-medium">Order Status: <span>Pending</span></p>
-                        <p class="mb-2 text-lg font-medium">Payment Type: <span>Card</span></p>
-                        <p class="mb-2 text-lg font-medium">Payment Status: <span>Completed</span></p>
-                        <p class="mb-2 text-lg font-medium">Delivery Address: <span>123 Street, ABC Condo, Third Floor, Test Township</span></p>
-                        <p class="text-lg font-medium">Customer Contact Info: <span>09123456</span></p>
+            <div class="bg-white m-auto py-2 px-8 border rounded">
+                <div class="closeChangeStatusModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
+                <h2 class="text-2xl font-bold px-6 py-3">Change Order Status</h2>
+                <div class="px-8 py-3">
+                    <p class="mb-2 text-lg font-medium">Order Id: <span>12345</span></p>
+                    <p class="mb-2 text-lg font-medium">Order Date: <span>2023/07/26</span></p>
+                    <p class="mb-2 text-lg font-medium">Order From: <span>John Doe</span></p>
+                    <span class="mr-2 font-bold text-xl">Order Status: </span>
+                    <select name="orderStatus" class="border border-black p-1 font-medium rounded">
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <div class="flex justify-evenly text-white mt-7">
+                        <button id="close" class="bg-[#AC2E2E] px-6 py-1 rounded">Close</button>
+                        <button id="confirm" class="bg-[#456265] px-4 py-1 rounded">Confirm</button>
                     </div>
-                    <!-- end of order detail texts -->
-                    <!-- start of order summary -->
-                    <div class="w-[40%] h-[350px] overflow-y-scroll py-5 px-3 bg-[#E4E4D2]">
-                        <p class="font-medium mb-5 text-lg">Order Summary</p>
-                        <!-- start of products -->
-                        <div class="flex justify-between items-center mb-5 text-lg">
-                            <div>
-                                <p class="mb-3">T-shirt</p>
-                                <p class="mb-3">Shoes</p>
-                            </div>
-                            <div>
-                                <p class="mb-3">5</p>
-                                <p class="mb-3">1</p>
-                            </div>
-                        </div>
-                        <hr class="border border-dashed mb-3 border-gray-400">
-                        <!-- end of products -->
-                        <!-- start of prices -->
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="mb-3">Sub-total</p>
-                                <p>Delivery</p>
-                            </div>
-                            <div>
-                                <p class="mb-3">$800</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                        <hr class="border border-dashed mb-3 mt-3 border-gray-400">
-                        <div class="flex justify-between items-center mt-5">
-                            <p>Grand Total</p>
-                            <p>$880</p>
-                        </div>
-                        <!-- end of prices -->
-                    </div>
-                    <!-- end of order summary -->
                 </div>
-                <!-- end of all details -->
             </div>
         </div>
         <!-- end of container box -->
     </div>
-    <!-- end of order detail modal box -->
+    <!-- end of order status change modal box -->
 
     <script>
         $(document).ready(function() {
 
-            $(".detail").click(function() {
-                $(".viewOrderDetailModal").toggle();
+            $(".change").click(function() {
+                $(".changeStatusModal").toggle();
             })
 
-            $(".closeViewOrderDetailModal").click(function() {
-                $(".viewOrderDetailModal").toggle();
+            $("#close,#confirm").click(function() {
+                $(".changeStatusModal").toggle();
             })
 
         })
