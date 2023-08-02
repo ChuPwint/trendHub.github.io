@@ -3,7 +3,7 @@
 include "../../Model/model.php";
 
 $sql = $pdo->prepare(
-    "SELECT * FROM m_marchents WHERE approval = 1 and banned = 0"
+    "SELECT * FROM m_marchents WHERE approval = 1 and banned = 0 ORDER BY m_name"
 );
 $sql->execute();
 $allMerchantList = $sql->fetchAll(PDO::FETCH_ASSOC);

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../lib/tailwind/output.css?id=<?= time() ?>">
-    <script src="./resources/lib/jquery3.6.0.js"></script>
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -200,6 +200,6 @@
         }
     </script>
 </body>
-<script src=".../resources/lib/jquery3.6.0.js"></script>
+<script src="../resources/lib/jquery3.6.0.js"></script>
 
 </html>

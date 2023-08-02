@@ -1,5 +1,6 @@
 <?php
-include "../../Controller/merchantListController.php";
+include "../../Controller/merchantList/merchantListController.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -8,19 +9,15 @@ include "../../Controller/merchantListController.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Customers</title>
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <title>All Merchants</title>
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- flowBite link -->
-    <script src="../path/to/flowbite/dist/datepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
-
-    <link href="../resources/css/all_merchant.css">
-
-
+    <!-- <script src="../path/to/flowbite/dist/datepicker.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script> -->
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -77,8 +74,8 @@ include "../../Controller/merchantListController.php";
                         <input name="end" type="text" class=" border-gray-300 text-black text-sm rounded-lg  block w-full pl-10 p-2.5" placeholder="Date To">
                     </div>
                     <div class="absolute -right-[30px]">
-                        <label class="inline-flex text-white" for="">Sort By:</label>
-                        <select id="dropdown" class="inline-block mt-1  w-[150px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                        <label class="inline-flex text-white" for="dropdown">Sort By:</label>
+                        <select id="dropdown" class="inline-block mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
                             <option selected value="personal">Personal Name</option>
                             <option value="business">Business Name</option>
                             <option value="address">Address</option>
@@ -112,15 +109,17 @@ include "../../Controller/merchantListController.php";
                                         <tr class="bg-[#fffafa]">
                                             <td class="p-3 text-center"><?= $num++; ?></td>
                                             <td class="p-3 text-center"><?= $allMerchant["m_bname"] ?></td>
-                                            <td class="p-3 text-center"><?= $allMerchant["m_name"] ?></td>
-                                            <td class="p-3 text-center"><?= $allMerchant["m_email"] ?></td>
+                                            <td class="mName p-3 text-center"><?= $allMerchant["m_name"] ?></td>
+                                            <td class="mEmail p-3 text-center"><?= $allMerchant["m_email"] ?></td>
                                             <td class="p-3 text-center"><?= $allMerchant["m_phone"] ?></td>
                                             <td class="p-3 text-center"><?= $allMerchant["m_address"] ?></td>
                                             <?php $license = ($allMerchant["m_licene"] == null) ? "-" : $allMerchant["m_licene"]; ?>
                                             <td class="p-3 text-center"><?= $license ?></td>
                                             <td class="p-3 text-center"><?= $allMerchant["create_date"] ?></td>
                                             <td class="p-3 text-center ">
-                                                <span data-modal-id="modal1" class="open-modal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md">BAN</span>
+                                                <?php $mName = $allMerchant["m_name"] ?>
+                                                <?php $mEmail = $allMerchant["m_email"] ?>
+                                                <span class="banModal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md" onclick="banMerchant('<?= $mName ?>','<?= $mEmail ?>')">BAN</span>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -142,28 +141,28 @@ include "../../Controller/merchantListController.php";
                 <div class="fixed inset-0 transition-opacity">
                     <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                 </div>
-
                 <!-- Start Modal Content -->
                 <div class="relative w-[400px]  mx-auto mt-[120px]  bg-primary rounded-lg text-left overflow-hidden shadow-xl transform transition-all ">
                     <div class="bg-white px-4 pt-5 pb-4">
-                        <div class="">
-                            <div class="mx-auto  h-12 w-12 absolute right-0 top-4 ">
-                                <!-- Cross Sign -->
-                                <svg id="closeModal1" class="h-6 w-6 text-black cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </div>
-                            <div class="mt-3  ml-4 text-left">
+                        <div class="mx-auto  h-12 w-12 absolute right-0 top-4 ">
+                            <!-- Cross Sign -->
+                            <svg class="closeBanModal h-6 w-6 text-black cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <form action="../../Controller/merchantList/banMerchantController.php" method="post">
+                            <div class="mt-3 ml-4 text-left">
                                 <span class="text-center block pb-4 mt-7">You are about to ban the following user:</span>
-                                <h1 class=" font-semibold mt-2  ">Name: <span class="ml-[9px] font-normal">casper</span></h1>
-                                <h1 class="font-semibold mt-2 "> Email: <span class="font-normal ml-[13px]">casper@gmail.com</span></h1>
-                                <h1 class="font-semibold mt-2 ">Reason: <input class="font-normal drop-shadow-lg pl-2 " placeholder="Reason" type="text"></h1>
+                                <h1 class=" font-semibold mt-5">Name: <input id="banName" name="m_Name" class="ml-[9px] font-normal outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5"> Email: <input id="banMail" name="m_Email" class="font-normal ml-[13px] outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5">Reason: <input class="font-normal drop-shadow-lg pl-2" placeholder="Reason" type="text"></h1>
+
+                                <div class="flex justify-center space-x-4 mt-6">
+                                    <button class="closeBanModal rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>
+                                    <button type="submit" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex justify-center space-x-4 mt-6">
-                            <button id="closeModalButton1" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
-                            <button id="closeModalButton1" class="bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <!-- End Modal Content -->
@@ -172,8 +171,36 @@ include "../../Controller/merchantListController.php";
     </div>
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
-    <script src="../resources/js/modal_box.js"></script>
-    <script src="../resources/js/drop_down.js"></script>
+    <!-- <script src="../resources/js/drop_down.js"></script> -->
+    <script>
+        function banMerchant(name, email) {
+            document.getElementById("modal1").classList.remove("hidden");
+            document.getElementById("banName").value = name;
+            document.getElementById("banMail").value = email;
+        }
+        $(document).ready(function() {
+            $(".closeBanModal").click(function() {
+                $("#modal1").addClass("hidden");
+            });
+
+            $("#dropdown").change(function() {
+                const selectedValue = $(this).val();
+                $.ajax({
+                    url: './allMerchant.php',
+                    data: {
+                        sortBy: selectedValue
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        // Handle the response data here
+                        console.log("ok");
+                    }
+                });
+                // console.log("Selected Value:", selectedValue);
+            });
+
+        });
+    </script>
 
 </body>
 
