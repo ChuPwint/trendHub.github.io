@@ -49,16 +49,16 @@
 
             <!-- Merchant List Sub Menu  Start-->
             <div id="merchant-list-sub-menu" class="cursor-pointer rounded text-sm <?php echo ($menu == "merchantList") ? "block" : "hidden"  ?>">
-                <a href="../../Controller/merchantList/merchantListController.php?name=allMerchant">
+                <a href="../merchantList/allMerchant.php">
                     <p class="all_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "allMerchants") ? "bg-[#31374A]" : false ?>">All Merchants</p>
                 </a>
-                <a href="../../Controller/merchantList/merchantListController.php?name=newMerchant">
+                <a href="../merchantList/newMerchant.php">
                     <p class="new_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "newMerchants") ? "bg-[#31374A]" : false ?>">New Merchants</p>
                 </a>
-                <a href="../../Controller/merchantList/merchantListController.php?name=pendingMerchant">
+                <a href="../merchantList/pendingMerchant.php">
                     <p class="pen_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "pendingMerchants") ? "bg-[#31374A]" : false ?>">Pending Merchants</p>
                 </a>
-                <a href="../../Controller/merchantList/merchantListController.php?name=bannedMerchant">
+                <a href="../merchantList/bannedMerchant.php">
                     <p class="ban_merchant pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "bannedMerchants") ? "bg-[#31374A]" : false ?>">Banned Merchants</p>
                 </a>
 
