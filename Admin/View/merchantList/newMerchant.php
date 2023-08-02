@@ -1,7 +1,7 @@
 <?php
 include "../../Controller/merchantList/merchantListController.php";
 session_start();
-if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] == false)){ 
+if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] == false)) {
     $_SESSION["view"] = 0;
 }
 ?>
@@ -52,6 +52,7 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
                     <p class="text-2xl font-semibold tracking-wider">New Merchants</p>
                     <p>Date : Sun, Jul 16, 2023</p>
                 </div>
+
                 <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
             <!-- Search End-->

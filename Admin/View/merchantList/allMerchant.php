@@ -49,7 +49,18 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
             <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
                 <div class="text-white">
                     <p class="text-2xl font-semibold tracking-wider">All Merchants</p>
-                    <p>Date : Sun, Jul 16, 2023</p>
+                    <?php
+                    $timestamp = time();
+
+                    date_default_timezone_set('Asia/Yangon');
+                    $day = date('D');
+                    $month = date('F');
+                    $date = date('j');
+                    $year = date('Y', $timestamp); 
+
+                    
+                    ?>
+                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
                 </div>
                 <input type="text" name="" id="searchAllMerchant" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
