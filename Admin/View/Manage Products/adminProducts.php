@@ -1,6 +1,6 @@
 <?php
 
-include "../../Controller/adminProductController.php";
+include "../../Controller/manageProducts/adminProductController.php"; 
 
 
 ?>
@@ -14,7 +14,7 @@ include "../../Controller/adminProductController.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin's Product</title>
-    <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@ include "../../Controller/adminProductController.php";
     <script src="../path/to/flowbite/dist/datepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
 
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link href="../resources/css/pending_merchant.css">
 </head>
 <style>
@@ -108,42 +109,40 @@ include "../../Controller/adminProductController.php";
                                 <tbody>
 
                                     <?php
-                                    $count = 1;
-                                    foreach ($adminProducts as $product) {
+                                    if ($totalCount > 0) {
+                                        $count = 1;
+                                        foreach ($adminProducts as $product) {
                                     ?>
-                                        <tr class="bg-[#fffafa]">
-                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                                <?= $count++ ?>
-                                            </td>
-                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                                <?= $product["p_name"] ?>
+                                            <tr class="bg-[#fffafa]">
+                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                    <?= $count++ ?>
+                                                </td>
+                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                    <?= $product["p_name"] ?>
 
-                                            </td>
-                                            <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
-                                                <?= $product["category_name"] ?>
-                                            </td>
+                                                </td>
+                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                    <?= $product["category_name"] ?>
+                                                </td>
 
-                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                                <?= $product["p_stock"] ?>
+                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                    <?= $product["p_stock"] ?>
 
-                                            </td>
-                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                                <?= number_format($product["buy_price"]) ?>
-                                            </td>
-                                            <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
-                                                <?= number_format($product["sell_price"]) ?>
-                                            </td>
+                                                </td>
+                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                    <?= number_format($product["buy_price"]) ?>
+                                                </td>
+                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                    <?= number_format($product["sell_price"]) ?>
+                                                </td>
 
-                                            <td class="p-3 text-center  space-x-2 ">
-                                                <span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
-                                                <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
-                                            </td>
-                                        </tr>
+                                                <td class="p-3 text-center  space-x-2 ">
+                                                    <a ><span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span></a>
+                                                    <a href=""><span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span></a>
+                                                </td>
+                                            </tr>
                                     <?php }
-
-                                    ?>
-
-
+                                    } ?>
 
                                 </tbody>
                             </table>
@@ -227,95 +226,97 @@ include "../../Controller/adminProductController.php";
 
     <!-- Start Modal box to create product-->
     <div id="myModal" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-        <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[700px] rounded shadow-md relative">
-            <button id="closeModalButton" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
-                <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-
-            <div class="w-[800px] h-[650px] mt-[30px] mx-auto">
-
-                <!-- start top -->
-                <div class="h-[425px] w-[800px] mx-auto flex space-x-5 ">
-
-                    <!-- start input data -->
-                    <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
-
-
-
-                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
-                            <option value="" disabled selected>Category</option>
-                            <option value="option1">Men's & Boy's Fashion</option>
-                            <option value="option2">Women's & Girl's Fashion</option>
-                            <option value="option3">Sports & Outdoors</option>
-                            <option value="option3">Health & Beauty</option>
-                            <option value="option3">Jewelry</option>
-                            <option value="option3">Watches</option>
-                            <option value="option3">Home & Lifestyle</option>
-                            <option value="option3">Mother & Baby</option>
-                            <option value="option3">Bags</option>
-                            <option value="option3">Groceries</option>
-                            <option value="option3">TV & Home Appliances</option>
-                            <option value="option3">Electronics Devices</option>
-                            <option value="option3">Others</option>
-                        </select>
-
-                        <br>
-
-                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+        <!-- start of container box -->
+        <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+            <div class="text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon id="closeModalButton" name="close-outline"></ion-icon></div>
+            <h2 class="text-2xl font-bold px-6 py-3">Add New Product</h2>
+            <form action="../../Controller/manageProducts/adminAddProductController.php" method="post" enctype="multipart/form-data">
+                <!-- start of upper row -->
+                <div class="px-6 py-4 grid grid-cols-2 gap-4">
+                    <!-- start of add product text fields -->
+                    <div class="col-span-1">
+                        <div class="bg-[#456265] p-4">
+                            <div class="mb-4 relative">
+                                <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
+                                <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                                    <!-- Add options for categories here -->
+                                    <?php 
+                                    foreach($allCategories as $category) { ?>
+                                        <option value="<?= $category["id"] ?>"><?= $category["category_name"] ?></option>
+                                    <?php }
+                                    ?>
+                                    <!-- Add more options if needed -->
+                                </select>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
+                                <input type="text" id="productName" name="productName" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
+                                <input type="text" id="brand" name="brand" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
+                                <input type="text" id="sellPrice" name="sellPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
+                                <input type="text" id="buyPrice" name="buyPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="relative">
+                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                        </div>
                     </div>
-                    <!-- end input data -->
-
-                    <!-- start upload  -->
-                    <div class="w-[400px]">
-
-                        <label class="w-full h-[420px]  flex flex-col items-center bg-white rounded-lg shadow-lg tracking-wide">
-                            <img class="mt-[170px] block" src="../resources/img/Admin Product/upload.png" alt="">
-                            <span class="mt-2 text-[#959595] text-lg font-semibold">Upload Your Product Here</span>
-                            <input type='file' class="hidden" />
-                        </label>
+                    <!-- end of add product text fields -->
+                    <!-- start of upload photo -->
+                    <div class="col-span-1">
+                        <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
+                            <div class="text-center">
+                                <div class="mt-4">
+                                    <div class="flex justify-center"><img class="p_Image max-w-xs" id="photoimg" src="" alt=""></div>
+                                    <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                        <span class="font-bold underline">Upload a file: </span>
+                                    </label>
+                                    <input id="file_upload" name="productImg" type="file" class="hidden mt-2 text-center" accept=".png, .jpg" required>
+                                </div>
+                                <!-- <p>PNG, JPG up to 10MB</p> -->
+                            </div>
+                        </div>
                     </div>
-                    <!-- end upload  -->
-
-
+                    <!-- end of upload photo -->
                 </div>
-                <!-- end top -->
+                <!-- end of upper row -->
 
-
-                <!-- start bottom -->
-                <div class="w-[800px] h-[200px] mt-5 flex space-x-5">
-
-                    <!-- start product description -->
-                    <div>
-                        <input placeholder="Product Description" type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none  ">
+                <!-- start of bottom row -->
+                <div class="px-6 py-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label for="productDetail" class="block font-medium">Product Detail:</label>
+                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="productDescription" class="block font-medium">Product Description:</label>
+                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
+                        </div>
                     </div>
-                    <!-- end product description -->
-
-                    <!-- start product details -->
-                    <div>
-                        <input placeholder="Product Details" type="text" class="w-[390px] h-[130px] bg-[#EDCFCF] shadow-md rounded-md pb-[60px] pl-2 ">
-                        <button id="addToListButton" class="px-[100px] mt-7 shadow-md block mx-auto py-2 bg-[#456265] text-white rounded-md outline-none ">Add to List</button>
-
+                    <div class="flex justify-end items-center">
+                        <button onclick="hideEdit()" type="submit" name="addProduct" class="closeViewDetailModal py-2 px-10 mt-4 bg-[#456265] text-white font-semibold rounded-md shadow-md">Add</button>
                     </div>
-                    <!-- end product details -->
-
                 </div>
-                <!-- end bottoom -->
-
-            </div>
-
+                <!-- end of bottom row -->
+            </form>
         </div>
+        <!-- end of container box -->
     </div>
-
     <!-- End Modal box to create product-->
 
-    <!-- Start Product Details -->
 
+
+    
+    <!-- Start Product Details -->
     <div id="modalDetail" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
             <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Dtails</span>
@@ -544,97 +545,83 @@ include "../../Controller/adminProductController.php";
     <!-- end review -->
 
     <!-- Start Modal box to Edit product-->
-
     <div id="modalEdit" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-        <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[700px] rounded shadow-md relative">
-            <button onclick="hideEdit()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
-                <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-
-            <div class="w-[800px] h-[650px] mt-[30px] mx-auto">
-
-                <!-- start top -->
-                <div class="h-[425px] w-[800px] mx-auto flex space-x-5 ">
-
-                    <!-- start input data -->
-                    <div class=" w-[400px] h-[420px] bg-[#456265] rounded-md">
-                        <input value="MSI Summit E13 Flip Evo" class=" mt-8 block w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Product Name"> <br>
-                        <input value="MSI" class="block  w-60  mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Brand"> <br>
-
-
-
-                        <select id="dropdown" class="block  w-60  mx-auto bg-white border border-gray-300 px-4 py-2 rounded-sm">
-                            <option value="" disabled>Category</option>
-                            <option value="option1">Men's & Boy's Fashion</option>
-                            <option value="option2">Women's & Girl's Fashion</option>
-                            <option value="option3">Sports & Outdoors</option>
-                            <option value="option3">Health & Beauty</option>
-                            <option value="option3">Jewelry</option>
-                            <option value="option3">Watches</option>
-                            <option value="option3">Home & Lifestyle</option>
-                            <option value="option3">Mother & Baby</option>
-                            <option value="option3">Bags</option>
-                            <option value="option3">Groceries</option>
-                            <option value="option3">TV & Home Appliances</option>
-                            <option selected value="option3">Electronics Devices</option>
-                            <option value="option3">Others</option>
-                        </select>
-
-                        <br>
-
-                        <input value="2,100,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Buy Price"> <br>
-                        <input value="2,150,000" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Sell Price"> <br>
-                        <input value="10" class="  w-60 block mx-auto h-[36px] pl-3 rounded-sm" type="text" placeholder="Quantity"> <br>
+        <!-- start of container box -->
+        <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+            <div class="text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon onclick="hideEdit()" name="close-outline"></ion-icon></div>
+            <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
+            <form action="">
+                <!-- start of upper row -->
+                <div class="px-6 py-4 grid grid-cols-2 gap-4">
+                    <!-- start of add product text fields -->
+                    <div class="col-span-1">
+                        <div class="bg-[#456265] p-4">
+                            <div class="mb-4 relative">
+                                <label for="category" class="z-0 absolute top-0 left-0 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 pr-[60px] rounded-md">Category:</label>
+                                <input type="text" id="category" name="category" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
+                                <input type="text" id="productName" name="productName" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
+                                <input type="text" id="brand" name="brand" value="Lenovo" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
+                                <input type="text" id="sellPrice" name="sellPrice" value="450,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
+                                <input type="text" id="buyPrice" name="buyPrice" value="400,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="relative">
+                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="20" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                        </div>
                     </div>
-                    <!-- end input data -->
-
-                    <!-- start upload  -->
-                    <div class="w-[400px]">
-
-                        <label class="w-full h-[420px]  flex flex-col items-center bg-white rounded-lg shadow-lg tracking-wide">
-                            <img class="mt-[170px] block" src="../resources/img/msi.png" alt="">
-                            <span class="mt-2 text-[#959595] text-lg font-semibold">Upload Your Product Here</span>
-                            <input type='file' class="hidden" />
-                        </label>
+                    <!-- end of add product text fields -->
+                    <!-- start of upload photo -->
+                    <div class="col-span-1">
+                        <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
+                            <div class="text-center">
+                                <div class="mt-4">
+                                    <div class="flex justify-center"><img class="p_Image" src="../resources/img/allProduct/cpu-nb 385.svg" alt=""></div>
+                                    <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                        <span class="font-bold underline">Upload a file: </span>
+                                    </label>
+                                    <input id="file_upload" name="file_upload" type="file" class="hidden mt-2 text-center">
+                                </div>
+                                <!-- <p>PNG, JPG up to 10MB</p> -->
+                            </div>
+                        </div>
                     </div>
-                    <!-- end upload  -->
-
-
+                    <!-- end of upload photo -->
                 </div>
-                <!-- end top -->
+                <!-- end of upper row -->
 
-
-                <!-- start bottom -->
-                <div class="w-[800px] h-[200px] mt-5 flex space-x-5">
-
-                    <!-- start product description -->
-                    <div>
-                        <!-- <input placeholder="Product Description" value="" type="text" class="w-[390px] h-[200px] shadow-md bg-[#EDCFCF] rounded-md pl-2 pb-[130px] break-all outline-none overflow-x-scroll"> -->
-                        <textarea class="bg-[#EDCFCF] resize-none outline-none shadow-md rounded-md focus:none p-4" name="" id="" cols="38" rows="7">
-                            <span>
-                        Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis.
-
-                            </span>
-                        </textarea>
+                <!-- start of bottom row -->
+                <div class="px-6 py-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label for="productDetail" class="block font-medium">Product Detail:</label>
+                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="productDescription" class="block font-medium">Product Description:</label>
+                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
+                        </div>
                     </div>
-                    <!-- end product description -->
-
-                    <!-- start product details -->
-                    <div>
-                        <input value="Lorem ipsum dolor sit amet consectetur. Quis leo est aliquet fringilla nibh venenatis." placeholder="Product Details" type="text" class="w-[390px] h-[130px] bg-[#EDCFCF] shadow-md rounded-md pb-[60px] pl-2 ">
-                        <button onclick="hideEdit()" class="px-[100px] mt-7 shadow-md block mx-auto py-2 bg-[#456265] text-white rounded-md outline-none ">Update</button>
-
+                    <div class="flex justify-end items-center">
+                        <button onclick="hideEdit()" type="submit" class="closeViewDetailModal py-2 px-10 mt-4 bg-[#456265] text-white font-semibold rounded-md shadow-md">Save</button>
                     </div>
-                    <!-- end product details -->
-
                 </div>
-                <!-- end bottoom -->
-
-            </div>
-
+                <!-- end of bottom row -->
+            </form>
         </div>
+        <!-- end of container box -->
     </div>
 
     <!-- End Modal box to Edit product-->
@@ -644,6 +631,7 @@ include "../../Controller/adminProductController.php";
     <script src="../resources/js/modal_box.js"></script>
     <script src="../resources/js/editModal.js"></script>
     <script src="../resources/js/drop_down.js"></script>
+    <script src="../resources//js/adminProducts.js"></script>
 
 </body>
 
