@@ -1,7 +1,9 @@
 <?php
 
-include "../../Controller/manageProducts/adminProductController.php"; 
-
+session_start();
+$totalCount  = $_SESSION["totalCount"];
+$adminProducts = $_SESSION["adminProducts"];
+$allCategories = $_SESSION["allCategories"];
 
 ?>
 
@@ -15,13 +17,12 @@ include "../../Controller/manageProducts/adminProductController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin's Product</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <script src="../resources/lib/jquery3.6.0.js"></script>
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- flowBite link -->
-    <script src="../path/to/flowbite/dist/datepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
+    <!-- <script src="../path/to/flowbite/dist/datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script> -->
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -137,8 +138,8 @@ include "../../Controller/manageProducts/adminProductController.php";
                                                 </td>
 
                                                 <td class="p-3 text-center  space-x-2 ">
-                                                    <a ><span onclick="showEdit()" class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span></a>
-                                                    <a href=""><span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span></a>
+                                                    <span id="<?= $product["id"] ?>"  class="editProduct px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
+                                                    <span data-modal-id="modal1" class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
                                                 </td>
                                             </tr>
                                     <?php }
@@ -196,8 +197,8 @@ include "../../Controller/manageProducts/adminProductController.php";
                         </div>
                         <div class="flex justify-center space-x-4 mt-6">
 
-                            <button id="closeModalButton1" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
-                            <button id="closeModalButton1" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                            <button id="" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
+                            <button id="" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
 
                         </div>
                     </div>
@@ -209,15 +210,6 @@ include "../../Controller/manageProducts/adminProductController.php";
         </div>
     </div>
     <!-- end modal box  delete-->
-
-
-
-
-
-
-
-
-
 
 
 
@@ -548,37 +540,38 @@ include "../../Controller/manageProducts/adminProductController.php";
     <div id="modalEdit" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <!-- start of container box -->
         <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
-            <div class="text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon onclick="hideEdit()" name="close-outline"></ion-icon></div>
+            <div class="text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon id="save" name="close-outline"></ion-icon></div>
             <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
-            <form action="">
+            <form action="../../Controller/manageProducts/adminEditProductController.php" method="POST" enctype="multipart/form-data">
                 <!-- start of upper row -->
+                <input type="hidden" name="editID" id="editID">
                 <div class="px-6 py-4 grid grid-cols-2 gap-4">
                     <!-- start of add product text fields -->
                     <div class="col-span-1">
                         <div class="bg-[#456265] p-4">
                             <div class="mb-4 relative">
-                                <label for="category" class="z-0 absolute top-0 left-0 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 pr-[60px] rounded-md">Category:</label>
-                                <input type="text" id="category" name="category" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                                <label for="editCategory" class="z-0 absolute top-0 left-0 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 pr-[60px] rounded-md">Category:</label>
+                                <input type="text" id="editCategory" name="editCategory" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
                             </div>
                             <div class="mb-4 relative">
-                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
-                                <input type="text" id="productName" name="productName" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                                <label for="editProductName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
+                                <input type="text" id="editProductName" name="editProductName" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
                             </div>
                             <div class="mb-4 relative">
-                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
-                                <input type="text" id="brand" name="brand" value="Lenovo" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
+                                <label for="editBrand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
+                                <input type="text" id="editBrand" name="editBrand" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" disabled>
                             </div>
                             <div class="mb-4 relative">
-                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
-                                <input type="text" id="sellPrice" name="sellPrice" value="450,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                <label for="editSellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
+                                <input type="text" id="editSellPrice" name="editSellPrice" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                             </div>
                             <div class="mb-4 relative">
-                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
-                                <input type="text" id="buyPrice" name="buyPrice" value="400,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                <label for="editBuyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
+                                <input type="text" id="editBuyPrice" name="editBuyPrice" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                             </div>
                             <div class="relative">
-                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
-                                <input type="number" id="quantity" name="quantity" value="20" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                <label for="editQuantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
+                                <input type="number" id="editQuantity" name="editQuantity" value="" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                             </div>
                         </div>
                     </div>
@@ -588,11 +581,11 @@ include "../../Controller/manageProducts/adminProductController.php";
                         <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                             <div class="text-center">
                                 <div class="mt-4">
-                                    <div class="flex justify-center"><img class="p_Image" src="../resources/img/allProduct/cpu-nb 385.svg" alt=""></div>
-                                    <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                    <div class="flex justify-center"><img id="editImage" class="p_Image max-w-xs" src="" alt=""></div>
+                                    <label for="editFile_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
                                         <span class="font-bold underline">Upload a file: </span>
                                     </label>
-                                    <input id="file_upload" name="file_upload" type="file" class="hidden mt-2 text-center">
+                                    <input id="editFile_upload" name="editProductImg" type="file" class="hidden mt-2 text-center">
                                 </div>
                                 <!-- <p>PNG, JPG up to 10MB</p> -->
                             </div>
@@ -606,16 +599,16 @@ include "../../Controller/manageProducts/adminProductController.php";
                 <div class="px-6 py-2">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
-                            <label for="productDetail" class="block font-medium">Product Detail:</label>
-                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
+                            <label for="editProductDetail" class="block font-medium">Product Detail:</label>
+                            <textarea id="editProductDetail" name="editProductDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="productDescription" class="block font-medium">Product Description:</label>
-                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
+                            <label for="editProductDescription" class="block font-medium">Product Description:</label>
+                            <textarea id="editProductDescription" name="editProductDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
                         </div>
                     </div>
                     <div class="flex justify-end items-center">
-                        <button onclick="hideEdit()" type="submit" class="closeViewDetailModal py-2 px-10 mt-4 bg-[#456265] text-white font-semibold rounded-md shadow-md">Save</button>
+                        <button type="submit" name="saveEdit" class="closeViewDetailModal py-2 px-10 mt-4 bg-[#456265] text-white font-semibold rounded-md shadow-md">Save</button>
                     </div>
                 </div>
                 <!-- end of bottom row -->
@@ -628,10 +621,11 @@ include "../../Controller/manageProducts/adminProductController.php";
 
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
-    <script src="../resources/js/modal_box.js"></script>
-    <script src="../resources/js/editModal.js"></script>
-    <script src="../resources/js/drop_down.js"></script>
-    <script src="../resources//js/adminProducts.js"></script>
+    <!-- <script src="../resources/js/modal_box.js"></script> -->
+    <!-- <script src="../resources/js/editModal.js"></script>
+    <script src="../resources/js/drop_down.js"></script> -->
+    <script src="../resources/js/adminProducts.js"></script>
+
 
 </body>
 

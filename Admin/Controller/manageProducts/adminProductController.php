@@ -1,9 +1,10 @@
 <?php
 
+session_start();
 include "../../Model/model.php";
 
 $sql = $pdo->prepare(
-    "SELECT * FROM m_products 
+    "SELECT m_products.*, m_categories.category_name FROM m_products 
     JOIN m_categories 
     ON m_products.category_id = m_categories.id 
     WHERE m_products.merchant_id = :id 
@@ -12,13 +13,15 @@ $sql = $pdo->prepare(
 );
 $sql->bindValue(":id", 1);
 $sql->execute();
-$adminProducts = $sql->fetchAll(PDO::FETCH_ASSOC);
-$totalCount  = count($adminProducts);
+$products = $sql->fetchAll(PDO::FETCH_ASSOC);
+$_SESSION["totalCount"] = count($products);
+$_SESSION["adminProducts"] = $products;
 
 $sql = $pdo->prepare(
     "SELECT * FROM m_categories WHERE del_flg = 0"
 );
 $sql->execute();
-$allCategories = $sql->fetchAll(PDO::FETCH_ASSOC);
+$_SESSION["allCategories"] = $sql->fetchAll(PDO::FETCH_ASSOC);
+header("Location: ../../View/manageProduct/adminProducts.php");
 
 ?>
