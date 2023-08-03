@@ -8,7 +8,7 @@ if(!isset($_POST["id"])) {
     $id = $_POST["id"];
 
     $sql = $pdo->prepare(
-        "SELECT m_products.*, m_marchents.m_name FROM m_products 
+        "SELECT m_products.*, m_marchents.m_bname FROM m_products 
         JOIN m_marchents
         ON m_products.merchant_id = m_marchents.id  
         WHERE m_products.id = :id

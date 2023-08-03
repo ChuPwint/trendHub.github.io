@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+$totalMerchantProduct = isset($_SESSION["totalMerchantProduct"]) ? $_SESSION["totalMerchantProduct"] : false;
+$merchantProducts = isset($_SESSION["merchantProducts"]) ? $_SESSION["merchantProducts"] : false;
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +19,6 @@
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-  <!-- flowBite link -->
-  <script src="../path/to/flowbite/dist/datepicker.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
 
   <!-- <link href="../resources/css/all_merchant.css"> -->
 
@@ -48,17 +54,17 @@
         <div class="text-white">
           <p class="text-2xl font-semibold tracking-wider">Merchant's Products</p>
           <?php
-                    $timestamp = time();
+          $timestamp = time();
 
-                    date_default_timezone_set('Asia/Yangon');
-                    $day = date('D');
-                    $month = date('F');
-                    $date = date('j');
-                    $year = date('Y', $timestamp); 
+          date_default_timezone_set('Asia/Yangon');
+          $day = date('D');
+          $month = date('F');
+          $date = date('j');
+          $year = date('Y', $timestamp);
 
-                    
-                    ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+
+          ?>
+          <p><?php echo "Date : $day, $month $date, $year" ?></p>
         </div>
 
         <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
@@ -73,14 +79,14 @@
 
         <!-- start Date -->
         <div date-rangepicker class="flex items-center space-x-5 -ml-[32px] py-[30px] pb-[40px] relative">
-        <span class="text-white">47 products found.</span>
+          <span class="text-white"><?= $totalMerchantProduct ?> products found.</span>
           <div class="absolute -right-[30px]">
             <label class="inline-flex text-white" for="">Sort By:</label>
             <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
-              <option selected value="personal">Merchant Name</option>
-              <option value="business">Product Name</option>
-              <option value="address">Category</option>
-              <option value="date">Sell Price</option>
+              <option value="m_name">Merchant Name</option>
+              <option value="p_name">Product Name</option>
+              <option value="category_name">Category</option>
+              <option value="sell_price">Sell Price</option>
             </select>
           </div>
         </div>
@@ -96,195 +102,43 @@
                 <thead class="bg-[#fffafa] text-textBlack ">
                   <tr>
                     <th class="px-3 py-6 text-center">No.</th>
-                    <th class="px-3 py-6 text-center">Mercahnt Name</th>
+                    <th class="px-3 py-6 text-center">Merchant Name</th>
+                    <th class="px-3 py-6 text-center">Brand Name</th>
                     <th class="px-3 py-6 text-center">Prodcut Name</th>
                     <th class="px-3 py-6 text-center">Category</th>
                     <th class="px-3 py-6 text-center">Sell Price</th>
-            
+
                   </tr>
                 </thead>
-                <tbody>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
+                <tbody id="sortResult">
+                  <?php
+                  $count = 1;
+                  foreach ($merchantProducts as $product) { ?>
                     <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
+                      <td class="p-3 text-center">
+                        <?= $count++ ?>
+                      </td>
+                      <td class="p-3 text-center">
+                        <?= $product["m_name"] ?>
+                      </td>
+                      <td class="p-3 text-center">
+                      <?= $product["brand_name"] ?>
+                      </td>
+                      <td class="p-3 text-center">
+                      <?= $product["p_name"] ?>
+                      </td>
+                      <td class="p-3 text-center">
+                      <?= $product["category_name"] ?>
+                      </td>
+                      <td class="p-3 text-center ">
+                      <?= $product["sell_price"] ?>
+                      </td>
+                    </tr>
+                  <?php }
+                  ?>
 
 
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
 
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                     <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
-
-                  <tr class="bg-[#fffafa]">
-                    <td class="p-3 text-center">
-                      1
-                    </td>
-                    <td class="p-3 text-center">
-                   MSI
-                    </td>
-                    <td class="p-3 text-center">
-                    MSI Summit E13 Flip Evo
-                    </td>
-                    <td class="p-3 text-center">
-                    Electronics Devices
-                    </td>
-                    <td class="p-3 text-center ">
-                    2,100,000
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -301,7 +155,8 @@
 
 
 
-  <script src="../resources/js/drop_down.js"></script>
+  <!-- <script src="../resources/js/drop_down.js"></script> -->
+  <script src="../resources/js/merchantProducts.js"></script>
 
 </body>
 

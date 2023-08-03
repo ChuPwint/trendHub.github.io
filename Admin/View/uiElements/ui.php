@@ -2,12 +2,12 @@
 
 include "../../Controller/uiElements/Information/viewController.php";
 include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
-// include "../../Controller/uiElements/imgSlider1/viewController.php";
-// include "../../Controller/uiElements/imgSlider2/viewController.php";
-// include "../../Controller/uiElements/imgSlider3/viewController.php";
-// include "../../Controller/uiElements/faq1/viewfaqControllerl.php";
-// include "../../Controller/uiElements/faq2/viewfaq2Controller.php";
-// include "../../Controller/uiElements/faq3/viewfaq3Controllerl.php";
+include "../../Controller/uiElements/imgSlider1/viewController.php";
+include "../../Controller/uiElements/imgSlider2/viewController.php";
+include "../../Controller/uiElements/imgSlider3/viewController.php";
+include "../../Controller/uiElements/faq1/viewfaqControllerl.php";
+include "../../Controller/uiElements/faq2/viewfaq2Controller.php";
+include "../../Controller/uiElements/faq3/viewfaq3Controllerl.php";
 // include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
 // include "../../Controller/uiElements/textColor/viewTextController.php";
 // include "../../Controller/uiElements/cardColor/viewCardController.php";
@@ -36,6 +36,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
     <title>UI Elements</title>
     <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <link rel="stylesheet" href="../resources/css/faq.css">
+
 
     <style>
         .scrollbar-hide::-webkit-scrollbar {
@@ -242,47 +244,70 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <span class="text-xl">Banner</span>
                         <form action="">
                             <div class="flex justify-between mt-4">
+                                <label for="banner1">
+                                    <img id="saveBanner1" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 1 from Product Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner1" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner1" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
 
                             <div class="flex justify-between mt-4">
+                                <label for="banner2">
+                                    <img id="saveBanner2" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 2 from Product Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner2" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner2" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-
                             <div class="flex justify-between mt-4">
+                                <label for="banner3">
+                                    <img id="saveBanner3" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 1 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner3" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner3" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-
                             <div class="flex justify-between mt-4">
+                                <label for="banner4">
+                                    <img id="saveBanner4" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 2 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner4" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
 
                             <div class="flex justify-between mt-4">
+                                <label for="banner5">
+                                    <img id="saveBanner5" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 3 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner5" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[289px] bg-[white]">Save</button>
@@ -339,7 +364,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider1</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post">
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -351,13 +376,17 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="30" rows="3">
+                                    <?= $editSlide1[0]["image_silder_title1"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="30" rows="5">
+                                <?= $editSlide1[0]["image_silder_dsc1"] ?>
+                                </textarea>
 
                             </div>
 
@@ -372,7 +401,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider2</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider2/updateController.php" method="post">
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -384,13 +413,17 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="30" rows="3">
+                                <?= $editSlide2[0]["image_silder_title2"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="30" rows="5">
+                                <?= $editSlide2[0]["image_silder_dsc2"] ?>
+                                </textarea>
 
                             </div>
 
@@ -405,7 +438,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider3</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider3/updateController.php" method="post">
+
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -417,13 +451,18 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="30" rows="3">
+                                <?= $editSlide3[0]["image_silder_title3"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="30" rows="5">
+                                <?= $editSlide3[0]["image_silder_dsc3"] ?>
+
+                                </textarea>
 
                             </div>
 
@@ -445,48 +484,78 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                 <hr class="mt-10 h-[2px] mx-auto">
 
-                <div class="text-white flex  justify-between mt-10">
+                <select class="w-[70px] text-black h-[25px] outline-none mt-10 rounded-sm ml-[64px]" id="faq-select">
+                    <option value="faq1">FAQ1</option>
+                    <option value="faq2">FAQ2</option>
+                    <option value="faq3">FAQ3</option>
+                </select>
 
 
-                    <div>
-                        <select class="text-black w-[70px] rounded-sm ml-[65px] px-2" name="" id="">
-                            <option selected value="">FAQ1</option>
-                            <option value="">FAQ2</option>
-                            <option value="">FAQ3</option>
-                        </select>
-                        <form action="">
+                <div class="text-white flex  mt-5">
+                    <div class="faq text-black" id="faq1">
 
+                        <form action="../../Controller/uiElements/faq1/updatefaqController.php" method="post">
 
-                            <div class="flex  mt-4">
-                                <span>Ques:</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="123" rows="2"></textarea>
-
+                            <div class="flex justify-between w-[1040px]">
+                                <span class="block text-white ">Ques:</span>
+                                <textarea name="questionOne" cols="120" rows="2" class=" resize-none text-black" type="text" placeholder="Question 1">
+                                <?= $editFaq1[0]["question1"] ?>
+                                </textarea>
                             </div>
-
-                            <div class="flex  mt-4">
-                                <span>Ans:</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[34px]" name="" id="" cols="123" rows="3"></textarea>
-
+                            <div class="flex  mt-4 justify-between">
+                                <span class="block text-white">Ans:</span>
+                                <textarea cols="120" rows="4" name="answerOne" class="resize-none  text-black" type="text" placeholder="Answer 1">
+                                <?= $editFaq1[0]["answer1"] ?>
+                                </textarea>
                             </div>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
-
-
-
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
                         </form>
-
-
                     </div>
 
 
+                    <div class="faq" id="faq2">
 
+                        <form action="../../Controller/uiElements/faq2/updatefaq2Controller.php" method="post">
 
+                            <div class="flex justify-between w-[1040px]">
+                                <span class="block text-white ">Ques:</span>
+                                <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
+    <?= $editFaq1[0]["question2"] ?>
+    </textarea>
+                            </div>
+                            <div class="flex  mt-4 justify-between">
+                                <span class="block text-white">Ans:</span>
+                                <textarea cols="120" rows="4" name="answerTwo" class="resize-none  text-black" type="text" placeholder="Answer 1">
+    <?= $editFaq1[0]["answer2"] ?>
+    </textarea>
+                            </div>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
+                        </form>
+                    </div>
 
+                    <div class="faq" id="faq3">
+                        <form action="../../Controller/uiElements/faq3/updatefaq3Controller.php" method="post">
 
+                            <div class="flex justify-between w-[1040px]">
+                                <span class="block text-white ">Ques:</span>
+                                <textarea name="questionThree" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
+    <?= $editFaq1[0]["question3"] ?>
+    </textarea>
+                            </div>
+                            <div class="flex  mt-4 justify-between">
+                                <span class="block text-white">Ans:</span>
+                                <textarea cols="120" rows="4" name="answerThree" class="resize-none  text-black" type="text" placeholder="Answer 1">
+    <?= $editFaq1[0]["answer3"] ?>
+    </textarea>
+                            </div>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
-
+                        </form>
+                    </div>
                 </div>
+
 
                 <hr class="mt-10 h-[2px] mx-auto">
 
@@ -495,66 +564,36 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-black w-[90px] rounded-sm ml-[65px] px-2 bg-white" name="" id="">
-                  Terms
-                          
+                            Terms
+
                         </span>
                         <form action="../../Controller/uiElements/terms/updatetermsController.php" method="post">
 
                             <div class="flex  mt-4">
                                 <span>Terms:</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[34px] text-start justify-start " name="terms" id="" cols="123" rows="3">
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[20px] text-start justify-start " name="terms" id="" cols="123" rows="3">
                                     <?= $editTerms[0]["terms"] ?>
                                 </textarea>
 
                             </div>
 
 
-
-
-                            <button  class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[1002px] bg-[white]">Save</button>
                         </form>
-
 
                     </div>
 
-
-
-
-
-
-
-
-
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
-
-
-
         </div>
         <!-- Right-side End -->
-
     </section>
-
-
-
     </div>
 
 
-
     <script src="../resources/js/modal_box.js"></script>
+    <script src="../resources/js/faq.js"></script>
+    <script src="../resources//js/imgSave.js"></script>
 </body>
 
 </html>

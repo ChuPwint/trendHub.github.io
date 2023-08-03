@@ -162,10 +162,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
             <img src="./resources/img/homePage/slider/msi.svg" alt="">
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">Intel® Evo™ Platform
-              The Ultimate Premium Laptop
-              Experience</span>
-            <span class="md:text-md text-sm mt-5  text-white hidden md:block">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">
+<?= $editInfo[0]["image_silder_title1"] ?>
+        </span>
+            <span class="md:text-md text-sm mt-5  text-white hidden md:block">
+            <?= $editInfo[0]["image_silder_dsc1"] ?>
+            </span>
           </div>
         </div>
       </div>
@@ -177,10 +179,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
             <img src="./resources/img/homePage/slider/dell.png" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">Intel® Evo™ Platform
-              The Ultimate Premium Laptop
-              Experience</span>
-            <span class="text-md mt-5 hidden md:block text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">
+            <?= $editInfo[0]["image_silder_title2"] ?>
+              </span>
+            <span class="text-md mt-5 hidden md:block text-white">
+            <?= $editInfo[0]["image_silder_dsc2"] ?>
+            </span>
           </div>
         </div>
       </div>
@@ -192,10 +196,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
             <img src="./resources/img/homePage/slider/acer.png" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-white block md:mt-0 mt-16">Intel® Evo™ Platform
-              The Ultimate Premium Laptop
-              Experience</span>
-            <span class="text-md mt-5 md:block hidden text-white">Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.</span>
+            <span class="md:text-xl text-md text-white block md:mt-0 mt-16">
+            <?= $editInfo[0]["image_silder_title3"] ?>
+             </span>
+            <span class="text-md mt-5 md:block hidden text-white">
+            <?= $editInfo[0]["image_silder_dsc3"] ?>
+            </span>
           </div>
         </div>
       </div>
