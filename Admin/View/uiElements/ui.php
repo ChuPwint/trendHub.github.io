@@ -1,7 +1,7 @@
 <?php
 
 include "../../Controller/uiElements/Information/viewController.php";
-// include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
+include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 // include "../../Controller/uiElements/imgSlider1/viewController.php";
 // include "../../Controller/uiElements/imgSlider2/viewController.php";
 // include "../../Controller/uiElements/imgSlider3/viewController.php";
@@ -299,20 +299,22 @@ include "../../Controller/uiElements/Information/viewController.php";
                     <div>
                         <span class="text-xl">Point Exchange Rate</span>
                         <span class="text-md mt-4 block">Current point : 10000Ks To 1Pts.</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
+
+                  
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
-                                    <input value="10,000" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
 
                                 <span class="block mt-4">TO</span>
 
                                 <div class="flex space-x-5 mt-4">
-                                    <span>Money Amount:</span>
-                                    <input value="1" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <span>Point Amount:</span>
+                                    <input name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
-                                <button class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
+                                <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
 
                             </div>
 

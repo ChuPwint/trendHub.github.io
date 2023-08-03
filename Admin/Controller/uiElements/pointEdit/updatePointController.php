@@ -3,7 +3,7 @@ ini_set('display_errors',1);
 error_reporting(E_ALL);
 if(count($_POST) == 0){
     echo "ERROR";
-    header("Location: ../../View/Error/error.php");
+    header("Location: ../../../View/Error/error.php");
 }else{
    $moneyAmt = $_POST["moneyAmt"];
    $pointAmt = $_POST['pointAmt'];
@@ -24,8 +24,8 @@ if(count($_POST) == 0){
 
    $sql->execute();
  
-
-   header("Location: ../../../View/UI Elements/ui.php");
+   header("Location: ../../../View/uiElements/ui.php");
+  
 
 
 }
