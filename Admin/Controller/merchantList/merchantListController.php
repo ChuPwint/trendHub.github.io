@@ -1,5 +1,4 @@
 <?php
-
 include "../../Model/model.php";
 
 $sql = $pdo->prepare(
@@ -27,12 +26,3 @@ $sql = $pdo->prepare(
 );
 $sql->execute();
 $bannedMerchantList = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-// echo "<pre>";
-// echo $todayDate;
-// print_r($allMerchantList);
-// print_r($newMerchantList);
-// print_r($pendingMerchantList);
-// print_r($bannedMerchantList);
-
-?>

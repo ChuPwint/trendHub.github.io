@@ -66,7 +66,7 @@ if(!isset($_POST["addProduct"])){
         $sql->bindValue(":createDate", date("Y-m-d"));
 
         $sql->execute();
-        header("Location: ../../View/Manage%20Products/adminProducts.php");
+        header("Location: ./adminProductController.php");
 
     } else {
         header("Location: ../../View/Error/error.php");
