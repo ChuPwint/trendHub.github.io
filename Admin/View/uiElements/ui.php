@@ -2,9 +2,9 @@
 
 include "../../Controller/uiElements/Information/viewController.php";
 include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
-// include "../../Controller/uiElements/imgSlider1/viewController.php";
-// include "../../Controller/uiElements/imgSlider2/viewController.php";
-// include "../../Controller/uiElements/imgSlider3/viewController.php";
+include "../../Controller/uiElements/imgSlider1/viewController.php";
+include "../../Controller/uiElements/imgSlider2/viewController.php";
+include "../../Controller/uiElements/imgSlider3/viewController.php";
 include "../../Controller/uiElements/faq1/viewfaqControllerl.php";
 include "../../Controller/uiElements/faq2/viewfaq2Controller.php";
 include "../../Controller/uiElements/faq3/viewfaq3Controllerl.php";
@@ -244,47 +244,70 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <span class="text-xl">Banner</span>
                         <form action="">
                             <div class="flex justify-between mt-4">
+                                <label for="banner1">
+                                    <img id="saveBanner1" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 1 from Product Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner1" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner1" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
 
                             <div class="flex justify-between mt-4">
+                                <label for="banner2">
+                                    <img id="saveBanner2" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 2 from Product Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner2" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner2" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-
                             <div class="flex justify-between mt-4">
+                                <label for="banner3">
+                                    <img id="saveBanner3" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 1 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner3" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner3" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-
                             <div class="flex justify-between mt-4">
+                                <label for="banner4">
+                                    <img id="saveBanner4" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 2 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner4" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
 
                             <div class="flex justify-between mt-4">
+                                <label for="banner5">
+                                    <img id="saveBanner5" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
                                 <span>Banner 3 from Category Page</span>
-                                <label for="file-upload" class="custom-file-upload text-black ml-2">
+                                <label for="banner5" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                                <input accept=".png,.jpg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[289px] bg-[white]">Save</button>
@@ -341,7 +364,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider1</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post">
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -353,13 +376,17 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="30" rows="3">
+                                    <?= $editSlide1[0]["image_silder_title1"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="30" rows="5">
+                                <?= $editSlide1[0]["image_silder_dsc1"] ?>
+                                </textarea>
 
                             </div>
 
@@ -374,7 +401,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider2</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider2/updateController.php" method="post">
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -386,13 +413,17 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="30" rows="3">
+                                <?= $editSlide2[0]["image_silder_title2"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="30" rows="5">
+                                <?= $editSlide2[0]["image_silder_dsc2"] ?>
+                                </textarea>
 
                             </div>
 
@@ -407,7 +438,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Image Slider3</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/imgSlider3/updateController.php" method="post">
+
                             <div class="flex mt-4">
                                 <span>Image</span>
                                 <label for="file-upload" class="custom-file-upload text-black ml-2">
@@ -419,13 +451,18 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="30" rows="3"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="30" rows="3">
+                                <?= $editSlide3[0]["image_silder_title3"] ?>
+                                </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="" id="" cols="30" rows="5"></textarea>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="30" rows="5">
+                                <?= $editSlide3[0]["image_silder_dsc3"] ?>
+
+                                </textarea>
 
                             </div>
 
@@ -483,7 +520,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex justify-between w-[1040px]">
                                 <span class="block text-white ">Ques:</span>
-                                <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black"  type="text" placeholder="Question 1">
+                                <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
     <?= $editFaq1[0]["question2"] ?>
     </textarea>
                             </div>
@@ -556,6 +593,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
     <script src="../resources/js/modal_box.js"></script>
     <script src="../resources/js/faq.js"></script>
+    <script src="../resources//js/imgSave.js"></script>
 </body>
 
 </html>
