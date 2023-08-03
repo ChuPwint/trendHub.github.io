@@ -1,3 +1,5 @@
+<?php include "../../Controller/uiElement/editInfoController.php" ?>;
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,11 +42,11 @@
                     <p class="text-3xl font-medium">Info</p>
                     <div class="flex items-center space-x-5 mt-2">
                         <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_message.svg" alt="message">
-                        <span class="md:text-sm"><a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
+                        <span class="md:text-sm"><a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?> </a></span>
                     </div>
                     <div class="flex items-center space-x-5">
                         <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_phone.svg" alt="phone">
-                        <span><a href="tel:09403559701">09 40-355-9701</a></span>
+                        <span><a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
                     </div>
                     <div class="flex items-start space-x-5">
                         <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_address.svg" alt="address">
@@ -52,7 +54,7 @@
                     </div>
                     <div class="flex items-center space-x-5">
                         <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_time.svg" alt="time">
-                        <span>09:00 - 17:00</span>
+                        <span><?= $editInfo[0]["time"] ?></span>
                     </div>
                 </div>
             </div>
@@ -65,19 +67,19 @@
             <p class="text-3xl font-medium">Info</p>
             <div class="flex items-center space-x-5 mt-2">
                 <img src="../resources/img/contact/message.svg" alt="message">
-                <span><a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
+                <span><a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
             </div>
             <div class="flex items-center space-x-5">
                 <img src="../resources/img/contact/phone.svg" alt="phone">
-                <span><a href="tel:09403559701">09 40-355-9701</a></span>
+                <span><a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
             </div>
             <div class="flex items-start space-x-5">
                 <img class="w-[30px] h-[30px]" class="pt-2" src="../resources/img/contact/address.svg" alt="address">
-                <span><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
+                <span><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu"><?= $editInfo[0]["address"] ?></a></span>
             </div>
             <div class="flex items-center space-x-5">
                 <img class="w-[30px] h-[30px]" src="../resources/img/contact/time.svg" alt="time">
-                <span>09:00 - 17:00</span>
+                <span><?= $editInfo[0]["time"] ?></span>
             </div>
         </div>
     </section>

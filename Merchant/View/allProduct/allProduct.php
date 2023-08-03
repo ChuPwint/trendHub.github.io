@@ -1,3 +1,16 @@
+<?php  
+
+session_start();
+$detail =$_SESSION["viewProduct"];
+
+
+include "../../Controller/allProduct/allProductShowController.php";
+include "../../Controller/categoryController.php";
+if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"] == false)){
+    $_SESSION["mProductDetailView"] = 0;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,12 +111,13 @@
             </div>
         </div>
         <!-- start of product detail modal box -->
-        <div class="viewDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
+        <?php if(isset($_SESSION["mProductDetailView"]) && ($_SESSION["mProductDetailView"] == 1)){ ?>
+            <div class="viewDetailModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
             <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
                 <div class="closeViewDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
-                <form action="">
+                <form action="../../Controller/allProduct/updateProductController.php"  method="post">
                     <!-- start of upper row -->
                     <div class="px-6 py-4 grid grid-cols-2 gap-4">
                         <!-- start of add product text fields -->
@@ -111,32 +125,40 @@
                             <div class="bg-secondary p-4">
                                 <div class="mb-4 relative">
                                     <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
-                                    <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
-                                        <!-- Add options for categories here -->
-                                        <option value="electronic device">Electronic Device</option>
-                                        <option value="women's fashion" selected>Women's Fashion</option>
-                                        <!-- Add more options if needed -->
+                                    <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor "disabled >
+                                    <?php
+                                            $categoryId = $detail[0]['category_id'];
+
+                                            foreach ($categories as $category) {
+                                            ?>
+                                                <option  value="<?= $category["id"] ?>" <?php
+                                                                                        if ($category['id'] == $categoryId) {
+                                                                                            echo "selected";
+                                                                                        }
+                                                                                        ?>>
+                                                    <?= $category["category_name"] ?>
+                                                    <?php } ?>
                                     </select>
                                 </div>
                                 <div class="mb-4 relative">
                                     <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
-                                    <input type="text" id="productName" name="productName" value="Lenovo 13" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                    <input type="text" id="productName" name="productName" value="<?= $detail[0]['p_name'] ?>" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" readonly>
                                 </div>
                                 <div class="mb-4 relative">
                                     <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
-                                    <input type="text" id="brand" name="brand" value="Lenovo" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                                    <input type="text" id="brand" name="brand" value="<?= $detail[0]['brand_name'] ?>" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" readonly>
                                 </div>
                                 <div class="mb-4 relative">
                                     <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
-                                    <input type="text" id="sellPrice" name="sellPrice" value="450,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                    <input type="number" id="sellPrice" name="sellPrice" value="<?=$detail[0]['sell_price'] ?>" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                                 </div>
                                 <div class="mb-4 relative">
                                     <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
-                                    <input type="text" id="buyPrice" name="buyPrice" value="400,000 kyat" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                    <input type="number" id="buyPrice" name="buyPrice" value="<?=$detail[0]['buy_price'] ?>" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                                 </div>
                                 <div class="relative">
                                     <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
-                                    <input type="number" id="quantity" name="quantity" value="20" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                                    <input type="number" id="quantity" name="quantity" value="<?= $detail[0]['p_stock'] ?>" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                                 </div>
                             </div>
                         </div>
@@ -165,16 +187,17 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="mb-4">
                                 <label for="productDetail" class="block font-medium">Product Detail:</label>
-                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</textarea>
+                                <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" readonly><?= $detail[0]['p_detail'] ?></textarea>
                             </div>
                             <div class="mb-4">
                                 <label for="productDescription" class="block font-medium">Product Description:</label>
-                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required>MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</textarea>
+                                <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" readonly><?= $detail[0]['p_description'] ?></textarea>
                             </div>
                         </div>
+                        <input type="hidden" name="product_id" value="<?= $detail[0]['id'] ?>">
                         <div class="flex justify-end items-center">
-                            <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 mr-10 bg-white text-darkGreenColor border border-darkGreenColor font-semibold rounded-md shadow-md">Delete Product</button>
-                            <button type="submit" class="closeViewDetailModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Edit Product</button>
+                            <button type="submit" name="deleteProduct" class="closeViewDetailModal py-2 px-4 mt-4 mr-10 bg-white text-darkGreenColor border border-darkGreenColor font-semibold rounded-md shadow-md">Delete Product</button>
+                            <button type="submit" name="editProduct" class="closeViewDetailModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Edit Product</button>
                         </div>
                     </div>
                     <!-- end of bottom row -->
@@ -182,6 +205,7 @@
             </div>
             <!-- end of container box -->
         </div>
+        <?php  } ?>
         <!-- end of product detail modal box -->
 
         <!-- Right-side Start -->
@@ -239,42 +263,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="productSubmitData">
-                        <td class="p-2 text-center ">1</td>
-                        <td class="p-2 text-center">phone</td>
-                        <td class="p-2 text-center">electronic device</td>
-                        <td class="p-2 text-center">20</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">450,000 kyat</td>
-                        <td class="viewDetailBtn p-2 text-center font-semibold underline cursor-pointer">View Detail</td>
-                    </tr>
-                    <tr class="productSubmitData bg-[#C4C9C9]">
-                        <td class="p-2 text-center">1</td>
-                        <td class="p-2 text-center">phone</td>
-                        <td class="p-2 text-center">electronic device</td>
-                        <td class="p-2 text-center">20</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">450,000 kyat</td>
-                        <td class="viewDetailBtn p-2 text-center font-semibold underline cursor-pointer">View Detail</td>
-                    </tr>
-                    <tr class="productSubmitData">
-                        <td class="p-2 text-center">1</td>
-                        <td class="p-2 text-center">phone</td>
-                        <td class="p-2 text-center">electronic device</td>
-                        <td class="p-2 text-center">20</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">450,000 kyat</td>
-                        <td class="viewDetailBtn p-2 text-center font-semibold underline cursor-pointer">View Detail</td>
-                    </tr>
-                    <tr class="productSubmitData bg-[#C4C9C9]">
-                        <td class="p-2 text-center">1</td>
-                        <td class="p-2 text-center">phone</td>
-                        <td class="p-2 text-center">electronic device</td>
-                        <td class="p-2 text-center">20</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">450,000 kyat</td>
-                        <td class="viewDetailBtn p-2 text-center font-semibold underline cursor-pointer">View Detail</td>
-                    </tr>
+                    <?php
+                    $counter = 0; 
+                    foreach ($allProduct as $product) { 
+                        $counter++; 
+                        $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
+                        
+                        ?>
+                        <tr class="productSubmitData <?= $rowClass ?>">
+                            <td class="p-2 text-center"><?= $product['id'] ?></td>
+                            <td class="p-2 text-center"><?= $product['p_name']; ?></td>
+                            <td class="p-2 text-center"><?= $product['category_name'] ?></td>
+                            <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
+                            <td class="p-2 text-center"><?= '$' . $product['buy_price'] ?></td>
+                            <td class="p-2 text-center"><?= '$' . $product['sell_price'] ?></td>
+                            <td class=" p-2 text-center font-semibold underline cursor-pointer">
+                            <a href="../../Controller/allProduct/productDetailShowController.php?id=<?= $product["id"] ?>" > 
+                            View Detail</a>
+
+                            
+                            </td>
+
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
             <!-- End of product table -->
@@ -323,3 +334,6 @@
 </body>
 
 </html>
+<?php
+$_SESSION["passDetailController"] = false;
+?>

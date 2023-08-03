@@ -1,3 +1,6 @@
+<?php   
+include "../../Controller/allReview/customerReviewController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -278,54 +281,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="orderList">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">123</td>
-                            <td class="p-2 text-center">T-shirt</td>
-                            <td class="p-2 text-center">Fashion</td>
-                            <td class="p-2 text-center">20</td>
-                            <td class="p-2 text-center">$750.00</td>
-                            <td class="p-2 text-center">$15,000.00</td>
+                        <?php 
+                         $counter = 0;
+                        foreach ($allReview as $product) { 
+                            $counter++; 
+                            $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
+                            ?>
+                            <tr class="orderList <?=  $rowClass ?>">
+                                <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><?= $product['id'] ?></td>
+                                <td class="p-2 text-center"><?= $product['p_name'] ?></td>
+                                <td class="p-2 text-center"><?= $product['category_name'] ?></td>
+                                <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
+                                <td class="p-2 text-center"><?= $product['sell_price'] ?></td>
+                                <td class="p-2 text-center"><?= $product['p_stock'] * $product['sell_price'] ?></td>
 
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
-                        </tr>
-                        <tr class="orderList bg-[#C4C9C9]">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                            <td class="p-2 text-center">Skirt</td>
-                            <td class="p-2 text-center">Girl's Fashion</td>
-                            <td class="p-2 text-center">20</td>
-                            <td class="p-2 text-center">$750.00</td>
-                            <td class="p-2 text-center">$15,000.00</td>
-
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
-                        </tr>
-                        <tr class="orderList">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                            <td class="p-2 text-center">Phone</td>
-                            <td class="p-2 text-center">Electronic Device</td>
-                            <td class="p-2 text-center">20</td>
-                            <td class="p-2 text-center">$750.00</td>
-                            <td class="p-2 text-center">$15,000.00</td>
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
-                        </tr>
-                        <tr class="orderList bg-[#C4C9C9]">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                            <td class="p-2 text-center">Laptop</td>
-                            <td class="p-2 text-center">Electronic Device</td>
-                            <td class="p-2 text-center">20</td>
-                            <td class="p-2 text-center">$750.00</td>
-                            <td class="p-2 text-center">$15,000.00</td>
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
-                        </tr>
-                        <tr class="orderList ">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                            <td class="p-2 text-center">Necklace</td>
-                            <td class="p-2 text-center">Accessories</td>
-                            <td class="p-2 text-center">20</td>
-                            <td class="p-2 text-center">$750.00</td>
-                            <td class="p-2 text-center">$15,000.00</td>
-
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">See Review</td>
-                        </tr>
+                                <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
+                                <a href="../../Controller/allReview/reviewDetailController.php?id=<?= $product["id"] ?>">
+                                See Review
+                               </a>
+                                </td>
+                            </tr>
+                        <?php  } ?>
+                        
                     </tbody>
                 </table>
                 <!-- End of order table -->

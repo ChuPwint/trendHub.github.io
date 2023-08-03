@@ -1,3 +1,8 @@
+<?php
+
+include "../../Controller/uiElement/editInfoController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,8 +147,14 @@
         <p class="text-lg font-semibold mb-3">How to earn points?</p>
         <p class="pl-5 mb-3 font-medium">
             > For each purchase of above
-            <span class="point_price font-semibold">10,000</span> kyat,
-            <span class="point_exchange font-semibold">1</span> point will be given.
+            <span class="point_price font-semibold">
+                <?= $editInfo[0]["money_amout"] ?>
+            </span> kyat,
+            <span class="point_exchange font-semibold">
+            <?= $editInfo[0]["point_amount"] ?>
+
+
+            </span> point will be given.
         </p>
         <p class="pl-5 mb-3 font-medium">> New users will be given 100 points.</p>
     </div>

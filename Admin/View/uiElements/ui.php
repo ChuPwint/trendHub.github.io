@@ -1,3 +1,32 @@
+<?php
+
+include "../../Controller/uiElements/Information/viewController.php";
+include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
+// include "../../Controller/uiElements/imgSlider1/viewController.php";
+// include "../../Controller/uiElements/imgSlider2/viewController.php";
+// include "../../Controller/uiElements/imgSlider3/viewController.php";
+// include "../../Controller/uiElements/faq1/viewfaqControllerl.php";
+// include "../../Controller/uiElements/faq2/viewfaq2Controller.php";
+// include "../../Controller/uiElements/faq3/viewfaq3Controllerl.php";
+// include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
+// include "../../Controller/uiElements/textColor/viewTextController.php";
+// include "../../Controller/uiElements/cardColor/viewCardController.php";
+// include "../../Controller/uiElements/fontColor/viewFontColorController.php";
+// include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
+include ".././../Controller/uiElements/terms/viewtermsController.php";
+
+
+
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,11 +86,11 @@
                     $day = date('D');
                     $month = date('F');
                     $date = date('j');
-                    $year = date('Y', $timestamp); 
+                    $year = date('Y', $timestamp);
 
-                    
+
                     ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
                 <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
@@ -180,29 +209,30 @@
                 <div class="text-white flex  justify-between mt-10">
                     <div>
                         <span class="text-xl">Information</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/Information/updateController.php " method="post">
                             <div class="flex justify-between space-x-4 mt-4">
                                 <span>Phone No</span>
-                                <input value="" class="pl-2 rounded-sm" type="text" placeholder="09 xxx xxxx xxx">
+                                <input name="phoneNumber" value="<?= $editInfo[0]["phoneNumber"]   ?>" class="pl-2 rounded-sm text-black w-[300px] ml-[100px]  " type="text" placeholder="09 xxx xxxx xxx">
                             </div>
+
 
                             <div class="flex justify-between mt-4">
                                 <span>Email</span>
-                                <input class="pl-2 rounded-sm" type="email" placeholder="trend@gmail.com">
+                                <input value="<?= $editInfo[0]["email"]   ?>" name="gmail" class="pl-2 w-[300px] ml-[100px] rounded-sm text-black" type="email" placeholder="trend@gmail.com">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Address </span>
-                                <input class="pl-2 rounded-sm" type="text" placeholder="Yangon">
+                                <input value="<?= $editInfo[0]["address"]  ?>" name="address" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Yangon">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Time </span>
-                                <input class="pl-2 rounded-sm" type="text" placeholder="08:00 am - 08:00pm">
+                                <input value="<?= $editInfo[0]["time"] ?>" name="time" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="08:00 am - 08:00pm">
                             </div>
 
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[232px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
                         </form>
 
 
@@ -269,20 +299,22 @@
                     <div>
                         <span class="text-xl">Point Exchange Rate</span>
                         <span class="text-md mt-4 block">Current point : 10000Ks To 1Pts.</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
+
+
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
-                                    <input value="10,000" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
 
                                 <span class="block mt-4">TO</span>
 
                                 <div class="flex space-x-5 mt-4">
-                                    <span>Money Amount:</span>
-                                    <input value="1" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <span>Point Amount:</span>
+                                    <input name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
-                                <button class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
+                                <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
 
                             </div>
 
@@ -461,35 +493,29 @@
                 <div class="text-white flex  justify-between mt-10 mb-[100px]">
 
 
-<div>
-    <select class="text-black w-[70px] rounded-sm ml-[65px] px-2" name="" id="">
-        <option selected value="">T&C1</option>
-        <option value="">T&C2</option>
-        <option value="">T&Cacute;3</option>
-    </select>
-    <form action="">
+                    <div>
+                        <span class="text-black w-[90px] rounded-sm ml-[65px] px-2 bg-white" name="" id="">
+                  Terms
+                          
+                        </span>
+                        <form action="../../Controller/uiElements/terms/updatetermsController.php" method="post">
 
+                            <div class="flex  mt-4">
+                                <span>Terms:</span>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[34px] text-start justify-start " name="terms" id="" cols="123" rows="3">
+                                    <?= $editTerms[0]["terms"] ?>
+                                </textarea>
 
-        <div class="flex  mt-4">
-            <span>Ques:</span>
-            <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="123" rows="2"></textarea>
-
-        </div>
-
-        <div class="flex  mt-4">
-            <span>Ans:</span>
-            <textarea class="resize-none text-black outline-none rounded-sm ml-[34px]" name="" id="" cols="123" rows="3"></textarea>
-
-        </div>
+                            </div>
 
 
 
 
-        <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
-    </form>
+                            <button  class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
+                        </form>
 
 
-</div>
+                    </div>
 
 
 
@@ -499,7 +525,7 @@
 
 
 
-</div>
+                </div>
 
 
 

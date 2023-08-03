@@ -19,6 +19,7 @@
 
     <?php
     include "../resources/common/navbar.php";
+ 
     ?>
 
     <!-- Welcome -->

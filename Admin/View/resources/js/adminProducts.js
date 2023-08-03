@@ -130,6 +130,37 @@ $(document).ready(function () {
     $('#myModal').addClass('hidden');
   });
 
+  $(".showDetail").click(function (){
+    $("#modalDetail").removeClass("hidden");
 
+    $.ajax({
+      url: "../../Controller/manageProducts/viewDetailController.php",
+      type: "POST",
+      data: {
+        id: $(this).attr("detailID"),
+      },
+      success: function (result) {
+        let product = JSON.parse(result);
+        console.log(product);
+        // $("#editID").val(products[0].id);
+        // $("#editCategory").val(products[0].category_name);
+        // $("#editProductName").val(products[0].p_name);
+        // $("#editBrand").val(products[0].brand_name);
+        // $("#editSellPrice").val(products[0].sell_price);
+        // $("#editBuyPrice").val(products[0].buy_price);
+        // $("#editQuantity").val(products[0].p_stock);
+        // $("#editImage").attr("src", "../../.." + products[0].p_path);
+        // $("#editProductDetail").val(products[0].p_detail);
+        // $("#editProductDescription").val(products[0].p_description);
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  })
+
+  $("#hideDetail").click(function (){
+    $("#modalDetail").addClass("hidden");
+  })
 
 });
