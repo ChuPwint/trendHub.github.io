@@ -115,30 +115,29 @@ $allCategories = $_SESSION["allCategories"];
                                         foreach ($adminProducts as $product) {
                                     ?>
                                             <tr class="bg-[#fffafa] group hover:scale-[0.99] transition-transform">
-                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= $count++ ?>
                                                 </td>
-                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= $product["p_name"] ?>
 
                                                 </td>
-                                                <td class="p-3 text-center cursor-pointer" onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= $product["category_name"] ?>
                                                 </td>
 
-                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= $product["p_stock"] ?>
 
                                                 </td>
-                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= number_format($product["buy_price"]) ?>
                                                 </td>
-                                                <td class="p-3 text-center cursor-pointer " onclick="showDetail()">
+                                                <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
                                                     <?= number_format($product["sell_price"]) ?>
                                                 </td>
-
                                                 <td class="p-3 text-center  space-x-2 ">
-                                                    <span id="<?= $product["id"] ?>"  class="editProduct px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
+                                                    <span id="<?= $product["id"] ?>" class="editProduct px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>
                                                     <span deleteID="<?= $product["id"] ?>" class="deleteProduct px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md">DELETE</span>
                                                 </td>
                                             </tr>
@@ -196,7 +195,7 @@ $allCategories = $_SESSION["allCategories"];
                             </div>
                         </div>
                         <div class="flex justify-center space-x-4 mt-6">
-                            <input type="hidden" name="" id="deleteProductID">        
+                            <input type="hidden" name="" id="deleteProductID">
                             <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
                             <button id="confirmDeleteProduct" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
 
@@ -232,8 +231,8 @@ $allCategories = $_SESSION["allCategories"];
                                 <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
                                 <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
                                     <!-- Add options for categories here -->
-                                    <?php 
-                                    foreach($allCategories as $category) { ?>
+                                    <?php
+                                    foreach ($allCategories as $category) { ?>
                                         <option value="<?= $category["id"] ?>"><?= $category["category_name"] ?></option>
                                     <?php }
                                     ?>
@@ -307,12 +306,12 @@ $allCategories = $_SESSION["allCategories"];
 
 
 
-    
+
     <!-- Start Product Details -->
     <div id="modalDetail" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
             <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Dtails</span>
-            <button onclick="hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+            <button id="hideDetail" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -336,8 +335,8 @@ $allCategories = $_SESSION["allCategories"];
                     <div class="flex -mt-[53px]">
                         <div class="w-[300px]"></div>
                         <div class="w-[650px] h-[100px] flex justify-between">
-                            <div class="p-5"><span class=" font-semibold text-lg ">Brand:</span> <span class="underline font-semibold text-[#F36823] cursor-pointer ">MSI</span></div>
-                            <div class="p-5"><span class=" font-semibold text-lg ">From:</span> <span class="underline font-semibold text-[#F36823] cursor-pointer ">Trend Hub</span></div>
+                            <div class="p-5"><span class=" font-semibold text-lg ">Brand:</span> <span class="font-semibold text-[#F36823]">MSI</span></div>
+                            <div class="p-5"><span class=" font-semibold text-lg ">From:</span> <span class="font-semibold text-[#F36823]">Trend Hub</span></div>
 
                         </div>
                     </div>
