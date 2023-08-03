@@ -10,7 +10,7 @@
 
   <!-- google font link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
+  s
   <!-- flowBite link -->
   <script src="../path/to/flowbite/dist/datepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
@@ -51,17 +51,17 @@
         <div class="text-white">
           <p class="text-2xl font-semibold tracking-wider">Banned Merchant</p>
           <?php
-                    $timestamp = time();
+          $timestamp = time();
 
-                    date_default_timezone_set('Asia/Yangon');
-                    $day = date('D');
-                    $month = date('F');
-                    $date = date('j');
-                    $year = date('Y', $timestamp); 
+          date_default_timezone_set('Asia/Yangon');
+          $day = date('D');
+          $month = date('F');
+          $date = date('j');
+          $year = date('Y', $timestamp);
 
-                    
-                    ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+
+          ?>
+          <p><?php echo "Date : $day, $month $date, $year" ?></p>
         </div>
         <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
       </div>
