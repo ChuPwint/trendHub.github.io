@@ -4,7 +4,9 @@ session_start();
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
+
 include "../Controller/categoryController.php";
+include "../Controller/uiElement/editInfoControllerIndex.php";
 
 ?>
 
@@ -151,7 +153,7 @@ include "../Controller/categoryController.php";
   <!-- end header -->
 
   <!-- Slider Start -->
-  <div class="swiper">
+  <div class="swiper -mt-[10px]">
     <div class="swiper-wrapper">
       <!-- Slide1 -->
       <div class="swiper-slide">
@@ -205,7 +207,7 @@ include "../Controller/categoryController.php";
 
   <!-- start deals -->
   <div class=" max-w-[1700px] mx-auto">
-    <div class="pt-[180px] -z-50 ">
+    <div class="pt-[120px] -z-50 ">
       <h2 class="px-8 py-4 ml-[60px] text-xl font-bold ">DAILY DEALS</h2>
       <div class="flex justify-center z-0 flex-wrap  ">
 
@@ -428,9 +430,9 @@ include "../Controller/categoryController.php";
 
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
-        <span class="block cursor-pointer hover:text-tertiary">Email : <a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
-        <span class="block cursor-pointer hover:text-tertiary">Phone : <a href="tel:09403559701">09 40-355-9701</a></span>
-        <span class="block cursor-pointer hover:text-tertiary w-[400px]"><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
+        <span class="block cursor-pointer hover:text-tertiary">Email : <a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
+        <span class="block cursor-pointer hover:text-tertiary">Phone : <a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
+        <span class="block cursor-pointer hover:text-tertiary w-[400px]">Addres : <a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu"><?= $editInfo[0]["address"] ?></a></span>
       </div>
 
       <div class="">
