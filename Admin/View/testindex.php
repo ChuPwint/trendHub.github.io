@@ -14,12 +14,14 @@
 <?php
 session_start();
 $_SESSION["loginError"];
+ini_set('display_errors', 1);
+
 
 ?>
 
 <body class="bg-[#12141B] flex justify-center items-center h-screen">
     <div class="w-[350px] h-[400px]  bg-[#FEFEFE] rounded-sm">
-    <form action="../Controller/Admin Login/loginControlller.php" method="POST">
+    <form action="../Controller/adminLogin/loginController.php" method="post">
         <span class="block text-center mt-6  font-semibold tracking-wider   text-2xl">Admin</span>
         <small class=" text-lg text-red-600 rounded-sm block mx-auto text-center mt-3">
         <?= $_SESSION["loginError"] ?>

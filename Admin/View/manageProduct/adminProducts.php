@@ -89,11 +89,10 @@ $allCategories = $_SESSION["allCategories"];
                     <div class="absolute -right-[30px]">
                         <label class="inline-flex text-white" for="">Sort By:</label>
                         <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
-
-                            <option value="business">Product Name</option>
-                            <option value="address">Category</option>
-                            <option value="date">Stock</option>
-                            <option value="date">Sell Price</option>
+                            <option value="p_name">Product Name</option>
+                            <option value="p_stock">Stock</option>
+                            <option value="sell_price">Sell Price</option>
+                            <option value="buy_price">Buy Price</option>
                         </select>
                     </div>
                 </div>
@@ -118,7 +117,7 @@ $allCategories = $_SESSION["allCategories"];
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="sortResult">
 
                                     <?php
                                     if ($totalCount > 0) {
@@ -334,20 +333,20 @@ $allCategories = $_SESSION["allCategories"];
                     <div class=" flex">
 
                         <div class="w-[300px]">
-                            <img class="w-[200px] mx-auto pt-[40px] " src="../resources/img/Admin Product/msi.svg" alt="">
+                            <img class="w-[200px] max-h-[200px] mx-auto pt-[40px] object-cover" id="detailImg" src="" alt="">
                         </div>
 
-                        <div class="w-[650px] h-[150px] p-5">
+                        <div class="w-[650px] h-[150px] p-5" id="detailTxt">
                             MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11
                         </div>
-
+                        <input type="hidden" id="reviewID" name="">                   
 
                     </div>
                     <div class="flex -mt-[53px]">
                         <div class="w-[300px]"></div>
                         <div class="w-[650px] h-[100px] flex justify-between">
-                            <div class="p-5"><span class=" font-semibold text-lg ">Brand:</span> <span class="font-semibold text-[#F36823]">MSI</span></div>
-                            <div class="p-5"><span class=" font-semibold text-lg ">From:</span> <span class="font-semibold text-[#F36823]">Trend Hub</span></div>
+                            <div class="p-5"><span class=" font-semibold text-lg ">Brand:</span> <span class="font-semibold text-[#F36823]" id="detailBrand"></span></div>
+                            <div class="p-5"><span class=" font-semibold text-lg ">From:</span> <span class="font-semibold text-[#F36823]" id="detailMBrand"></span></div>
 
                         </div>
                     </div>
@@ -356,11 +355,11 @@ $allCategories = $_SESSION["allCategories"];
 
                 <div class="">
                     <h1 class="underline font-semibold text-lg p-5">Product Description</h1>
-                    <span class="w-[820px] mx-auto block">Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</span>
+                    <span class="w-[820px] mx-auto block" id="detailDesc">Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming. The world’s first 16" QHD gaming laptop with up to 165Hz refresh sets up a “winning zone” that gives you an extra edge and ups your peripheral vision. Combined with Nahimic 3D audio that pinpoints footsteps in space.</span>
 
                 </div>
 
-                <button onclick="showReview()" class="rounded-md shadow-md font-semibold block px-4 py-1 bg-[#456265] mx-auto text-white mt-[90px]">View Customer's Review</button>
+                <button id="showReview" class="rounded-md shadow-md font-semibold block px-4 py-1 bg-[#456265] mx-auto text-white mt-[90px]">View Customer's Review</button>
 
             </div>
 
@@ -376,7 +375,7 @@ $allCategories = $_SESSION["allCategories"];
     <div id="modalReview" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
             <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
-            <button onclick="hideReview(),hideDetail()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+            <button id="hideReview" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -591,6 +590,7 @@ $allCategories = $_SESSION["allCategories"];
                         <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                             <div class="text-center">
                                 <div class="mt-4">
+                                    <input type="hidden" id="previousPath" name="previousPath">
                                     <div class="flex justify-center"><img id="editImage" class="p_Image max-w-xs max-h-60" src="" alt=""></div>
                                     <label for="editFile_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
                                         <span class="font-bold underline">Upload a file: </span>
