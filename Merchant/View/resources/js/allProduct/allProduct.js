@@ -1,8 +1,5 @@
 $(document).ready(function () {
-    $(".viewDetailBtn").click(function () {
-        $(".viewDetailModal").toggle();
-    });
-
+    
     $("#file_upload").on("change", function () {
         var fileInput = $(this)[0];
 
@@ -17,6 +14,7 @@ $(document).ready(function () {
 
     $(".closeViewDetailModal").click(function () {
         $(".viewDetailModal").toggle();
+      
     });
 
     $("#logoutBtn").click(function () {

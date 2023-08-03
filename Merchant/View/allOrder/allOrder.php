@@ -1,3 +1,15 @@
+<?php
+include "../../Controller/allOrder/allOrderShowcontroller.php";
+if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"] == false)){
+    $_SESSION["orderDetailView"] = 0;
+  
+}
+
+if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)){
+  
+    $_SESSION["changeStatus"] = 0;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,6 +111,7 @@
         </div>
 
         <!-- start of order detail modal box -->
+        <?php if(isset($_SESSION["orderDetailView"]) && ($_SESSION["orderDetailView"] == 1)){ ?>
         <div class="viewOrderDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
             <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
@@ -158,9 +171,11 @@
             </div>
             <!-- end of container box -->
         </div>
+        <?php } ?>
         <!-- end of order detail modal box -->
 
         <!-- start of order status change modal box -->
+        <?php if(isset($_SESSION["changeStatus"]) && ($_SESSION["changeStatus"] == 1)){ ?>
         <div class="changeStatusModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
             <div class="bg-white m-auto p-2 border rounded-sm w-[40%] relative">
@@ -182,6 +197,7 @@
             </div>
             <!-- end of container box -->
         </div>
+        <?php } ?>
         <!-- end of order status change modal box -->
 
         <!-- Right-side Start -->
@@ -249,46 +265,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="orderList">
-                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">8</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">2023/07/26</td>
-                        <td class="p-2 text-center">Pending</td>
-                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">Change Status</td>
-                    </tr>
-                    <tr class="orderList bg-[#C4C9C9]">
-                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">8</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">2023/07/26</td>
-                        <td class="p-2 text-center">Pending</td>
-                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">Change Status</td>
-                    </tr>
-                    <tr class="orderList">
-                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">8</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">2023/07/26</td>
-                        <td class="p-2 text-center">Pending</td>
-                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">Change Status</td>
-                    </tr>
-                    <tr class="orderList bg-[#C4C9C9]">
-                        <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">8</td>
-                        <td class="p-2 text-center">400,000 kyat</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">2023/07/26</td>
-                        <td class="p-2 text-center">Pending</td>
-                        <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">Change Status</td>
-                    </tr>
+                <?php
+                $counter = 0;
+                    foreach ($orderPaymentInfo as $order) :
+                        $counter++;
+                        $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
+                    ?>
+                        <tr class="orderList <?= $rowClass ?>">
+                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><?= $order['id']; ?></td>
+                            <td class="p-2 text-center"><?= $order['c_name']; ?></td>
+                            <td class="p-2 text-center">
+                                <?php
+                                $totalQuantity = 0; // Initialize a variable to store the total quantity
+                                foreach ($orderDetailsInfo as $detail) {
+                                    if ($detail['order_id'] === $order['id']) {
+                                        $qtyAsNumber = (int)$detail['qty'];
+
+                                        $totalQuantity += $qtyAsNumber; // Add the quantity to the total
+                                    }
+                                }
+                                echo $totalQuantity;
+                                ?>
+                            </td>
+                            <td class="p-2 text-center"><?="$".$order['total_amt']; ?></td>
+                            <td class="p-2 text-center"><?= $order['payment_method']; ?></td>
+                            <td class="p-2 text-center">
+                                <?= date('Y/m/d', strtotime($order['create_date'])); ?>
+                            </td>
+                            <td class="p-2 text-center">
+                                <?php
+
+                                if ($order['order_status'] == 0) {
+                                    echo "Pending";
+                                } elseif ($order['order_status'] == 1) {
+                                    echo "Delivered";
+                                } else {
+                                    // Handle other cases if needed
+                                    echo "Unknown";
+                                }
+                                ?>
+                            </td>
+                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
+                               <a href="../../Controller/allOrder/changeStatusController.php?id=<?= $product["id"] ?>">
+                                Change Status
+                               </a>
+                            
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
                 </tbody>
             </table>
             <!-- End of order table -->
@@ -313,3 +338,7 @@
 </body>
 
 </html>
+<?php
+$_SESSION["passDetailController"] = false;
+$_SESSION["changeStatusController"] = false;
+?>
