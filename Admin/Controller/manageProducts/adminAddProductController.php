@@ -34,6 +34,7 @@ if(!isset($_POST["addProduct"])){
                 buy_price,
                 sell_price,
                 merchant_id,
+                review_id,
                 create_date
             )
             VALUES
@@ -48,6 +49,7 @@ if(!isset($_POST["addProduct"])){
                 :buyPrice,
                 :sellPrice,
                 :merchantID,
+                :reviewID
                 :createDate
             )
             "
@@ -63,6 +65,7 @@ if(!isset($_POST["addProduct"])){
         $sql->bindValue(":buyPrice", $buyPrice);
         $sql->bindValue(":sellPrice", $sellPrice);
         $sql->bindValue(":merchantID", 1);
+        $sql->bindValue(":reviewID", 1);
         $sql->bindValue(":createDate", date("Y-m-d"));
 
         $sql->execute();

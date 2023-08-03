@@ -72,7 +72,7 @@
 
             <!-- Manage Products Sub Menu  Start-->
             <div id="manage-products-sub-menu" class="cursor-pointer rounded text-sm <?php echo ($menu == "manageProducts") ? "block" : "hidden"  ?>">
-                <a href="">
+                <a href="../../Controller/manageProducts/merchantProductController.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "merchantProducts") ? "bg-[#31374A]" : false ?>">Merchant”s Products</p>
                 </a>
                 <a href="../../Controller/manageProducts/adminProductController.php">
