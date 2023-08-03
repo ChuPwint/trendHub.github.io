@@ -13,7 +13,7 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 // include "../../Controller/uiElements/cardColor/viewCardController.php";
 // include "../../Controller/uiElements/fontColor/viewFontColorController.php";
 // include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
-// include ".././../Controller/uiElements/terms/viewtermsController.php";
+include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 
 
@@ -86,11 +86,11 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
                     $day = date('D');
                     $month = date('F');
                     $date = date('j');
-                    $year = date('Y', $timestamp); 
+                    $year = date('Y', $timestamp);
 
-                    
+
                     ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
                 <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
@@ -207,7 +207,7 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 
 
                 <div class="text-white flex  justify-between mt-10">
-                <div>
+                    <div>
                         <span class="text-xl">Information</span>
                         <form action="../../Controller/uiElements/Information/updateController.php " method="post">
                             <div class="flex justify-between space-x-4 mt-4">
@@ -301,7 +301,7 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
                         <span class="text-md mt-4 block">Current point : 10000Ks To 1Pts.</span>
                         <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
 
-                  
+
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
@@ -493,35 +493,29 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
                 <div class="text-white flex  justify-between mt-10 mb-[100px]">
 
 
-<div>
-    <select class="text-black w-[70px] rounded-sm ml-[65px] px-2" name="" id="">
-        <option selected value="">T&C1</option>
-        <option value="">T&C2</option>
-        <option value="">T&Cacute;3</option>
-    </select>
-    <form action="">
+                    <div>
+                        <span class="text-black w-[90px] rounded-sm ml-[65px] px-2 bg-white" name="" id="">
+                  Terms
+                          
+                        </span>
+                        <form action="../../Controller/uiElements/terms/updatetermsController.php" method="post">
 
+                            <div class="flex  mt-4">
+                                <span>Terms:</span>
+                                <textarea class="resize-none text-black outline-none rounded-sm ml-[34px] text-start justify-start " name="terms" id="" cols="123" rows="3">
+                                    <?= $editTerms[0]["terms"] ?>
+                                </textarea>
 
-        <div class="flex  mt-4">
-            <span>Ques:</span>
-            <textarea class="resize-none text-black outline-none rounded-sm ml-[23px]" name="" id="" cols="123" rows="2"></textarea>
-
-        </div>
-
-        <div class="flex  mt-4">
-            <span>Ans:</span>
-            <textarea class="resize-none text-black outline-none rounded-sm ml-[34px]" name="" id="" cols="123" rows="3"></textarea>
-
-        </div>
+                            </div>
 
 
 
 
-        <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
-    </form>
+                            <button  class="px-[15px] mt-4 rounded-sm text-[black] ml-[1077px] bg-[white]">Save</button>
+                        </form>
 
 
-</div>
+                    </div>
 
 
 
@@ -531,7 +525,7 @@ include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 
 
 
-</div>
+                </div>
 
 
 
