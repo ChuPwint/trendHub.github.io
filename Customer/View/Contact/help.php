@@ -17,6 +17,7 @@
 
     <?php
     include "../resources/common/navbar.php";
+    include "../../Controller/uiElement/editInfoController.php";
     ?>
 
     <!-- Question about order -->
@@ -59,35 +60,26 @@
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p>How to use my points?</p>
+                    <p><?= $editInfo[0]["question1"] ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium
-                    dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis
-                    dicta harum similique! Quas, ab sit! Consectetur numquam quis ipsa modi voluptates atque temporibus
-                    doloremque consequuntur maxime eum architecto animi fugiat soluta culpa tenetur suscipit.
+                   <?= $editInfo[0]["answer1"]  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p>Where to check my orders?</p>
+                     <p><?= $editInfo[0]["question2"] ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium
-                    dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis
-                    dicta harum similique! Quas, ab sit! Consectetur numquam quis ipsa modi voluptates atque temporibus
-                    doloremque consequuntur maxime eum architecto animi fugiat soluta culpa tenetur suscipit.
+                <?= $editInfo[0]["answer2"]  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p>What payment options are available?</p>
+                    <p><?= $editInfo[0]["question3"] ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium
-                    dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis
-                    dicta harum similique! Quas, ab sit! Consectetur numquam quis ipsa modi voluptates atque temporibus
-                    doloremque consequuntur maxime eum architecto animi fugiat soluta culpa tenetur suscipit.
+                <?= $editInfo[0]["answer3"]  ?>
                 </div>
 
             </div>
