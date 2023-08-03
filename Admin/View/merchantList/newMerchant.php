@@ -19,7 +19,7 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/dropDown/drop_downMerchant.js" defer></script>
-    <script src="../resources/js/search/searchAllMerchant.js" defer></script>
+    <script src="../resources/js/search/searchMerchant.js" defer></script>
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -50,10 +50,18 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
             <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
                 <div class="text-white">
                     <p class="text-2xl font-semibold tracking-wider">New Merchants</p>
-                    <p>Date : Sun, Jul 16, 2023</p>
+                    <?php
+                    $timestamp = time();
+                    date_default_timezone_set('Asia/Yangon');
+                    $day = date('D');
+                    $month = date('F');
+                    $date = date('j');
+                    $year = date('Y', $timestamp);
+                    ?>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+                <input type="text" name="" id="searchNewMerchant" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by name">
             </div>
             <!-- Search End-->
 
@@ -61,8 +69,8 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
                 <!-- start sort -->
                 <div class="w-full py-[20px] pb-[30px]">
                     <div class="text-right">
-                        <label class="text-white" for="dropdown">Sort By:</label>
-                        <select id="dropdown" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                        <label class="text-white" for="dropdownNewMerchant">Sort By:</label>
+                        <select id="dropdownNewMerchant" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
                             <option selected value="m_name">Personal Name</option>
                             <option value="m_bname">Business Name</option>
                             <option value="m_address">Address</option>
@@ -90,7 +98,7 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="searchResult">
                                     <?php $num = 1; ?>
                                     <?php foreach ($newMerchantList as $newMerchant) { ?>
                                         <tr class="bg-[#fffafa]">
@@ -145,7 +153,7 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
 
                                 <div class="flex justify-center space-x-4 mt-6">
                                     <button class="closeBanModal rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>
-                                    <button type="submit" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                    <button type="submit" name="newMerchant" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
                                 </div>
                             </div>
                         </form>

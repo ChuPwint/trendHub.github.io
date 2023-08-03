@@ -1,20 +1,20 @@
 $(document).ready(function () {
     //in all merchant.php
-    $("#dropdownAllMerchant").change(function () {
+    $("#searchAllMerchant").keyup(function () {
+        ($(this).val() == "") ? $("#dropdownAllMerchant").val("m_name") : "";
         $.ajax({
-            url: "../../Controller/dropDown/merchant/sortAllMerchantController.php",
+            url: "../../Controller/search/merchant/searchAllMerchantController.php",
             type: "POST",
             data: {
-                sortBy: $(this).val(),
-                searchText: $("#searchAllMerchant").val()
+                searchText: $(this).val(),
+                sortBy: $("#dropdownAllMerchant").val(),
             },
-            cache: false,
             success: function (res) {
                 $(".searchResult").empty();
                 let allMerchants = JSON.parse(res);
                 let num = 1;
                 for (const merchant of allMerchants) {
-                    merchantListSorted(merchant, num);
+                    merchantList(merchant, num);
                     num++;
                 }
             },
@@ -25,21 +25,20 @@ $(document).ready(function () {
     });
 
     //in new merchant.php
-    $("#dropdownNewMerchant").change(function () {
+    $("#searchNewMerchant").keyup(function () {
+        ($(this).val() == "") ? $("#dropdownNewMerchant").val("m_name") : "";
         $.ajax({
-            url: "../../Controller/dropDown/merchant/sortNewMerchantController.php",
+            url: "../../Controller/search/merchant/searchNewMerchantController.php",
             type: "POST",
             data: {
-                sortBy: $(this).val(),
-                searchText: $("#searchNewMerchant").val()
+                searchText: $(this).val()
             },
-            cache: false,
             success: function (res) {
                 $(".searchResult").empty();
                 let newMerchants = JSON.parse(res);
                 let num = 1;
                 for (const merchant of newMerchants) {
-                    merchantListSorted(merchant, num);
+                    merchantList(merchant, num);
                     num++;
                 }
             },
@@ -50,15 +49,14 @@ $(document).ready(function () {
     });
 
     //in pending merchant.php
-    $("#dropdownPendingMerchant").change(function () {
+    $("#searchPendingMerchant").keyup(function () {
+        ($(this).val() == "") ? $("#dropdownPendingMerchant").val("m_name") : "";
         $.ajax({
-            url: "../../Controller/dropDown/merchant/sortPendingMerchantController.php",
+            url: "../../Controller/search/merchant/searchPendingMerchantController.php",
             type: "POST",
             data: {
-                sortBy: $(this).val(),
-                searchText: $("#searchPendingMerchant").val()
+                searchText: $(this).val()
             },
-            cache: false,
             success: function (res) {
                 $(".searchResult").empty();
                 let pendingMerchants = JSON.parse(res);
@@ -93,15 +91,14 @@ $(document).ready(function () {
     });
 
     //in banned merchant.php
-    $("#dropdownBannedMerchant").change(function () {
+    $("#searchBannedMerchant").keyup(function () {
+        ($(this).val() == "") ? $("#dropdownBannedMerchant").val("m_name") : "";
         $.ajax({
-            url: "../../Controller/dropDown/merchant/sortBannedMerchantController.php",
+            url: "../../Controller/search/merchant/searchBannedMerchantController.php",
             type: "POST",
             data: {
-                sortBy: $(this).val(),
-                searchText: $("#searchBannedMerchant").val()
+                searchText: $(this).val()
             },
-            cache: false,
             success: function (res) {
                 $(".searchResult").empty();
                 let bannedMerchants = JSON.parse(res);
@@ -135,7 +132,7 @@ $(document).ready(function () {
     });
 });
 
-function merchantListSorted(obj, num) {
+function merchantList(obj, num) {
     let license = (obj.m_licene != null) ? obj.m_licene : "-";
     $(".searchResult").append(
         `
