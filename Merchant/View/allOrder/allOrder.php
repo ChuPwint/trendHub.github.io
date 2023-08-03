@@ -1,14 +1,14 @@
 <?php
+session_start();
+$order =  $_SESSION["selectedOrder"];
+$detail =  $_SESSION["orderDetails"];
+
 include "../../Controller/allOrder/allOrderShowcontroller.php";
-if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"] == false)){
-    $_SESSION["orderDetailView"] = 0;
-  
+if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)) {
+    $_SESSION["detailView"] = 0;
 }
 
-if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)){
-  
-    $_SESSION["changeStatus"] = 0;
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,71 +111,103 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
         </div>
 
         <!-- start of order detail modal box -->
-        <?php if(isset($_SESSION["orderDetailView"]) && ($_SESSION["orderDetailView"] == 1)){ ?>
-        <div class="viewOrderDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
-            <!-- start of container box -->
-            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
-                <div class="closeViewOrderDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
-                <h2 class="text-2xl font-bold px-6 py-3">Order Details</h2>
-                <!-- start of all details -->
-                <div class="flex justify-between items-center px-5 py-6">
-                    <!-- start of order detail texts -->
-                    <div>
-                        <p class="mb-2 text-lg font-medium">Order Id: <span>12345</span></p>
-                        <p class="mb-2 text-lg font-medium">Order Date: <span>2023/07/26</span></p>
-                        <p class="mb-2 text-lg font-medium">Order From: <span>John Doe</span></p>
-                        <p class="mb-2 text-lg font-medium">Order Status: <span>Pending</span></p>
-                        <p class="mb-2 text-lg font-medium">Payment Type: <span>Card</span></p>
-                        <p class="mb-2 text-lg font-medium">Payment Status: <span>Completed</span></p>
-                        <p class="mb-2 text-lg font-medium">Delivery Address: <span>123 Street, ABC Condo, Third Floor, Test Township</span></p>
-                        <p class="text-lg font-medium">Customer Contact Info: <span>09123456</span></p>
+        <?php if (isset($_SESSION["detailView"]) && ($_SESSION["detailView"] == 1)) { ?>
+
+            <div class="viewOrderDetailModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
+                <!-- start of container box -->
+
+                <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+                    <div class="closeViewOrderDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
+                    <h2 class="text-2xl font-bold px-6 py-3">Order Details</h2>
+                    <!-- start of all details -->
+                    <div class="flex justify-between items-center px-5 py-6">
+                        <!-- start of order detail texts -->
+                        <div>
+                            <p class="mb-2 text-lg font-medium">Order Id: <span><?= $order[0]["id"] ?></span></p>
+                            <p class="mb-2 text-lg font-medium">Order Date: <span><?php
+
+                                                                                    $dateString = $order[0]["create_date"];
+                                                                                    $timestamp = strtotime($dateString);
+                                                                                    $formattedDate = date("Y/m/d", $timestamp);
+
+                                                                                    echo $formattedDate;
+                                                                                    ?></span></p>
+                            <p class="mb-2 text-lg font-medium">Order From: <span><?= $order[0]["c_name"] ?></span></p>
+                            <p class="mb-2 text-lg font-medium">Order Status: <span><?php
+
+                                                                                    if ($order[0]['order_status'] == 0) {
+                                                                                        echo "Pending";
+                                                                                    } elseif ($order[0]['order_status'] == 1) {
+                                                                                        echo "Delivered";
+                                                                                    } else {
+                                                                                        // Handle other cases if needed
+                                                                                        echo "Unknown";
+                                                                                    }
+                                                                                    ?></span></p>
+                            <p class="mb-2 text-lg font-medium">Payment Type: <span><?= $order[0]["payment_method"] ?></span></p>
+                            <p class="mb-2 text-lg font-medium">Payment Status: <span>
+                                    <?php
+                                    
+                                    $paymentMethodId = $order[0]["payment_method_id"];
+                                    $paymentStatus = '';
+
+                                    if ($paymentMethodId == 1 || $paymentMethodId == 2) {
+                                        $paymentStatus = "Completed";
+                                    } elseif ($paymentMethodId == 3) {
+                                        $paymentStatus = "Delivered";
+                                    }
+                                    echo $paymentStatus;
+                                    ?>
+                                </span></p>
+                            <p class="mb-2 text-lg font-medium">Delivery Address: <span><?= $order[0]["address"] ?></span></p>
+                            <p class="text-lg font-medium">Customer Contact Info: <span><?= $order[0]["c_phone"] ?></span></p>
+                        </div>
+                        <!-- end of order detail texts -->
+                        <!-- start of order summary -->
+                        <div class="w-[40%] h-60 overflow-y-scroll py-5 px-3 bg-[#E4E4D2]">
+                            <p class="font-medium mb-5 text-lg">Order Summary</p>
+                            <!-- start of products -->
+                            <div class="flex justify-between items-center mb-5 text-lg">
+                                <div>
+                                    <p class="mb-3">T-shirt</p>
+                                    <p class="mb-3">Shoes</p>
+                                </div>
+                                <div>
+                                    <p class="mb-3">5</p>
+                                    <p class="mb-3">1</p>
+                                </div>
+                            </div>
+                            <hr class="border border-dashed mb-3 border-gray-400">
+                            <!-- end of products -->
+                            <!-- start of prices -->
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="mb-3">Sub-total</p>
+                                    <p>Delivery</p>
+                                </div>
+                                <div>
+                                    <p class="mb-3">$800</p>
+                                    <p>$80</p>
+                                </div>
+                            </div>
+                            <hr class="border border-dashed mb-3 mt-3 border-gray-400">
+                            <div class="flex justify-between items-center mt-5">
+                                <p>Grand Total</p>
+                                <p>$880</p>
+                            </div>
+                            <!-- end of prices -->
+                        </div>
+                        <!-- end of order summary -->
                     </div>
-                    <!-- end of order detail texts -->
-                    <!-- start of order summary -->
-                    <div class="w-[40%] h-60 overflow-y-scroll py-5 px-3 bg-[#E4E4D2]">
-                        <p class="font-medium mb-5 text-lg">Order Summary</p>
-                        <!-- start of products -->
-                        <div class="flex justify-between items-center mb-5 text-lg">
-                            <div>
-                                <p class="mb-3">T-shirt</p>
-                                <p class="mb-3">Shoes</p>
-                            </div>
-                            <div>
-                                <p class="mb-3">5</p>
-                                <p class="mb-3">1</p>
-                            </div>
-                        </div>
-                        <hr class="border border-dashed mb-3 border-gray-400">
-                        <!-- end of products -->
-                        <!-- start of prices -->
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="mb-3">Sub-total</p>
-                                <p>Delivery</p>
-                            </div>
-                            <div>
-                                <p class="mb-3">$800</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                        <hr class="border border-dashed mb-3 mt-3 border-gray-400">
-                        <div class="flex justify-between items-center mt-5">
-                            <p>Grand Total</p>
-                            <p>$880</p>
-                        </div>
-                        <!-- end of prices -->
-                    </div>
-                    <!-- end of order summary -->
+                    <!-- end of all details -->
                 </div>
-                <!-- end of all details -->
+                <!-- end of container box -->
             </div>
-            <!-- end of container box -->
-        </div>
-        <?php } ?>
+        <?php  } ?>
         <!-- end of order detail modal box -->
 
         <!-- start of order status change modal box -->
-        <?php if(isset($_SESSION["changeStatus"]) && ($_SESSION["changeStatus"] == 1)){ ?>
+
         <div class="changeStatusModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
             <div class="bg-white m-auto p-2 border rounded-sm w-[40%] relative">
@@ -197,7 +229,7 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
             </div>
             <!-- end of container box -->
         </div>
-        <?php } ?>
+
         <!-- end of order status change modal box -->
 
         <!-- Right-side Start -->
@@ -265,14 +297,15 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                $counter = 0;
+                    <?php
+                    $counter = 0;
                     foreach ($orderPaymentInfo as $order) :
                         $counter++;
                         $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                     ?>
                         <tr class="orderList <?= $rowClass ?>">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><?= $order['id']; ?></td>
+                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><a href="../../Controller/allOrder/changeStatusController.php?id=<?= $order['id'] ?>">
+                                    <?= $order['id']; ?></a></td>
                             <td class="p-2 text-center"><?= $order['c_name']; ?></td>
                             <td class="p-2 text-center">
                                 <?php
@@ -287,7 +320,7 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
                                 echo $totalQuantity;
                                 ?>
                             </td>
-                            <td class="p-2 text-center"><?="$".$order['total_amt']; ?></td>
+                            <td class="p-2 text-center"><?= "$" . $order['total_amt']; ?></td>
                             <td class="p-2 text-center"><?= $order['payment_method']; ?></td>
                             <td class="p-2 text-center">
                                 <?= date('Y/m/d', strtotime($order['create_date'])); ?>
@@ -306,10 +339,10 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
                                 ?>
                             </td>
                             <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
-                               <a href="../../Controller/allOrder/changeStatusController.php?id=<?= $product["id"] ?>">
-                                Change Status
-                               </a>
-                            
+                                <a href="../../Controller/allOrder/changeStatusController.php?id=<?= $product["id"] ?>">
+                                    Change Status
+                                </a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -339,6 +372,6 @@ if(isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusControl
 
 </html>
 <?php
-$_SESSION["passDetailController"] = false;
 $_SESSION["changeStatusController"] = false;
+
 ?>
