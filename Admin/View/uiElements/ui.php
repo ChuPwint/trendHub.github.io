@@ -8,6 +8,11 @@ include "../../Controller/uiElements/imgSlider3/viewController.php";
 include "../../Controller/uiElements/faq1/viewfaqControllerl.php";
 include "../../Controller/uiElements/faq2/viewfaq2Controller.php";
 include "../../Controller/uiElements/faq3/viewfaq3Controllerl.php";
+include "../../Controller/uiElements/banner1/viewBannerController.php";
+include "../../Controller/uiElements/banner2/viewBannerController.php";
+include "../../Controller/uiElements/banner3/viewBannerController.php";
+include "../../Controller/uiElements/banner4/viewBannerController.php";
+include "../../Controller/uiElements/banner5/viewBannerController.php";
 // include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
 // include "../../Controller/uiElements/textColor/viewTextController.php";
 // include "../../Controller/uiElements/cardColor/viewCardController.php";
@@ -242,76 +247,108 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     </div>
                     <div>
                         <span class="text-xl">Banner</span>
-                        <form action="">
-                            <div class="flex justify-between mt-4">
+                        <form action="../../Controller/uiElements/banner1/updateBannerController.php" method="post" enctype="multipart/form-data">
+                            <div class="flex  mt-4">
                                 <label for="banner1">
-                                    <img id="saveBanner1" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <img id="saveBanner1" src="../../../<?= $editbanner1[0]["banner1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
 
                                 </label>
+                                
                                 <span>Banner 1 from Product Page</span>
-                                <label for="banner1" class="custom-file-upload text-black ml-2">
+                                <label for="banner1" class="custom-file-upload text-black ml-[17px] pt-3 h-[25px]">
                                     Choose File
                                 </label>
+                                
 
-                                <input accept=".png,.jpg" type="file" id="banner1" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
-
-                            </div>
-
-                            <div class="flex justify-between mt-4">
-                                <label for="banner2">
-                                    <img id="saveBanner2" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
-
-                                </label>
-                                <span>Banner 2 from Product Page</span>
-                                <label for="banner2" class="custom-file-upload text-black ml-2">
-                                    Choose File
-                                </label>
-
-                                <input accept=".png,.jpg" type="file" id="banner2" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+                                <input value="" name="banner1" accept=".png,.jpg,.svg" type="file" id="banner1" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-                            <div class="flex justify-between mt-4">
-                                <label for="banner3">
-                                    <img id="saveBanner3" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
+                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
 
-                                </label>
-                                <span>Banner 1 from Category Page</span>
-                                <label for="banner3" class="custom-file-upload text-black ml-2">
-                                    Choose File
-                                </label>
 
-                                <input accept=".png,.jpg" type="file" id="banner3" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
-                            </div>
-                            <div class="flex justify-between mt-4">
-                                <label for="banner4">
-                                    <img id="saveBanner4" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
-
-                                </label>
-                                <span>Banner 2 from Category Page</span>
-                                <label for="banner4" class="custom-file-upload text-black ml-2">
-                                    Choose File
-                                </label>
-
-                                <input accept=".png,.jpg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
-
-                            </div>
-
-                            <div class="flex justify-between mt-4">
-                                <label for="banner5">
-                                    <img id="saveBanner5" src="../resources/img/banner/defaultImg.jpg" class=" h-[30px] w-[40px] mr-2" alt="">
-
-                                </label>
-                                <span>Banner 3 from Category Page</span>
-                                <label for="banner5" class="custom-file-upload text-black ml-2">
-                                    Choose File
-                                </label>
-
-                                <input accept=".png,.jpg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
-
-                            </div>
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[289px] bg-[white]">Save</button>
                         </form>
+                        <form action="../../Controller/uiElements/banner2/updateBannerController.php" method="post" enctype="multipart/form-data">
+                            <div class="flex  mt-4">
+                                <label for="banner2">
+                                    <img id="saveBanner2" src="../../../<?= $editbanner2[0]["banner2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
+                                
+                                <span>Banner 2 from Product Page</span>
+                                <label for="banner2" class="custom-file-upload text-black ml-[17px] pt-3 h-[25px]">
+                                    Choose File
+                                </label>
+                                
+
+                                <input value="" name="banner2" accept=".png,.jpg,.svg" type="file" id="banner2" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                            </div>
+                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                        </form>
+
+
+                       <form action="../../Controller/uiElements/banner3/updateBannerController.php" method="post" enctype="multipart/form-data">
+                            <div class="flex  mt-4">
+                                <label for="banner3">
+                                    <img id="saveBanner3" src="../../../<?= $editbanner3[0]["banner3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
+                                
+                                <span>Banner 1 from Category Page</span>
+                                <label for="banner3" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
+                                    Choose File
+                                </label>
+                                
+
+                                <input value="" name="banner3" accept=".png,.jpg,.svg" type="file" id="banner3" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                            </div>
+                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                        </form>
+
+
+
+
+                        <form action="../../Controller/uiElements/banner4/updateBannerController.php" method="post" enctype="multipart/form-data">
+                            <div class="flex  mt-4">
+                                <label for="banner4">
+                                    <img id="saveBanner4" src="../../../<?= $editbanner4[0]["banner4"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
+                                
+                                <span>Banner 2 from Category Page</span>
+                                <label for="banner4" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
+                                    Choose File
+                                </label>
+                                
+
+                                <input value="" name="banner4" accept=".png,.jpg,.svg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                            </div>
+                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                        </form>
+
+
+                        <!-- <form action="../../Controller/uiElements/banner5/updateBannerController.php" method="post" enctype="multipart/form-data">
+                            <div class="flex  mt-4">
+                                <label for="banner5">
+                                    <img id="saveBanner5" src="../../../<?= $editbanner5[0]["banner5"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                </label>
+                                
+                                <span>Banner 3 from Category Page</span>
+                                <label for="banner5" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
+                                    Choose File
+                                </label>
+                                
+
+                                <input value="" name="banner5" accept=".png,.jpg,.svg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                            </div>
+                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                        </form> -->
+
                     </div>
 
 

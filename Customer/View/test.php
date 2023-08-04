@@ -163,10 +163,10 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           </div>
           <div class="content w-[400px] h-[250px]  ">
             <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">
-<?= $editInfo[0]["image_silder_title1"] ?>
-        </span>
+              <?= $editInfo[0]["image_silder_title1"] ?>
+            </span>
             <span class="md:text-md text-sm mt-5  text-white hidden md:block">
-            <?= $editInfo[0]["image_silder_dsc1"] ?>
+              <?= $editInfo[0]["image_silder_dsc1"] ?>
             </span>
           </div>
         </div>
@@ -180,10 +180,10 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           </div>
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">
-            <?= $editInfo[0]["image_silder_title2"] ?>
-              </span>
+              <?= $editInfo[0]["image_silder_title2"] ?>
+            </span>
             <span class="text-md mt-5 hidden md:block text-white">
-            <?= $editInfo[0]["image_silder_dsc2"] ?>
+              <?= $editInfo[0]["image_silder_dsc2"] ?>
             </span>
           </div>
         </div>
@@ -197,10 +197,10 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           </div>
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-md text-white block md:mt-0 mt-16">
-            <?= $editInfo[0]["image_silder_title3"] ?>
-             </span>
+              <?= $editInfo[0]["image_silder_title3"] ?>
+            </span>
             <span class="text-md mt-5 md:block hidden text-white">
-            <?= $editInfo[0]["image_silder_dsc3"] ?>
+              <?= $editInfo[0]["image_silder_dsc3"] ?>
             </span>
           </div>
         </div>
