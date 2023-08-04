@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../../Model/model.php";
+include "../../../Model/model.php";
 $sortAllMerchant = $_POST["sortBy"];
 
 if (isset($_POST["searchText"])) {

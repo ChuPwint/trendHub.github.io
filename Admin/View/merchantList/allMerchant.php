@@ -19,7 +19,7 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/dropDown/drop_downMerchant.js" defer></script>
-    <script src="../resources/js/search/searchAllMerchant.js" defer></script>
+    <script src="../resources/js/search/searchMerchant.js" defer></script>
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -62,7 +62,7 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
                     ?>
                     <p><?php  echo "Date : $day, $month $date, $year"?></p>
                 </div>
-                <input type="text" name="" id="searchAllMerchant" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+                <input type="text" name="" id="searchAllMerchant" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by name">
             </div>
             <!-- Search End-->
 
@@ -70,8 +70,8 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
                 <!-- start sort -->
                 <div class="w-full py-[20px] pb-[30px]">
                     <div class="text-right">
-                        <label class="text-white" for="dropdown">Sort By:</label>
-                        <select id="dropdown" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                        <label class="text-white" for="dropdownAllMerchant">Sort By:</label>
+                        <select id="dropdownAllMerchant" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
                             <option selected value="m_name">Personal Name</option>
                             <option value="m_bname">Business Name</option>
                             <option value="m_address">Address</option>
@@ -155,7 +155,7 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
 
                                 <div class="flex justify-center space-x-4 mt-6">
                                     <button class="closeBanModal rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>
-                                    <button type="submit" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                    <button type="submit" name="allMerchant" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
                                 </div>
                             </div>
                         </form>
@@ -184,7 +184,7 @@ if(isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] 
                             </svg>
                         </div>
 
-                        <div class="mt-3 ml-4 text-center">
+                        <div class="mt-5 ml-4 text-center">
                             <span class="text-center block pb-4 mt-7">Sorry, this merchant still has pending orders for customers.</span>
                         </div>
                     </div>

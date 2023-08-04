@@ -1,6 +1,9 @@
 <?php
 session_start();
+ob_start();
 $email = $_POST["m_Email"];
+$name = $_POST['m_Name'];
+include "../../View/resources/common/mailSender.php";
 include "../../Model/model.php";
 $sql = $pdo->prepare(
     "SELECT DISTINCT m_marchents.*, t_orders.order_status 
@@ -12,24 +15,43 @@ $sql = $pdo->prepare(
 );
 $sql->bindValue(":email", $email);
 $sql->execute();
-
 $existingOrderResult = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 //no orders left to fulfil
 if (count($existingOrderResult) == 0) {
-    $sql = $pdo->prepare
-    (
-        "UPDATE m_marchents SET
+    $sql = $pdo->prepare(
+            "UPDATE m_marchents SET
         banned = :banned 
         WHERE m_email= :email"
-    );
+        );
     $sql->bindValue(":banned", 1);
     $sql->bindValue(":email", $email);
     $sql->execute();
     $_SESSION["view"] = 0;
+
+    $imgs = ['../../Mail/banMerchantTemplate/images/image-1.png'];
+
+    // send email 
+    $domain = $_SERVER["SERVER_NAME"];
+    $body = file_get_contents("../../Mail/banMerchantTemplate/index.html");
+    $body = str_replace("REPLACE", "$name", $body);
+    $mail = new SendMail();
+    $mail->sendMail(
+        $email,
+        "TrendHUB Merchant Account Banned",
+        $body,
+        true,
+        $imgs
+    );
+    
 } else { //orders left to fulfil
-    echo $existingOrderResult[0]["id"];
     $_SESSION["view"] = 1;
 }
+ob_clean();
 $_SESSION["banControllerPassed"] = true;
-header("Location: ../../View/merchantList/allMerchant.php");
+
+if(isset($_POST["allMerchant"])){
+    header("Location: ../../View/merchantList/allMerchant.php");
+} else if(isset($_POST["newMerchant"])){
+    header("Location: ../../View/merchantList/newMerchant.php");
+}

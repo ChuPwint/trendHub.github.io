@@ -1,9 +1,5 @@
 <?php
 include "../../Controller/merchantList/merchantListController.php";
-session_start();
-if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"] == false)) {
-    $_SESSION["view"] = 0;
-}
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +15,7 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/dropDown/drop_downMerchant.js" defer></script>
-    <script src="../resources/js/search/searchAllMerchant.js" defer></script>
+    <script src="../resources/js/search/searchMerchant.js" defer></script>
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -49,21 +45,27 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
             <div class="bg-[#262B3A] flex justify-between items-center py-3 px-10">
                 <div class="text-white">
                     <p class="text-2xl font-semibold">Pending Merchants</p>
-                    <p>Date : Sun, Jul 16, 2023</p>
+                    <?php
+                    $timestamp = time();
+                    date_default_timezone_set('Asia/Yangon');
+                    $day = date('D');
+                    $month = date('F');
+                    $date = date('j');
+                    $year = date('Y', $timestamp);
+                    ?>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
-
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+                <input type="text" name="" id="searchPendingMerchant" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by name">
             </div>
             <!-- Search End-->
-
 
             <!-- Analytics Data Start -->
             <div class="px-20 data-output">
                 <!-- start sort -->
                 <div class="w-full py-[20px] pb-[30px]">
                     <div class="text-right">
-                        <label class="text-white" for="dropdown">Sort By:</label>
-                        <select id="dropdown" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                        <label class="text-white" for="dropdownPendingMerchant">Sort By:</label>
+                        <select id="dropdownPendingMerchant" class=" mt-1  w-[160px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none">
                             <option selected value="m_name">Personal Name</option>
                             <option value="m_bname">Business Name</option>
                             <option value="m_address">Address</option>
@@ -105,17 +107,14 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
                                             <td class="p-3 text-center"><?= $pendingMerchant["create_date"] ?></td>
                                             <td class="p-3 text-center ">
                                                 <?php $mName = $pendingMerchant["m_name"] ?>
+                                                <?php $mbName = $pendingMerchant["m_bname"] ?>
+                                                <?php $mLicense = $pendingMerchant["m_licene"] ?>
                                                 <?php $mEmail = $pendingMerchant["m_email"] ?>
-                                                <span class=" px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">ACCEPT</span>
-                                                <span class="open-modal px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md" onclick="rejectMerchant('<?= $mName ?>','<?= $mEmail ?>')">REJECT</span>
-                                                <!-- <span class="banModal px-4 py-1 cursor-pointer bg-[#AC2E2E] text-white rounded-md" onclick="banMerchant('<?= $mName ?>','<?= $mEmail ?>')">BAN</span> -->
+                                                <span class="px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md" onclick="acceptMerchant('<?= $mName ?>','<?= $mbName ?>','<?= $mEmail ?>','<?= $mLicense ?>')">ACCEPT</span>
+                                                <span class="px-4 py-2 cursor-pointer bg-[#AC2E2E] text-white rounded-md" onclick="rejectMerchant('<?= $mName ?>','<?= $mbName ?>','<?= $mEmail ?>','<?= $mLicense ?>')">REJECT</span>
                                             </td>
                                         </tr>
                                     <?php } ?>
-
-                                    <td class="p-3 text-center ">
-
-                                    </td>
                                 </tbody>
                             </table>
                         </div>
@@ -143,15 +142,55 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </div>
-                        <form action="../../Controller/merchantList/merchantApprovalController.php" method="post">
+                        <form action="../../Controller/merchantList/merchantRejectController.php" method="post">
                             <div class="mt-3 ml-4 text-left">
                                 <span class="text-center block pb-4 mt-7">You are about to reject the following user:</span>
-                                <h1 class=" font-semibold mt-5">Business Name: <input id="reject_mName" name="m_bName" class="w-[200px] ml-[9px] font-normal outline-none" readonly></input></h1>
-                                <h1 class="font-semibold mt-5"> License: <input id="rejectLicense" name="m_Email" class="w-[200px] font-normal ml-[13px] outline-none" readonly></input></h1>
-                                <h1 class="font-semibold mt-5">Reason: <input class="font-normal drop-shadow-lg pl-2" placeholder="Reason" type="text"></h1>
+                                <h1 class=" font-semibold mt-5">Personal Name: <input id="reject_mName" name="m_name" class="w-[200px] ml-[9px] font-normal outline-none" readonly></input></h1>
+                                <h1 class=" font-semibold mt-5">Business Name: <input id="reject_mbName" name="m_bname" class="w-[200px] ml-[9px] font-normal outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5"> License: <input id="rejectLicene" name="m_licene" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5">Reason: <input name="rejectReason" class="font-normal drop-shadow-lg pl-2" placeholder="Reason" type="text"></input></h1>
+                                <h1 class="font-semibold mt-5 hidden"><input id="rejectMail" name="m_email" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
                                 <div class="flex justify-center space-x-4 mt-6">
                                     <button class="closeBanModal rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>
-                                    <button type="submit" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                    <button type="submit" name="reject" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Modal Content -->
+            </div>
+        </div>
+    </div>
+    <!-- end modal box -->
+
+    <!-- Start modal box -->
+    <div id="modals-container">
+        <div id="modal2" class="hidden fixed z-10 inset-0 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <!-- Start Modal Content -->
+                <div class="relative w-[400px]  mx-auto mt-[120px]  bg-primary rounded-lg text-left overflow-hidden shadow-xl transform transition-all ">
+                    <div class="bg-white px-4 pt-5 pb-4">
+                        <div class="mx-auto  h-12 w-12 absolute right-0 top-4 ">
+                            <!-- Cross Sign -->
+                            <svg class="closeBanModal2 h-6 w-6 text-black cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <form action="../../Controller/merchantList/merchantAcceptController.php" method="post">
+                            <div class="mt-3 ml-4 text-left">
+                                <span class="text-center block pb-4 mt-7">You are about to accept the following user:</span>
+                                <h1 class=" font-semibold mt-5">Personal Name: <input id="accept_mName" name="m_name" class="w-[200px] ml-[9px] font-normal outline-none" readonly></input></h1>
+                                <h1 class=" font-semibold mt-5">Business Name: <input id="accept_mbName" name="m_bname" class="w-[200px] ml-[9px] font-normal outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5"> License: <input id="acceptLicene" name="m_licene" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+                                <h1 class="font-semibold mt-5 hidden"><input id="acceptMail" name="m_email" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+
+                                <div class="flex justify-center space-x-4 mt-6">
+                                    <button class="closeBanModal2 rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>
+                                    <button type="submit" name="accept" class="closeBanModal bg-[#396C21] rounded-[5px] px-3 py-1 text-white">Confirm</button>
                                 </div>
                             </div>
                         </form>
@@ -163,20 +202,28 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
     </div>
     <!-- end modal box -->
     <script>
-        function rejectMerchant(name, email) {
+        function acceptMerchant(name, bname, email, license) {
+            document.getElementById("modal2").classList.remove("hidden");
+            document.getElementById("accept_mName").value = name;
+            document.getElementById("accept_mbName").value = bname;
+            document.getElementById("acceptMail").value = email;
+            document.getElementById("acceptLicene").value = license;
+        }
+        function rejectMerchant(name, bname, email, license) {
             document.getElementById("modal1").classList.remove("hidden");
             document.getElementById("reject_mName").value = name;
-            document.getElementById("rejectLicense").value = email;
+            document.getElementById("rejectMail").value = email;
+            document.getElementById("rejectLicene").value = license;
         }
         $(document).ready(function() {
             $(".closeBanModal").click(function() {
                 $("#modal1").addClass("hidden");
+            });
+            $(".closeBanModal2").click(function() {
+                $("#modal2").addClass("hidden");
             });
         });
     </script>
 </body>
 
 </html>
-<?php
-$_SESSION["banControllerPassed"] = false;
-?>

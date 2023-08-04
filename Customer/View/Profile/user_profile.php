@@ -1,11 +1,14 @@
 <?php
+session_start();
 include "../../Controller/regionAndTownshipController.php";
 
 include "../../Controller/profileDataShowController.php";
 include "../../Controller/userWishlistShowController.php";
 include "../../Controller/orderController.php";
 include "../../Controller/notifyController.php";
-
+if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeController"] == false)) {
+    $_SESSION["userChangeView"] = 0;
+}
 
 
 ?>
@@ -17,6 +20,7 @@ include "../../Controller/notifyController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
+    <script src="../../View/resources/js/profile.js" defer></script>
 
     <!-- Start Navbar -->
     <!-- google font link -->
@@ -102,9 +106,24 @@ include "../../Controller/notifyController.php";
                 <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll " id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
-                        <form action="../../Controller/profileSaveChangeController.php" method="post">
+                        <form action="../../Controller/profileSaveChangeController.php" method="post" enctype="multipart/form-data">
                             <div class="flex md:flex-row flex-col justify-start items-center mb-4">
-                                <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4 ">
+                                <?php
+
+                                if (($edit[0]["c_profile"]) == null) {
+                                    $setProfile = "../../Storage/profiles/noProfile.jpg";
+                                } else {
+                                    $setProfile = "../.." . $edit[0]["c_profile"];
+                                }
+
+                                ?>
+
+                                <label for="photo">
+                                    <img src="<?= $setProfile ?>" id="profile" alt="Profile Picture" class="w-36 h-36  rounded-full ">
+                                </label>
+                                <input type="file" name="userimg" id="photo" accept=".png,.jpeg" class="hidden" >
+
+
                                 <div class="flex flex-col">
                                     <span class="font-bold"><?= $edit[0]["c_name"]; ?></span>
                                     <span class="text-xs font-bold"><?= $edit[0]["c_address"]; ?></span>
@@ -114,10 +133,10 @@ include "../../Controller/notifyController.php";
                             <div>
                                 <div class="flex flex-col md:flex-row items-center justify-between  ">
                                     <div class="md:w-1/2 w-full p-2">
-                                        <input type="text" name="username" value="<?= $edit[0]["c_name"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Username">
+                                        <input type="text" name="username" value="<?= $edit[0]["c_name"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Username" required>
                                     </div>
                                     <div class="md:w-1/2 w-full p-2 ">
-                                        <input type="tel" name="phone" value="<?= $edit[0]["c_phone"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number">
+                                        <input type="tel" name="phone" value="<?= $edit[0]["c_phone"]; ?>" class="w-full p-2 rounded border border-borderOrange" placeholder="Phone Number" required>
                                     </div>
                                 </div>
 
@@ -159,10 +178,10 @@ include "../../Controller/notifyController.php";
 
                                 <div class="flex flex-col md:flex-row  items-center justify-between ">
                                     <div class="md:w-1/2 w-full p-2 ">
-                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" readonly placeholder="Email Address">
+                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" readonly placeholder="Email Address" required>
                                     </div>
                                     <div class="md:w-1/2 w-full p-2">
-                                        <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address">
+                                        <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address" required>
                                     </div>
                                 </div>
                                 <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
@@ -220,7 +239,7 @@ include "../../Controller/notifyController.php";
                 <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
                     <div class="block md:hidden">
                         <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
-                       
+
                         <!-- Loop through the $wishlistProducts array and display each product in a div -->
                         <?php foreach ($wishlistProducts as $product) : ?>
                             <div class="bg-secondary shadow-lg m-4 p-4 flex">
@@ -238,7 +257,7 @@ include "../../Controller/notifyController.php";
                         <?php endforeach; ?>
 
 
-                        
+
                     </div>
                 </div>
 
@@ -406,15 +425,17 @@ include "../../Controller/notifyController.php";
 
 
                 </div>
+                <?php if (isset($_SESSION["userChangeView"]) && ($_SESSION["userChangeView"] == 1)) { ?> 
                 <!-- Modal for save change-->
                 <div class="flex justify-center items-center">
-                    <div class="fixed w-full   flex items-center justify-center hidden" id="modal">
+                    <div class="fixed w-full   flex items-center justify-center " id="modal">
                         <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
                             <p class="text-center font-bold">Your profile change is complete!</p>
                             <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
                         </div>
                     </div>
                 </div>
+                <?php   } ?> 
 
                 <!-- Modal Box for log out -->
                 <div class="flex justify-center items-center ">
@@ -464,160 +485,10 @@ include "../../Controller/notifyController.php";
 
     </div>
     <!-- Mobile menu button End-->
-    <script>
-        // for mobile view
-        $(document).ready(function() {
-            var wishToggle = false;
-            var orderToggle = false;
-            $(window).resize(function() {
-                if (wishToggle) {
-                    if ($(window).width() <= 768 && (!$("#wishlistDestop").hasClass("hidden"))) {
 
-                        $("#mobile-wishlist").trigger("click");
-                    } else if ($(window).width() >= 768 && ($("#wishlistDestop").hasClass("hidden"))) {
-
-                        $("#menu-wishlist").trigger("click");
-                    }
-                }
-
-                if (orderToggle) {
-                    if ($(window).width() <= 768 && (!$("#orderHistoryDestop").hasClass("hidden"))) {
-
-                        $("#mobile-order").trigger("click");
-                    } else if ($(window).width() >= 768 && ($("#orderHistoryDestop").hasClass("hidden"))) {
-
-                        $("#menu-order-history").trigger("click");
-                    }
-                }
-
-            });
-
-
-
-            $("#mobile-user").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#profileEdit").removeClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-                $("#notification").addClass("hidden");
-            });
-
-            $("#mobile-wishlist").click(function() {
-                wishToggle = true;
-                orderToggle = false;
-                $("#profileEdit").addClass("hidden");
-                $(".wishlistMobile").removeClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $("#notification").addClass("hidden");
-            });
-
-            $("#mobile-order").click(function() {
-                wishToggle = false;
-                orderToggle = true;
-
-                $("#profileEdit").addClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $(".orderHistoryMobile").removeClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $("#notification").addClass("hidden");
-            });
-            $("#mobile-notify").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#profileEdit").addClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-                $("#notification").removeClass("hidden");
-            });
-
-            $("#menu-user-info").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#profileEdit").removeClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $("#notification").addClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-            });
-
-            $("#menu-wishlist").click(function() {
-                wishToggle = true;
-                orderToggle = false;
-                $("#profileEdit").addClass("hidden");
-                $("#wishlistDestop").removeClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $("#notification").addClass("hidden");
-            });
-
-            $("#menu-order-history").click(function() {
-                wishToggle = false;
-                orderToggle = true;
-                $("#profileEdit").addClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $("#orderHistoryDestop").removeClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-                $("#notification").addClass("hidden");
-            });
-
-            $("#menu-notification").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#profileEdit").addClass("hidden");
-                $("#wishlistDestop").addClass("hidden");
-                $("#orderHistoryDestop").addClass("hidden");
-                $("#notification").removeClass("hidden");
-                $(".wishlistMobile").addClass("hidden");
-                $(".orderHistoryMobile").addClass("hidden");
-            });
-
-            $("#logoutBtn").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#logoutModal").toggle();
-            });
-
-            $("#mobile-logout").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#logoutModal").toggle();
-            });
-
-            $("#confirmLogout").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#logoutModal").toggle();
-            });
-            $("#cancelLogout").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#logoutModal").toggle();
-            });
-
-            $("#save-profile-btn").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#modal").toggle();
-            });
-
-            $("#close-modal-btn").click(function() {
-                wishToggle = false;
-                orderToggle = false;
-                $("#modal").toggle();
-            });
-        });
-    </script>
 </body>
 
 </html>
+ <?php
+        $_SESSION["userSaveChangeController"] = false;
+        ?> 

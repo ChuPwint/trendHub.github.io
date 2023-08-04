@@ -1,3 +1,12 @@
+<?php
+include "../../Controller/profile/showDataProfileController.php";
+if (isset($_SESSION["saveChangeController"]) && ($_SESSION["saveChangeController"] == false)) {
+    $_SESSION["changeView"] = 0;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +17,7 @@
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
+    <script src="../resources/js/profile.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
@@ -98,111 +108,96 @@
         </div>
 
         <!-- Right-side Start -->
+
         <div class="flex justify-center  items-center flex-col px-5 w-full  h-2/3 ">
             <div class="bg-primary relative w-5/6  h-full flex flex-col mt-12  shadow-2xl ">
                 <div id="profile" class="p-8 container w-2/3">
-                    <p class="p-6 text-2xl font-bold">Edit Profile</p>
-                    <div class="flex flex-col items-center justify-center"> <!-- Adding a flex container -->
+                    <form action="../../Controller/profile/editProfileController.php" method="post" enctype="multipart/form-data">
+                        <p class="p-6 text-2xl font-bold">Edit Profile</p>
+                        <div class="flex flex-col items-center justify-center"> <!-- Adding a flex container -->
+                        <?php
 
-                        <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="rounded-full w-32 shadow-md">
+                                if (($merchant[0]["m_logo"]) == null) {
+                                    $setLogo = "../resources/img/profile/noProfile.png.jpg";
+                                } else {
+                                    $setLogo = "../../.." . $merchant[0]["m_logo"];
+                                }
 
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-8">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="username" class="text-md font-semibold">Name:</label>
-                            <input type="text" value="John" id="username" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="business_name" class="text-md font-semibold">Business Name:</label>
-                            <input type="text" value="The Fox" id="business_name" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                    </div>
+                                ?>
 
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-4">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="business_license" class="text-md font-semibold">Business License:</label>
-                            <input type="text" value="45621" id="business_license" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="phone" class="text-md font-semibold">Phone Number:</label>
-                            <input type="tel" value="09-1236555555" id="phone" class="w-full p-2 rounded border border-secondary shadow-md">
-                        </div>
-                    </div>
+                                <label for="logo">
+                                    <img src="<?= $setLogo ?>" id="merLogo" alt="Profile Picture" class="w-28 h-28  rounded-full ">
+                                </label>
+                                <input type="file" name="merimg" id="logo" accept=".png,.jpeg" class="hidden" >
+                             <!-- <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="rounded-full w-32 shadow-md"> -->
 
-                    <div class="flex flex-col md:flex-row items-center justify-between mt-4">
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="email" class="text-md font-semibold">Email Address:</label>
-                            <input type="email" value="theFox@gmail.com" id="email" class="w-full p-2 border border-secondary rounded shadow-md">
                         </div>
-                        <div class="md:w-1/2 w-full p-2">
-                            <label for="address" class="text-md font-semibold">Address:</label>
-                            <input type="text" value="Yangon" id="address" class="w-full p-2 border border-secondary rounded shadow-md">
+                        <div class="flex flex-col md:flex-row items-center justify-between mt-8">
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="username" class="text-md font-semibold">Name:</label>
+                                <input type="text" name="username" value="<?= $merchant[0]['m_name'] ?>" id="username" class="w-full p-2 rounded border border-secondary shadow-md">
+                            </div>
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="business_name" class="text-md font-semibold">Business Name:</label>
+                                <input type="text" name="b_name" value="<?= $merchant[0]['m_bname'] ?>" id="business_name" class="w-full p-2 rounded border border-secondary shadow-md">
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="flex flex-col md:flex-row items-center justify-between mt-4">
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="business_license" class="text-md font-semibold">Business License:</label>
+                                <input type="number" name="b_licene" value="<?= $merchant[0]['m_licene'] ?>" id="business_license" class="w-full p-2 rounded border border-secondary shadow-md">
+                            </div>
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="phone" class="text-md font-semibold">Phone Number:</label>
+                                <input type="text" name="phone" value="<?= $merchant[0]['m_phone'] ?>" id="phone" class="w-full p-2 rounded border border-secondary shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center justify-between mt-4">
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="email" class="text-md font-semibold">Email Address:</label>
+                                <input type="email" name="email" value="<?= $merchant[0]['m_email'] ?>" id="email" class="w-full p-2 border border-secondary rounded shadow-md" readonly>
+                            </div>
+                            <div class="md:w-1/2 w-full p-2">
+                                <label for="address" class="text-md font-semibold">Address:</label>
+                                <input type="text" name="address" value="<?= $merchant[0]['m_address'] ?>" id="address" class="w-full p-2 border border-secondary rounded shadow-md">
+                            </div>
+                        </div>
 
 
-                    <button class="px-14 py-2 mx-auto flex shadow-md text-center align-middle justify-end hover:text-textBlack bg-secondary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
-                    <!-- Modal for save change-->
-                    <div class="fixed w-full h-full inset-0 z-40 flex items-center justify-center bg-opacity-50 hidden" id="modal">
-                        <div class="bg-white rounded-lg  shadow-2xl py-6 w-1/4 flex flex-col justify-center items-center">
-                            <p class="text-center font-bold">Your profile Info is Updated!</p>
-                            <button class="px-12 py-1 mt-4 bg-secondary text-white rounded " id="close-modal-btn">Close</button>
-                        </div>
-                    </div>
-
+                        <button type="submit" name="profileChange" class="px-14 py-2 mx-auto flex shadow-md text-center align-middle justify-end hover:text-textBlack bg-secondary text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
 
 
 
 
                 </div>
                 <div class="w-1/4 absolute right-0  h-full bg-secondary" id="retangle"></div>
+                </form>
             </div>
 
         </div>
+        <!-- Modal for save change-->
+        <?php if (isset($_SESSION["changeView"]) && ($_SESSION["changeView"] == 1)) { ?>
+            <div class="fixed w-full h-full inset-0 z-40 flex items-center justify-center bg-opacity-50" id="modal">
+                <div class="bg-white rounded-lg  shadow-2xl py-6 w-1/4 flex flex-col justify-center items-center">
+                    <p class="text-center font-bold">Your profile Info is Updated!</p>
+                    <button  class="px-12 py-1 mt-4 bg-secondary text-white rounded " id="close-modal-btn">
+                        Close
+                    </button>
+                </div>
+            </div>
+        <?php   } ?>
+
 
         </div>
+
         <!-- Right-side End -->
-        <script>
-            // JavaScript to handle the modal dialog
-            const modal = document.getElementById("modal");
-            const closeModalBtn = document.getElementById("close-modal-btn");
-
-            // Function to show the modal
-            function showModal() {
-                modal.classList.remove("hidden");
-            }
-
-            // Function to hide the modal
-            function hideModal() {
-                modal.classList.add("hidden");
-            }
-            // Event listener for the Close button in the modal
-            closeModalBtn.addEventListener("click", function() {
-                hideModal();
-            });
-
-            // Add event listener to the "Save Changes" button
-            const saveProfileBtn = document.getElementById("save-profile-btn");
-            saveProfileBtn.addEventListener("click", function() {
-                showModal();
-                // Add your logic to save the changes or perform any other actions here
-            });
-            
-            $(document).ready(function() {
-                $("#logoutBtn").click(function() {
-                    $("#logoutModal").toggle();
-                });
-
-                $("#confirmLogout").click(function() {
-                    $("#logoutModal").toggle();
-                });
-                $("#cancelLogout").click(function() {
-                    $("#logoutModal").toggle();
-                });
-            });
-        </script>
-
+        
     </section>
 </body>
 
 </html>
+<?php
+$_SESSION["saveChangeController"] = false;
+?>
