@@ -40,7 +40,5 @@ if (!isset($_GET["to"])) {
 
     usort($mergedArray, 'sortByCreateDateDesc');
     $_SESSION["totalContact"] = $mergedArray;
-    echo "<pre>";
-    print_r($mergedArray);
     header("Location: ../../View/Notification/viewNoti.php");
 }

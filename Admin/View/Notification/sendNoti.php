@@ -53,7 +53,6 @@
                     <p><?php  echo "Date : $day, $month $date, $year"?></p>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
             <!-- Search End-->
 
@@ -62,7 +61,7 @@
             <div class="px-10 py-10 flex flex-col space-y-10">
                 <div class="flex space-x-8 items-center justify-between w-80">
                     <span class="text-white">To :</span>
-                    <select name="" id="" class="py-1 px-[42px] rounded outline-none border-black border-2">
+                    <select name="" id="" class="py-[6px] pr-[42px] pl-[53px] rounded outline-none border-black border-2">
                         <option value="">Customer</option>
                         <option value="">All Customers</option>
                         <option value="">Merchant</option>
