@@ -109,7 +109,7 @@
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "uiElement") ? "bg-red-400" : false ?>">UI Elements</p>
             </a>
 
-            <a href="">
+            <a href="../../Controller/notification/viewNotiController.php?to=">
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "notifications") ? "bg-red-400" : false ?>">Notifications</p>
             </a>
 
