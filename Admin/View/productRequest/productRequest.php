@@ -7,25 +7,24 @@
     <title>Product Requests</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
-
-    <style>
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* For IE, Edge and Firefox */
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-
-        .table {
-            border-spacing: 0 10px;
-        }
-    </style>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .table {
+        border-spacing: 0 10px;
+    }
+</style>
 
 <body class="font-roboto">
     <section class=" w-full bg-[#12141B] max-w-[1600px] mx-auto flex">
@@ -41,51 +40,45 @@
                     <p class="text-2xl font-semibold">Product Requests</p>
                     <?php
                     $timestamp = time();
-
                     date_default_timezone_set('Asia/Yangon');
                     $day = date('D');
                     $month = date('F');
                     $date = date('j');
-                    $year = date('Y', $timestamp); 
-
-                    
+                    $year = date('Y', $timestamp);
                     ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
                 <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
             <!-- Search End-->
 
-
             <!-- All Customers Data Start -->
-            <div class="px-[53px] py-8 data-output">
+            <div class="px-[53px] py-8">
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-between space-x-2 mb-2">
                     <span class="text-white">8 Product Submission Request</span>
                     <div>
                         <span class="text-white">Sort by:</span>
-                        <select name="" id="" class="outline-none rounded py-1 px-3">
-                            <option value="">Merchant Name</option>
-                            <option value="">Des Merchant Name</option>
-                            <option value="">Date</option>
-                            <option value="">Des Date</option>
+                        <select name="" id="dropDownAllRequests" class="outline-none rounded py-1 px-3">
+                            <option value="m_name">Merchant Name</option>
+                            <option value="create_date">Requested Date</option>
                         </select>
                     </div>
                 </div>
                 <!-- Sort END  -->
 
                 <!-- Table Start  -->
-                <div class="flex justify-center min-h-screen relative">
+                <div class="flex justify-center min-h-screen">
                     <div class="col-span-12">
                         <div class="h-[600px] overflow-y-scroll scrollbar-hide">
                             <table class="table text-textBlack border-separate space-y-6 text-sm w-[1200px] overflow-y-scroll">
                                 <thead class="bg-[#fffafa] text-textBlack ">
                                     <tr>
                                         <th class="px-3 py-6 text-center">No.</th>
-                                        <th class="px-3 py-6 text-center">Merchant Logo</th>
+                                        <th class="px-3 py-6 text-center">Business Name</th>
                                         <th class="px-3 py-6 text-center">Merchant Name</th>
-                                        <th class="px-3 py-6 text-center">Request Date</th>
+                                        <th class="px-3 py-6 text-center">Requested Date</th>
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -109,71 +102,17 @@
                                             <a href="./productReqDetail.php"><span class="underline cursor-pointer">View Details</span></a>
                                         </td>
                                     </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            <div class="w-[50px] h-[50px] rounded-full mx-auto ">
-                                                <img src="../resources/img/msi.png" alt="">
-                                            </div>
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            MSI
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            Jul 16, 2023
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            <a href="./productReqDetail.php"><span class="underline cursor-pointer">View Details</span></a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            <div class="w-[50px] h-[50px] rounded-full mx-auto ">
-                                                <img src="../resources/img/msi.png" alt="">
-                                            </div>
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            MSI
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            Jul 16, 2023
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            <a href="./productReqDetail.php"><span class="underline cursor-pointer">View Details</span></a>
-                                        </td>
-                                    </tr>
-
-
-
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
                 <!-- Table End  -->
-
             </div>
             <!-- All Customers Data End  -->
-
         </div>
         <!-- Right-side End -->
-
     </section>
-
 </body>
 
 </html>
