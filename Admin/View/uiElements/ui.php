@@ -232,6 +232,12 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <span>Address </span>
                                 <input value="<?= $editInfo[0]["address"]  ?>" name="address" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Yangon">
                             </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Location Link </span>
+                                <input value="<?= $editInfo[0]["locationLink"]  ?>" name="location" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Location Link">
+                            </div>
+
+                            
 
                             <div class="flex justify-between mt-4">
                                 <span>Time </span>
@@ -247,7 +253,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     </div>
                     <div>
                         <span class="text-xl">Banner</span>
-                        <form action="../../Controller/uiElements/banner1/updateBannerController.php" method="post" enctype="multipart/form-data">
+                        <form class="relative" action="../../Controller/uiElements/banner1/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner1">
                                     <img id="saveBanner1" src="../../../<?= $editbanner1[0]["banner1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
@@ -255,7 +261,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 </label>
                                 
                                 <span>Banner 1 from Product Page</span>
-                                <label for="banner1" class="custom-file-upload text-black ml-[17px] pt-3 h-[25px]">
+                                <label for="banner1" class="custom-file-upload text-black ml-[17px]  h-[25px]">
                                     Choose File
                                 </label>
                                 
@@ -263,12 +269,12 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <input value="" name="banner1" accept=".png,.jpg,.svg" type="file" id="banner1" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
 
 
 
                         </form>
-                        <form action="../../Controller/uiElements/banner2/updateBannerController.php" method="post" enctype="multipart/form-data">
+                        <form class="relative" action="../../Controller/uiElements/banner2/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner2">
                                     <img id="saveBanner2" src="../../../<?= $editbanner2[0]["banner2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
@@ -276,7 +282,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 </label>
                                 
                                 <span>Banner 2 from Product Page</span>
-                                <label for="banner2" class="custom-file-upload text-black ml-[17px] pt-3 h-[25px]">
+                                <label for="banner2" class="custom-file-upload text-black ml-[17px]  h-[25px]">
                                     Choose File
                                 </label>
                                 
@@ -284,11 +290,12 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <input value="" name="banner2" accept=".png,.jpg,.svg" type="file" id="banner2" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
+                           
                         </form>
 
 
-                       <form action="../../Controller/uiElements/banner3/updateBannerController.php" method="post" enctype="multipart/form-data">
+                       <form class="relative" action="../../Controller/uiElements/banner3/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner3">
                                     <img id="saveBanner3" src="../../../<?= $editbanner3[0]["banner3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
@@ -296,7 +303,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 </label>
                                 
                                 <span>Banner 1 from Category Page</span>
-                                <label for="banner3" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
+                                <label for="banner3" class="custom-file-upload text-black ml-2 h-[25px]">
                                     Choose File
                                 </label>
                                 
@@ -304,13 +311,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <input value="" name="banner3" accept=".png,.jpg,.svg" type="file" id="banner3" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
+
                         </form>
 
 
 
 
-                        <form action="../../Controller/uiElements/banner4/updateBannerController.php" method="post" enctype="multipart/form-data">
+                        <form class="relative" action="../../Controller/uiElements/banner4/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner4">
                                     <img id="saveBanner4" src="../../../<?= $editbanner4[0]["banner4"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
@@ -318,15 +326,18 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 </label>
                                 
                                 <span>Banner 2 from Category Page</span>
-                                <label for="banner4" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
+                                <label for="banner4" class="custom-file-upload text-black ml-[80px] relative right-[72px] h-[25px]">
                                     Choose File
                                 </label>
+                                
                                 
 
                                 <input value="" name="banner4" accept=".png,.jpg,.svg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                             </div>
-                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                            <!-- <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button> -->
+                            <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
+
                         </form>
 
 

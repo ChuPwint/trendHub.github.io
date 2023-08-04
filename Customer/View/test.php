@@ -436,9 +436,9 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
-        <span class="block cursor-pointer hover:text-tertiary">Email : <a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
-        <span class="block cursor-pointer hover:text-tertiary">Phone : <a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
-        <span class="block cursor-pointer hover:text-tertiary w-[400px]">Addres : <a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu"><?= $editInfo[0]["address"] ?></a></span>
+        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
+        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
+        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editInfo[0]["locationLink"] ?>"><?= $editInfo[0]["address"] ?></a></span>
       </div>
 
       <div class="">
