@@ -62,7 +62,7 @@ $totalContact = $_SESSION["totalContact"];
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+               
             </div>
             <!-- Search End-->
 
@@ -73,9 +73,9 @@ $totalContact = $_SESSION["totalContact"];
                 <div class="flex items-center justify-end space-x-2 mb-2">
                     <span class="text-white">Sort by:</span>
                     <select name="" id="notiSort" class="outline-none rounded py-1 px-3">
-                        <option value="">All</option>
-                        <option value="">Customer</option>
-                        <option value="">Merchant</option>
+                        <option value="all">All</option>
+                        <option value="customer">Customer</option>
+                        <option value="merchant">Merchant</option>
                     </select>
                 </div>
                 <!-- Sort END  -->
@@ -83,7 +83,7 @@ $totalContact = $_SESSION["totalContact"];
                 <!-- Noti Start  -->
                 <div class="flex space-x-5 mt-3">
                     <!-- Left-side start  -->
-                    <div>
+                    <div id="leftSide">
                         <!-- Noti card 1 start  -->
                         <?php
                         foreach ($totalContact as $contact) { ?>
@@ -108,7 +108,7 @@ $totalContact = $_SESSION["totalContact"];
                     <!-- Left-side end  -->
 
                     <!-- Right-side start  -->
-                    <div class="h-[70vh] overflow-y-scroll scrollbar-hide w-[900px]">
+                    <div id="rightSide" class="h-[70vh] overflow-y-scroll scrollbar-hide w-[900px]">
                         <!-- message 1    -->
                         <?php
                         $counter = 1;
@@ -128,8 +128,6 @@ $totalContact = $_SESSION["totalContact"];
                             </div>
                         <?php $counter++; }
                         ?>
-
-
                         <!-- message 1 end -->
                     </div>
                     <!-- Right-side end  -->
