@@ -3,6 +3,8 @@ session_start();
 ob_start();
 $email = $_POST["m_Email"];
 $name = $_POST['m_Name'];
+$reason = ($_POST['banReason'] == "") ? "suspicious activity" : $_POST['banReason'];
+
 include "../../View/resources/common/mailSender.php";
 include "../../Model/model.php";
 $sql = $pdo->prepare(
@@ -34,7 +36,7 @@ if (count($existingOrderResult) == 0) {
     // send email 
     $domain = $_SERVER["SERVER_NAME"];
     $body = file_get_contents("../../Mail/banMerchantTemplate/index.html");
-    $body = str_replace("REPLACE", "$name", $body);
+    $body = str_replace("REPLACE", "$reason", $body);
     $mail = new SendMail();
     $mail->sendMail(
         $email,

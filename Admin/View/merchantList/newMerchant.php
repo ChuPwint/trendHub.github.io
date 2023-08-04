@@ -149,7 +149,7 @@ if (isset($_SESSION["banControllerPassed"]) && ($_SESSION["banControllerPassed"]
                                 <span class="text-center block pb-4 mt-7">You are about to ban the following user:</span>
                                 <h1 class=" font-semibold mt-5">Name: <input id="banName" name="m_Name" class="ml-[9px] font-normal outline-none" readonly></input></h1>
                                 <h1 class="font-semibold mt-5"> Email: <input id="banMail" name="m_Email" class="font-normal ml-[13px] outline-none" readonly></input></h1>
-                                <h1 class="font-semibold mt-5">Reason: <input class="font-normal drop-shadow-lg pl-2" placeholder="Reason" type="text"></h1>
+                                <h1 class="font-semibold mt-5">Reason: <input name="banReason" class="font-normal drop-shadow-lg pl-2" placeholder="Reason" type="text"></h1>
 
                                 <div class="flex justify-center space-x-4 mt-6">
                                     <button class="closeBanModal rounded-[5px] px-3 py-1 text-white bg-[#AC2E2E]">Cancel</button>

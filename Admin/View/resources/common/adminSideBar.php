@@ -27,16 +27,16 @@
 
             <!-- Customers List Sub Menu  Start-->
             <div id="customers-list-sub-menu" class="cursor-pointer rounded text-sm <?php echo ($menu == "customersList") ? "block" : "hidden"  ?> ">
-                <a href="">
+                <a href="../customersList/allCustomers.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "allCustomers") ? "bg-[#31374A]" : false ?>">All Customers</p>
                 </a>
-                <a href="">
+                <a href="../customersList/newCustomers.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "newCustomers") ? "bg-[#31374A]" : false ?>">New Customers</p>
                 </a>
-                <a href="">
+                <a href="../customersList/totalOrders.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "totalOrders") ? "bg-[#31374A]" : false ?>">Total Orders</p>
                 </a>
-                <a href="">
+                <a href="../customersList/bannedCustomers.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "bannedCustomers") ? "bg-[#31374A]" : false ?>">Banned Customers</p>
                 </a>
             </div>
