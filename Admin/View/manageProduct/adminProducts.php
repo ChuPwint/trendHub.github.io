@@ -320,7 +320,7 @@ $allCategories = $_SESSION["allCategories"];
     <!-- Start Product Details -->
     <div id="modalDetail" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
-            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Dtails</span>
+            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Details</span>
             <button id="hideDetail" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

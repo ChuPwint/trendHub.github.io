@@ -20,11 +20,18 @@ if(!isset($_POST["addProduct"])){
     include "../../Model/model.php";
 
     if(move_uploaded_file($imageTmp,"../../../Storage/adminProducts/".$image)){
+
+        $sql = $pdo->prepare(
+            "SELECT * FROM m_products ORDER BY id DESC LIMIT 1"
+        );
+        $sql->execute();
+        $result =$sql->fetchAll(PDO::FETCH_ASSOC);
+        $lastID = $result[0]["id"];
         
         $sql = $pdo->prepare(
             "INSERT INTO m_products
             (
-                p_name,
+                p_name,    
                 category_id,
                 brand_name,
                 p_path,
@@ -49,7 +56,7 @@ if(!isset($_POST["addProduct"])){
                 :buyPrice,
                 :sellPrice,
                 :merchantID,
-                :reviewID
+                :reviewID,
                 :createDate
             )
             "
@@ -65,7 +72,7 @@ if(!isset($_POST["addProduct"])){
         $sql->bindValue(":buyPrice", $buyPrice);
         $sql->bindValue(":sellPrice", $sellPrice);
         $sql->bindValue(":merchantID", 1);
-        $sql->bindValue(":reviewID", 1);
+        $sql->bindValue(":reviewID", $lastID + 1);
         $sql->bindValue(":createDate", date("Y-m-d"));
 
         $sql->execute();

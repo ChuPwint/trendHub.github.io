@@ -1,3 +1,5 @@
+<?php include "../../Controller/uiElement/editInfoController.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,12 +79,12 @@
 
             <!-- 1st Banner -->
             <div class="mt-5">
-                <img src="../resources/img/products/banner 1.svg" alt="banner1">
+                <img src="../../../<?= $editInfo[0]["banner3"] ?>" alt="banner1">
             </div>
 
             <!-- 2nd Banner -->
             <div class="mt-2">
-                <img src="../resources/img/products/banner 1.svg" alt="banner1">
+                <img src="../../../<?= $editInfo[0]["banner4"] ?>" alt="banner2">
             </div>
 
         </div>
