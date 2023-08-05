@@ -8,6 +8,8 @@ if(count($_POST) == 0){
 
    $imgTitleOne = $_POST["imgTitleOne"];
    $imgDscOne = $_POST['imgDscOne'];
+   $slideBg1 = $_POST['slideBg1'];
+   $slideTextColor1 = $_POST["slide_text_color1"];
    
   
 
@@ -19,7 +21,9 @@ if(count($_POST) == 0){
    $sql = $pdo->prepare(
     " UPDATE ui_setting SET 
     image_silder_title1 = :imgTitleOne,
-    image_silder_dsc1  = :imgDscOne
+    image_silder_dsc1  = :imgDscOne,
+    slide_bg1 = :slideBg1,
+    slide_text_color1 = :slideTextColor1
 
 
     WHERE id = 0;
@@ -28,6 +32,8 @@ if(count($_POST) == 0){
 
    $sql->bindValue(":imgTitleOne",$imgTitleOne);
    $sql->bindValue(":imgDscOne",$imgDscOne);
+   $sql->bindValue(":slideBg1",$slideBg1);
+   $sql->bindValue(":slideTextColor1", $slideTextColor1);
 
 
 
