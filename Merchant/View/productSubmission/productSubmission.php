@@ -1,3 +1,13 @@
+<?php
+
+// session_start();
+// $totalCount  = $_SESSION["totalCount"];
+// $adminProducts = $_SESSION["adminProducts"];
+include "../../Controller/categoryController.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +19,7 @@
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
+    <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
@@ -131,24 +142,114 @@
         <!-- end of product submit finish modal box -->
 
         <!-- start of add product modal box -->
-        <div class="addProductModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
-            <!-- start of container box -->
-            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
-                <div class="closeAddProductModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
-                <h2 class="text-2xl font-bold px-6 py-3">New Product Details</h2>
+        
+    <!-- Start Modal box to create product-->
+    <div id="myModal" class="addProductModal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-20">
+        <!-- start of container box -->
+        <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+            <div class="closeAddProductModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon id="closeModalButton" name="close-outline"></ion-icon></div>
+            <h2 class="text-2xl font-bold px-6 py-3">Add New Product</h2>
+            <form action="../../Controller/productSubmission/productAddController.php" method="post" enctype="multipart/form-data">
                 <!-- start of upper row -->
                 <div class="px-6 py-4 grid grid-cols-2 gap-4">
                     <!-- start of add product text fields -->
                     <div class="col-span-1">
-                        <div class="bg-secondary p-4">
+                        <div class="bg-[#456265] p-4">
                             <div class="mb-4 relative">
                                 <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
                                 <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
                                     <!-- Add options for categories here -->
-                                    <option value="category1">Category 1</option>
-                                    <option value="category2">Category 2</option>
+                                    <?php
+                                    foreach ($categories as $category) { ?>
+                                        <option value="<?= $category["id"] ?>"><?= $category["category_name"] ?></option>
+                                    <?php }
+                                    ?>
                                     <!-- Add more options if needed -->
                                 </select>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
+                                <input type="text" id="productName" name="productName" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
+                                <input type="text" id="brand" name="brand" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
+                                <input type="text" id="sellPrice" name="sellPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="mb-4 relative">
+                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
+                                <input type="text" id="buyPrice" name="buyPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                            <div class="relative">
+                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of add product text fields -->
+                    <!-- start of upload photo -->
+                    <div class="col-span-1">
+                        <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
+                            <div class="text-center">
+                                <div class="mt-4">
+                                    <div class="flex justify-center"><img class="p_Image max-w-xs max-h-60" id="photoimg" src="" alt=""></div>
+                                    <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
+                                        <span class="font-bold underline">Upload a file: </span>
+                                    </label>
+                                    <input id="file_upload" name="productImg" type="file" class="hidden mt-2 text-center" accept=".png, .jpg" required>
+                                </div>
+                                <!-- <p>PNG, JPG up to 10MB</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of upload photo -->
+                </div>
+                <!-- end of upper row -->
+
+                <!-- start of bottom row -->
+                <div class="px-6 py-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label for="productDetail" class="block font-medium">Product Detail:</label>
+                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="productDescription" class="block font-medium">Product Description:</label>
+                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <button onclick="hideEdit()" type="submit" name="addProduct" class="closeAddProductModal py-2 px-10 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Add</button>
+                    </div>
+                </div>
+                <!-- end of bottom row -->
+            </form>
+        </div>
+        <!-- end of container box -->
+    </div>
+    <!-- End Modal box to create product-->
+
+        <!-- <div class="addProductModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20"> -->
+            <!-- start of container box -->
+            <!-- <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+                <div class="closeAddProductModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
+                <h2 class="text-2xl font-bold px-6 py-3">New Product Details</h2> -->
+                <!-- start of upper row -->
+                <!-- <div class="px-6 py-4 grid grid-cols-2 gap-4"> -->
+                    <!-- start of add product text fields -->
+                    <!-- <div class="col-span-1">
+                        <div class="bg-secondary p-4">
+                            <div class="mb-4 relative">
+                                <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
+                                <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor"> -->
+                                    <!-- Add options for categories here -->
+                                    <!-- <option value="category1">Category 1</option>
+                                    <option value="category2">Category 2</option> -->
+                                    <!-- Add more options if needed -->
+                                <!-- </select>
                             </div>
                             <div class="mb-4 relative">
                                 <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
@@ -171,10 +272,10 @@
                                 <input type="number" id="quantity" name="quantity" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- end of add product text fields -->
                     <!-- start of upload photo -->
-                    <div class="col-span-1">
+                    <!-- <div class="col-span-1">
                         <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                             <div class="text-center">
                                 <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -190,13 +291,13 @@
                                 <p>PNG, JPG up to 10MB</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- end of upload photo -->
-                </div>
+                <!-- </div> -->
                 <!-- end of upper row -->
 
                 <!-- start of bottom row -->
-                <div class="px-6 py-2">
+                <!-- <div class="px-6 py-2">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
                             <label for="productDetail" class="block font-medium">Product Detail:</label>
@@ -209,11 +310,11 @@
 
                     </div>
                     <div class="text-right"><button type="submit" class="closeAddProductModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Add Product</button></div>
-                </div>
+                </div> -->
                 <!-- end of bottom row -->
-            </div>
+            <!-- </div> -->
             <!-- end of container box -->
-        </div>
+        <!-- </div> -->
         <!-- end of add product modal box -->
 
         <!-- Right-side Start -->
