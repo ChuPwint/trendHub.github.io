@@ -248,7 +248,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             </div>
 
 
-                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[440px] bg-[white]">Save</button>
                         </form>
 
 
@@ -413,16 +413,24 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                 <div class="text-white flex  justify-between mt-10">
 
 
+                <!-- start slider 1 -->
                     <div>
                         <span class="text-xl">Image Slider1</span>
-                        <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post" enctype="multipart/form-data">
+                        <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post" class="mt-[40px]" enctype="multipart/form-data">
                             <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
+<?php
+        $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/default/default.png';
+        $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/default/default.png';
+        $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/default/default.png';
 
+
+?>
 
                                 <label for="" class="ml-5">
-                                    <a target="_blank" href="../../../<?= $editSlide1[0]["image_silder1"] ?>">
-                                        <img id="saveSlide1" src="../../../<?= $editSlide1[0]["image_silder1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $slideImg1 ?>">
+                                  
+                                        <img id="saveSlide1" src="../../../<?= $slideImg1 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider1">
 
                                     </a>
                                 </label>
@@ -454,7 +462,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 </textarea>
 
                             </div>
-
+                            <div class="flex justify-between mt-4">
+                                <span>Background Color</span>
+                                <input name="slideBg1" value="<?= $editSlideText1[0]["slide_bg1"] ?>" class="rounded-sm w-[60px]" type="color">
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Text Color</span>
+                                <input name="slide_text_color1" value="<?= $editSlideText1[0]["slide_text_color1"] ?>" class="rounded-sm w-[60px]" type="color">
+                            </div>
 
 
 
@@ -463,19 +478,23 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 
                     </div>
+                    <!-- end slider 1 -->
 
+
+                    <!-- start slider 2 -->
                     <div>
                         <span class="text-xl">Image Slider2</span>
-                        <form action="../../Controller/uiElements/imgSlider2/updateController.php" method="post" enctype="multipart/form-data">
+                        <form class="mt-[40px]" action="../../Controller/uiElements/imgSlider2/updateController.php" method="post" enctype="multipart/form-data">
                         <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
 
 
                                 <label for="" class="ml-5">
-                                    <a target="_blank" href="../../../<?= $editSlide2[0]["image_silder2"] ?>">
-                                        <img id="saveSlide2" src="../../../<?= $editSlide2[0]["image_silder2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                <a target="_blank" href="../../../<?= $slideImg2 ?>">
+                                  
+                                  <img id="saveSlide2" src="../../../<?= $slideImg2 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider2">
 
-                                    </a>
+                              </a>
                                 </label>
                                 <label for="slide2" class="custom-file-upload text-black ml-3 h-[25px]">
                                     Choose File
@@ -491,7 +510,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Title</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3">
-                                <?= $editSlide2[0]["image_silder_title2"] ?>
+                                <?= $editSlideText2[0]["image_silder_title2"] ?>
                                 </textarea>
 
                             </div>
@@ -499,12 +518,22 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Des</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5">
-                                <?= $editSlide2[0]["image_silder_dsc2"] ?>
+                                <?= $editSlideText2[0]["image_silder_dsc2"] ?>
                                 </textarea>
 
                             </div>
 
 
+                            <div class="flex justify-between mt-4">
+                                <span>Background Color</span>
+                                <input name="slideBg2" value="<?= $editSlideText2[0]["slide_bg2"] ?>" class="rounded-sm w-[60px]" type="color">
+
+
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Text Color</span>
+                                <input name="slide_text_color2" value="<?= $editSlideText2[0]["slide_text_color2"] ?>" class="rounded-sm w-[60px]" type="color">
+                            </div>
 
 
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
@@ -512,19 +541,23 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 
                     </div>
+                    <!-- end slider 2 -->
 
+
+                    <!-- start slider 3 -->
                     <div>
                         <span class="text-xl">Image Slider3</span>
-                        <form action="../../Controller/uiElements/imgSlider3/updateController.php" method="post" enctype="multipart/form-data">
+                        <form class="mt-[40px]" action="../../Controller/uiElements/imgSlider3/updateController.php" method="post" enctype="multipart/form-data">
                         <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
 
 
                                 <label for="" class="ml-5">
-                                    <a target="_blank" href="../../../<?= $editSlide3[0]["image_silder3"] ?>">
-                                        <img id="saveSlide3" src="../../../<?= $editSlide3[0]["image_silder3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                <a target="_blank" href="../../../<?= $slideImg3 ?>">
+                                  
+                                  <img id="saveSlide3" src="../../../<?= $slideImg3 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider3">
 
-                                    </a>
+                              </a>
                                 </label>
                                 <label for="slide3" class="custom-file-upload text-black ml-3 h-[25px]">
                                     Choose File
@@ -555,13 +588,23 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             </div>
 
 
+                            <div class="flex justify-between mt-4">
+                                <span>Background Color</span>
+                                <input name="slideBg3" value="<?= $editSlideText3[0]["slide_bg3"] ?>" class="rounded-sm w-[60px]" type="color">
 
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Text Color</span>
+                                <input name="slide_text_color3" value="<?= $editSlideText3[0]["slide_text_color3"] ?>" class="rounded-sm w-[60px]" type="color">
+                            </div>
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[277px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
+
                         </form>
 
 
                     </div>
+                    <!-- end slider 3 -->
 
 
 
