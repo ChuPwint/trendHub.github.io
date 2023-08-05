@@ -10,6 +10,7 @@ if (count($_POST) == 0) {
     $address = $_POST['address'];
     $serviceTime = $_POST['time'];
     $location = $_POST['location'];
+    
 
 
     include "../../../Model/model.php";
@@ -36,3 +37,6 @@ if (count($_POST) == 0) {
 
     header("Location: ../../../View/uiElements/ui.php");
 }
+
+
+

@@ -159,7 +159,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[#2F2E41] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
-            <img src="./resources/img/homePage/slider/msi.svg" alt="">
+            <img src="../../<?= $editInfo[0]["image_silder1"] ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px]  ">
             <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">
@@ -176,7 +176,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
           <div class="  img w-[300px]  ">
-            <img src="./resources/img/homePage/slider/dell.png" alt="">
+          <img src="../../<?= $editInfo[0]["image_silder2"] ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">
@@ -193,7 +193,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
           <div class="img w-[300px] ">
-            <img src="./resources/img/homePage/slider/acer.png" alt="">
+          <img src="../../<?= $editInfo[0]["image_silder3"] ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-md text-white block md:mt-0 mt-16">

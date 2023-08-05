@@ -73,15 +73,52 @@ document.getElementById('banner4').onchange = function (evt) {
 }
 
 
-// Banner 5
-document.getElementById('banner5').onchange = function (evt) {
+// Slide 1
+document.getElementById('slide1').onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
     
     if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.onload = function () {
-            document.getElementById("saveBanner5").src = fr.result;
+            document.getElementById("saveSlide1").src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+    
+    else {
+   
+    }
+}
+
+
+// Slide 2
+document.getElementById('slide2').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+    
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById("saveSlide2").src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+    
+    else {
+   
+    }
+}
+
+// Slide 3
+document.getElementById('slide3').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+    
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById("saveSlide3").src = fr.result;
         }
         fr.readAsDataURL(files[0]);
     }

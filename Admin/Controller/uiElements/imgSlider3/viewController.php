@@ -10,7 +10,14 @@ $sql = $pdo->prepare(
 );
 
 $sql->execute();
+
+
 $editSlide3 = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+
 
 
 
