@@ -1,8 +1,13 @@
 <?php
 
 session_start();
-$totalMerchantProduct = isset($_SESSION["totalMerchantProduct"]) ? $_SESSION["totalMerchantProduct"] : false;
-$merchantProducts = isset($_SESSION["merchantProducts"]) ? $_SESSION["merchantProducts"] : false;
+if (!isset($_SESSION["totalMerchantProduct"]) || !isset($_SESSION["merchantProducts"])) {
+  header("Location: ../Error/error.php");
+} else {
+  $totalMerchantProduct = isset($_SESSION["totalMerchantProduct"]) ? $_SESSION["totalMerchantProduct"] : false;
+  $merchantProducts = isset($_SESSION["merchantProducts"]) ? $_SESSION["merchantProducts"] : false;
+}
+
 
 
 ?>
@@ -122,16 +127,16 @@ $merchantProducts = isset($_SESSION["merchantProducts"]) ? $_SESSION["merchantPr
                         <?= $product["m_name"] ?>
                       </td>
                       <td class="p-3 text-center">
-                      <?= $product["brand_name"] ?>
+                        <?= $product["brand_name"] ?>
                       </td>
                       <td class="p-3 text-center">
-                      <?= $product["p_name"] ?>
+                        <?= $product["p_name"] ?>
                       </td>
                       <td class="p-3 text-center">
-                      <?= $product["category_name"] ?>
+                        <?= $product["category_name"] ?>
                       </td>
                       <td class="p-3 text-center ">
-                      <?= $product["sell_price"] ?>
+                        <?= $product["sell_price"] ?>
                       </td>
                     </tr>
                   <?php }

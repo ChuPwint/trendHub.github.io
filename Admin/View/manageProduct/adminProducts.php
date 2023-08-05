@@ -1,10 +1,14 @@
 <?php
 
 session_start();
-$totalCount  = $_SESSION["totalCount"];
-$adminProducts = $_SESSION["adminProducts"];
-$allCategories = $_SESSION["allCategories"];
 
+if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !isset($_SESSION["allCategories"])){
+    header("Location: ../Error/error.php");
+}else{
+    $totalCount  = $_SESSION["totalCount"];
+    $adminProducts = $_SESSION["adminProducts"];
+    $allCategories = $_SESSION["allCategories"];
+}
 ?>
 
 

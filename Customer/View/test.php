@@ -157,15 +157,33 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
     <div class="swiper-wrapper">
       <!-- Slide1 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[#2F2E41] flex justify-around relative">
+
+      <!-- start set default value -->
+        <?php
+        $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
+        $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
+        $sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
+        $slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : 'white';
+        $slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : 'white';
+        $slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : 'white';
+        $sliderImg1 = isset($editInfo[0]["image_silder1"]) && !empty($editInfo[0]["image_silder1"]) ? $editInfo[0]["image_silder1"] : '/Storage/slider/acer.png';
+        $sliderImg2 = isset($editInfo[0]["image_silder2"]) && !empty($editInfo[0]["image_silder2"]) ? $editInfo[0]["image_silder2"] : '/Storage/slider/dell.png';
+        $sliderImg3 = isset($editInfo[0]["image_silder3"]) && !empty($editInfo[0]["image_silder3"]) ? $editInfo[0]["image_silder3"] : '/Storage/slider/msi.svg';
+         ?>
+      <!-- end set default value -->
+
+
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor1 ?>] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
-            <img src="./resources/img/homePage/slider/msi.svg" alt="">
+            <img src="../../<?= $sliderImg1 ?>" alt="">
+          
+         
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-md text-white md:mt-0 block mt-[60px] ">
+            <span class="md:text-xl text-md text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
               <?= $editInfo[0]["image_silder_title1"] ?>
             </span>
-            <span class="md:text-md text-sm mt-5  text-white hidden md:block">
+            <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor1 ?>]  hidden md:block">
               <?= $editInfo[0]["image_silder_dsc1"] ?>
             </span>
           </div>
@@ -174,15 +192,16 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+      <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
+
           <div class="  img w-[300px]  ">
-            <img src="./resources/img/homePage/slider/dell.png" alt="">
+          <img src="../../<?= $sliderImg2 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md md:mt-0 mt-16 block text-white">
+            <span class="md:text-xl text-md md:mt-0 mt-16 block text-[<?= $slideTextColor2 ?>] ">
               <?= $editInfo[0]["image_silder_title2"] ?>
             </span>
-            <span class="text-md mt-5 hidden md:block text-white">
+            <span class="text-md mt-5 hidden md:block text-[<?= $slideTextColor2 ?>] ">
               <?= $editInfo[0]["image_silder_dsc2"] ?>
             </span>
           </div>
@@ -191,15 +210,16 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px]  items-center mt-[130px] bg-[#2F2E41] flex justify-around">
+      <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
+
           <div class="img w-[300px] ">
-            <img src="./resources/img/homePage/slider/acer.png" alt="">
+          <img src="../../<?= $sliderImg3 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-white block md:mt-0 mt-16">
+            <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>] block md:mt-0 mt-16">
               <?= $editInfo[0]["image_silder_title3"] ?>
             </span>
-            <span class="text-md mt-5 md:block hidden text-white">
+            <span class="text-md mt-5 md:block hidden text-[<?= $slideTextColor3 ?>] ">
               <?= $editInfo[0]["image_silder_dsc3"] ?>
             </span>
           </div>

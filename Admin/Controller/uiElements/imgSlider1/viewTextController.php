@@ -12,7 +12,7 @@ $sql = $pdo->prepare(
 $sql->execute();
 
 
-$editSlide2 = $sql->fetchAll(PDO::FETCH_ASSOC);
+$editSlideText1 = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
 

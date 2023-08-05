@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,51 +51,57 @@
                     $day = date('D');
                     $month = date('F');
                     $date = date('j');
-                    $year = date('Y', $timestamp); 
+                    $year = date('Y', $timestamp);
 
-                    
+
                     ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
             </div>
             <!-- Search End-->
 
-
             <!-- Send Notifications Data Start -->
-            <div class="px-10 py-10 flex flex-col space-y-10">
+            <form class="px-10 py-10 flex flex-col space-y-10" action="../../Controller/notification/sendNotiController.php" method="POST">
+                <small class="<?php if (isset($_SESSION["noEmail"])) echo "text-red-400" ?>
+                <?php if (isset($_SESSION["success"])) echo "text-green-400"?>
+                ">
+                    <?php
+                    if (isset($_SESSION["noEmail"])) echo $_SESSION["noEmail"];
+                    if (isset($_SESSION["success"])) echo $_SESSION["success"];
+                    ?>
+                </small>
                 <div class="flex space-x-8 items-center justify-between w-80">
                     <span class="text-white">To :</span>
-                    <select name="" id="" class="py-[6px] pr-[42px] pl-[53px] rounded outline-none border-black border-2">
-                        <option value="">Customer</option>
-                        <option value="">All Customers</option>
-                        <option value="">Merchant</option>
-                        <option value="">All Merchants</option>
+                    <select name="notiTo" id="notiTo" class="py-[6px] pr-[42px] pl-[53px] rounded outline-none border-black border-2" required>
+                        <option value="customer">Customer</option>
+                        <option value="allCustomers">All Customers</option>
+                        <option value="merchant">Merchant</option>
+                        <option value="allMerchants">All Merchants</option>
                     </select>
                 </div>
 
-
-                <div class="flex space-x-2 items-center justify-between w-80">
-                    <span class="text-white">Name :</span>
-                    <input type="text" name="" id="" class="py-1 px-3 rounded outline-none border-black border">
+                <div id="emailBox" class="flex space-x-2 items-center justify-between w-80">
+                    <span class="text-white">Email :</span>
+                    <input type="text" name="email" id="emailInput" class="py-1 px-3 rounded outline-none border-black border" required>
                 </div>
 
                 <div class="flex space-x-2 items-center justify-between w-80">
                     <span class="text-white">Title :</span>
-                    <input type="text" name="" id="" class="py-1 px-3 rounded outline-none border-black border">
+                    <input type="text" name="title" id="" class="py-1 px-3 rounded outline-none border-black border" required>
                 </div>
 
                 <div class="flex flex-col space-y-5 w-[80%]">
                     <span class="text-white">Message:</span>
-                    <textarea name="" id="" cols="30" rows="10" class="rounded outline-none p-5"></textarea>
+                    <textarea name="message" id="" cols="30" rows="10" class="rounded outline-none p-5" required></textarea>
                     <div class="text-right">
-                        <button type="submit" class="px-10 py-1 bg-white rounded">Send</button>
+                        <button type="submit" name="sendNoti" class="px-10 py-1 bg-[#456265] text-white rounded">Send</button>
                     </div>
                 </div>
 
-                
 
-            </div>
+
+            </form>
 
 
 
@@ -103,6 +114,16 @@
 
     </section>
 
+    <script src="../resources/js/sendNoti.js"></script>
 </body>
 
 </html>
+
+
+<?php
+
+unset($_SESSION["noEmail"]);
+unset($_SESSION["success"]);
+
+
+?>
