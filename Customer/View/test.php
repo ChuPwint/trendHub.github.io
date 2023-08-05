@@ -169,6 +169,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         $sliderImg1 = isset($editInfo[0]["image_silder1"]) && !empty($editInfo[0]["image_silder1"]) ? $editInfo[0]["image_silder1"] : '/Storage/slider/acer.png';
         $sliderImg2 = isset($editInfo[0]["image_silder2"]) && !empty($editInfo[0]["image_silder2"]) ? $editInfo[0]["image_silder2"] : '/Storage/slider/dell.png';
         $sliderImg3 = isset($editInfo[0]["image_silder3"]) && !empty($editInfo[0]["image_silder3"]) ? $editInfo[0]["image_silder3"] : '/Storage/slider/msi.svg';
+        $sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+        $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+        $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
          ?>
       <!-- end set default value -->
 
@@ -180,11 +186,11 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
          
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-md text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
-              <?= $editInfo[0]["image_silder_title1"] ?>
+            <span class="md:text-xl text-sm text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
+              <?= $sliderTitle1 ?>
             </span>
             <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor1 ?>]  hidden md:block">
-              <?= $editInfo[0]["image_silder_dsc1"] ?>
+              <?= $sliderDsc1 ?>
             </span>
           </div>
         </div>
@@ -198,11 +204,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           <img src="../../<?= $sliderImg2 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md md:mt-0 mt-16 block text-[<?= $slideTextColor2 ?>] ">
-              <?= $editInfo[0]["image_silder_title2"] ?>
+          <span class="md:text-xl text-sm text-[<?= $slideTextColor2 ?>]  md:mt-0 block mt-[60px] ">
+          <?= $sliderTitle2 ?>
+        
             </span>
-            <span class="text-md mt-5 hidden md:block text-[<?= $slideTextColor2 ?>] ">
-              <?= $editInfo[0]["image_silder_dsc2"] ?>
+            <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor2 ?>]  hidden md:block">
+            <?= $sliderDsc2 ?>
             </span>
           </div>
         </div>
@@ -216,11 +223,11 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           <img src="../../<?= $sliderImg3 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>] block md:mt-0 mt-16">
-              <?= $editInfo[0]["image_silder_title3"] ?>
+          <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>]  md:mt-0 block mt-[60px] ">
+          <?= $sliderTitle3 ?>
             </span>
             <span class="text-md mt-5 md:block hidden text-[<?= $slideTextColor3 ?>] ">
-              <?= $editInfo[0]["image_silder_dsc3"] ?>
+            <?= $sliderDsc3 ?>
             </span>
           </div>
         </div>

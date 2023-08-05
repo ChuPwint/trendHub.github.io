@@ -382,22 +382,28 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                 <div class="text-white flex  justify-between mt-10">
                     <div>
+                        <?php 
+  $moneyAmount= isset($editInfo[0]["money_amout"]) && !empty($editInfo[0]["money_amout"]) ? $editInfo[0]["money_amout"] : '10000';
+  $pointAmount= isset($editInfo[0]["point_amount"]) && !empty($editInfo[0]["point_amount"]) ? $editInfo[0]["point_amount"] : '1';
+
+
+                         ?>
                         <span class="text-xl">Point Exchange Rate</span>
-                        <span class="text-md mt-4 block">Current point : 10000Ks To 1Pts.</span>
+                        <span class="text-md mt-4 block">Current point : <?=  $moneyAmount ?> Kyats to  <?= $pointAmount?>  Points.</span>
                         <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
 
 
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
-                                    <input placeholder="Money Amount" name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Money Amount" name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
                                 </div>
 
                                 <span class="block mt-4">TO</span>
 
                                 <div class="flex space-x-5 mt-4">
                                     <span>Point Amount:</span>
-                                    <input placeholder="Point Amount" name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Point Amount" name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
                                 </div>
                                 <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
 
