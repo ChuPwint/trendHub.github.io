@@ -141,6 +141,11 @@ include "../../Controller/uiElement/editInfoController.php";
     </div>
     <!-- End of hero-section -->
 
+<?php
+  $moneyAmount= isset($editInfo[0]["money_amout"]) && !empty($editInfo[0]["money_amout"]) ? $editInfo[0]["money_amout"] : '10000';
+  $pointAmount= isset($editInfo[0]["point_amount"]) && !empty($editInfo[0]["point_amount"]) ? $editInfo[0]["point_amount"] : '1';
+?>
+
 
     <!-- Start of point system explanation -->
     <div class="mt-5 mb-5 px-3 md:px-8">
@@ -148,10 +153,10 @@ include "../../Controller/uiElement/editInfoController.php";
         <p class="pl-5 mb-3 font-medium">
             > For each purchase of above
             <span class="point_price font-semibold">
-                <?= $editInfo[0]["money_amout"] ?>
+              <?= $moneyAmount ?>
             </span> kyat,
             <span class="point_exchange font-semibold">
-            <?= $editInfo[0]["point_amount"] ?>
+            <?= $pointAmount ?>
 
 
             </span> point will be given.

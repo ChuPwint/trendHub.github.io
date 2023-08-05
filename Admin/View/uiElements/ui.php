@@ -259,7 +259,9 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner1/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner1">
-                                    <img id="saveBanner1" src="../../../<?= $editbanner1[0]["banner1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $editbanner1[0]["banner1"] ?>">
+                                        <img id="saveBanner1" src="../../../<?= $editbanner1[0]["banner1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    </a>
 
                                 </label>
 
@@ -280,7 +282,9 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner2/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner2">
-                                    <img id="saveBanner2" src="../../../<?= $editbanner2[0]["banner2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $editbanner2[0]["banner2"] ?>">
+                                        <img id="saveBanner2" src="../../../<?= $editbanner2[0]["banner2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    </a>
 
                                 </label>
 
@@ -301,8 +305,10 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner3/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner3">
-                                    <img id="saveBanner3" src="../../../<?= $editbanner3[0]["banner3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $editbanner3[0]["banner3"] ?>">
+                                        <img id="saveBanner3" src="../../../<?= $editbanner3[0]["banner3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
 
+                                    </a>
                                 </label>
 
                                 <span>Banner 1 from Category Page</span>
@@ -324,7 +330,10 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner4/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner4">
-                                    <img id="saveBanner4" src="../../../<?= $editbanner4[0]["banner4"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $editbanner4[0]["banner4"] ?>">
+                                        <img id="saveBanner4" src="../../../<?= $editbanner4[0]["banner4"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+
+                                    </a>
 
                                 </label>
 
@@ -381,14 +390,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
-                                    <input name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Money Amount" name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
 
                                 <span class="block mt-4">TO</span>
 
                                 <div class="flex space-x-5 mt-4">
                                     <span>Point Amount:</span>
-                                    <input name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Point Amount" name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[100px] rounded-sm text-black text-center" type="text">
                                 </div>
                                 <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
 
@@ -413,23 +422,23 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                 <div class="text-white flex  justify-between mt-10">
 
 
-                <!-- start slider 1 -->
+                    <!-- start slider 1 -->
                     <div>
                         <span class="text-xl">Image Slider1</span>
                         <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post" class="mt-[40px]" enctype="multipart/form-data">
                             <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
-<?php
-        $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/default/default.png';
-        $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/default/default.png';
-        $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/default/default.png';
+                                <?php
+                                $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/default/default.png';
+                                $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/default/default.png';
+                                $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/default/default.png';
 
 
-?>
+                                ?>
 
                                 <label for="" class="ml-5">
                                     <a target="_blank" href="../../../<?= $slideImg1 ?>">
-                                  
+
                                         <img id="saveSlide1" src="../../../<?= $slideImg1 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider1">
 
                                     </a>
@@ -447,7 +456,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3">
+                                <textarea placeholder="Enter Title" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3">
                                     <?=
                                     $editSlideText1[0]["image_silder_title1"] ?>
                                 </textarea>
@@ -456,7 +465,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5">
+                                <textarea placeholder="Enter Description" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5">
                                 <?=
                                 $editSlideText1[0]["image_silder_dsc1"] ?>
                                 </textarea>
@@ -485,16 +494,16 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     <div>
                         <span class="text-xl">Image Slider2</span>
                         <form class="mt-[40px]" action="../../Controller/uiElements/imgSlider2/updateController.php" method="post" enctype="multipart/form-data">
-                        <div class="flex mt-4  w-[330px]  relative">
+                            <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
 
 
                                 <label for="" class="ml-5">
-                                <a target="_blank" href="../../../<?= $slideImg2 ?>">
-                                  
-                                  <img id="saveSlide2" src="../../../<?= $slideImg2 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider2">
+                                    <a target="_blank" href="../../../<?= $slideImg2 ?>">
 
-                              </a>
+                                        <img id="saveSlide2" src="../../../<?= $slideImg2 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider2">
+
+                                    </a>
                                 </label>
                                 <label for="slide2" class="custom-file-upload text-black ml-3 h-[25px]">
                                     Choose File
@@ -506,7 +515,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             </div>
                         </form>
 
-                            <form action="../../Controller/uiElements/imgSlider2/updateTextController.php" method="post">
+                        <form action="../../Controller/uiElements/imgSlider2/updateTextController.php" method="post">
                             <div class="flex  mt-4">
                                 <span>Title</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3">
@@ -548,16 +557,16 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     <div>
                         <span class="text-xl">Image Slider3</span>
                         <form class="mt-[40px]" action="../../Controller/uiElements/imgSlider3/updateController.php" method="post" enctype="multipart/form-data">
-                        <div class="flex mt-4  w-[330px]  relative">
+                            <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
 
 
                                 <label for="" class="ml-5">
-                                <a target="_blank" href="../../../<?= $slideImg3 ?>">
-                                  
-                                  <img id="saveSlide3" src="../../../<?= $slideImg3 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider3">
+                                    <a target="_blank" href="../../../<?= $slideImg3 ?>">
 
-                              </a>
+                                        <img id="saveSlide3" src="../../../<?= $slideImg3 ?>" class=" h-[30px] w-[40px] mr-2" alt="slider3">
+
+                                    </a>
                                 </label>
                                 <label for="slide3" class="custom-file-upload text-black ml-3 h-[25px]">
                                     Choose File
@@ -573,7 +582,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Title</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="32" rows="3">
-                                <?= $editSlideText3 [0]["image_silder_title3"] ?>
+                                <?= $editSlideText3[0]["image_silder_title3"] ?>
                                 </textarea>
 
                             </div>

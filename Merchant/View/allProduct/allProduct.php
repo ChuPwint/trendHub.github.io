@@ -1,7 +1,10 @@
 <?php  
 
 session_start();
-$detail =$_SESSION["viewProduct"];
+if(isset($_SESSION["viewProduct"])){
+    $detail =$_SESSION["viewProduct"];
+};
+
 
 
 include "../../Controller/allProduct/allProductShowController.php";
@@ -114,7 +117,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
         <?php if(isset($_SESSION["mProductDetailView"]) && ($_SESSION["mProductDetailView"] == 1)){ ?>
             <div class="viewDetailModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
             <!-- start of container box -->
-            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+            <div class="bg-white m-auto overflow-y-auto p-2 border rounded-sm w-[80%] relative">
                 <div class="closeViewDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
                 <form action="../../Controller/allProduct/updateProductController.php"  method="post">
@@ -265,13 +268,14 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                 <tbody>
                     <?php
                     $counter = 0; 
+                    $count = 0;
                     foreach ($allProduct as $product) { 
                         $counter++; 
                         $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                         
                         ?>
                         <tr class="productSubmitData <?= $rowClass ?>">
-                            <td class="p-2 text-center"><?= $product['id'] ?></td>
+                            <td class="p-2 text-center"><?= ++$count ?></td>
                             <td class="p-2 text-center"><?= $product['p_name']; ?></td>
                             <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                             <td class="p-2 text-center"><?= $product['p_stock'] ?></td>

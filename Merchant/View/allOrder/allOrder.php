@@ -1,12 +1,21 @@
 <?php
 session_start();
-$order =  $_SESSION["selectedOrder"];
-$detail =  $_SESSION["orderDetails"];
+if(isset ( $_SESSION["selectedOrder"])){
+    $order =  $_SESSION["selectedOrder"];
+    $detail =  $_SESSION["orderDetails"];
+};
+if (isset($_SESSION["change"])){
+    $changes =$_SESSION["change"];  
+}
 
 include "../../Controller/allOrder/allOrderShowcontroller.php";
-if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)) {
+if (isset($_SESSION["detailViewController"]) && ($_SESSION["detailViewController"] == false)) {
     $_SESSION["detailView"] = 0;
 }
+if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)) {
+    $_SESSION["changeStatus"] = 0;
+}
+
 
 
 ?>
@@ -113,7 +122,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
         <!-- start of order detail modal box -->
         <?php if (isset($_SESSION["detailView"]) && ($_SESSION["detailView"] == 1)) { ?>
 
-            <div class="viewOrderDetailModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
+            <div class="viewOrderDetailModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20 ">
                 <!-- start of container box -->
 
                 <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
@@ -147,7 +156,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                             <p class="mb-2 text-lg font-medium">Payment Type: <span><?= $order[0]["payment_method"] ?></span></p>
                             <p class="mb-2 text-lg font-medium">Payment Status: <span>
                                     <?php
-                                    
+
                                     $paymentMethodId = $order[0]["payment_method_id"];
                                     $paymentStatus = '';
 
@@ -168,13 +177,50 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                             <p class="font-medium mb-5 text-lg">Order Summary</p>
                             <!-- start of products -->
                             <div class="flex justify-between items-center mb-5 text-lg">
+
+
+
                                 <div>
-                                    <p class="mb-3">T-shirt</p>
-                                    <p class="mb-3">Shoes</p>
+                                    <?php
+                                    $totalItems = ""; // Initialize a variable to store the total product items
+                                    foreach ($detail as $detailItem) {
+                                        if ($detailItem['order_id'] === $order[0]['id']) {
+                                            // Append each product name to the $totalItems variable
+                                            $totalItems .= "<p class='mb-3'>" . $detailItem['p_name'] . "</p>";
+                                        }
+                                    }
+                                    echo $totalItems;
+                                    ?>
+
                                 </div>
                                 <div>
-                                    <p class="mb-3">5</p>
-                                    <p class="mb-3">1</p>
+                                    <?php
+                                    $totalItemsQty = ""; // Initialize a variable to store the total product items
+                                    foreach ($detail as $detailItem) {
+                                        if ($detailItem['order_id'] === $order[0]['id']) {
+                                            // Append each product name to the $totalItems variable
+                                            $totalItemsQty .= "<p class='mb-3'>" . $detailItem['qty'] . "</p>";
+                                        }
+                                    }
+                                    echo $totalItemsQty;
+                                    ?>
+
+
+                                </div>
+                                <div>
+                                    <?php
+                                    $subTotal = 0;
+                                    $itemsPrice = ""; // Initialize a variable to store the total product items
+                                    foreach ($detail as $detailItem) {
+                                        if ($detailItem['order_id'] === $order[0]['id']) {
+                                            // Append each product name to the $totalItems variable
+                                            $itemsPrice .= "<p class='mb-3'>" . number_format($detailItem['sell_price'], 2) . " Kyat" . "</p>";
+                                            $subTotal += $detailItem['sell_price'];
+                                        }
+                                    }
+                                    echo $itemsPrice;
+                                    ?>
+
                                 </div>
                             </div>
                             <hr class="border border-dashed mb-3 border-gray-400">
@@ -186,14 +232,14 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                     <p>Delivery</p>
                                 </div>
                                 <div>
-                                    <p class="mb-3">$800</p>
-                                    <p>$80</p>
+                                    <p class="mb-3"><?= number_format($subTotal, 2) . " Kyat"   ?></p>
+                                    <p><?= number_format($order[0]["delivery_fee"], 2) . " Kyat"  ?></p>
                                 </div>
                             </div>
                             <hr class="border border-dashed mb-3 mt-3 border-gray-400">
                             <div class="flex justify-between items-center mt-5">
                                 <p>Grand Total</p>
-                                <p>$880</p>
+                                <p><?= number_format(($order[0]["delivery_fee"] + $subTotal), 2) . " Kyat" ?></p>
                             </div>
                             <!-- end of prices -->
                         </div>
@@ -203,33 +249,81 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                 </div>
                 <!-- end of container box -->
             </div>
+            </div>
         <?php  } ?>
         <!-- end of order detail modal box -->
 
         <!-- start of order status change modal box -->
+        <?php if (isset($_SESSION["changeStatus"]) && ($_SESSION["changeStatus"] == 1)) { ?>
+            <div class="changeStatusModal fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
+                <form action="../../Controller/allOrder/updateChangeController.php" method="post">
+                    <!-- start of container box -->
+                    <div class="bg-white m-auto p-2 border rounded-sm w-[40%] relative">
+                        <div class="closeChangeStatusModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
+                        <h2 class="text-2xl font-bold px-6 py-3">Change Order Status</h2>
+                        <div class="px-8 py-3">
+                            <p class="mb-2 text-lg font-medium">Order Id: <span name=""><?= $changes[0]["id"] ?></span></p>
+                            <h1 class="font-semibold mt-5 hidden"><input id="" name="order_id" value="<?= $changes[0]["id"] ?>" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+                            <p class="mb-2 text-lg font-medium">Order Date: <span>
+                                    <?php
 
-        <div class="changeStatusModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20">
-            <!-- start of container box -->
-            <div class="bg-white m-auto p-2 border rounded-sm w-[40%] relative">
-                <div class="closeChangeStatusModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
-                <h2 class="text-2xl font-bold px-6 py-3">Change Order Status</h2>
-                <div class="px-8 py-3">
-                    <p class="mb-2 text-lg font-medium">Order Id: <span>12345</span></p>
-                    <p class="mb-2 text-lg font-medium">Order Date: <span>2023/07/26</span></p>
-                    <p class="mb-2 text-lg font-medium">Order From: <span>John Doe</span></p>
-                    <span class="mr-2 font-bold text-xl">Order Status: </span>
-                    <select name="orderStatus" class="border border-darkGreenColor p-2 font-medium">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                </div>
-                <div class="flex justify-center items-center mb-10">
-                    <button type="submit" class="closeChangeStatusModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Confirm Change</button>
-                </div>
+                                    $dateString = $changes[0]["create_date"];
+                                    $timestamp = strtotime($dateString);
+                                    $formattedDate = date("Y/m/d", $timestamp);
+
+                                    echo $formattedDate;
+                                    ?>
+                                </span></p>
+                            <p class="mb-2 text-lg font-medium">Order From: <span><?= $changes[0]["c_name"] ?></span></p>
+                            <span class="mr-2 font-bold text-xl">Order Status: </span>
+
+                            <select id="order" class="border border-darkGreenColor p-2 font-medium" <?php if ($changes[0]['order_status'] == 1) echo 'disabled'; ?>>
+                                <option value="Pending" <?php if ($changes[0]['order_status'] == 0) echo 'selected'; ?>>Pending</option>
+                                <option value="Completed" <?php if ($changes[0]['order_status'] == 1) echo 'selected'; ?>>Completed</option>
+
+                            </select>
+                            <?php
+                            $status = "";
+                            if ($changes[0]['order_status'] == 0) {
+                                $status = "Pending";
+                            } else {
+                                $status = "Completed";
+                            }
+
+                            ?>
+                            <h1 class="font-semibold mt-5 hidden"><input id="orderInput" name="orderStatus" value="<?= $status ?>" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+
+                            <?php if ($changes[0]['payment_method_id'] == 3) { ?>
+                                <div class="py-5">
+                                    <span class="mr-2 font-bold text-xl">Payment Status: </span>
+                                    <select id="payment" class="border border-darkGreenColor p-2 font-medium" <?php if ($changes[0]['payment_status'] == 1) echo 'disabled'; ?>>
+                                        <option value="Pending" <?php if ($changes[0]['payment_status'] == 0) echo 'selected'; ?>>Pending</option>
+                                        <option value="Completed" <?php if ($changes[0]['payment_status'] == 1) echo 'selected'; ?>>Completed</option>
+                                    </select>
+                                    <?php
+                                    $payStatus = "";
+                                    if ($changes[0]['payment_status'] == 0) {
+                                        $payStatus = "Pending";
+                                    } else {
+                                        $payStatus = "Completed";
+                                    }
+
+                                    ?>
+                                    <h1 class="font-semibold mt-5 hidden"><input id="pay" name="paymentStatus" value="<?= $payStatus ?>" class="w-[240px] font-normal ml-[13px] outline-none" readonly></input></h1>
+                                </div>
+                            <?php } ?>
+
+                        </div>
+                        <div class="flex justify-center items-center mb-10">
+                            <?php if ($changes[0]['order_status'] == 0) { ?>
+                                <button type="submit" name="changeStatus" class="closeChangeStatusModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Confirm Change</button>
+                            <?php }  ?>
+                        </div>
+                    </div>
+                </form>
+                <!-- end of container box -->
             </div>
-            <!-- end of container box -->
-        </div>
-
+        <?php  }  ?>
         <!-- end of order status change modal box -->
 
         <!-- Right-side Start -->
@@ -275,7 +369,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                     <span class="mr-2 font-medium">Sort By</span>
                     <select name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="pending">Pending</option>
-                        <option class="p-2" value="delivered">Delivered</option>
+                        <option class="p-2" value="delivered">Completed</option>
                     </select>
                 </div>
                 <!-- end of select box -->
@@ -284,6 +378,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
 
             <!-- Start of order table -->
             <table class="table-fixed mt-10 w-full">
+
                 <thead class="bg-darkGreenColor text-white font-semibold text-lg">
                     <tr>
                         <th class="p-2 w-20">Order Id</th>
@@ -292,7 +387,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                         <th class="p-2 w-32">Total Amount</th>
                         <th class="p-2 w-32">Payment Type</th>
                         <th class="p-2 w-32">Order Date</th>
-                        <th class="p-2 w-32">Status</th>
+                        <th class="p-2 w-32">Order Status</th>
                         <th class="p-2 w-32">Action</th>
                     </tr>
                 </thead>
@@ -304,7 +399,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                         $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                     ?>
                         <tr class="orderList <?= $rowClass ?>">
-                            <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><a href="../../Controller/allOrder/changeStatusController.php?id=<?= $order['id'] ?>">
+                            <td class="viewOrderDetailBtn p-2 text-xl  text-center underline font-bold cursor-pointer"><a href="../../Controller/allOrder/detailViewController.php?id=<?= $order['id'] ?>">
                                     <?= $order['id']; ?></a></td>
                             <td class="p-2 text-center"><?= $order['c_name']; ?></td>
                             <td class="p-2 text-center">
@@ -331,7 +426,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                 if ($order['order_status'] == 0) {
                                     echo "Pending";
                                 } elseif ($order['order_status'] == 1) {
-                                    echo "Delivered";
+                                    echo "Completed";
                                 } else {
                                     // Handle other cases if needed
                                     echo "Unknown";
@@ -339,7 +434,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                 ?>
                             </td>
                             <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
-                                <a href="../../Controller/allOrder/changeStatusController.php?id=<?= $product["id"] ?>">
+                                <a href="../../Controller/allOrder/changeStatusController.php?id=<?= $order["id"] ?>">
                                     Change Status
                                 </a>
 
@@ -348,6 +443,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                     <?php endforeach; ?>
 
                 </tbody>
+
             </table>
             <!-- End of order table -->
         </div>
@@ -366,12 +462,23 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-        });
+            $("#order").change(function() {
+                $("#orderInput").val($("#order").val());
+                $("#payment").val($("#order").val());
+                $("#pay").val($("#payment").val());
+            });
+            $("#payment").change(function() {
+                $("#pay").val($("#payment").val());
+                $("#order").val($("#payment").val());
+                $("#orderInput").val($("#order").val());
+            });
+         });
     </script>
 </body>
 
 </html>
 <?php
+$_SESSION["detailViewController"] = false;
 $_SESSION["changeStatusController"] = false;
 
 ?>
