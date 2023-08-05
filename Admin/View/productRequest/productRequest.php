@@ -1,3 +1,7 @@
+<?php
+include "../../Controller/productRequest/productRequestController.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +53,7 @@
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+                <input type="text" name="" id="searchInAllRequests" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by merchant name">
             </div>
             <!-- Search End-->
 
@@ -57,12 +61,12 @@
             <div class="px-[53px] py-8">
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-between space-x-2 mb-2">
-                    <span class="text-white">8 Product Submission Request</span>
+                    <span class="text-white text-lg"><?= $totalReqs[0]["totalRequest"] ?> Product Submission Request</span>
                     <div>
                         <span class="text-white">Sort by:</span>
                         <select name="" id="dropDownAllRequests" class="outline-none rounded py-1 px-3">
-                            <option value="m_name">Merchant Name</option>
                             <option value="create_date">Requested Date</option>
+                            <option value="m_name">Merchant Name</option>
                         </select>
                     </div>
                 </div>
@@ -78,30 +82,32 @@
                                         <th class="px-3 py-6 text-center">No.</th>
                                         <th class="px-3 py-6 text-center">Business Name</th>
                                         <th class="px-3 py-6 text-center">Merchant Name</th>
+                                        <th class="px-3 py-6 text-center">Merchant Email</th>
                                         <th class="px-3 py-6 text-center">Requested Date</th>
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="bg-[#fffafa]">
-                                        <td class="p-3 text-center">
-                                            1
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            <div class="w-[50px] h-[50px] rounded-full mx-auto ">
-                                                <img src="../resources/img/msi.png" alt="">
-                                            </div>
-                                        </td>
-                                        <td class="p-3 text-center">
-                                            MSI
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            Jul 16, 2023
-                                        </td>
-                                        <td class="p-3 text-center ">
-                                            <a href="./productReqDetail.php"><span class="underline cursor-pointer">View Details</span></a>
-                                        </td>
-                                    </tr>
+                                <tbody class="searchResult">
+                                    <?php $num = 1; ?>
+                                    <?php foreach ($productRequests as $request) { ?>
+                                        <form action="../../Controller/productRequest/productRequestDetailController.php" method="post">
+                                            <tr class="bg-[#fffafa]">
+                                                <td class="p-3 text-center"><?= $num++; ?></td>
+                                                <td class="p-3 text-center"><?= $request["m_bname"] ?></td>
+                                                <td class="p-3 text-center"><?= $request["m_name"] ?></td>
+                                                <td class="p-3 text-center"><?= $request["m_email"] ?></td>
+                                                <td class="p-3 text-center"><?= $request["create_date"] ?></td>
+                                                <input type="hidden" name="reqId" value="<?= $request["id"] ?>">
+                                                <input type="hidden" name="bname" value="<?= $request["m_bname"] ?>">
+                                                <input type="hidden" name="mname" value="<?= $request["m_name"] ?>">
+                                                <input type="hidden" name="email" value="<?= $request["m_email"] ?>">
+                                                <td class="p-3 text-center ">
+                                                    <button type="submit" name="allReq" class="font-semibold underline cursor-pointer">View Details</button>
+                                                </td>
+                                                
+                                            </tr>
+                                        </form>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

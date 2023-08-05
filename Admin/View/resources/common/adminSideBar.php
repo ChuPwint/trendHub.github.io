@@ -81,7 +81,7 @@
             </div>
             <!-- Manage Products Sub Menu  End-->
 
-            <a href="">
+            <a href="../productRequest/productRequest.php">
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "productRequest") ? "bg-red-400" : false ?>">Products Request</p>
             </a>
 
