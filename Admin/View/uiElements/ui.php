@@ -463,6 +463,12 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
                                 $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
                                 $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+                                $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
+                                $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
+                                $sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
+                                $slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : '#ffffff';
+                                $slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : '#ffffff';
+                                $slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : '#ffffff';
 
 
 
@@ -490,7 +496,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <span>Title</span>
                                 <textarea placeholder="Enter Title" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3">
                                     <?=
-                                   $sliderTitle1 ?>
+                                    $sliderTitle1 ?>
                                 </textarea>
 
                             </div>
@@ -499,17 +505,17 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <span>Des</span>
                                 <textarea placeholder="Enter Description" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5">
                                 <?=
-                                $sliderDsc1?>
+                                $sliderDsc1 ?>
                                 </textarea>
 
                             </div>
                             <div class="flex justify-between mt-4">
                                 <span>Background Color</span>
-                                <input name="slideBg1" value="<?= $editSlideText1[0]["slide_bg1"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slideBg1" value="<?= $sliderBackgroundColor1  ?>" class="rounded-sm w-[60px]" type="color">
                             </div>
                             <div class="flex justify-between mt-4">
                                 <span>Text Color</span>
-                                <input name="slide_text_color1" value="<?= $editSlideText1[0]["slide_text_color1"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slide_text_color1" value="<?= $slideTextColor1 ?>" class="rounded-sm w-[60px]" type="color">
                             </div>
 
 
@@ -559,7 +565,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Des</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5">
-                                <?=  $sliderDsc2 ?>
+                                <?= $sliderDsc2 ?>
                                 </textarea>
 
                             </div>
@@ -567,13 +573,13 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex justify-between mt-4">
                                 <span>Background Color</span>
-                                <input name="slideBg2" value="<?= $editSlideText2[0]["slide_bg2"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slideBg2" value="<?= $sliderBackgroundColor2  ?>" class="rounded-sm w-[60px]" type="color">
 
 
                             </div>
                             <div class="flex justify-between mt-4">
                                 <span>Text Color</span>
-                                <input name="slide_text_color2" value="<?= $editSlideText2[0]["slide_text_color2"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slide_text_color2" value="<?= $slideTextColor2 ?>" class="rounded-sm w-[60px]" type="color">
                             </div>
 
 
@@ -622,7 +628,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Des</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="32" rows="5">
-                                <?=  $sliderDsc3 ?>
+                                <?= $sliderDsc3 ?>
 
                                 </textarea>
 
@@ -631,12 +637,12 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                             <div class="flex justify-between mt-4">
                                 <span>Background Color</span>
-                                <input name="slideBg3" value="<?= $editSlideText3[0]["slide_bg3"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slideBg3" value="<?= $sliderBackgroundColor3 ?>" class="rounded-sm w-[60px]" type="color">
 
                             </div>
                             <div class="flex justify-between mt-4">
                                 <span>Text Color</span>
-                                <input name="slide_text_color3" value="<?= $editSlideText3[0]["slide_text_color3"] ?>" class="rounded-sm w-[60px]" type="color">
+                                <input name="slide_text_color3" value="<?= $slideTextColor3 ?>" class="rounded-sm w-[60px]" type="color">
                             </div>
 
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
@@ -666,18 +672,29 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                 <div class="text-white flex  mt-5">
                     <div class="faq text-black" id="faq1">
 
+                        <?php
+                        $question1 = isset($editInfo[0]["question1"]) && !empty($editInfo[0]["question1"]) ? $editInfo[0]["question1"] : 'How to use my points?';
+                        $question2 = isset($editInfo[0]["question2"]) && !empty($editInfo[0]["question2"]) ? $editInfo[0]["question2"] : 'Where to check my orders?';
+                        $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"]) ? $editInfo[0]["question3"] : 'What payment options are available?';
+                        $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+                        $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+                        $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+
+
+                        ?>
+
                         <form action="../../Controller/uiElements/faq1/updatefaqController.php" method="post">
 
                             <div class="flex justify-between w-[1040px]">
                                 <span class="block text-white ">Ques:</span>
                                 <textarea name="questionOne" cols="120" rows="2" class=" resize-none text-black" type="text" placeholder="Question 1">
-                                <?= $editFaq1[0]["question1"] ?>
+                                <?= $question1 ?>
                                 </textarea>
                             </div>
                             <div class="flex  mt-4 justify-between">
                                 <span class="block text-white">Ans:</span>
                                 <textarea cols="120" rows="4" name="answerOne" class="resize-none  text-black" type="text" placeholder="Answer 1">
-                                <?= $editFaq1[0]["answer1"] ?>
+                                <?= $answer1 ?>
                                 </textarea>
                             </div>
                             <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
@@ -693,14 +710,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex justify-between w-[1040px]">
                                 <span class="block text-white ">Ques:</span>
                                 <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
-    <?= $editFaq1[0]["question2"] ?>
-    </textarea>
+                                                     <?= $question2 ?>
+                                                  </textarea>
                             </div>
                             <div class="flex  mt-4 justify-between">
                                 <span class="block text-white">Ans:</span>
                                 <textarea cols="120" rows="4" name="answerTwo" class="resize-none  text-black" type="text" placeholder="Answer 1">
-    <?= $editFaq1[0]["answer2"] ?>
-    </textarea>
+                                     <?= $answer2 ?>
+                                         </textarea>
                             </div>
                             <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
@@ -713,14 +730,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex justify-between w-[1040px]">
                                 <span class="block text-white ">Ques:</span>
                                 <textarea name="questionThree" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
-    <?= $editFaq1[0]["question3"] ?>
-    </textarea>
+                                                              <?= $question3 ?>
+                                                             </textarea>
                             </div>
                             <div class="flex  mt-4 justify-between">
                                 <span class="block text-white">Ans:</span>
                                 <textarea cols="120" rows="4" name="answerThree" class="resize-none  text-black" type="text" placeholder="Answer 1">
-    <?= $editFaq1[0]["answer3"] ?>
-    </textarea>
+                                                     <?= $anwer3 ?>
+                                                                 </textarea>
                             </div>
                             <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
