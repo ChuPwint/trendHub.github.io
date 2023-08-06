@@ -140,7 +140,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     </div>
                                 </div>
 
-                                <div class="flex flex-col md:flex-row items-center justify-between  ">
+                                <div class="flex flex-col md:flex-row items-center justify-between  mt-4">
                                     <div class="w-full p-2 ">
                                         <select name="region" id="region" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
                                             <?php
@@ -178,7 +178,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
                                 <div class="flex flex-col md:flex-row  items-center justify-between ">
                                     <div class="md:w-1/2 w-full p-2 ">
-                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border border-borderOrange rounded" readonly placeholder="Email Address" required>
+                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border  border-borderOrange rounded" readonly >
                                     </div>
                                     <div class="md:w-1/2 w-full p-2">
                                         <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address" required>
