@@ -4,9 +4,10 @@ if (!isset($_POST["allReq"])) {
     header("Location: ../../View/Error/error.php");
 } else {
     $id = $_POST["reqId"];
+    $_SESSION["id"] = $_POST["reqId"];
     $_SESSION["bname"] = $_POST["bname"];
-    $_SESSION["mname"] = $_POST["mname"];
-    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["mid"] = $_POST["mid"];
+    $_SESSION["m_email"] = $_POST["email"];
 
     include "../../Model/model.php";
     $sql = $pdo->prepare(
@@ -32,11 +33,8 @@ if (!isset($_POST["allReq"])) {
     $eachMerchantTotalReq = $sql->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION["total"] = $eachMerchantTotalReq;
 
-    $sql = $pdo->prepare(
-        "SELECT * FROM m_categories WHERE del_flg = 0"
-    );
-    $sql->execute();
-    $_SESSION["allCategories"] = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+    $_SESSION["passReqDetailController"] = true;
     
     header("Location: ../../View/productRequest/productReqDetail.php");
 }
