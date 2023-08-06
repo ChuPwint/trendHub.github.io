@@ -28,7 +28,7 @@ if(count($_POST) == 0){
    $sql->execute();
  
 
-   header("Location: ../../../View/UI Elements/ui.php");
+   header("Location: ../../../View/uiElements/ui.php");
 
 
 }
