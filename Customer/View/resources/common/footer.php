@@ -72,12 +72,20 @@ include "../../Controller/uiElement/editInfoController.php";
         </a>
 
     </div>
+<?php
+        $editEmail= isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+        $editPhoneNumber= isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+        $editAddress= isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+        $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
 
+
+
+?>
     <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?= $editInfo[0]["nav_text_color"] ?>] ">Contact Us</span>
-        <span class="block cursor-pointer ">Email : <?= $editInfo[0]["email"] ?> <a href="mailto:<?= $editInfo[0]["email"] ?>"></a></span>
-        <span class="block cursor-pointer  ">Phone : <?= $editInfo[0]["phoneNumber"] ?><a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"></a></span>
-        <span class="block cursor-pointer  w-[400px]"><a target="_blank" href="<?= $editInfo[0]["locationLink"] ?>">Address : <?= $editInfo[0]["address"] ?><a href="tel:09403559701"></a></span>
+        <span class="block cursor-pointer ">Email : <?= $editEmail ?> <a href="mailto:<?=  $editEmail  ?>"></a></span>
+        <span class="block cursor-pointer  ">Phone : <?= $editPhoneNumber ?><a href="tel:<?= $editPhoneNumber ?>"></a></span>
+        <span class="block cursor-pointer  w-[400px]"><a target="_blank" href="<?= $editAddressLink ?>">Address : <?= $editAddress ?></a></span>
         
     </div>
 
