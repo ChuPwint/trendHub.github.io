@@ -461,11 +461,20 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         </a>
       </div>
 
+<?php
+        $editEmail= isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+        $editPhoneNumber= isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+        $editAddress= isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+        $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+
+?>
+
+
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
-        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
-        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
-        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editInfo[0]["locationLink"] ?>"><?= $editInfo[0]["address"] ?></a></span>
+        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
+        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
+        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
@@ -481,8 +490,6 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
     </div>
     <span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
-
-
 
   <script>
     function toggleColor(button) {
