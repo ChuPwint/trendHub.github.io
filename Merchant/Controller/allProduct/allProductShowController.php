@@ -3,7 +3,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-$id = 1;
+$merchantId =  $_SESSION["currentLoginUser"];
+
 
 $sql = $pdo->prepare("
     SELECT m_products.*, m_categories.*
@@ -13,7 +14,7 @@ $sql = $pdo->prepare("
     AND m_products.del_flg = 0;
 ");
 
-$sql->bindValue(":id", $id);
+$sql->bindValue(":id", $merchantId);
 $sql->execute();
 $allProduct= $sql->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";

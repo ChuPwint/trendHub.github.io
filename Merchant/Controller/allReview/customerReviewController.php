@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-$id = 1;
+$merchantId =  $_SESSION["currentLoginUser"];
 
 $sql = $pdo->prepare("
     SELECT m_products.*, m_categories.category_name
@@ -12,7 +12,7 @@ $sql = $pdo->prepare("
     WHERE m_products.merchant_id = :id;
 ");
 
-$sql->bindValue(":id", $id);
+$sql->bindValue(":id",$merchantId );
 $sql->execute();
 $allReview= $sql->fetchAll(PDO::FETCH_ASSOC);
 

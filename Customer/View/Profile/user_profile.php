@@ -415,7 +415,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <?= ($notification['message']); ?>
                                 </div>
                                 <div class="text-gray-500 text-sm mt-2">
-                                    From:<?= ($notification['from']); ?>, Date: <?= ($notification['create_date']); ?>
+                                    From:Admin, Date: <?= ($notification['create_date']); ?>
                                 </div>
                             </div>
                         </div>

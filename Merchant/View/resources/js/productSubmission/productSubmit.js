@@ -79,7 +79,7 @@ document.getElementById("file_upload").onchange = function (evt) {
       $("#modal1").removeClass("hidden");
   
       $.ajax({
-        url: "../../Controller/manageProducts/adminDeleteProductShowController.php",
+        url: "../../../../Controller/productSubmission/merchantDeleteProductShowController.php",
         type: "POST",
         data: {
           id: $(this).attr("deleteID"),
