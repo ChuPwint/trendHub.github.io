@@ -134,8 +134,8 @@ if (isset($_SESSION["saveChangeController"]) && ($_SESSION["saveChangeController
                         </div>
                         <div class="flex flex-col md:flex-row items-center justify-between mt-8">
                             <div class="md:w-1/2 w-full p-2">
-                                <label for="username" class="text-md font-semibold">Name:</label>
-                                <input type="text" name="username" value="<?= $merchant[0]['m_name'] ?>" id="username" class="w-full p-2 rounded border border-secondary shadow-md">
+                                <label for="m_name" class="text-md font-semibold">Name:</label>
+                                <input type="text" name="m_name" value="<?= $merchant[0]['m_name'] ?>" id="m_name" class="w-full p-2 rounded border border-secondary shadow-md">
                             </div>
                             <div class="md:w-1/2 w-full p-2">
                                 <label for="business_name" class="text-md font-semibold">Business Name:</label>

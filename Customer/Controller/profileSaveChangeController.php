@@ -4,7 +4,7 @@ if (!isset($_POST["saveChange"])) {
     header("Location: ../View/Error/error.php");
 } else {
     $id = $_SESSION["currentLoginUser"];
-    $username = $_POST["username"];
+    $u_name = $_POST["username"];
     $phone = $_POST["phone"];
     $regionID = $_POST["region"];
     $townshipID = $_POST["township"];
@@ -44,7 +44,7 @@ if (!isset($_POST["saveChange"])) {
             c_address = :address 
             WHERE id = :id");
 
-    $sql->bindValue(":username", $username);
+    $sql->bindValue(":username",  $u_name);
     $sql->bindValue(":phone", $phone);
     $sql->bindValue(":ppath", $profilePath); // Use the selected profile path
     $sql->bindValue(":region", $regionID);
