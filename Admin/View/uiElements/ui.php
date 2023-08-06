@@ -251,6 +251,14 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[440px] bg-[white]">Save</button>
                         </form>
 
+                        <?php
+                                $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banner1"]) ? $editbanner1[0]["banner1"] : '/Storage/default/default.png';
+                                $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/default/default.png';
+                                $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/default/default.png';
+                                $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/default/default.png';
+
+
+                                ?>
 
 
                     </div>
@@ -259,8 +267,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner1/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner1">
-                                    <a target="_blank" href="../../../<?= $editbanner1[0]["banner1"] ?>">
-                                        <img id="saveBanner1" src="../../../<?= $editbanner1[0]["banner1"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $bannerImg1 ?>">
+                                        <img id="saveBanner1" src="../../../<?= $bannerImg1 ?>" class=" h-[30px] w-[40px] mr-2" alt="">
                                     </a>
 
                                 </label>
@@ -282,8 +290,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner2/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner2">
-                                    <a target="_blank" href="../../../<?= $editbanner2[0]["banner2"] ?>">
-                                        <img id="saveBanner2" src="../../../<?= $editbanner2[0]["banner2"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $bannerImg2 ?>">
+                                        <img id="saveBanner2" src="../../../<?= $bannerImg2 ?>" class=" h-[30px] w-[40px] mr-2" alt="">
                                     </a>
 
                                 </label>
@@ -305,8 +313,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner3/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner3">
-                                    <a target="_blank" href="../../../<?= $editbanner3[0]["banner3"] ?>">
-                                        <img id="saveBanner3" src="../../../<?= $editbanner3[0]["banner3"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $bannerImg3 ?>">
+                                        <img id="saveBanner3" src="../../../<?= $bannerImg3 ?>" class=" h-[30px] w-[40px] mr-2" alt="">
 
                                     </a>
                                 </label>
@@ -330,8 +338,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form class="relative" action="../../Controller/uiElements/banner4/updateBannerController.php" method="post" enctype="multipart/form-data">
                             <div class="flex  mt-4">
                                 <label for="banner4">
-                                    <a target="_blank" href="../../../<?= $editbanner4[0]["banner4"] ?>">
-                                        <img id="saveBanner4" src="../../../<?= $editbanner4[0]["banner4"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                    <a target="_blank" href="../../../<?= $bannerImg4 ?>">
+                                        <img id="saveBanner4" src="../../../<?= $bannerImg4 ?>" class=" h-[30px] w-[40px] mr-2" alt="">
 
                                     </a>
 
