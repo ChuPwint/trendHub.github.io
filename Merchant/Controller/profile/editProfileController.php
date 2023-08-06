@@ -5,9 +5,9 @@ if(!isset($_POST["profileChange"])){
     header("Location: ../../View/Error/error.php");
  
 }else{
-    // $id =  $_SESSION["currentLoginMarchent"];
-    $id = 1;
-    $username = $_POST["username"];
+    
+    $merchantId =  $_SESSION["currentLoginUser"];
+    $m_name = $_POST["m_name"];
     $b_name = $_POST["b_name"];
     $b_licene = $_POST["b_licene"];
     $phone = $_POST["phone"];
@@ -31,7 +31,7 @@ if(!isset($_POST["profileChange"])){
     } else {
         // If no new file uploaded, get the existing profile path from the database
         $sql = $pdo->prepare("SELECT m_logo FROM m_marchents WHERE id = :id");
-        $sql->bindValue(":id", $id);
+        $sql->bindValue(":id",  $merchantId);
         $sql->execute();
         $row = $sql->fetch(PDO::FETCH_ASSOC);
         $profilePath = $row["m_logo"];
@@ -50,14 +50,14 @@ if(!isset($_POST["profileChange"])){
       WHERE id= :id");
    
 
-   $sql->bindValue(":name",$username);
+   $sql->bindValue(":name", $m_name);
    $sql->bindValue(":logoPath", $profilePath); 
    $sql->bindValue(":bname",$b_name);
    $sql->bindValue(":licene",$b_licene);
    $sql->bindValue(":phone",$phone);
    $sql->bindValue(":email",$email);
    $sql->bindValue(":address",$address);
-   $sql->bindValue(":id",$id);
+   $sql->bindValue(":id", $merchantId);
    
  
    $sql->execute();

@@ -46,7 +46,10 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
 <body class=" font-roboto">
 
+  <?php
+  $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
 
+  ?>
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
     <!-- start first navbar -->
@@ -55,7 +58,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
         <!-- desktop logo -->
         <!-- <img class="md:block hidden" src="./resources/img/header/logo.svg" alt=""> -->
-        <img class="md:block hidden" src="./resources/img/header/logo.svg" alt="">
+        <img class="md:block hidden" src=" ../../<?= $logo ?>" alt="">
 
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="./resources/img/header/headerLogo.svg " alt="">
@@ -158,7 +161,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
       <!-- Slide1 -->
       <div class="swiper-slide">
 
-      <!-- start set default value -->
+        <!-- start set default value -->
         <?php
         $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
         $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
@@ -169,22 +172,28 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         $sliderImg1 = isset($editInfo[0]["image_silder1"]) && !empty($editInfo[0]["image_silder1"]) ? $editInfo[0]["image_silder1"] : '/Storage/slider/acer.png';
         $sliderImg2 = isset($editInfo[0]["image_silder2"]) && !empty($editInfo[0]["image_silder2"]) ? $editInfo[0]["image_silder2"] : '/Storage/slider/dell.png';
         $sliderImg3 = isset($editInfo[0]["image_silder3"]) && !empty($editInfo[0]["image_silder3"]) ? $editInfo[0]["image_silder3"] : '/Storage/slider/msi.svg';
-         ?>
-      <!-- end set default value -->
+        $sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+        $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+        $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+        $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+        ?>
+        <!-- end set default value -->
 
 
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor1 ?>] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
             <img src="../../<?= $sliderImg1 ?>" alt="">
-          
-         
+
+
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-md text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
-              <?= $editInfo[0]["image_silder_title1"] ?>
+            <span class="md:text-xl text-sm text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
+              <?= $sliderTitle1 ?>
             </span>
             <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor1 ?>]  hidden md:block">
-              <?= $editInfo[0]["image_silder_dsc1"] ?>
+              <?= $sliderDsc1 ?>
             </span>
           </div>
         </div>
@@ -192,17 +201,18 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-      <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
 
           <div class="  img w-[300px]  ">
-          <img src="../../<?= $sliderImg2 ?>" alt="">
+            <img src="../../<?= $sliderImg2 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md md:mt-0 mt-16 block text-[<?= $slideTextColor2 ?>] ">
-              <?= $editInfo[0]["image_silder_title2"] ?>
+            <span class="md:text-xl text-sm text-[<?= $slideTextColor2 ?>]  md:mt-0 block mt-[60px] ">
+              <?= $sliderTitle2 ?>
+
             </span>
-            <span class="text-md mt-5 hidden md:block text-[<?= $slideTextColor2 ?>] ">
-              <?= $editInfo[0]["image_silder_dsc2"] ?>
+            <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor2 ?>]  hidden md:block">
+              <?= $sliderDsc2 ?>
             </span>
           </div>
         </div>
@@ -210,17 +220,17 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-      <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
 
           <div class="img w-[300px] ">
-          <img src="../../<?= $sliderImg3 ?>" alt="">
+            <img src="../../<?= $sliderImg3 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>] block md:mt-0 mt-16">
-              <?= $editInfo[0]["image_silder_title3"] ?>
+            <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>]  md:mt-0 block mt-[60px] ">
+              <?= $sliderTitle3 ?>
             </span>
             <span class="text-md mt-5 md:block hidden text-[<?= $slideTextColor3 ?>] ">
-              <?= $editInfo[0]["image_silder_dsc3"] ?>
+              <?= $sliderDsc3 ?>
             </span>
           </div>
         </div>
@@ -454,11 +464,20 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         </a>
       </div>
 
+      <?php
+      $editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+      $editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+      $editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+      $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+
+      ?>
+
+
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
-        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editInfo[0]["email"] ?>"><?= $editInfo[0]["email"] ?></a></span>
-        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editInfo[0]["phoneNumber"] ?>"><?= $editInfo[0]["phoneNumber"] ?></a></span>
-        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editInfo[0]["locationLink"] ?>"><?= $editInfo[0]["address"] ?></a></span>
+        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
+        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
+        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
@@ -474,8 +493,6 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
     </div>
     <span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
-
-
 
   <script>
     function toggleColor(button) {

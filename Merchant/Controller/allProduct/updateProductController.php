@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_POST['deleteProduct'])) {
-    echo "yes";
+    
     $idToDelete = $_POST['product_id'];
    
     include "../../Model/model.php";

@@ -2,7 +2,7 @@
 
 session_start();
 $id = $_GET["id"];
-// print_r($id);
+
 if(!isset($id)){
     header("Location: ../../View/Error/error.php");
   

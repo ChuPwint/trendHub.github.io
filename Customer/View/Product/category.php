@@ -77,14 +77,21 @@
                 </div>
             </div>
 
+            <?php
+        $banner3 = isset($editInfo[0]["banner3"]) && !empty($editInfo[0]["banner3"]) ? $editInfo[0]["banner3"] : '/Storage/banner/bannerP2.svg';
+        $banner4 = isset($editInfo[0]["banner4"]) && !empty($editInfo[0]["banner4"]) ? $editInfo[0]["banner4"] : '/Storage/banner/bannerP2.svg';
+
+            ?>
+
+
             <!-- 1st Banner -->
             <div class="mt-5">
-                <img src="../../../<?= $editInfo[0]["banner3"] ?>" alt="banner1">
+                <img src="../../../<?= $banner3 ?>" alt="banner1">
             </div>
 
             <!-- 2nd Banner -->
             <div class="mt-2">
-                <img src="../../../<?= $editInfo[0]["banner4"] ?>" alt="banner2">
+                <img src="../../../<?= $banner4 ?>" alt="banner2">
             </div>
 
         </div>

@@ -4,8 +4,10 @@ session_start();
 
 if(!isset($_POST["login"])){
     header("Location: ../View/Error/error.php");
+
 } else {
     $loginEmail = $_POST["email"];
+
     $loginPassword = $_POST["password"];
 
     include "../Model/model.php";
@@ -17,6 +19,8 @@ if(!isset($_POST["login"])){
     $sql->execute();
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     $passwordCorrect = password_verify($loginPassword, $result[0]["m_password"]);
+
+    
 
     if(count($result) == 0){
         $_SESSION["wrongEmail"] = "Wrong email!";

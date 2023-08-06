@@ -27,6 +27,7 @@ $(document).ready(() => {
     $("#shareLinkIcon").click(() => {
         $(".quantityInput").removeClass("hidden");
     });
+
 });
 
 /*
@@ -77,3 +78,4 @@ function wishListTextAndIconToggle() {
         $("#wishListText").addClass("text-textOrange");
     } 
 }
+

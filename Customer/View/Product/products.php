@@ -79,14 +79,25 @@ include "../../Controller/uiElement/editInfoController.php";
                 </div>
             </div>
 
+
+            <?php
+        $banner1 = isset($editInfo[0]["banner1"]) && !empty($editInfo[0]["banner1"]) ? $editInfo[0]["banner1"] : '/Storage/banner/bannerP1.svg';
+        $banner2 = isset($editInfo[0]["banner2"]) && !empty($editInfo[0]["banner2"]) ? $editInfo[0]["banner2"] : '/Storage/banner/bannerP1.svg';
+            
+            
+            ?>
+
+
+
+
             <!-- 1st Banner -->
             <div class="mt-5">
-                <img src="../../../<?= $editInfo[0]["banner1"] ?>" alt="banner1">
+                <img src="../../../<?= $banner1 ?>" alt="banner1">
             </div>
 
             <!-- 2nd Banner -->
             <div class="mt-2">
-                <img src="../../../<?= $editInfo[0]["banner2"] ?>" alt="banner1">
+                <img src="../../../<?= $banner2 ?>" alt="banner1">
             </div>
 
         </div>

@@ -121,7 +121,7 @@ $totalContact = $_SESSION["totalContact"];
                                     </div>
                                 </div>
                                 <div class="px-6 mt-3">
-                                    <p class="text-sm">
+                                    <p class="text-sm whitespace-pre-line">
                                         <?= $text["msg_text"] ?>
                                     </p>
                                 </div>

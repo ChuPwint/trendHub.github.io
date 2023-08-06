@@ -52,6 +52,17 @@
         </div>
     </section>
 
+    <?php
+    $question1 = isset($editInfo[0]["question1"]) && !empty($editInfo[0]["question1"]) ? $editInfo[0]["question1"] : 'How to use my points?';
+    $question2 = isset($editInfo[0]["question2"]) && !empty($editInfo[0]["question2"]) ? $editInfo[0]["question2"] : 'Where to check my orders?';
+    $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"]) ? $editInfo[0]["question3"] : 'What payment options are available?';
+    $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+    $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+    $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+
+
+    ?>
+
     <!-- Frequently Asked Questions -->
     <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div class="mt-10 md:mt-20">
@@ -60,26 +71,26 @@
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p><?= $editInfo[0]["question1"] ?></p>
+                    <p><?= $question1 ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
-                   <?= $editInfo[0]["answer1"]  ?>
+                    <?= $answer1  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                     <p><?= $editInfo[0]["question2"] ?></p>
+                    <p><?= $question2 ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
-                <?= $editInfo[0]["answer2"]  ?>
+                    <?= $answer2  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
                     <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p><?= $editInfo[0]["question3"] ?></p>
+                    <p><?= $question3 ?></p>
                 </div>
                 <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
-                <?= $editInfo[0]["answer3"]  ?>
+                    <?= $answer3   ?>
                 </div>
 
             </div>
