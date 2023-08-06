@@ -8,6 +8,9 @@ if (isset($_SESSION["currentLoginUser"])) {
 if (!isset($view)) {
   include "../../../Controller/categoryController.php";
 }
+
+$logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +57,7 @@ if (!isset($view)) {
       <div class="flex justify-between items-center ">
 
         <!-- desktop logo -->
-        <img class="md:block hidden" src="../resources/img/header/logo.svg" alt="">
+        <img class="md:block hidden" src="../../../<?= $logo ?>" alt="">
 
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">

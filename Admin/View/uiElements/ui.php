@@ -1,5 +1,7 @@
 <?php
 
+
+include "../../Controller/uiElements/logo/viewLogoController.php";
 include "../../Controller/uiElements/Information/viewController.php";
 include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 include "../../Controller/uiElements/imgSlider1/viewController.php";
@@ -107,25 +109,40 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
             </div>
             <!-- Search End-->
 
+<?php
+            $logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
 
+?>        
 
             <div class="px-[53px] py-8 data-output  overflow-y-scroll h-[750px] scrollbar-hide">
 
+            <form action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
+
+                <label class="mx-auto text-center flex justify-center" for="">
+               <div class="bg-[white] w-[180px] rounded-lg">
+               <a target="_blank" href="../../../<?= $logo ?>">
+                        <img id="saveLogo" src="../../..<?= $logo ?>" class="h-[50px] " alt="">
+                    </a>
+               </div>
+
+                </label>
                 <span class="block mx-auto text-center text-white text-2xl font-semibold ">Logo</span>
                 <div class="text-white mx-auto text-center mt-5">
-                    <form action="">
                         <label for="">Logo</label>
-                        <label for="file-upload" class="custom-file-upload text-black ml-2">
+                        <label for="logo" class="custom-file-upload text-black ml-2">
                             Choose File
                         </label>
-                        <input type="file" id="file-upload" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+                        <input accept=".png,.jpg,.svg" name="logoImg" type="file" id="logo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
 
-                        <button class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
+                        <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
                     </form>
                 </div>
 
+                <hr class="mt-10 h-[2px] mx-auto">
+  
 
+    <form action="">
                 <div class="text-white flex justify-between mt-10">
                     <div>
                         <span class="text-xl">Background Color</span>
