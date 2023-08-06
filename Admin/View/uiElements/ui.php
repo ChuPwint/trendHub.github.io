@@ -214,7 +214,15 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                 </div>
 
                 <hr class="mt-10 h-[2px] mx-auto">
+                <?php
+                $phoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+                $email = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+                $address = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : 'No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+                $addressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+                $time = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editInfo[0]["time"] : '08:00 am - 08:00 pm';
 
+
+                ?>
 
                 <div class="text-white flex  justify-between mt-10">
                     <div>
@@ -222,29 +230,29 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form action="../../Controller/uiElements/Information/updateController.php " method="post">
                             <div class="flex justify-between space-x-4 mt-4">
                                 <span>Phone No</span>
-                                <input name="phoneNumber" value="<?= $editInfo[0]["phoneNumber"]   ?>" class="pl-2 rounded-sm text-black w-[300px] ml-[100px]  " type="text" placeholder="09 xxx xxxx xxx">
+                                <input name="phoneNumber" value="<?= $phoneNumber ?>" class="pl-2 rounded-sm text-black w-[300px] ml-[100px]  " type="text" placeholder="09 xxx xxxx xxx">
                             </div>
 
 
                             <div class="flex justify-between mt-4">
                                 <span>Email</span>
-                                <input value="<?= $editInfo[0]["email"]   ?>" name="gmail" class="pl-2 w-[300px] ml-[100px] rounded-sm text-black" type="email" placeholder="trend@gmail.com">
+                                <input value="<?= $email  ?>" name="gmail" class="pl-2 w-[300px] ml-[100px] rounded-sm text-black" type="email" placeholder="trend@gmail.com">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Address </span>
-                                <input value="<?= $editInfo[0]["address"]  ?>" name="address" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Yangon">
+                                <input value="<?= $address ?>" name="address" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Yangon">
                             </div>
                             <div class="flex justify-between mt-4">
                                 <span>Location Link </span>
-                                <input value="<?= $editInfo[0]["locationLink"]  ?>" name="location" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Location Link">
+                                <input value="<?= $addressLink ?>" name="location" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="Location Link">
                             </div>
 
 
 
                             <div class="flex justify-between mt-4">
                                 <span>Time </span>
-                                <input value="<?= $editInfo[0]["time"] ?>" name="time" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="08:00 am - 08:00pm">
+                                <input value="<?= $time ?>" name="time" class="pl-2 rounded-sm text-black w-[300px] ml-[100px] " type="text" placeholder="08:00 am - 08:00pm">
                             </div>
 
 
@@ -252,13 +260,16 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         </form>
 
                         <?php
-                                $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banner1"]) ? $editbanner1[0]["banner1"] : '/Storage/default/default.png';
-                                $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/default/default.png';
-                                $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/default/default.png';
-                                $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/default/default.png';
 
 
-                                ?>
+                        $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banner1"]) ? $editbanner1[0]["banner1"] : '/Storage/banner/bannerP1.svg';
+                        $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/banner/bannerP1.svg';
+                        $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/banner/bannerP2.svg';
+                        $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/banner/bannerP2.svg';
+
+
+
+                        ?>
 
 
                     </div>
@@ -390,28 +401,28 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                 <div class="text-white flex  justify-between mt-10">
                     <div>
-                        <?php 
-  $moneyAmount= isset($editInfo[0]["money_amout"]) && !empty($editInfo[0]["money_amout"]) ? $editInfo[0]["money_amout"] : '10000';
-  $pointAmount= isset($editInfo[0]["point_amount"]) && !empty($editInfo[0]["point_amount"]) ? $editInfo[0]["point_amount"] : '1';
+                        <?php
+                        $moneyAmount = isset($editPoint[0]["money_amout"]) && !empty($editPoint[0]["money_amout"]) ? $editPoint[0]["money_amout"] : '10000';
+                        $pointAmount = isset($editPoint[0]["point_amount"]) && !empty($editPoint[0]["point_amount"]) ? $editPoint[0]["point_amount"] : '1';
 
 
-                         ?>
+                        ?>
                         <span class="text-xl">Point Exchange Rate</span>
-                        <span class="text-md mt-4 block">Current point : <?=  $moneyAmount ?> Kyats to  <?= $pointAmount?>  Points.</span>
+                        <span class="text-md mt-4 block">Current point : <?= $moneyAmount ?> Kyats to <?= $pointAmount ?> Points.</span>
                         <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
 
 
                             <div class="flex space-x-32 ">
                                 <div class="flex space-x-5 mt-4">
                                     <span>Money Amount:</span>
-                                    <input placeholder="Money Amount" name="moneyAmt" value="<?= $editPoint[0]["money_amout"] ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Money Amount" name="moneyAmt" value="<?= $moneyAmount ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
                                 </div>
 
                                 <span class="block mt-4">TO</span>
 
                                 <div class="flex space-x-5 mt-4">
                                     <span>Point Amount:</span>
-                                    <input placeholder="Point Amount" name="pointAmt" value="<?= $editPoint[0]["point_amount"] ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
+                                    <input placeholder="Point Amount" name="pointAmt" value="<?= $pointAmount ?>" class=" w-[120px] rounded-sm text-black text-center" type="text">
                                 </div>
                                 <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black]   bg-[white]">Save</button>
 
@@ -443,9 +454,16 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
                                 <?php
-                                $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/default/default.png';
-                                $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/default/default.png';
-                                $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/default/default.png';
+                                $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/slider/acer.png';
+                                $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/slider/dell.png';
+                                $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/slider/msi.svg';
+                                $sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+                                $sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+                                $sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+                                $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+                                $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+                                $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+
 
 
                                 ?>
@@ -472,7 +490,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <span>Title</span>
                                 <textarea placeholder="Enter Title" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3">
                                     <?=
-                                    $editSlideText1[0]["image_silder_title1"] ?>
+                                   $sliderTitle1 ?>
                                 </textarea>
 
                             </div>
@@ -481,7 +499,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                                 <span>Des</span>
                                 <textarea placeholder="Enter Description" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5">
                                 <?=
-                                $editSlideText1[0]["image_silder_dsc1"] ?>
+                                $sliderDsc1?>
                                 </textarea>
 
                             </div>
@@ -533,7 +551,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Title</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3">
-                                <?= $editSlideText2[0]["image_silder_title2"] ?>
+                                <?= $sliderTitle2 ?>
                                 </textarea>
 
                             </div>
@@ -541,7 +559,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Des</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5">
-                                <?= $editSlideText2[0]["image_silder_dsc2"] ?>
+                                <?=  $sliderDsc2 ?>
                                 </textarea>
 
                             </div>
@@ -596,7 +614,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Title</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="32" rows="3">
-                                <?= $editSlideText3[0]["image_silder_title3"] ?>
+                                <?= $sliderTitle3 ?>
                                 </textarea>
 
                             </div>
@@ -604,7 +622,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <div class="flex  mt-4">
                                 <span>Des</span>
                                 <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="32" rows="5">
-                                <?= $editSlideText3[0]["image_silder_dsc3"] ?>
+                                <?=  $sliderDsc3 ?>
 
                                 </textarea>
 
