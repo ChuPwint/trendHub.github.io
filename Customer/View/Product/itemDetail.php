@@ -1,3 +1,12 @@
+<?php
+session_start();
+$productDetail = $_SESSION["productDetail"];
+$averageRating = $_SESSION["averageRating"];
+$totalRatedCustomer = $_SESSION["totalRatedCustomer"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,28 +42,27 @@
 
     <!--Start of detail card-->
     <div class="px-5 md:px-28 py-10 md:py-6">
-        <div class="bg-productCardBgColor flex flex-col justify-center items-center shadow-md md:flex-row md:w-99">
+        <div class="bg-productCardBgColor flex flex-col justify-evenly items-center shadow-md md:flex-row md:w-99 md:py-5">
             <!-- image half -->
-            <div class="p-5 mb-3 flex justify-center items-center md:flex-grow md:w-[50%]">
-                <img class="p_detail_img w-[80%] md:w-full" src="../resources/img/item_detail/cpu-nb 385.svg" alt="">
-            </div>
+            <img class="p_detail_img w-[80%] md:max-w-[250px]" src="../../../<?= $productDetail[0]["p_path"] ?>" alt="">
 
             <!-- detail info -->
             <div class="p-5 bg-secondary">
                 <!-- product detail text -->
-                <p class="font-semibold mb-5">MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
+                <p class="font-semibold mb-5"><?= $productDetail[0]["p_detail"] ?></p>
 
                 <!-- brand and seller -->
-                <div class="md:flex md:flex-row md:justify-between md:items-center">
-                    <p class="font-semibold mb-5 md:mb-0">Brand: <span class="brand text-tertiary">MSI</span></p>
-                    <p class="font-semibold">From: <span class="seller text-tertiary">Merchant</span></p>
+                <div class="md:flex md:justify-between md:items-center">
+                    <p class="font-semibold">Brand: <span class="brand text-tertiary"><?= $productDetail[0]["brand_name"] ?></span></p>
+                    <p class="font-semibold">From: <span class="seller text-tertiary"><?= $productDetail[0]["m_name"] ?></span></p>
                 </div>
                 <hr class="mt-4 mb-4 border-black border-opacity-50">
 
                 <!-- price and (quantity increase button or stars) -->
                 <div class="flex justify-between items-center">
-                    <p class="font-bold text-xl text-tertiary">Ks <span class="price">4,750,000</span></p>
-                    <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt="">
+                    <p class="font-bold text-xl text-tertiary">Ks <span class="price"><?= number_format($productDetail[0]["sell_price"]) ?></span></p>
+                    <!-- <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt=""> -->
+                    <input id="" data-role="rating" data-stared-color="#F36823" data-static="true" data-value="<?= $averageRating ?>">
                     <p class="font-semibold md:hidden">
                         Qty:
                         <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
@@ -123,7 +131,7 @@
 
                 <div class="">
                     <p class="text-xl font-bold underline">Rating & Reviews</p>
-                    <p class="mt-3 text-gray-500">1072 Global Ratings</p>
+                    <p class="mt-3 text-gray-500"><?= $totalRatedCustomer ?> Global Ratings</p>
                     <div class="mt-3">
                         <div class="flex space-x-3">
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5 star</span>
@@ -288,7 +296,6 @@
         </div>
     </div>
     <!-- End of Modal Pop Up -->
-
 
     <!-- End of user reviews -->
     <?php

@@ -689,6 +689,10 @@ video {
   top: 0px;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
 .top-2 {
   top: 0.5rem;
 }
@@ -1013,6 +1017,10 @@ video {
 
 .mt-\[90px\] {
   margin-top: 90px;
+}
+
+.mt-0 {
+  margin-top: 0px;
 }
 
 .block {
@@ -1775,10 +1783,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[\] {
-  background-color: ;
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1959,21 +1963,6 @@ video {
   padding-bottom: 6px;
 }
 
-.py-\[\] {
-  padding-top: ;
-  padding-bottom: ;
-}
-
-.py-\[10px\] {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.py-\[7px\] {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -2028,10 +2017,6 @@ video {
 
 .pl-\[6px\] {
   padding-left: 6px;
-}
-
-.pr-2 {
-  padding-right: 0.5rem;
 }
 
 .pr-5 {
@@ -2197,14 +2182,13 @@ video {
   color: rgb(128 128 128 / var(--tw-text-opacity));
 }
 
-.text-\[\#F36823\] {
-  --tw-text-opacity: 1;
-  color: rgb(243 104 35 / var(--tw-text-opacity));
-}
-
 .text-\[\#FB4949\] {
   --tw-text-opacity: 1;
   color: rgb(251 73 73 / var(--tw-text-opacity));
+}
+
+.text-\[\<\?\=\$priceColor\?\>\] {
+  color: <?=$priceColor?>;
 }
 
 .text-black {
@@ -2426,22 +2410,7 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.hover\:text-\[\#F36823\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(243 104 35 / var(--tw-text-opacity));
-}
-
 .hover\:text-\[\#f36823\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(243 104 35 / var(--tw-text-opacity));
-}
-
-.hover\:text-red-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
-.hover\:text-tertiary:hover {
   --tw-text-opacity: 1;
   color: rgb(243 104 35 / var(--tw-text-opacity));
 }
@@ -2781,10 +2750,6 @@ video {
     width: 450px;
   }
 
-  .md\:w-\[50\%\] {
-    width: 50%;
-  }
-
   .md\:w-\[500px\] {
     width: 500px;
   }
@@ -2809,16 +2774,12 @@ video {
     width: auto;
   }
 
-  .md\:w-full {
-    width: 100%;
+  .md\:max-w-\[250px\] {
+    max-width: 250px;
   }
 
   .md\:flex-none {
     flex: none;
-  }
-
-  .md\:flex-grow {
-    flex-grow: 1;
   }
 
   .md\:flex-row {
