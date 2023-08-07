@@ -1,3 +1,12 @@
+<?php
+session_start();
+$productDetail = $_SESSION["productDetail"];
+$averageRating = $_SESSION["averageRating"];
+$totalRatedCustomer = $_SESSION["totalRatedCustomer"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +15,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Detail</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <link rel="stylesheet" href="../resources/css/itemDetail.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css">
-
+    <style>
+        #rating-events+ul li {
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+        }
+    </style>
 </head>
 
 <body class="bg-primary font-roboto">
@@ -28,28 +42,27 @@
 
     <!--Start of detail card-->
     <div class="px-5 md:px-28 py-10 md:py-6">
-        <div class="bg-productCardBgColor flex flex-col justify-center items-center shadow-md md:flex-row md:w-99">
+        <div class="bg-productCardBgColor flex flex-col justify-evenly items-center shadow-md md:flex-row md:w-99 md:py-5">
             <!-- image half -->
-            <div class="p-5 mb-3 flex justify-center items-center md:flex-grow md:w-[50%]">
-                <img class="p_detail_img w-[80%] md:w-full" src="../resources/img/item_detail/cpu-nb 385.svg" alt="">
-            </div>
+            <img class="p_detail_img w-[80%] md:max-w-[250px]" src="../../../<?= $productDetail[0]["p_path"] ?>" alt="">
 
             <!-- detail info -->
             <div class="p-5 bg-secondary">
                 <!-- product detail text -->
-                <p class="font-semibold mb-5">MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11</p>
+                <p class="font-semibold mb-5"><?= $productDetail[0]["p_detail"] ?></p>
 
                 <!-- brand and seller -->
-                <div class="md:flex md:flex-row md:justify-between md:items-center">
-                    <p class="font-semibold mb-5 md:mb-0">Brand: <span class="brand text-tertiary">MSI</span></p>
-                    <p class="font-semibold">From: <span class="seller text-tertiary">Merchant</span></p>
+                <div class="md:flex md:justify-between md:items-center">
+                    <p class="font-semibold">Brand: <span class="brand text-tertiary"><?= $productDetail[0]["brand_name"] ?></span></p>
+                    <p class="font-semibold">From: <span class="seller text-tertiary"><?= $productDetail[0]["m_name"] ?></span></p>
                 </div>
                 <hr class="mt-4 mb-4 border-black border-opacity-50">
 
                 <!-- price and (quantity increase button or stars) -->
                 <div class="flex justify-between items-center">
-                    <p class="font-bold text-xl text-tertiary">Ks <span class="price">4,750,000</span></p>
-                    <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt="">
+                    <p class="font-bold text-xl text-tertiary">Ks <span class="price"><?= number_format($productDetail[0]["sell_price"]) ?></span></p>
+                    <!-- <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt=""> -->
+                    <input id="" data-role="rating" data-stared-color="#F36823" data-static="true" data-value="<?= $averageRating ?>">
                     <p class="font-semibold md:hidden">
                         Qty:
                         <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
@@ -112,20 +125,13 @@
     <!-- Start of reviews summary -->
     <div class="px-5 md:px-28 mt-8">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
-            
+
 
             <div class="flex justify-evenly space-x-[200px] items-center">
 
-
-                <!-- <div class="flex items-center mb-5">
-    <p class="bg-blue-100 text-blue-800 text-sm font-semibold inline-flex items-center p-1.5 rounded dark:bg-blue-200 dark:text-blue-800">8.7</p>
-    <p class="ml-2 font-medium text-gray-900 dark:text-white">Excellent</p>
-    <span class="w-1 h-1 mx-2 bg-gray-900 rounded-full dark:bg-gray-500"></span>
-    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">376 reviews</p>
-    <a href="#" class="ml-auto text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Read all reviews</a>
-</div> -->
                 <div class="">
-                <p class="text-xl font-bold underline">Rating & Reviews</p>
+                    <p class="text-xl font-bold underline">Rating & Reviews</p>
+                    <p class="mt-3 text-gray-500"><?= $totalRatedCustomer ?> Global Ratings</p>
                     <div class="mt-3">
                         <div class="flex space-x-3">
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5 star</span>
@@ -133,7 +139,7 @@
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">88%</span>
                             </div>
                         </div>
 
@@ -176,35 +182,11 @@
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
                             </div>
                         </div>
-                       
+
                     </div>
-                   
+
                 </div>
 
-
-                <!-- <div class="md:flex-grow md:border-r md:border-gray-500 ">
-                    <div class="flex justify-start items-center mb-3">
-                        <img class="w-24" src="../resources/img/item_detail/5stars.svg" alt="">
-                        <div class="rating_five text-lg mx-3"></div>
-                    </div>
-                    <div class="flex justify-start items-center mb-3">
-                        <img class="w-24" src="../resources/img/item_detail/4stars.svg" alt="">
-                        <div class="rating_four text-lg mx-3">15</div>
-                    </div>
-                    <div class="flex justify-start items-center mb-3">
-                        <img class="w-24" src="../resources/img/item_detail/3stars.svg" alt="">
-                        <div class="rating_three text-lg mx-3">5</div>
-                    </div>
-                    <div class="flex justify-start items-center mb-3">
-                        <img class="w-24" src="../resources/img/item_detail/2stars.svg" alt="">
-                        <div class="rating_two text-lg mx-3"></div>
-                    </div>
-                    <div class="flex justify-start items-center">
-                        <img class="w-24" src="../resources/img/item_detail/1star.svg" alt="">
-                        <div class="rating_one text-lg mx-3"></div>
-                    </div>
-
-                </div> -->
 
                 <!-- desktop view -->
                 <div class="hidden text-center md:block md:ml-5 md:flex-none">
@@ -279,69 +261,60 @@
         </div>
     </div>
 
-    <!-- Star of Modal Pop Up -->
+    <!-- Start of Modal Pop Up -->
+
     <!-- Modal background -->
-    <div id="reviewPopup" class="hidden z-1 fixed w-full h-full pt-2 bg-black bg-opacity-50">
-        <div class="bg-white m-auto p-5 md:p-10 border rounded-sm md:rounded-md w-[80%] md:w-[60%]">
-            <!-- Modal Content -->
-            <p class="font-semibold md:text-2xl">Point History</p>
-            <hr class="border-black mt-4 mb-4">
-
-            <!-- if user has no points or not logged in users -->
-            <!-- <div class="noPointHistory flex flex-col justify-center items-center">
-                <img src="../resources/img/point/Empty state concept 1.svg" alt="">
-                <span class="text-center font-light mb-3">There is no data.</span>
-            </div> -->
-
-            <!-- if user has points -->
-            <!-- each point history -->
-            <div class="pointHistory shadow-md">
-                <p class="text-sm font-bold p-2 pb-4 md:p-4 md:pb-7 md:text-xl">20,000 phone bill</p>
-                <div class="bg-secondary p-2 pb-4 md:p-4 md:pb-7">
-                    <div class="flex justify-between items-center">
-                        <p class="text-tertiary text-sm font-bold md:text-xl"><span>50</span> points</p>
-                        <p class="text-tertiary text-sm font-bold md:text-xl">Claimed at <span class="point_claimedDate">2023/07/18</span></p>
+    <div id="reviewPopup" class="hidden">
+        <div class="z-10 fixed top-0 w-full h-screen pt-2 bg-[rgba(0,0,0,0.5)] flex justify-center items-center">
+            <div class="bg-white m-auto p-5 md:p-10 border rounded-sm md:rounded-md w-[80%] md:w-[60%]">
+                <form class="container mx-auto px-4 py-8" action="../../Controller/reviewController.php" method="post">
+                    <input type="hidden" name="reviewProductID" value="51">
+                    <input type="hidden" name="reviewCustomerID" value="17">
+                    <h1 class="text-3xl font-semibold mb-4">Create Review</h1>
+                    <p class="text-lg font-semibold">Overall Rating</p>
+                    <input name="rating" id="rating-events" data-role="rating" data-star-color="#F36823" data-stared-color="#F36823" class="mt-3" required>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2" for="message">Review Title</label>
+                        <textarea name="reviewTitle" class="w-1/2 px-3 py-3 h-16 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="Add a headline review" required></textarea>
                     </div>
-                </div>
-            </div>
-            <!-- each point history -->
-            <div class="pointHistory mt-5 shadow-md">
-                <p class="text-sm font-bold p-2 pb-4 md:p-4 md:pb-7 md:text-xl">20,000 phone bill</p>
-                <div class="bg-secondary p-2 pb-4 md:p-4 md:pb-7">
-                    <div class="flex justify-between items-center">
-                        <p class="text-tertiary text-sm font-bold md:text-xl"><span>50</span> points</p>
-                        <p class="text-tertiary text-sm font-bold md:text-xl">Claimed at <span class="point_claimedDate">2023/07/18</span></p>
-                    </div>
-                </div>
-            </div>
-            <!-- each point history -->
-            <div class="pointHistory mt-5 shadow-md">
-                <p class="text-sm font-bold p-2 pb-4 md:p-4 md:pb-7 md:text-xl">20,000 phone bill</p>
-                <div class="bg-secondary p-2 pb-4 md:p-4 md:pb-7">
-                    <div class="flex justify-between items-center">
-                        <p class="text-tertiary text-sm font-bold md:text-xl"><span>50</span> points</p>
-                        <p class="text-tertiary text-sm font-bold md:text-xl">Claimed at <span class="point_claimedDate">2023/07/18</span></p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Close Button -->
-            <div class="flex justify-center md:mt-6">
-                <button class="mt-5 bg-tertiary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg" onclick="closePointHistory()">Close</button>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2" for="message">Add a written review:</label>
+                        <textarea name="reviewText" class="w-full px-3 py-3 h-24 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="What do you like or dislike?" required></textarea>
+
+                    </div>
+                    <div class="flex justify-end items-center space-x-5">
+                        <button type="button" id="cancelReview" class="px-4 py-[6px] border-2 border-tertiary text-tertiary rounded">Cancel</button>
+                        <button type="submit" name="submitReview" class="bg-[#F36823] text-white font-semibold px-4 py-2 rounded">
+                            Submit Review
+                        </button>
+                    </div>
+
+                </form>
+
             </div>
-            <!-- End of Modal Content -->
         </div>
     </div>
     <!-- End of Modal Pop Up -->
-
 
     <!-- End of user reviews -->
     <?php
     include "../resources/common/footer.php"
     ?>
 
-<script src="https://cdn.korzh.com/metroui/v4.5.1/js/metro.min.js"></script>
-<script src="../resources/js/product/itemDetail.js"></script>
+    <script src="https://cdn.korzh.com/metroui/v4.5.1/js/metro.min.js"></script>
+    <script src="../resources/js/product/itemDetail.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.reviewNow').click(function() {
+                $('#reviewPopup').removeClass("hidden");
+            })
+
+            $('#cancelReview').click(function() {
+                $('#reviewPopup').addClass("hidden");
+            })
+        })
+    </script>
 </body>
 
 </html>
