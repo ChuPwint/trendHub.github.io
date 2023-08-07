@@ -92,10 +92,10 @@
 
             <!-- Order List Sub Menu  Start-->
             <div id="order-list-sub-menu" class="cursor-pointer rounded text-sm <?php echo ($menu == "orderList") ? "block" : "hidden"  ?>">
-                <a href="">
+                <a href="../orderList/adminOrder.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "adminOrder") ? "bg-[#31374A]" : false ?>">Admin Order</p>
                 </a>
-                <a href="">
+                <a href="../orderList/merchantOrder.php">
                     <p class="pl-5 py-1 rounded hover:bg-[#31374A] sub-menu <?= ($subMenu == "merchantOrder") ? "bg-[#31374A]" : false ?>">Merchant Order</p>
                 </a>
             </div>
