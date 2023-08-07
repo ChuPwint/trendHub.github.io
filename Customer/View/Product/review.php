@@ -25,10 +25,10 @@
                 <label class="block text-gray-700 font-semibold mb-2" for="message">Review Title</label>
                 <textarea class="w-1/2 px-3 py-3 h-16 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="Add a headline review"></textarea>
             </div>
-            <p>Add a photo</p>
+            <!-- <p>Add a photo</p>
             <div class="w-20 h-20 bg-secondary rounded-md flex items-center justify-center">
                 <p class="text-black text-xl">+</p>
-            </div>
+            </div> -->
 
             <div>
                 <label class="block text-gray-700 font-semibold mb-2" for="message">Add a written review:</label>
@@ -39,9 +39,9 @@
                 Submit Review
             </button>
         </div>
-        <div>
+        <!-- <div>
             <img src="../resources/img/products/review.svg" alt="review">
-        </div>
+        </div> -->
     </div>
 </body>
 
