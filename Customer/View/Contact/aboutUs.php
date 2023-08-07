@@ -14,22 +14,23 @@
 </head>
 
 <style>
-  .scrollHide::-webkit-scrollbar{
-display: none;
-  }
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <?php
-    include "../resources/common/navbar.php";
-    include "../../Controller/uiElement/editInfoController.php";
-    $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
-    $lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
+include "../resources/common/navbar.php";
+include "../../Controller/uiElement/editInfoController.php";
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
+$lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
 $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
 
-    ?>
+?>
+
 <body class="font-roboto bg-[<?= $primaryColor ?>] scrollHide">
 
-  
+
 
     <!-- Welcome -->
     <section class="container w-full mx-auto">
