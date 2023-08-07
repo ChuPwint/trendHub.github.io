@@ -44,6 +44,7 @@ $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["t
   /* For Webkit-based browsers (Chrome, Safari and Opera) */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+    scrollbar-width: none;
   }
 
   /* For IE, Edge and Firefox */
@@ -58,7 +59,7 @@ $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["t
 </style>
 
 
-<body class="font-roboto scrollbar-hide">
+<body class="font-roboto bg-[<?=$primaryColor?>] scrollbar-hide">
 
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-40">
@@ -171,6 +172,8 @@ $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["t
   <?php } ?>
   <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
+<script src="../../View/resources/js/navbar/navbar.js"></script>
+
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 

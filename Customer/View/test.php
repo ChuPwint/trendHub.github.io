@@ -79,7 +79,13 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
 ?>
 
-<body class=" font-roboto bg-[<?= $primaryColor ?>]">
+<style>
+  .scrollHide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<body class=" font-roboto bg-[<?= $primaryColor ?>] scrollHide">
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
     <!-- start first navbar -->
@@ -96,7 +102,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class="bg-[<?= $tertiaryColor?>] text-[<?= $navColor ?>] py-2 px-6 rounded md:hidden order-3">
+            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $navColor ?>] py-2 px-6 rounded md:hidden order-3">
               Login
             </button>
           </a>
@@ -133,7 +139,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class=" bg-[<?= $tertiaryColor?>] text-[<?= $primaryColor ?>]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+            <button class=" bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
               Login
             </button>
           </a>
@@ -147,12 +153,12 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
     </nav>
     <!-- end first navbar -->
     <!-- start second navbar -->
-    <nav class="bg-[<?= $secondaryColor ?>] py-2 px-3 md:px-7">
+    <nav class="bg-[<?= $secondaryColor ?>] py-2 px-3 md:px-7 shadow-md">
       <div class="flex justify-between">
         <div class="flex">
 
           <!-- desktop categories -->
-          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor?>] text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
+          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor ?>] text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
@@ -167,8 +173,8 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?=  $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
-        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor?>]">0</span>
+        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?= $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
+        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor ?>]">0</span>
       </div>
     </nav>
     <!-- end second navbar -->
@@ -268,7 +274,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
             <img class="mt-[30px]" src="./resources/img/homePage/Deals/makeup.png" alt="">
           </div>
 
-          <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3  ">
+          <div class="circle absolute w-[50px] h-[50px] bg-[<?= $buttonColor ?>] rounded-full right-3 top-3  ">
             <span class="text-textWhite leading-[50px] text-center mx-auto block">10%</span>
           </div>
         </div>
@@ -276,7 +282,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
           <div class="flex justify-around px-4 mt-[10px] relative">
             <div class="mt-[50px] font-bold">Smart Watch</div>
-            <img class="mt-[20px]" src="./resources/img/homePage/Deals/watch.png" alt="">
+            <img class="mt-[20px] w-[150px]" src="./resources/img/homePage/Deals/watch.png" alt="">
           </div>
           <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3 ">
             <span class="text-textWhite leading-[50px] text-center mx-auto block">5%</span>
@@ -298,41 +304,43 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
   </div>
   <!-- end deals -->
 
+  <!-- box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; -->
+
   <!-- start trending products -->
   <div id="trending" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Trending Products</h2>
     <div class="flex justify-center flex-wrap">
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div style=" box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080] "><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
@@ -349,38 +357,38 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
   <div id="best" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Bestseller Products</h2>
     <div class="flex justify-center flex-wrap">
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
@@ -396,38 +404,38 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">New Products</h2>
     <div class="flex justify-center flex-wrap">
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
+      <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
+        <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
