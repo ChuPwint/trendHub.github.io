@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_POST["addProduct"])) {
-    header("Location: ../../../../View/Error/error.php");
+   
 } else {
     // $merchantId =  $_SESSION["currentLoginUser"];
     $merchantId  = 10;
@@ -24,29 +24,11 @@ if (!isset($_POST["addProduct"])) {
     if (move_uploaded_file($imageTmp, "../../../Storage/marchentProductSubmit/" . $image)) {
 
 
-        // Check if a submission from the same merchant already exists
-        $sqlCheckSubmission = $pdo->prepare("SELECT * FROM t_product_submits WHERE merchant_id = :merId");
-        $sqlCheckSubmission->bindValue(":merId", $merchantId);
-        $sqlCheckSubmission->execute();
-        $existingSubmission = $sqlCheckSubmission->fetch(PDO::FETCH_ASSOC);
-
-        if ($existingSubmission) {
-
-            $productSubmitId = $existingSubmission['id'];
-        } else {
-
-            $sqlInsertSubmission = $pdo->prepare("INSERT INTO t_product_submits (merchant_id) VALUES (:merId)");
-            $sqlInsertSubmission->bindValue(":merId", $merchantId);
-            $sqlInsertSubmission->execute();
-
-
-            $productSubmitId = $pdo->lastInsertId();
-        }
 
         $sql = $pdo->prepare(
-            "INSERT INTO t_product_submit_details
+            "INSERT INTO m_product_temp
     (
-        product_submit_id,
+       
         p_name,
         category_id,
         brand_name,
@@ -56,12 +38,12 @@ if (!isset($_POST["addProduct"])) {
         p_detail,
         buy_price,
         sell_price,
-        approved,
+        merchant_id,
         create_date
     )
     VALUES
     (
-        :pId,
+        
         :pName,
         :pCategory,
         :pBrand,
@@ -71,13 +53,13 @@ if (!isset($_POST["addProduct"])) {
         :pDetail,
         :buyPrice,
         :sellPrice,
-        :approve,
+        :id,
         :createDate
     )"
         );
 
 
-        $sql->bindValue(":pId", $productSubmitId);
+
         $sql->bindValue(":pName", $productName);
         $sql->bindValue(":pCategory", $category);
         $sql->bindValue(":pBrand", $brand);
@@ -87,13 +69,12 @@ if (!isset($_POST["addProduct"])) {
         $sql->bindValue(":pDetail", $detail);
         $sql->bindValue(":buyPrice", $buyPrice);
         $sql->bindValue(":sellPrice", $sellPrice);
-        $sql->bindValue(":approve", 0);
+        $sql->bindValue(":id", $merchantId);
         $sql->bindValue(":createDate", date("Y-m-d"));
 
         $sql->execute();
         header("Location: ./merchantProductController.php");
-      
     } else {
-        header("Location: ../../View/Error/error.php");
+        // header("Location: ../../View/Error/error.php");
     }
 }
