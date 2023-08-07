@@ -6,6 +6,7 @@ if(count($_POST) == 0){
     header("Location: ../../View/Error/error.php");
 }else{
    $buttonColor = $_POST["buttonColor"];
+   $buttonText = $_POST["buttonText"];
 
 
 
@@ -13,13 +14,15 @@ if(count($_POST) == 0){
 
    $sql = $pdo->prepare(
     " UPDATE ui_setting SET 
-    buy_button_color= :buttonColor
+    buy_button_color= :buttonColor,
+    button_text= :buttonText
   
     WHERE id = 0;
     "
    );
 
    $sql->bindValue(":buttonColor",$buttonColor);
+   $sql->bindValue(":buttonText",$buttonText);
 
 
    $sql->execute();

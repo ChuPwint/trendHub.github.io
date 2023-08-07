@@ -19,7 +19,8 @@ if(count($_POST) == 0){
    $sql->bindValue(":cardColor",$cardColor);
    $sql->execute();
  
-   header("Location: ../../../View/UI Elements/ui.php");
+   header("Location: ../../../View/uiElements/ui.php");
+
 
 
 }

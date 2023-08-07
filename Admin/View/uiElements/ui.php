@@ -20,7 +20,7 @@ include "../../Controller/uiElements/banner4/viewBannerController.php";
 include "../../Controller/uiElements/banner5/viewBannerController.php";
 include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
 include "../../Controller/uiElements/textColor/viewTextController.php";
-// include "../../Controller/uiElements/cardColor/viewCardController.php";
+include "../../Controller/uiElements/cardColor/viewCardController.php";
 // include "../../Controller/uiElements/fontColor/viewFontColorController.php";
 include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
 include ".././../Controller/uiElements/terms/viewtermsController.php";
@@ -31,9 +31,11 @@ $primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacgrou
 $secondaryColor = isset($editBacground[0]["secondary_color"]) && !empty($editBacground[0]["secondary_color"]) ? $editBacground[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editBacground[0]["tertiary_color"]) && !empty($editBacground[0]["tertiary_color"]) ? $editBacground[0]["tertiary_color"] : '#F36823';
 $priceColor = isset($editText[0]["price_text_color"]) && !empty($editText[0]["price_text_color"]) ? $editText[0]["price_text_color"] : '#F36823';
+$cardColor = isset($editCardColor[0]["price_card_color"]) && !empty($editCardColor[0]["price_card_color"]) ? $editCardColor[0]["price_card_color"] : '#ffffff';
 $navColor = isset($editText[0]["nav_text_color"]) && !empty($editText[0]["nav_text_color"]) ? $editText[0]["nav_text_color"] : '#000000';
 $titleColor = isset($editText[0]["title_color"]) && !empty($editText[0]["title_color"]) ? $editText[0]["title_color"] : '#000000';
 $buttonColor = isset($editButtonColor[0]["buy_button_color"]) && !empty($editButtonColor[0]["buy_button_color"]) ? $editButtonColor[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editButtonColor[0]["button_text"]) && !empty($editButtonColor[0]["button_text"]) ? $editButtonColor[0]["button_text"] : '#FFFFFF';
 $phoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
 $email = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
 $address = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : 'No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
@@ -181,11 +183,11 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
             <hr class="mt-10 h-[2px] mx-auto">
           
 
-            <form action="../../Controller/uiElements/backgroundColor/updateBacgroundController.php" method="post">
+          
                 <div class="text-white flex justify-between mt-10">
                     <div>
                         <span class="text-xl">Background Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/backgroundColor/updateBacgroundController.php" method="post">
                             <div class="flex justify-between mt-4">
                                 <span>Primay</span>
                                 <input name="bgPrimary" value="<?= $primaryColor  ?>" class="rounded-sm" type="color">
@@ -200,6 +202,8 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
                                 <span>Tertiary </span>
                                 <input name="bgTertiary" value="<?= $tertiaryColor ?>" class="rounded-sm" type="color">
                             </div>
+
+                            
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                         </form>
 
@@ -228,10 +232,10 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
                     </div>
                     <div>
                         <span class="text-xl"> Card Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/cardColor/updateCardController.php" method="post">
                             <div class="flex justify-between mt-4">
                                 <span>Price Card</span>
-                                <input class="rounded-sm" type="color">
+                                <input name="cardColor" value="<?= $cardColor ?>" class="rounded-sm" type="color">
                             </div>
 
 
@@ -262,12 +266,66 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
                                 <span>Button</span>
                                 <input name="buttonColor" value="<?= $buttonColor ?>" class="rounded-sm" type="color">
                             </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Text</span>
+                                <input name="buttonText" value="<?= $buttonText ?>" class="rounded-sm" type="color">
+                            </div>
 
 
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                         </form>
                     </div>
                 </div>
+
+
+                <div class="text-white flex justify-between mt-10">
+                    <div>
+                        <span class="text-xl">Background Color</span>
+                        <form action="../../Controller/uiElements/backgroundColor/updateBacgroundController.php" method="post">
+                            <div class="flex justify-between mt-4">
+                                <span>Primay</span>
+                                <input name="bgPrimary" value="<?= $primaryColor  ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <span>Secondary</span>
+                                <input name="bgSecondary" value="<?= $secondaryColor ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <span>Tertiary </span>
+                                <input name="bgTertiary" value="<?= $tertiaryColor ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
+                        </form>
+
+
+
+                    </div>
+                
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <hr class="mt-10 h-[2px] mx-auto">
             
