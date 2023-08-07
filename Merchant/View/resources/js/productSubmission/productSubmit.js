@@ -19,25 +19,25 @@ document.getElementById("file_upload").onchange = function (evt) {
   };
   
   
-  document.getElementById("editFile_upload").onchange = function (evt) {
-      var tgt = evt.target || window.evt.srcElement,
-        files = tgt.files;
+  // document.getElementById("editFile_upload").onchange = function (evt) {
+  //     var tgt = evt.target || window.evt.srcElement,
+  //       files = tgt.files;
     
-      // FileReader support
-      if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-          document.getElementById("editImage").src = fr.result;
-        };
-        fr.readAsDataURL(files[0]);
-      }
+  //     // FileReader support
+  //     if (FileReader && files && files.length) {
+  //       var fr = new FileReader();
+  //       fr.onload = function () {
+  //         document.getElementById("editImage").src = fr.result;
+  //       };
+  //       fr.readAsDataURL(files[0]);
+  //     }
     
-      // Not supported
-      else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
-        // them on the server until the user's session ends.
-      }
-    };
+  //     // Not supported
+  //     else {
+  //       // fallback -- perhaps submit the input to an iframe and temporarily store
+  //       // them on the server until the user's session ends.
+  //     }
+  //   };
   
   
   
@@ -74,15 +74,16 @@ document.getElementById("file_upload").onchange = function (evt) {
       });
     });
   
-    //Admin Product Delete Model Box
-    $(document).on("click", ".deleteProduct", function (){
-      $("#modal1").removeClass("hidden");
+    //merchant Product Delete Model Box
+    $(document).on("click", ".delete", function (){
+      $("#deleteModal").removeClass("hidden");
+      
   
       $.ajax({
-        url: "../../../../Controller/productSubmission/merchantDeleteProductShowController.php",
+        url: "../../../../Controller/productSubmission/merchantDeleteProductController.php",
         type: "POST",
         data: {
-          id: $(this).attr("deleteID"),
+          id: $(this).attr("deleteId"),
         },
         success: function (result) {
           let product = JSON.parse(result);
@@ -98,7 +99,7 @@ document.getElementById("file_upload").onchange = function (evt) {
   
     //Admin Product Delete
     $("#confirmDeleteProduct").click(function (){
-      $("#modal1").addClass("hidden");
+      $("#deleteModal").addClass("hidden");
   
       $.ajax({
         url: "../../Controller/manageProducts/adminDeleteProductController.php",
@@ -116,7 +117,7 @@ document.getElementById("file_upload").onchange = function (evt) {
     })
   
     $("#closeModal1,#cancelDeleteProduct").click(function (){
-      $("#modal1").addClass("hidden");
+      $("#deleteModal").addClass("hidden");
     })
   
   

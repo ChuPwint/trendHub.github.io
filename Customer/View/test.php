@@ -41,19 +41,49 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 
-
 </head>
 
-<body class=" font-roboto">
 
-  <?php
-  $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
 
-  ?>
+<?php
+
+$logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
+$secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
+$cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+$sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
+$sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
+$sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
+$slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : 'white';
+$slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : 'white';
+$slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : 'white';
+$sliderImg1 = isset($editInfo[0]["image_silder1"]) && !empty($editInfo[0]["image_silder1"]) ? $editInfo[0]["image_silder1"] : '/Storage/slider/acer.png';
+$sliderImg2 = isset($editInfo[0]["image_silder2"]) && !empty($editInfo[0]["image_silder2"]) ? $editInfo[0]["image_silder2"] : '/Storage/slider/dell.png';
+$sliderImg3 = isset($editInfo[0]["image_silder3"]) && !empty($editInfo[0]["image_silder3"]) ? $editInfo[0]["image_silder3"] : '/Storage/slider/msi.svg';
+$sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+$editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+$editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+$editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+
+?>
+
+<body class=" font-roboto bg-[<?= $primaryColor ?>]">
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
     <!-- start first navbar -->
-    <nav class="py-2 px-4 bg-white shadow md:flex md:items-center md:justify-between">
+    <nav class="py-2 px-4 bg-[<?= $primaryColor ?>] shadow md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
 
         <!-- desktop logo -->
@@ -66,7 +96,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class="bg-tertiary text-textWhite py-2 px-6 rounded md:hidden order-3">
+            <button class="bg-[<?= $tertiaryColor?>] text-[<?= $navColor ?>] py-2 px-6 rounded md:hidden order-3">
               Login
             </button>
           </a>
@@ -84,26 +114,26 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
         </span>
       </div>
 
-      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?= $primaryColor ?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0">
-          <a href="./index.php" class="text-md hover:text-[#F36823]  duration-300">Home</a>
+          <a href="./index.php" class="text-md text-[<?= $navColor ?>]  duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/aboutUs.php" class="text-md hover:text-[#F36823]  duration-300">About</a>
+          <a href="./Contact/aboutUs.php" class="text-md text-[<?= $navColor ?>]  duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/services.php" class="text-md hover:text-[#F36823]  duration-300">Service</a>
+          <a href="./Contact/services.php" class="text-md text-[<?= $navColor ?>]  duration-300">Service</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/help.php" class="text-md hover:text-[#F36823]  duration-300">Help</a>
+          <a href="./Contact/help.php" class="text-md text-[<?= $navColor ?>]  duration-300">Help</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
+          <a href="./Contact/contact.php" class="text-md text-[<?= $navColor ?>] duration-300">Contact</a>
         </li>
 
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+            <button class=" bg-[<?= $tertiaryColor?>] text-[<?= $primaryColor ?>]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
               Login
             </button>
           </a>
@@ -117,17 +147,18 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
     </nav>
     <!-- end first navbar -->
     <!-- start second navbar -->
-    <nav class="bg-secondary py-2 px-3 md:px-7">
+    <nav class="bg-[<?= $secondaryColor ?>] py-2 px-3 md:px-7">
       <div class="flex justify-between">
         <div class="flex">
 
           <!-- desktop categories -->
-          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-tertiary hover:bg-tertiary text-textWhite rounded-l-md cursor-pointer">
+          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor?>] text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
-            <img class="inline" src="./resources/img/header/down-arrow.png" alt="">
+            <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
+            <ion-icon class="relative top-1" name="caret-down-outline"></ion-icon>
 
-            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
+            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[<?= $primaryColor ?>] rounded-md shadow-lg">
               <?php foreach ($categoriesResult as $category) { ?>
                 <li><a href="./Product/category.php" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400"><?= $category["category_name"] ?></a></li>
               <?php } ?>
@@ -136,14 +167,14 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="./Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="./resources/img/header/cart.svg" alt=""></a>
-        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-tertiary">0</span>
+        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?=  $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
+        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor?>]">0</span>
       </div>
     </nav>
     <!-- end second navbar -->
   </div>
 
-  <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+  <div id="slide-menu" class="hidden z-40 fixed right-0 top-0 h-full w-80 bg-[<?= $primaryColor ?>] shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
         <?php foreach ($categoriesResult as $category) { ?>
@@ -162,27 +193,11 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
       <div class="swiper-slide">
 
         <!-- start set default value -->
-        <?php
-        $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
-        $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
-        $sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
-        $slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : 'white';
-        $slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : 'white';
-        $slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : 'white';
-        $sliderImg1 = isset($editInfo[0]["image_silder1"]) && !empty($editInfo[0]["image_silder1"]) ? $editInfo[0]["image_silder1"] : '/Storage/slider/acer.png';
-        $sliderImg2 = isset($editInfo[0]["image_silder2"]) && !empty($editInfo[0]["image_silder2"]) ? $editInfo[0]["image_silder2"] : '/Storage/slider/dell.png';
-        $sliderImg3 = isset($editInfo[0]["image_silder3"]) && !empty($editInfo[0]["image_silder3"]) ? $editInfo[0]["image_silder3"] : '/Storage/slider/msi.svg';
-        $sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-        $sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-        $sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-        $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-        $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-        $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-        ?>
+
         <!-- end set default value -->
 
 
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor1 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor1 ?>] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
             <img src="../../<?= $sliderImg1 ?>" alt="">
 
@@ -201,7 +216,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
 
           <div class="  img w-[300px]  ">
             <img src="../../<?= $sliderImg2 ?>" alt="">
@@ -220,7 +235,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[130px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
 
           <div class="img w-[300px] ">
             <img src="../../<?= $sliderImg3 ?>" alt="">
@@ -244,7 +259,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
   <!-- start deals -->
   <div class=" max-w-[1700px] mx-auto">
     <div class="pt-[120px] -z-50 ">
-      <h2 class="px-8 py-4 ml-[60px] text-xl font-bold ">DAILY DEALS</h2>
+      <h2 class="px-8 py-4 ml-[60px] text-xl font-bold  text-[<?= $titleColor ?>]">DAILY DEALS</h2>
       <div class="flex justify-center z-0 flex-wrap  ">
 
         <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-[#FDC6DB] cursor-pointer card ">
@@ -285,43 +300,43 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
   <!-- start trending products -->
   <div id="trending" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Trending Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Trending Products</h2>
     <div class="flex justify-center flex-wrap">
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080] "><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -332,42 +347,42 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
   <!-- start bestsellers products -->
   <div id="best" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">Bestseller Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Bestseller Products</h2>
     <div class="flex justify-center flex-wrap">
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -378,43 +393,43 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
   <!-- start new products -->
   <div id="new" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold ">New Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">New Products</h2>
     <div class="flex justify-center flex-wrap">
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
       </div>
 
-      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-white shadow-md rounded-md relative">
+      <div class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch.png" alt="">
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[#F36823] ">KS 4,775,000</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?=$priceColor?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-textWhite bg-tertiary text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -423,75 +438,69 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
 
 
 
-  <footer class="bg-secondary w-full h-auto font-roboto mt-[90px]">
+  <footer class="bg-[<?= $secondaryColor ?>] w-full h-auto font-roboto mt-[90px]">
     <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
       <div class="">
-        <span class="block text-[18px] font-semibold py-3">Customer Care</span>
+        <span class="block text-[18px] font-semibold py-3 text-[<?= $navColor ?>]">Customer Care</span>
 
         <a href="./Contact/help.php">
-          <span class="cursor-pointer hover:text-tertiary block">FAQs</span>
+          <span class="cursor-pointer text-[<?= $navColor ?>] block">FAQs</span>
         </a>
 
         <a href="./Point/points.php">
-          <span class="cursor-pointer hover:text-tertiary block">Exchange Points</span>
+          <span class="cursor-pointer text-[<?= $navColor ?>] block">Exchange Points</span>
         </a>
 
         <a href="./Contact/privacyAndPolicy.php">
-          <span class="cursor-pointer hover:text-tertiary block">Privay & Policy</span>
+          <span class="cursor-pointer text-[<?= $navColor ?>] block">Privay & Policy</span>
         </a>
 
         <a href="../../Merchant/View/Login/login.php">
-          <span class="cursor-pointer hover:text-tertiary block">Sell on Shop</span>
+          <span class="cursor-pointer text-[<?= $navColor ?>] block">Sell on Shop</span>
         </a>
       </div>
 
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Shop</span>
+        <span class="block text-[18px] text-[<?= $navColor ?>] font-semibold py-3 md:mt-0 mt-5">Shop</span>
         <a href="./index.php">
-          <span class="block cursor-pointer hover:text-red-500">Shop</span>
+          <span class="block cursor-pointer text-[<?= $navColor ?>]">Shop</span>
 
         </a>
         <a href="#trending">
-          <span class="block cursor-pointer hover:text-tertiary">Trending Products</span>
+          <span class="block cursor-pointer text-[<?= $navColor ?>]">Trending Products</span>
 
         </a>
         <a href="#best">
-          <span class="block cursor-pointer hover:text-tertiary">Bestsellers Product</span>
+          <span class="block cursor-pointer text-[<?= $navColor ?>]">Bestsellers Product</span>
         </a>
 
         <a href="#new">
-          <span class="block cursor-pointer hover:text-tertiary">New Products</span>
+          <span class="block cursor-pointer text-[<?= $navColor ?>]">New Products</span>
         </a>
       </div>
 
-      <?php
-      $editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
-      $editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
-      $editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
-      $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
 
-      ?>
 
 
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5">Contact Us</span>
-        <span class="block cursor-pointer ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
-        <span class="block cursor-pointer ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
-        <span class="block cursor-pointer  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?= $navColor ?>]">Contact Us</span>
+        <span class="block cursor-pointer text-[<?= $navColor ?>] ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
+        <span class="block cursor-pointer text-[<?= $navColor ?>] ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
+        <span class="block cursor-pointer text-[<?= $navColor ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5">Follow Us</span>
+        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?= $navColor ?>]">Follow Us</span>
         <div class="flex justify-center space-x-3">
           <a href="https://web.facebook.com/extbrainedu">
-            <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
+            <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-facebook"></ion-icon>
           </a>
-          <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
-          <ion-icon class="text-2xl" name="logo-twitter"></ion-icon>
+          <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-instagram"></ion-icon>
+          <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-twitter"></ion-icon>
         </div>
       </div>
     </div>
-    <span class="text-center text-sm block pb-5">Copyright © 2023 TrendHub | Created by X-Tech</span>
+    <span class="text-center text-sm block pb-5 text-[<?= $navColor ?>]">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
 
   <script>

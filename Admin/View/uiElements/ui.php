@@ -18,12 +18,56 @@ include "../../Controller/uiElements/banner2/viewBannerController.php";
 include "../../Controller/uiElements/banner3/viewBannerController.php";
 include "../../Controller/uiElements/banner4/viewBannerController.php";
 include "../../Controller/uiElements/banner5/viewBannerController.php";
-// include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
-// include "../../Controller/uiElements/textColor/viewTextController.php";
-// include "../../Controller/uiElements/cardColor/viewCardController.php";
+include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
+include "../../Controller/uiElements/textColor/viewTextController.php";
+include "../../Controller/uiElements/cardColor/viewCardController.php";
 // include "../../Controller/uiElements/fontColor/viewFontColorController.php";
-// include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
+include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
 include ".././../Controller/uiElements/terms/viewtermsController.php";
+
+
+$logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
+$primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacground[0]["primary_color"]) ? $editBacground[0]["primary_color"] : '#FFFAFA';
+$secondaryColor = isset($editBacground[0]["secondary_color"]) && !empty($editBacground[0]["secondary_color"]) ? $editBacground[0]["secondary_color"] : '#E4E4D2';
+$tertiaryColor = isset($editBacground[0]["tertiary_color"]) && !empty($editBacground[0]["tertiary_color"]) ? $editBacground[0]["tertiary_color"] : '#F36823';
+$priceColor = isset($editText[0]["price_text_color"]) && !empty($editText[0]["price_text_color"]) ? $editText[0]["price_text_color"] : '#F36823';
+$cardColor = isset($editCardColor[0]["price_card_color"]) && !empty($editCardColor[0]["price_card_color"]) ? $editCardColor[0]["price_card_color"] : '#ffffff';
+$navColor = isset($editText[0]["nav_text_color"]) && !empty($editText[0]["nav_text_color"]) ? $editText[0]["nav_text_color"] : '#000000';
+$titleColor = isset($editText[0]["title_color"]) && !empty($editText[0]["title_color"]) ? $editText[0]["title_color"] : '#000000';
+$buttonColor = isset($editButtonColor[0]["buy_button_color"]) && !empty($editButtonColor[0]["buy_button_color"]) ? $editButtonColor[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editButtonColor[0]["button_text"]) && !empty($editButtonColor[0]["button_text"]) ? $editButtonColor[0]["button_text"] : '#FFFFFF';
+$phoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+$email = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+$address = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : 'No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+$addressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+$time = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editInfo[0]["time"] : '08:00 am - 08:00 pm';
+$bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banner1"]) ? $editbanner1[0]["banner1"] : '/Storage/banner/bannerP1.svg';
+$bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/banner/bannerP1.svg';
+$bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/banner/bannerP2.svg';
+$bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/banner/bannerP2.svg';
+$moneyAmount = isset($editPoint[0]["money_amout"]) && !empty($editPoint[0]["money_amout"]) ? $editPoint[0]["money_amout"] : '10000';
+$pointAmount = isset($editPoint[0]["point_amount"]) && !empty($editPoint[0]["point_amount"]) ? $editPoint[0]["point_amount"] : '1';
+$slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/slider/acer.png';
+$slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/slider/dell.png';
+$slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/slider/msi.svg';
+$sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
+$sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
+$sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
+$sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
+$sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
+$slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : '#ffffff';
+$slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : '#ffffff';
+$slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : '#ffffff';
+$question1 = isset($editInfo[0]["question1"]) && !empty($editInfo[0]["question1"]) ? $editInfo[0]["question1"] : 'How to use my points?';
+$question2 = isset($editInfo[0]["question2"]) && !empty($editInfo[0]["question2"]) ? $editInfo[0]["question2"] : 'Where to check my orders?';
+$question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"]) ? $editInfo[0]["question3"] : 'What payment options are available?';
+$answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+$answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+$answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 
 
 
@@ -109,25 +153,22 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
             </div>
             <!-- Search End-->
 
-<?php
-            $logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
-
-?>        
+         
 
             <div class="px-[53px] py-8 data-output  overflow-y-scroll h-[750px] scrollbar-hide">
 
-            <form action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
+                <form action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
 
-                <label class="mx-auto text-center flex justify-center" for="">
-               <div class="bg-[white] w-[180px] rounded-lg">
-               <a target="_blank" href="../../../<?= $logo ?>">
-                        <img id="saveLogo" src="../../..<?= $logo ?>" class="h-[50px] " alt="">
-                    </a>
-               </div>
+                    <label class="mx-auto text-center flex justify-center" for="">
+                        <div class="bg-[white] w-[180px] rounded-lg">
+                            <a target="_blank" href="../../../<?= $logo ?>">
+                                <img id="saveLogo" src="../../..<?= $logo ?>" class="h-[50px] " alt="">
+                            </a>
+                        </div>
 
-                </label>
-                <span class="block mx-auto text-center text-white text-2xl font-semibold ">Logo</span>
-                <div class="text-white mx-auto text-center mt-5">
+                    </label>
+                    <span class="block mx-auto text-center text-white text-2xl font-semibold ">Logo</span>
+                    <div class="text-white mx-auto text-center mt-5">
                         <label for="">Logo</label>
                         <label for="logo" class="custom-file-upload text-black ml-2">
                             Choose File
@@ -136,31 +177,33 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 
                         <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
-                    </form>
-                </div>
+                </form>
+            </div>
 
-                <hr class="mt-10 h-[2px] mx-auto">
-  
+            <hr class="mt-10 h-[2px] mx-auto">
+          
 
-    <form action="">
+          
                 <div class="text-white flex justify-between mt-10">
                     <div>
                         <span class="text-xl">Background Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/backgroundColor/updateBacgroundController.php" method="post">
                             <div class="flex justify-between mt-4">
                                 <span>Primay</span>
-                                <input value="#FFFAFA" class="rounded-sm" type="color">
+                                <input name="bgPrimary" value="<?= $primaryColor  ?>" class="rounded-sm" type="color">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Secondary</span>
-                                <input value="#E4E4D2" class="rounded-sm" type="color">
+                                <input name="bgSecondary" value="<?= $secondaryColor ?>" class="rounded-sm" type="color">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Tertiary </span>
-                                <input value="#F36823" class="rounded-sm" type="color">
+                                <input name="bgTertiary" value="<?= $tertiaryColor ?>" class="rounded-sm" type="color">
                             </div>
+
+                            
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                         </form>
 
@@ -169,30 +212,30 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     </div>
                     <div>
                         <span class="text-xl">Text Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/textColor/updateTextController.php" method="post">
                             <div class="flex justify-between mt-4">
                                 <span>Price Text</span>
-                                <input value="#F36823" class="rounded-sm" type="color">
+                                <input name="priceColor" value="<?= $priceColor ?>" class="rounded-sm" type="color">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Nav Text</span>
-                                <input value="#fffafa" class="rounded-sm" type="color">
+                                <input name="navColor" value="<?= $navColor ?>" class="rounded-sm" type="color">
                             </div>
 
                             <div class="flex justify-between mt-4">
                                 <span>Title </span>
-                                <input value="#F36823" class="rounded-sm" type="color">
+                                <input name="titleColor" value="<?= $titleColor ?>" class="rounded-sm" type="color">
                             </div>
                             <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                         </form>
                     </div>
                     <div>
                         <span class="text-xl"> Card Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/cardColor/updateCardController.php" method="post">
                             <div class="flex justify-between mt-4">
                                 <span>Price Card</span>
-                                <input class="rounded-sm" type="color">
+                                <input name="cardColor" value="<?= $cardColor ?>" class="rounded-sm" type="color">
                             </div>
 
 
@@ -218,29 +261,74 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                     <div>
                         <span class="text-xl">Button Color</span>
-                        <form action="">
+                        <form action="../../Controller/uiElements/buttonColor/updateButtonColorController.php" method="post">
                             <div class="flex justify-between mt-4">
-                                <span>Buy</span>
-                                <input value="#F36823" class="rounded-sm" type="color">
+                                <span>Button</span>
+                                <input name="buttonColor" value="<?= $buttonColor ?>" class="rounded-sm" type="color">
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <span>Text</span>
+                                <input name="buttonText" value="<?= $buttonText ?>" class="rounded-sm" type="color">
                             </div>
 
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Buy</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                         </form>
                     </div>
                 </div>
 
+
+                <div class="text-white flex justify-between mt-10">
+                    <div>
+                        <span class="text-xl">Background Color</span>
+                        <form action="../../Controller/uiElements/backgroundColor/updateBacgroundController.php" method="post">
+                            <div class="flex justify-between mt-4">
+                                <span>Primay</span>
+                                <input name="bgPrimary" value="<?= $primaryColor  ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <span>Secondary</span>
+                                <input name="bgSecondary" value="<?= $secondaryColor ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <span>Tertiary </span>
+                                <input name="bgTertiary" value="<?= $tertiaryColor ?>" class="rounded-sm" type="color">
+                            </div>
+
+                            
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
+                        </form>
+
+
+
+                    </div>
+                
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <hr class="mt-10 h-[2px] mx-auto">
-                <?php
-                $phoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
-                $email = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
-                $address = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : 'No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
-                $addressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
-                $time = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editInfo[0]["time"] : '08:00 am - 08:00 pm';
-
-
-                ?>
-
+            
                 <div class="text-white flex  justify-between mt-10">
                     <div>
                         <span class="text-xl">Information</span>
@@ -276,17 +364,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                             <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[440px] bg-[white]">Save</button>
                         </form>
 
-                        <?php
-
-
-                        $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banner1"]) ? $editbanner1[0]["banner1"] : '/Storage/banner/bannerP1.svg';
-                        $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/banner/bannerP1.svg';
-                        $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/banner/bannerP2.svg';
-                        $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/banner/bannerP2.svg';
-
-
-
-                        ?>
+                   
 
 
                     </div>
@@ -418,12 +496,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
                 <div class="text-white flex  justify-between mt-10">
                     <div>
-                        <?php
-                        $moneyAmount = isset($editPoint[0]["money_amout"]) && !empty($editPoint[0]["money_amout"]) ? $editPoint[0]["money_amout"] : '10000';
-                        $pointAmount = isset($editPoint[0]["point_amount"]) && !empty($editPoint[0]["point_amount"]) ? $editPoint[0]["point_amount"] : '1';
-
-
-                        ?>
+                      
                         <span class="text-xl">Point Exchange Rate</span>
                         <span class="text-md mt-4 block">Current point : <?= $moneyAmount ?> Kyats to <?= $pointAmount ?> Points.</span>
                         <form action="../../Controller/uiElements/pointEdit/updatePointController.php" method="post">
@@ -470,26 +543,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                         <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post" class="mt-[40px]" enctype="multipart/form-data">
                             <div class="flex mt-4  w-[330px]  relative">
                                 <span>Image</span>
-                                <?php
-                                $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/slider/acer.png';
-                                $slideImg2 = isset($editSlide1[0]["image_silder2"]) && !empty($editSlide1[0]["image_silder2"]) ? $editSlide1[0]["image_silder2"] : '/Storage/slider/dell.png';
-                                $slideImg3 = isset($editSlide1[0]["image_silder3"]) && !empty($editSlide1[0]["image_silder3"]) ? $editSlide1[0]["image_silder3"] : '/Storage/slider/msi.svg';
-                                $sliderTitle1 = isset($editInfo[0]["image_silder_title1"]) && !empty($editInfo[0]["image_silder_title1"]) ? $editInfo[0]["image_silder_title1"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-                                $sliderTitle2 = isset($editInfo[0]["image_silder_title2"]) && !empty($editInfo[0]["image_silder_title2"]) ? $editInfo[0]["image_silder_title2"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-                                $sliderTitle3 = isset($editInfo[0]["image_silder_title3"]) && !empty($editInfo[0]["image_silder_title3"]) ? $editInfo[0]["image_silder_title3"] : 'Intel® Evo™ Platform The Ultimate Premium Laptop Experience';
-                                $sliderDsc1 = isset($editInfo[0]["image_silder_dsc1"]) && !empty($editInfo[0]["image_silder_dsc1"]) ? $editInfo[0]["image_silder_dsc1"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-                                $sliderDsc2 = isset($editInfo[0]["image_silder_dsc2"]) && !empty($editInfo[0]["image_silder_dsc2"]) ? $editInfo[0]["image_silder_dsc2"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-                                $sliderDsc3 = isset($editInfo[0]["image_silder_dsc3"]) && !empty($editInfo[0]["image_silder_dsc3"]) ? $editInfo[0]["image_silder_dsc3"] : 'Feature the latest 13th Gen. Intel® Core™ i7 processor and certified by the Intel® Evo™ platform, you can now unleash your productivity with outstanding performance, on-the-go portability, and long-lasting battery life.';
-                                $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
-                                $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
-                                $sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
-                                $slideTextColor1 = isset($editInfo[0]["slide_text_color1"]) && !empty($editInfo[0]["slide_text_color1"]) ? $editInfo[0]["slide_text_color1"] : '#ffffff';
-                                $slideTextColor2 = isset($editInfo[0]["slide_text_color2"]) && !empty($editInfo[0]["slide_text_color2"]) ? $editInfo[0]["slide_text_color2"] : '#ffffff';
-                                $slideTextColor3 = isset($editInfo[0]["slide_text_color3"]) && !empty($editInfo[0]["slide_text_color3"]) ? $editInfo[0]["slide_text_color3"] : '#ffffff';
-
-
-
-                                ?>
+                            
 
                                 <label for="" class="ml-5">
                                     <a target="_blank" href="../../../<?= $slideImg1 ?>">
@@ -689,16 +743,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                 <div class="text-white flex  mt-5">
                     <div class="faq text-black" id="faq1">
 
-                        <?php
-                        $question1 = isset($editInfo[0]["question1"]) && !empty($editInfo[0]["question1"]) ? $editInfo[0]["question1"] : 'How to use my points?';
-                        $question2 = isset($editInfo[0]["question2"]) && !empty($editInfo[0]["question2"]) ? $editInfo[0]["question2"] : 'Where to check my orders?';
-                        $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"]) ? $editInfo[0]["question3"] : 'What payment options are available?';
-                        $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
-                        $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
-                        $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
-
-
-                        ?>
+                       
 
                         <form action="../../Controller/uiElements/faq1/updatefaqController.php" method="post">
 
@@ -790,7 +835,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
                     </div>
 
                 </div>
-            </div>
+        </div>
         </div>
         <!-- Right-side End -->
     </section>

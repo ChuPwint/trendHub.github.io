@@ -1,11 +1,13 @@
 <?php
+session_start();
 
+if (isset($_SESSION["totalCount"]) || !isset($_SESSION["merchantProducts"]) || !isset($_SESSION["allCategories"])) {
 
-
-include "../../Controller/productSubmission/merchantProductController.php";
+    $totalCount  = $_SESSION["totalCount"];
+    $merProducts = $_SESSION["merchantProducts"];
+    $allCategories = $_SESSION["allCategories"];
+}
 include "../../Controller/categoryController.php";
-
-
 ?>
 
 <!DOCTYPE html>
@@ -231,50 +233,50 @@ include "../../Controller/categoryController.php";
             <!-- end of container box -->
         </div>
         <!-- End Modal box to create product-->
-        
 
 
-    <!-- Start modal box for delete-->
-    <div id="modals-container">
-        <div id="modal1" class="hidden fixed z-10 inset-0 overflow-y-auto">
-            <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div class="fixed inset-0 transition-opacity">
-                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                </div>
 
-                <!-- Start Modal Content -->
-                <div class="relative w-[400px]  mx-auto mt-[120px]  bg-primary rounded-lg text-left overflow-hidden shadow-xl transform transition-all ">
-                    <div class="bg-white px-4 pt-5 pb-4">
-                        <div class="">
-                            <div class="mx-auto  h-12 w-12 absolute right-0 top-4 ">
-                                <!-- Cross Sign -->
-                                <svg id="closeModal1" class="h-6 w-6 text-[#F36823]  cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </div>
-                            <div class="mt-3  ml-4 text-left">
-                                <span class="text-center block pb-4 mt-7">You are about to Delete the following item:</span>
-                                <h1 id="deleteProductName" class=" font-semibold mt-2  text-center "> MSI Summit E13 Flip Evo</h1>
-                                <img src="" id="deleteProductImg" class=" h-[100px] mx-auto mt-4 mb-4" alt="">
-
-
-                            </div>
-                        </div>
-                        <div class="flex justify-center space-x-4 mt-6">
-                            <input type="hidden" name="" id="deleteProductID">
-                            <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
-                            <button id="confirmDeleteProduct" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
-
-                        </div>
+        <!-- Start modal box for delete-->
+        <div id="modals-container">
+            <div id="deleteModal" class="deleteModal hidden fixed z-10 inset-0 overflow-y-auto">
+                <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                    <div class="fixed inset-0 transition-opacity">
+                        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                     </div>
 
-                </div>
-                <!-- End Modal Content -->
+                    <!-- Start Modal Content -->
+                    <div class="relative w-[400px]  mx-auto mt-[120px]  bg-primary rounded-lg text-left overflow-hidden shadow-xl transform transition-all ">
+                        <div class="bg-white px-4 pt-5 pb-4">
+                            <div class="">
+                                <div class="mx-auto  h-12 w-12 absolute right-0 top-4 ">
+                                    <!-- Cross Sign -->
+                                    <svg id="closeModal1" class="h-6 w-6 text-[#F36823]  cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3  ml-4 text-left">
+                                    <span class="text-center block pb-4 mt-7">You are about to Delete the following item:</span>
+                                    <h1 id="deleteProductName" class=" font-semibold mt-2  text-center "></h1>
+                                    <img src="" id="deleteProductImg" class=" h-[100px] mx-auto mt-4 mb-4" alt="">
 
+
+                                </div>
+                            </div>
+                            <div class="flex justify-center space-x-4 mt-6">
+                                <input type="hidden" name="" id="deleteProductID">
+                                <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
+                                <button id="confirmDeleteProduct" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Modal Content -->
+
+                </div>
             </div>
         </div>
-    </div>
-    <!-- end modal box  delete-->
+        <!-- end modal box  delete-->
 
 
         <!-- <div class="addProductModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20"> -->
@@ -412,37 +414,42 @@ include "../../Controller/categoryController.php";
 
             <!-- Start of product table -->
             <div class="h-60 overflow-y-scroll mt-10">
-            <table class="table-fixed w-full">
-                <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
-                    <tr>
-                        <th class="p-2 w-10">No.</th>
-                        <th class="p-2 w-40">Category</th>
-                        <th class="p-2 w-40">Product Name</th>
-                        <th class="p-2 w-28">Quantity</th>
-                        <th class="p-2 w-32">Buy Price</th>
-                        <th class="p-2 w-32">Sell Price</th>
-                        <th class="p-2 w-32">Total Sell Price</th>
-                        <th class="p-2 w-32">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php foreach ($submitProducts as $product) : ?>
-                        <tr class="productSubmitData">
-                            <td class="p-2 text-center"><?= $product['id'] ?></td>
-                            <td class="p-2 text-center"><?= $product['category_name'] ?></td>
-                            <td class="p-2 text-center"><?= $product['p_name'] ?></td>
-                            <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-                            <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> kyat</td>
-                            <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> kyat</td>
-                            <!-- Calculate total value -->
-                            <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> kyat</td>
-                            <td deleteID="<?= $product["id"] ?>" class="p-2 text-center underline">Delete</td>
+                <table class="table-fixed w-full">
+                    <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
+                        <tr>
+                            <th class="p-2 w-10">No.</th>
+                            <th class="p-2 w-40">Category</th>
+                            <th class="p-2 w-40">Product Name</th>
+                            <th class="p-2 w-28">Quantity</th>
+                            <th class="p-2 w-32">Buy Price</th>
+                            <th class="p-2 w-32">Sell Price</th>
+                            <th class="p-2 w-32">Total Sell Price</th>
+                            <th class="p-2 w-32">Action</th>
                         </tr>
-                    <?php endforeach; ?>
-                    
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if ($totalCount > 0) {
+                            $count = 1;
+                            foreach ($merProducts as $product) {
+                        ?>
+
+                                <tr class="productSubmitData">
+                                    <td class="p-2 text-center"><?= $product['id'] ?></td>
+                                    <td class="p-2 text-center"><?= $product['category_name'] ?></td>
+                                    <td class="p-2 text-center"><?= $product['p_name'] ?></td>
+                                    <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
+                                    <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> kyat</td>
+                                    <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> kyat</td>
+                                    <!-- Calculate total value -->
+                                    <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> kyat</td>
+                                    <td  deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
+                                </tr>
+                        <?php }
+                        } ?>
+
+                    </tbody>
+                </table>
             </div>
             <!-- End of product table -->
             <div class="mt-5 mr-2 text-right">
