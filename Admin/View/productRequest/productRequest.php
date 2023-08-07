@@ -52,8 +52,6 @@ include "../../Controller/productRequest/productRequestController.php"
                     ?>
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
-
-                <input type="text" name="" id="searchInAllRequests" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by merchant name">
             </div>
             <!-- Search End-->
 
@@ -62,13 +60,6 @@ include "../../Controller/productRequest/productRequestController.php"
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-between space-x-2 mb-2">
                     <span class="text-white text-lg"><?= $totalReqs[0]["totalRequest"] ?> Product Submission Request</span>
-                    <div>
-                        <span class="text-white">Sort by:</span>
-                        <select name="" id="dropDownAllRequests" class="outline-none rounded py-1 px-3">
-                            <option value="create_date">Requested Date</option>
-                            <option value="m_name">Merchant Name</option>
-                        </select>
-                    </div>
                 </div>
                 <!-- Sort END  -->
 
@@ -99,8 +90,8 @@ include "../../Controller/productRequest/productRequestController.php"
                                                 <td class="p-3 text-center"><?= $request["create_date"] ?></td>
                                                 <input type="hidden" name="reqId" value="<?= $request["id"] ?>">
                                                 <input type="hidden" name="bname" value="<?= $request["m_bname"] ?>">
-                                                <input type="hidden" name="mname" value="<?= $request["m_name"] ?>">
                                                 <input type="hidden" name="email" value="<?= $request["m_email"] ?>">
+                                                <input type="hidden" name="mid" value="<?= $request["merchant_id"] ?>">
                                                 <td class="p-3 text-center ">
                                                     <button type="submit" name="allReq" class="font-semibold underline cursor-pointer">View Details</button>
                                                 </td>

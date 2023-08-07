@@ -1,16 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION["reqDetails"])) {
+if (!isset($_SESSION["reqDetails"]) || ($_SESSION["passReqDetailController"] == false)) {
     header("Location: ../../View/Error/error.php");
 } else {
+    $submitId = $_SESSION["id"];
     $bname = $_SESSION["bname"];
-    $name = $_SESSION["mname"];
-    $email = $_SESSION["email"];
+    $id = $_SESSION["mid"];
+    $email = $_SESSION["m_email"];
     $reqDetails = $_SESSION["reqDetails"];
     $total = $_SESSION["total"];
-    $category = $_SESSION["allCategories"];
+    //print_r($reqDetails);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +43,7 @@ if (!isset($_SESSION["reqDetails"])) {
 </head>
 
 <body class="font-roboto">
+
     <section class="w-full bg-[#12141B] max-w-[1600px] mx-auto flex">
         <!-- Import side bar  -->
         <?php $menu = "productRequest" ?>
@@ -75,16 +76,14 @@ if (!isset($_SESSION["reqDetails"])) {
                         <h1 class="font-semibold text-3xl"><?= $bname ?></h1>
                         <span><?= $total[0]["total"]; ?> Product Requests</span>
                     </div>
-                    <div>
-                        <span class="text-white">Sort by:</span>
-                        <select name="" id="dropDownReqDetail" class="outline-none rounded py-1 px-3">
-                            <option value="p_name">Product Name</option>
-                            <option value="category_name">Category Name</option>
-                            <option value="sell_price">Product Price</option>
-                        </select>
-                    </div>
                 </div>
                 <!-- Sort END  -->
+                <?php if ((isset($_SESSION["allFinished"])) && ($_SESSION["allFinished"] == true)) { ?>
+                    <div class="text-center">
+                        <span class="text-white text-lg">You have finished approving/ rejecting these request.</span>
+                        <a href="../productRequest/productRequest.php"><button class="py-2 px-10 mt-4 bg-[#456265] text-white font-semibold rounded-md shadow-md">Go Back to Main Product Request</button></a>
+                    </div>
+                <?php } ?>
 
                 <!-- Table Start  -->
                 <div class="flex justify-center min-h-screen">
@@ -98,6 +97,7 @@ if (!isset($_SESSION["reqDetails"])) {
                                         <th class="px-3 py-6 text-center">Name</th>
                                         <th class="px-3 py-6 text-center">Qty</th>
                                         <th class="px-3 py-6 text-center">Sell Price</th>
+                                        <th class="px-3 py-6 text-center">Approval Status</th>
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -110,8 +110,17 @@ if (!isset($_SESSION["reqDetails"])) {
                                             <td class="p-3 text-center"><?= $detail["p_name"] ?></td>
                                             <td class="p-3 text-center"><?= $detail["p_stock"] ?></td>
                                             <td class="p-3 text-center"><?= $detail["sell_price"] ?></td>
+                                            <?php
+                                            if ($detail["approved"] == 0 && $detail["rejected"] == 0) {
+                                                $status = "Pending";
+                                            } else if ($detail["approved"] == 1) {
+                                                $status = "Approved";
+                                            } else if ($detail["rejected"] == 1) {
+                                                $status = "Rejected";
+                                            }
+                                            ?>
+                                            <td class="p-3 text-center"><?= $status ?></td>
                                             <td class="p-3 text-center ">
-                                                <input type="hidden" id="p_submit_id" name="pSubmitId">
                                                 <span id="<?= $detail["id"] ?>" class="checkDetail underline font-semibold cursor-pointer">Check</span>
                                             </td>
                                         </tr>
@@ -138,8 +147,12 @@ if (!isset($_SESSION["reqDetails"])) {
                 </svg>
             </button>
             <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="hidden" id="p_request_id" name="productReqId">
+            <form action="../../Controller/productRequest/approveOrRejectRequestController.php" method="post">
+                <input type="hidden" id="p_request_detail_id" name="productReqDetailId">
+                <input type="hidden" name="p_submit_id" value="<?= $submitId ?>">
+                <input type="hidden" name="merchantId" value="<?= $id ?>">
+                <input type="hidden" id="buyPrice" name="buyPrice">
+                <input type="hidden" name="merchantEmail" value="<?= $email ?>">
                 <!-- start of upper row -->
                 <div class="px-6 py-4 grid grid-cols-2 gap-4">
                     <!-- start of add product text fields -->
@@ -174,6 +187,7 @@ if (!isset($_SESSION["reqDetails"])) {
                             <div class="text-center">
                                 <div class="mt-4">
                                     <div class="flex justify-center"><img class="p_Image max-w-xs max-h-60" id="productImage" src="" alt=""></div>
+                                    <input type="hidden" id="pImage" name="pImage">
                                 </div>
                             </div>
                         </div>
@@ -194,9 +208,9 @@ if (!isset($_SESSION["reqDetails"])) {
                             <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" readonly></textarea>
                         </div>
                     </div>
-                    <div class="flex justify-end items-center">
-                        <button id="reject" class="px-8 mr-10 mt-7 shadow-md block py-2 bg-[#AC2E2E] text-white rounded-md outline-none ">Reject</button>
-                        <button id="approve" class="px-5 mt-7 shadow-md block py-2 bg-[#456265] text-white rounded-md outline-none ">Approve</button>
+                    <div class="submitBtn flex justify-end items-center">
+                        <button type="submit" name="reject" class="px-8 mr-10 mt-7 shadow-md block py-2 bg-[#AC2E2E] text-white rounded-md outline-none ">Reject</button>
+                        <button type="submit" name="approve" class="px-5 mt-7 shadow-md block py-2 bg-[#456265] text-white rounded-md outline-none ">Approve</button>
                     </div>
                 </div>
                 <!-- end of bottom row -->
@@ -218,13 +232,16 @@ if (!isset($_SESSION["reqDetails"])) {
                 },
                 success: function(result) {
                     let products = JSON.parse(result);
-                    $("#p_submit_id").val(products[0].product_submit_id);
+                    (products[0].approved == 1) ? $(".submitBtn").addClass("hidden"): $(".submitBtn").removeClass("hidden");
+                    $("#p_request_detail_id").val(products[0].id);
                     $("#category").val(products[0].category_name);
                     $("#productName").val(products[0].p_name);
                     $("#brand").val(products[0].brand_name);
                     $("#sellPrice").val(products[0].sell_price);
+                    $("#buyPrice").val(products[0].buy_price);
                     $("#quantity").val(products[0].p_stock);
                     $("#productImage").attr("src", "../../.." + products[0].p_photo);
+                    $("#pImage").val(products[0].p_photo);
                     $("#productDetail").val(products[0].p_detail);
                     $("#productDescription").val(products[0].p_description);
                 },
@@ -241,3 +258,7 @@ if (!isset($_SESSION["reqDetails"])) {
 </body>
 
 </html>
+<?php
+$_SESSION["passReqDetailController"] = false;
+$_SESSION["allFinished"] = false;
+?>
