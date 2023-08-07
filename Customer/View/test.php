@@ -41,12 +41,12 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 
-
 </head>
 
 
 
 <?php
+
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
@@ -57,8 +57,6 @@ $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_c
 $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
 $buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
 $cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
-
-
 $sliderBackgroundColor1 = isset($editInfo[0]["slide_bg1"]) && !empty($editInfo[0]["slide_bg1"]) ? $editInfo[0]["slide_bg1"] : '#2F2E41';
 $sliderBackgroundColor2 = isset($editInfo[0]["slide_bg2"]) && !empty($editInfo[0]["slide_bg2"]) ? $editInfo[0]["slide_bg2"] : '#2F2E41';
 $sliderBackgroundColor3 = isset($editInfo[0]["slide_bg3"]) && !empty($editInfo[0]["slide_bg3"]) ? $editInfo[0]["slide_bg3"] : '#2F2E41';
@@ -154,7 +152,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <div class="flex">
 
           <!-- desktop categories -->
-          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor?>] hover:bg-tertiary text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
+          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor?>] text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
@@ -169,8 +167,8 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-4xl text-[<?=  $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
-        <span class="cart_item absolute md:right-5 right-3 md:top-[60px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor?>]">0</span>
+        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?=  $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
+        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor?>]">0</span>
       </div>
     </nav>
     <!-- end second navbar -->
