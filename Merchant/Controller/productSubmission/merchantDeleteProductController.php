@@ -6,7 +6,7 @@ if (!isset($_POST["id"])) {
 
     include "../../Model/model.php";
     $id = $_POST["id"];
-    
+    echo $id;
     $sql = $pdo->prepare(
         "UPDATE m_product_temp SET
         del_flg = 1
