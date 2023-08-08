@@ -240,8 +240,8 @@ if (!isset($_SESSION["reqDetails"]) || ($_SESSION["passReqDetailController"] == 
                     $("#sellPrice").val(products[0].sell_price);
                     $("#buyPrice").val(products[0].buy_price);
                     $("#quantity").val(products[0].p_stock);
-                    $("#productImage").attr("src", "../../.." + products[0].p_photo);
-                    $("#pImage").val(products[0].p_photo);
+                    $("#productImage").attr("src", "../../.." + products[0].p_path);
+                    $("#pImage").val(products[0].p_path);
                     $("#productDetail").val(products[0].p_detail);
                     $("#productDescription").val(products[0].p_description);
                 },
