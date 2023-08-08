@@ -21,6 +21,4 @@ $sql = $pdo->prepare(
 $sql->execute();
 $_SESSION["allCategories"] = $sql->fetchAll(PDO::FETCH_ASSOC);
 header("Location: ../../View/productSubmission/productSubmission.php");
-
-
 ?>

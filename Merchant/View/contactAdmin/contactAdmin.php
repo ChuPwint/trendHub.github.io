@@ -118,11 +118,11 @@
                     <div class="text-center md:text-start px-5 py-5">
                         <h1 class="text-xl font-bold md:text-4xl">Contact Admin</h1>
                         <p class="text-sm pt-5 pb-10 md:text-xl md:w-[350px]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
-                        <form action="">
-                            <textarea name="" id="" cols="30" rows="10" class="resize-none shadow-md border-2 border-secondary rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full " placeholder="Message"></textarea>
+                        <form id="contactForm" action="">
+                            <textarea name="message" id="messageInput" cols="30" rows="10" class="resize-none shadow-md border-2 border-secondary rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full" placeholder="Message"></textarea>
+                            <button type="submit" id="sendMessage" class="w-full bg-secondary shadow-md py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
                         </form>
 
-                        <button type="submit" id="sendMessage" class="w-full bg-secondary shadow-md py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
                     </div>
                     <div class="w-1/4 absolute right-0  h-full bg-secondary" id="retangle"></div>
                     <!-- right side  -->
@@ -160,7 +160,7 @@
             $("#closeContactCompleteModal").click(function() {
                 $(".contactAdminFinishModal").toggle();
             });
-        
+
             $("#logoutBtn").click(function() {
                 $("#logoutModal").toggle();
             });
@@ -173,6 +173,34 @@
             });
         });
     </script>
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Get user input from textarea
+        var message = document.getElementById("messageInput").value;
+        
+        // Prepare data to send to the server
+        var formData = new FormData();
+        formData.append("message", message);
+        
+        // Send data using AJAX
+        fetch("../../Controller/contactAdminController.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the server (if needed)
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error("Error:", error);
+        });
+    });
+</script>
+
 
 
 

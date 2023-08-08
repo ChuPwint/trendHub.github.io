@@ -253,6 +253,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
             <!-- end of search button and select box -->
 
             <!-- Start of product table -->
+            <div class="h-[530px] overflow-y-scroll mt-10">
             <table class="table-fixed mt-10 w-full">
                 <thead class="bg-darkGreenColor text-white font-semibold text-lg">
                     <tr>
@@ -292,49 +293,14 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                     <?php } ?>
                 </tbody>
             </table>
+                    </div>
             <!-- End of product table -->
         </div>
         <!-- Right-side End -->
     </section>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
 
-        // Draw the chart and set the chart values
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Product', 'Wishlist Added'],
-                ['Product 1', 8],
-                ['Product 2', 2],
-                ['Product 3', 4],
-                ['Product 4', 2],
-                ['Product 5', 8]
-            ]);
-
-            // Optional; add a title and set the width and height of the chart
-            var options1 = {
-                'title': 'Last Month',
-                'width': 350,
-                'height': 300
-            };
-            var options2 = {
-                'title': 'This Month',
-                'width': 350,
-                'height': 300
-            };
-
-            // Display the chart inside the <div> element with id="piechart"
-            var chart1 = new google.visualization.PieChart(document.getElementById('lastMonthPie'));
-            var chart2 = new google.visualization.PieChart(document.getElementById('thisMonthPie'));
-            chart1.draw(data, options1);
-            chart2.draw(data, options2);
-        }
-    </script>
+  
 </body>
 
 </html>
