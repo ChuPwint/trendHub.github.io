@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
+
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -13,28 +15,44 @@
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
 
-<body class="bg-primary font-roboto">
+<style>
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+<?php
+include "../resources/common/navbar.php";
+include "../../Controller/uiElement/editInfoController.php";
 
-    <?php
-    include "../resources/common/navbar.php";
-    include "../../Controller/uiElement/editInfoController.php";
-    ?>
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
+$titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
+
+
+?>
+
+<body class="bg- font-roboto scrollHide">
+
+
 
     <!-- Question about order -->
-    <section class="container w-full mx-auto mt-[120px]">
+    <section class="container w-full mx-auto ">
         <div class="text-center py-5">
-            <p class="text-sm md:text-2xl font-semibold py-5">Hello, What can we help you with?</p>
-            <input type="text" name="" id="" class="border-2 border-tertiary bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
+            <p class="text-sm md:text-2xl font-semibold py-5 text-[<?= $titleColor ?>]">Hello, What can we help you with?</p>
+            <input type="text" name="" id="" class="border-2 border-[<?= $tertiaryColor ?>] bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
         </div>
     </section>
 
     <!-- Common Topics -->
     <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div>
-            <p class="text-sm font-semibold md:text-2xl">Common Topics</p>
+            <p class="text-sm font-semibold md:text-2xl text-[<?= $titleColor ?>]">Common Topics</p>
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
-                    <img class="md:w-20 md:h-20" src="../resources/img/help/my_profile.svg" alt="profile">
+                    <img class="md:w-20 md:h-20 " src="../resources/img/help/my_profile.svg" alt="profile">
                     <p class="text-xs md:text-xl">My Profile</p>
                 </div>
 
@@ -66,30 +84,30 @@
     <!-- Frequently Asked Questions -->
     <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div class="mt-10 md:mt-20">
-            <p class="text-sm font-semibold md:text-2xl">Frequently Asked Questions</p>
+            <p class="text-sm font-semibold md:text-2xl text-[<?= $titleColor ?>]">Frequently Asked Questions</p>
             <div class="text-xs md:text-2xl px-5 leading-6 md:leading-10 mt-3">
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
-                    <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p><?= $question1 ?></p>
+                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?= $navColor ?>]"><?= $question1 ?></p>
                 </div>
-                <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
+                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
                     <?= $answer1  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
-                    <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p><?= $question2 ?></p>
+                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?= $navColor ?>]"><?= $question2 ?></p>
                 </div>
-                <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
+                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
                     <?= $answer2  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
-                    <ion-icon class="text-tertiary" name="chevron-forward-outline"></ion-icon>
-                    <p><?= $question3 ?></p>
+                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?= $navColor ?>]"><?= $question3 ?></p>
                 </div>
-                <div class="pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
+                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
                     <?= $answer3   ?>
                 </div>
 
@@ -101,10 +119,10 @@
     <section class="container w-full mx-auto md:px-[200px]">
         <div class="text-center md:flex md:items-center md:space-x-32 md:mt-10 md:flex-wrap">
             <div class="text-sm md:text-2xl font-semibold py-5 md:flex md:flex-wrap">
-                <p>Still have some questions?</p>
-                <p>To contact our customer services:</p>
+                <p class="text-[<?= $titleColor ?>]">Still have some questions?</p>
+                <p class="text-[<?= $titleColor ?>]">To contact our customer services:</p>
             </div>
-            <button class="bg-tertiary text-white px-9 py-2 rounded">Contact Admin</button>
+            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>] px-9 py-2 rounded">Contact Admin</button>
         </div>
     </section>
 
