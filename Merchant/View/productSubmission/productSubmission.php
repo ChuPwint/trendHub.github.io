@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION["totalCount"]) || !isset($_SESSION["merchantProducts"]) || !isset($_SESSION["allCategories"])) {
+if (isset($_SESSION["totalCount"]) || isset($_SESSION["merchantProducts"]) || isset($_SESSION["allCategories"])) {
 
     $totalCount  = $_SESSION["totalCount"];
     $merProducts = $_SESSION["merchantProducts"];
