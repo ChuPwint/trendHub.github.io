@@ -7,7 +7,7 @@ $sql = $pdo->prepare("
     SELECT pt.*, mc.category_name
     FROM m_product_temp pt
     INNER JOIN m_categories mc ON pt.category_id = mc.id
-    WHERE pt.merchant_id = :id AND pt.del_flg = 0
+    WHERE pt.merchant_id = :id AND pt.del_flg = 0 AND pt.submitted = 0;
 ");
 $sql->bindValue(":id", $merchantId);
 $sql->execute();
@@ -21,6 +21,4 @@ $sql = $pdo->prepare(
 $sql->execute();
 $_SESSION["allCategories"] = $sql->fetchAll(PDO::FETCH_ASSOC);
 header("Location: ../../View/productSubmission/productSubmission.php");
-
-
 ?>

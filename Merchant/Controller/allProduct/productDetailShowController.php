@@ -2,7 +2,7 @@
 
 session_start();
 $id = $_GET["id"];
-
+echo $id;
 if(!isset($id)){
     header("Location: ../../View/Error/error.php");
   
@@ -10,9 +10,7 @@ if(!isset($id)){
 }else{
     include "../../Model/model.php";
     $sql = $pdo->prepare(
-        "SELECT * FROM m_products WHERE id = :id;
-        "
-    );
+        "SELECT * FROM m_products WHERE id = :id;");
     $sql->bindValue(":id",$id);
     $sql->execute();
    

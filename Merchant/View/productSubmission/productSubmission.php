@@ -6,8 +6,14 @@ if (isset($_SESSION["totalCount"]) || !isset($_SESSION["merchantProducts"]) || !
     $totalCount  = $_SESSION["totalCount"];
     $merProducts = $_SESSION["merchantProducts"];
     $allCategories = $_SESSION["allCategories"];
+  
 }
+
+include "../../Controller/productSubmission/merchantInfoShowController.php";
 include "../../Controller/categoryController.php";
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +26,12 @@ include "../../Controller/categoryController.php";
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
-    <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
-    <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script src="../resources/lib/jquery3.6.0.js" defer></script>
+    <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
+    <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
 </head>
 
 <body>
@@ -131,6 +138,7 @@ include "../../Controller/categoryController.php";
         <!-- End of Logo Add Modal Pop Up -->
 
         <!-- start of product submit finish modal box -->
+      
         <div class="productSubmitFinishModal hidden fixed w-full h-full pt-16 bg-black bg-opacity-50 z-20">
             <div class="bg-white m-auto p-5 border rounded-sm w-[50%]">
                 <h2 class="text-xl font-bold mb-4">Product Submission is complete.</h2>
@@ -141,6 +149,7 @@ include "../../Controller/categoryController.php";
                 </div>
             </div>
         </div>
+       
         <!-- end of product submit finish modal box -->
 
         <!-- start of add product modal box -->
@@ -262,10 +271,10 @@ include "../../Controller/categoryController.php";
 
                                 </div>
                             </div>
-                            <div class="flex justify-center space-x-4 mt-6">
+                            <div class="flex justify-center space-x-4 mb-6">
                                 <input type="hidden" name="" id="deleteProductID">
-                                <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 text-white   bg-[#AC2E2E]">Cancel</button>
-                                <button id="confirmDeleteProduct" class="bg-[#456265] rounded-[5px] px-3 py-1 text-white">Confirm</button>
+                                <button id="cancelDeleteProduct" class="rounded-[5px] px-3 py-1 shadow-md border-2 border-secondary bg-tertiary">Cancel</button>
+                                <button id="confirmDeleteProduct" class="bg-secondary text-white rounded-[5px] px-3 py-1 shadow-md border-2 ">Confirm</button>
 
                             </div>
                         </div>
@@ -278,97 +287,11 @@ include "../../Controller/categoryController.php";
         </div>
         <!-- end modal box  delete-->
 
-
-        <!-- <div class="addProductModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 z-20"> -->
-        <!-- start of container box -->
-        <!-- <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
-                <div class="closeAddProductModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
-                <h2 class="text-2xl font-bold px-6 py-3">New Product Details</h2> -->
-        <!-- start of upper row -->
-        <!-- <div class="px-6 py-4 grid grid-cols-2 gap-4"> -->
-        <!-- start of add product text fields -->
-        <!-- <div class="col-span-1">
-                        <div class="bg-secondary p-4">
-                            <div class="mb-4 relative">
-                                <label for="category" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Category:</label>
-                                <select id="category" name="category" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor"> -->
-        <!-- Add options for categories here -->
-        <!-- <option value="category1">Category 1</option>
-                                    <option value="category2">Category 2</option> -->
-        <!-- Add more options if needed -->
-        <!-- </select>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="productName" class="z-0 absolute top-0 left-0 pr-6 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Product Name:</label>
-                                <input type="text" id="productName" name="productName" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="brand" class="z-0 absolute top-0 left-0 pr-[86px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Brand:</label>
-                                <input type="text" id="brand" name="brand" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor">
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="sellPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Sell Price:</label>
-                                <input type="number" id="sellPrice" name="sellPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="mb-4 relative">
-                                <label for="buyPrice" class="z-0 absolute top-0 left-0 pr-16 bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Buy Price:</label>
-                                <input type="number" id="buyPrice" name="buyPrice" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                            <div class="relative">
-                                <label for="quantity" class="z-0 absolute top-0 left-0 pr-[68px] bg-white text-darkGreenColor border border-darkGreenColor font-semibold py-2 pl-3 rounded-md">Quantity:</label>
-                                <input type="number" id="quantity" name="quantity" class="h-[42px] py-2 pl-40 w-full font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" required>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- end of add product text fields -->
-        <!-- start of upload photo -->
-        <!-- <div class="col-span-1">
-                        <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
-                            <div class="text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-                                </svg>
-                                <div class="mt-4 flex">
-                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
-                                        <span class="font-bold">Upload a file</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p>PNG, JPG up to 10MB</p>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- end of upload photo -->
-        <!-- </div> -->
-        <!-- end of upper row -->
-
-        <!-- start of bottom row -->
-        <!-- <div class="px-6 py-2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="mb-4">
-                            <label for="productDetail" class="block font-medium">Product Detail:</label>
-                            <textarea id="productDetail" name="productDetail" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="productDescription" class="block font-medium">Product Description:</label>
-                            <textarea id="productDescription" name="productDescription" class="block w-full mt-1 p-2 border border-secondary rounded-md shadow-md outline-none" rows="3" required></textarea>
-                        </div>
-
-                    </div>
-                    <div class="text-right"><button type="submit" class="closeAddProductModal py-2 px-4 mt-4 bg-secondary text-white font-semibold rounded-md shadow-md">Add Product</button></div>
-                </div> -->
-        <!-- end of bottom row -->
-        <!-- </div> -->
-        <!-- end of container box -->
-        <!-- </div> -->
-        <!-- end of add product modal box -->
-
-        <!-- Right-side Start -->
+    <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <div>
                 <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer underline">Your Logo Here</h1>
-                <img class="logoPhoto hidden w-44 h-20" src="" alt="">
+                <img class="logoPhoto hidden rounded-full w-20 h-20" src="" alt="">
             </div>
             <hr class="mt-5 mb-3 border border-black">
             <div>
@@ -381,29 +304,29 @@ include "../../Controller/categoryController.php";
                 <div>
                     <div class="mb-4 relative">
                         <label for="name" class="z-0 absolute top-0 left-0 pr-16 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Name</label>
-                        <input id="name" type="text" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="name" required>
+                        <input id="name" type="text" value="<?= $merchantInfo[0]['m_name']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="name" required>
                     </div>
                     <div class="mb-4 relative">
                         <label for="storeName" class="z-0 absolute top-0 left-0 pr-5 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Store Name</label>
-                        <input id="storeName" type="text" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="storeName" required>
+                        <input id="storeName" type="text" value="<?= $merchantInfo[0]['m_bname']?>"  class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="storeName" required>
                     </div>
                     <div class="relative">
                         <label for="license" class="z-0 absolute top-0 left-0 pr-[52px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">License</label>
-                        <input id="license" type="text" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="license">
+                        <input id="license" type="text" value="<?= $merchantInfo[0]['m_licene']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="license">
                     </div>
                 </div>
                 <div>
                     <div class="mb-4 relative">
                         <label for="email" class="absolute top-0 left-0 pr-16 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Email</label>
-                        <input id="email" type="email" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="email" required>
+                        <input id="email" type="email" value="<?= $merchantInfo[0]['m_email']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="email" required>
                     </div>
                     <div class="mb-4 relative">
                         <label for="phone" class="absolute top-0 left-0 pr-[58px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Phone</label>
-                        <input id="phone" type="text" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="phone" required>
+                        <input id="phone" type="text" value="<?= $merchantInfo[0]['m_phone']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="phone" required>
                     </div>
                     <div class="relative">
                         <label for="address" class="absolute top-0 left-0 pr-[46px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Address</label>
-                        <input id="address" type="text" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="address" required>
+                        <input id="address" type="text" value="<?= $merchantInfo[0]['m_address']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="address" required>
                     </div>
                 </div>
                 <div>
@@ -413,7 +336,8 @@ include "../../Controller/categoryController.php";
             <!-- End of input text fields and add product button -->
 
             <!-- Start of product table -->
-            <div class="h-60 overflow-y-scroll mt-10">
+            <div class="h-40 overflow-y-scroll mt-10">
+                
                 <table class="table-fixed w-full">
                     <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
                         <tr>
@@ -429,13 +353,14 @@ include "../../Controller/categoryController.php";
                     </thead>
                     <tbody>
                         <?php
+                        $idCount = 1;
                         if ($totalCount > 0) {
                             $count = 1;
                             foreach ($merProducts as $product) {
                         ?>
 
                                 <tr class="productSubmitData">
-                                    <td class="p-2 text-center"><?= $product['id'] ?></td>
+                                    <td class="p-2 text-center"><?= $idCount++ ?></td>
                                     <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                                     <td class="p-2 text-center"><?= $product['p_name'] ?></td>
                                     <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
@@ -453,8 +378,11 @@ include "../../Controller/categoryController.php";
             </div>
             <!-- End of product table -->
             <div class="mt-5 mr-2 text-right">
-                <button type="submit" id="submitProductBtn" class="px-3 py-2 bg-darkGreenColor text-white rounded-md">Submit Products</button>
+                <button type="submit" id="submitProductBtn" class="px-3 py-2 bg-darkGreenColor text-white rounded-md">
+                <a href="../../Controller/productSubmission/submitToAdminController.php">
+                Submit Products </a></button>
             </div>
+
         </div>
         <!-- Right-side End -->
     </section>
