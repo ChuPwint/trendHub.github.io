@@ -132,9 +132,11 @@ if ((!isset($_POST["approve"])) && (!isset($_POST["reject"]))) {
         $sql = $pdo->prepare(
             "UPDATE t_product_submit_details SET 
             rejected = 1,
-            del_flg = 1
+            del_flg = 1,
+            update_date = :updateDate
             WHERE id = :id"
         );
+        $sql->bindValue(":updateDate", date("Y-m-d"));
         $sql->bindValue(":id", $id);
         $sql->execute();
         
@@ -203,10 +205,12 @@ if ((!isset($_POST["approve"])) && (!isset($_POST["reject"]))) {
     if($result1[0]["totalReq"] == $result2[0]["finish"]){
         $sql = $pdo->prepare(
             "UPDATE t_product_submits SET 
-            del_flg = 1
+            del_flg = 1,
+            update_date = :updateDate
             WHERE id = :id"
         );
         
+        $sql->bindValue(":updateDate", date("Y-m-d"));
         $sql->bindValue(":id", $tableSubmitId);
         $sql->execute();
     }

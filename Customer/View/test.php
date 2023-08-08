@@ -5,7 +5,7 @@ if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
 
-include "../Controller/categoryController.php";
+include "../Controller/homePageCategoryController.php";
 include "../Controller/uiElement/editInfoControllerIndex.php";
 
 ?>

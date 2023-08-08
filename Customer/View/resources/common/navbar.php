@@ -6,7 +6,7 @@ if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
 if (!isset($view)) {
-  include "../../../Controller/categoryController.php";
+  include "../../Controller/commonCategoryController.php";
 }
 include "../../Controller/uiElement/editInfoController.php";
 

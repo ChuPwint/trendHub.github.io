@@ -8,7 +8,7 @@ $sql = $pdo->prepare(
     JOIN t_payment_method ON t_orders.payment_method_id = t_payment_method.id
     JOIN m_customers ON t_orders.customer_id = m_customers.id
     WHERE t_orders.merchant_id = :id
-    ORDER BY order_status;
+    ORDER BY order_status, t_orders.id;
     "
 );
 $sql->bindValue(":id", 1);
@@ -26,6 +26,5 @@ $sql = $pdo->prepare(
 $sql->bindValue(":id", 1);
 $sql->execute();
 $adminOrderDetail = $sql->fetchAll(PDO::FETCH_ASSOC);
-//header("Location: ../../View/manageProduct/adminProducts.php");
 
 ?>

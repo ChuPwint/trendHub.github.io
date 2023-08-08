@@ -1,7 +1,5 @@
 <?php
 include "../../Controller/orderList/adminOrders/adminOrderListController.php";
-// echo "<pre>";
-// print_r($adminOrderList);
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +13,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../resources/js/search/searchAdminOrder.js" defer></script>
 </head>
 
 <style>
@@ -59,7 +58,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
+                <input type="text" name="" id="searchAdminOrder" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by customer name">
             </div>
             <!-- Search End-->
 
@@ -67,13 +66,23 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
             <div class="px-[53px] py-8 data-output">
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-between space-x-2 mb-2">
-                    <span class="text-white">47 products found.</span>
+                    <span class="text-white">
+                        <?php
+                        $orderPendingTotal = 0;
+                        foreach ($adminOrderList as $order) {
+                            if ($order["order_status"] == 0) {
+                                $orderPendingTotal += 1;
+                            }
+                        }
+                        echo $orderPendingTotal . " Order Pending";
+                        ?>
+                    </span>
                     <div>
                         <span class="text-white">Sort by:</span>
-                        <select name="" id="" class="outline-none rounded py-1 px-3">
-                            <option value="">Order Pending</option>
-                            <option value="">Order Completed</option>
-                            <option value="">Order Date</option>
+                        <select name="" id="dropDownAdminOrder" class="outline-none rounded py-1 px-3">
+                            <option value="order_status0">Order Pending</option>
+                            <option value="order_status1">Order Completed</option>
+                            <option value="create_date">Order Date</option>
                         </select>
                     </div>
                 </div>
@@ -126,10 +135,9 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                                             </td>
                                             <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $order["id"] ?>">
                                                 <?php
-                                                $paymentMethodId = $order["payment_method_id"];
-                                                if ($paymentMethodId == 1 || $paymentMethodId == 2) {
+                                                if ($order["payment_status"] == 1) {
                                                     echo "Completed";
-                                                } else if ($paymentMethodId == 3) {
+                                                } else if ($order["payment_status"] == 0) {
                                                     echo "Pending";
                                                 }
                                                 ?>
@@ -146,7 +154,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                                                 }
                                                 ?>
                                             </td>
-                                            <td class="p-3 text-center  space-x-2 ">
+                                            <td class="p-3 text-center space-x-2">
                                                 <span id="<?= $order["id"] ?>" class="changeStatus px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">CHANGE</span>
                                             </td>
                                         </tr>
@@ -163,6 +171,72 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
         <!-- Right-side End -->
     </section>
 
+    <!-- start of order detail modal box -->
+    <div class="viewOrderDetailModal hidden fixed w-full h-full pt-12 bg-black bg-opacity-50 top-0">
+        <!-- start of container box -->
+        <div class="h-[80vh] flex justify-center items-center">
+            <div class="bg-white m-auto p-2 border rounded-sm w-[80%] relative">
+                <h2 class="text-2xl font-bold px-6 py-3 underline">Order Details</h2>
+                <!-- start of all details -->
+                <div class="flex justify-between items-start px-6 py-5">
+                    <!-- start of order detail texts -->
+                    <div>
+                        <p class="mb-2 text-lg font-medium">Order Id: <span id="detailOrderId"></span></p>
+                        <p class="mb-2 text-lg font-medium">Order Date: <span id="detailOrderDate"></span></p>
+                        <p class="mb-2 text-lg font-medium">Order From: <span id="detailCustomerName"></span></p>
+                        <p class="mb-2 text-lg font-medium">Order Status: <span id="detailOrderStatus"></span></p>
+                        <p class="mb-2 text-lg font-medium">Payment Type: <span id="detailPaymentType"></span></p>
+                        <p class="mb-2 text-lg font-medium">Payment Status: <span id="detailPaymentStatus"></span></p>
+                        <p class="mb-2 text-lg font-medium">Delivery Address: <span id="detailCustomerAddress"></span></p>
+                        <p class="text-lg font-medium">Customer Contact Info: <span id="detailCustomerPhone"></span></p>
+                    </div>
+                    <!-- end of order detail texts -->
+                    <!-- start of order summary -->
+                    <div class="w-[40%] h-[350px] overflow-y-scroll py-5 px-3 bg-[#E4E4D2]">
+                        <p class="font-medium mb-5 text-lg">Order Summary</p>
+                        <!-- start of products -->
+                        <div class="flex justify-between items-center mb-5 text-lg">
+                            <div>
+                                <p class="mb-3">T-shirt</p>
+                                <p class="mb-3">Shoes</p>
+                            </div>
+                            <div>
+                                <p class="mb-3">5</p>
+                                <p class="mb-3">1</p>
+                            </div>
+                        </div>
+                        <hr class="border border-dashed mb-3 border-gray-400">
+                        <!-- end of products -->
+                        <!-- start of prices -->
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="mb-3">Sub-total</p>
+                                <p>Delivery</p>
+                            </div>
+                            <div>
+                                <p class="mb-3">$800</p>
+                                <p>$80</p>
+                            </div>
+                        </div>
+                        <hr class="border border-dashed mb-3 mt-3 border-gray-400">
+                        <div class="flex justify-between items-center mt-5">
+                            <p>Grand Total</p>
+                            <p>$880</p>
+                        </div>
+                        <!-- end of prices -->
+                    </div>
+                    <!-- end of order summary -->
+                </div>
+                <!-- end of all details -->
+                <div class="flex justify-center text-white mt-7">
+                    <button type="button" id="closeDetailModal" class="bg-[#AC2E2E] px-6 py-1 rounded">Close</button>
+                </div>
+            </div>
+        </div>
+        <!-- end of container box -->
+    </div>
+    <!-- end of order detail modal box -->
+
     <!-- start of order status change modal box -->
     <div class="changeStatusModal hidden fixed top-0 w-full h-full pt-12 bg-black bg-opacity-50 z-20">
         <!-- start of container box -->
@@ -170,25 +244,33 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
             <div class="bg-white m-auto py-2 px-8 border rounded">
                 <div class="closeChangeStatusModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Change Order Status</h2>
-                <div class="px-8 py-3">
-                    <p class="mb-2 text-lg font-medium">Order Id: <span id="orderId"></span></p>
-                    <p class="mb-2 text-lg font-medium">Order Date: <span id="orderDate"></span></p>
-                    <p class="mb-2 text-lg font-medium">Order From: <span id="customerName"></span></p>
-                    <span class="mr-2 font-bold text-xl">Order Status: </span>
-                    <select name="orderStatus" id="orderStatus" class="border border-black p-1 font-medium rounded">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                    <span class="mr-2 font-bold text-xl">Payment Status: </span>
-                    <select name="paymentStatus" id="paymentStatus" class="border border-black p-1 font-medium rounded">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                    <div id="buttons" class="flex justify-evenly text-white mt-7">
-                        <button id="close" class="bg-[#AC2E2E] px-6 py-1 rounded">Close</button>
-                        <button id="confirm" class="bg-[#456265] px-4 py-1 rounded">Confirm</button>
+                <form action="../../Controller/orderList/adminOrders/changeStatusController.php" method="post">
+                    <div class="px-8 py-3">
+                        <p class="mb-2 text-lg font-medium">Order Id: <input name="orderId" id="orderId"></input></p>
+                        <p class="mb-2 text-lg font-medium">Order Date: <input name="orderDate" id="orderDate"></input></p>
+                        <p class="mb-2 text-lg font-medium">Order From: <input name="customerName" id="customerName"></input></p>
+                        <div>
+                            <span class="mr-2 font-bold text-xl">Order Status: </span>
+                            <select id="orderStatus" class="border border-black p-1 font-medium rounded">
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <input type="hidden" id="orderInput" name="orderStatus">
+                        </div>
+                        <div class="mt-3 mb-3">
+                            <span class="mr-2 font-bold text-xl">Payment Status: </span>
+                            <select id="paymentStatus" class="border border-black p-1 font-medium rounded">
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <input type="hidden" id="paymentInput" name="paymentStatus">
+                        </div>
+                        <div class="flex justify-evenly text-white mt-7">
+                            <button type="button" id="close" class="bg-[#AC2E2E] px-6 py-1 rounded">Close</button>
+                            <button type="submit" name="changeOrderStatus" id="confirm" class="bg-[#456265] px-4 py-1 rounded">Confirm</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <!-- end of container box -->
@@ -197,42 +279,44 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
 
     <script>
         $(document).ready(function() {
-            //Change Status Modal Box
+            //Start of Change Status Modal Box
             $(document).on("click", ".changeStatus", function() {
                 $(".changeStatusModal").removeClass("hidden");
-
                 $.ajax({
-                    url: "../../Controller/orderList/adminOrders/adminChangeOrderStatusController.php",
+                    url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
                     type: "POST",
                     data: {
                         id: this.id,
                     },
                     success: function(result) {
                         let orders = JSON.parse(result);
-                        $("#orderId").text(orders[0].id);
-                        $("#orderDate").text(orders[0].create_date);
-                        $("#customerName").text(orders[0].c_name);
+                        $("#orderId").val(orders[0].id);
+                        $("#orderDate").val(orders[0].create_date);
+                        $("#customerName").val(orders[0].c_name);
 
-                        if(orders[0].order_status == 0) {
+                        if (orders[0].order_status == 0) {
                             $("#orderStatus").val("Pending");
                             $("#orderStatus").prop("disabled", false);
-                        }else{
+                        } else {
                             $("#orderStatus").val("Completed");
                             $("#orderStatus").prop("disabled", true);
                         }
 
-                        if(orders[0].payment_status == 0) {
+                        if (orders[0].payment_status == 0) {
                             $("#paymentStatus").val("Pending");
                             $("#paymentStatus").prop("disabled", false);
-                        }else{
+                        } else {
                             $("#paymentStatus").val("Completed");
                             $("#paymentStatus").prop("disabled", true);
                         }
 
-                        if(($("#orderStatus").val() == "Completed") && ($("#paymentStatus").val() == "Completed")){
-                            $("#buttons").addClass("hidden");
-                        }else{
-                            $("#buttons").removeClass("hidden");
+                        $("#orderInput").val($("#orderStatus").val());
+                        $("#paymentInput").val($("#paymentStatus").val());
+
+                        if (($("#orderStatus").val() == "Completed") && ($("#paymentStatus").val() == "Completed")) {
+                            $("#confirm").addClass("hidden");
+                        } else {
+                            $("#confirm").removeClass("hidden");
                         }
                     },
                     error: function(error) {
@@ -240,6 +324,70 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                     },
                 });
             });
+
+            $("#orderStatus").change(function() {
+                $("#orderInput").val($("#orderStatus").val());
+                if ($("#paymentStatus").prop('disabled') == false) {
+                    $("#paymentStatus").val($("#orderStatus").val());
+                    $("#paymentInput").val($("#paymentStatus").val());
+                }
+            });
+
+            $("#paymentStatus").change(function() {
+                $("#paymentInput").val($("#paymentStatus").val());
+                $("#orderStatus").val($("#paymentStatus").val());
+                $("#orderInput").val($("#orderStatus").val());
+            });
+
+            $("#close").click(function() {
+                $(".changeStatusModal").addClass("hidden");
+            });
+
+            $("#confirm").click(function() {
+                $(".changeStatusModal").addClass("hidden");
+            });
+            //end of change status modal box
+
+            //Show Detail
+            $(document).on("click", ".showDetail", function() {
+                $(".viewOrderDetailModal").removeClass("hidden");
+                $.ajax({
+                    url: "../../Controller/orderList/adminOrders/modalShowOrderDetailController.php",
+                    type: "POST",
+                    data: {
+                        id: $(this).attr("detailID"),
+                    },
+                    success: function(result) {
+                        let orderDetail = JSON.parse(result);
+                        console.log(orderDetail);
+                        $("#detailOrderId").text(orderDetail[0].id);
+                        $("#detailOrderDate").text(orderDetail[0].create_date);
+                        $("#detailCustomerName").text(orderDetail[0].c_name);
+                        if(orderDetail[0].order_status == 0){
+                            $("#detailOrderStatus").text("Pending");
+                        }else{
+                            $("#detailOrderStatus").text("Completed");
+                        }
+                        $("#detailPaymentType").text(orderDetail[0].payment_method);
+                        if(orderDetail[0].payment_status == 0){
+                            $("#detailPaymentStatus").text("Pending");
+                        }else{
+                            $("#detailPaymentStatus").text("Completed");
+                        }
+                        $("#detailCustomerAddress").text(orderDetail[0].address);
+                        $("#detailCustomerPhone").text(orderDetail[0].c_phone);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    },
+                });
+            })
+
+            //Hide Detail
+            $("#closeDetailModal").click(function() {
+                $(".viewOrderDetailModal").addClass("hidden");
+            })
+
         });
     </script>
 
