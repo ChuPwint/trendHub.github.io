@@ -106,7 +106,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                                         <th class="px-3 py-6 text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="searchResult">
                                     <?php foreach ($adminOrderList as $order) { ?>
                                         <tr class="bg-[#fffafa] group hover:scale-[0.99] transition-transform">
                                             <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $order["id"] ?>">

@@ -11,12 +11,10 @@ $(document).ready(function () {
             },
             success: function (res) {
                 console.log(res);
-                // $(".searchResult").empty();
-                // let allCustomers = JSON.parse(res);
-                // let num = 1;
-                // for (const customer of allCustomers) {
-                //     customerList(customer, num);
-                //     num++;
+                $(".searchResult").empty();
+                let adminOrders = JSON.parse(res);
+                // for (const order of adminOrders) {
+                    
                 // }
             },
             error: function (error) {
