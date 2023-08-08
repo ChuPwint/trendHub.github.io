@@ -75,6 +75,6 @@ if (!isset($_POST["addProduct"])) {
         $sql->execute();
         header("Location: ./merchantProductController.php");
     } else {
-        // header("Location: ../../View/Error/error.php");
+        header("Location: ../../View/Error/error.php");
     }
 }
