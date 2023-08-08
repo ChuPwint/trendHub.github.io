@@ -1,8 +1,16 @@
 <?php
 session_start();
+$currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
+$currentLoginUserID = 18; //session
 $productDetail = $_SESSION["productDetail"];
 $averageRating = $_SESSION["averageRating"];
 $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
+$totalFivestarRating = $_SESSION["totalFivestarRating"];
+$totalFourstarRating = $_SESSION["totalFourstarRating"];
+$totalThreestarRating = $_SESSION["totalThreestarRating"];
+$totalTwostarRating = $_SESSION["totalTwostarRating"];
+$totalOnestarRating = $_SESSION["totalOnestarRating"];
+$totalReviews =  $_SESSION["reviews"];
 
 ?>
 
@@ -117,7 +125,7 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
     <div class="px-5 md:px-28 ">
         <div class="bg-productCardBgColor py-5 px-5 shadow-md">
             <p class="text-xl font-bold underline mb-5">Product Description</p>
-            <p class="p_descript md:pl-8">Engineered to deliver devastation in and out of the arena, the Legion 5 Pro deploys Intel Core processing and NVIDIA GeForce RTX graphics to dish out high-resolution gaming.</p>
+            <p class="p_descript md:pl-8"><?= $productDetail[0]["p_description"] ?></p>
         </div>
     </div>
     <!-- End of product description -->
@@ -137,9 +145,9 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalFivestarRating) / $totalRatedCustomer ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">88%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalFivestarRating) / $totalRatedCustomer) ?>%</span>
                             </div>
                         </div>
 
@@ -147,9 +155,9 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">4 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalFourstarRating) / $totalRatedCustomer ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalFourstarRating) / $totalRatedCustomer) ?>%</span>
                             </div>
                         </div>
 
@@ -157,9 +165,9 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">3 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalThreestarRating) / $totalRatedCustomer ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalThreestarRating) / $totalRatedCustomer) ?>%</span>
                             </div>
                         </div>
 
@@ -167,9 +175,9 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">2 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalTwostarRating) / $totalRatedCustomer ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalTwostarRating) / $totalRatedCustomer) ?>%</span>
                             </div>
                         </div>
 
@@ -177,9 +185,9 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">1 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalOnestarRating) / $totalRatedCustomer ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalOnestarRating) / $totalRatedCustomer) ?>%</span>
                             </div>
                         </div>
 
@@ -192,7 +200,13 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                 <div class="hidden text-center md:block md:ml-5 md:flex-none">
                     <p class="font-semibold text-lg">Review this product after buying</p>
                     <p>Share your thoughts with other customers!</p>
+                    <small class="text-red-400"><?php 
+                    if(isset($_SESSION["cannotReview"])) echo $_SESSION["cannotReview"]; 
+                    if(isset($_SESSION["alreadyReview"])) echo $_SESSION["alreadyReview"]
+                    ?></small>
+                    <div>
                     <button class="bg-tertiary text-white px-4 py-1 rounded mt-3 reviewNow">Review Now</button>
+                    </div>
                 </div>
             </div>
 
@@ -208,59 +222,46 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
 
     <!-- Start of user reviews -->
     <div class="mt-5 px-5 md:px-28">
-        <div class="bg-productCardBgColor py-5 px-5 shadow-md">
-            <div class="flex justify-between items-center">
-                <!-- user img and rating star img -->
-                <div class="flex justify-start items-center">
-                    <img class="w-10" src="../resources/img/item_detail/c2 4.svg" alt="">
-                    <img class="ml-2 w-24 review_userRatingImg" src="../resources/img/item_detail/4stars.svg" alt="">
-                </div>
-                <!-- Date review written -->
-                <div>
-                    <p class="review_createDate text-lg">2023/07/20</p>
-                </div>
-            </div>
-            <p class="review_title font-bold text-lg pl-12">Nice graphics</p>
-            <p class="review_text mt-3 pl-12">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, laborum?</p>
-        </div>
-        <div class="replies mt-2 pl-10">
-            <div class="bg-productCardBgColor py-5 px-5 shadow-md">
-                <div class="font-bold text-lg mb-3"><ion-icon class="mr-2" name="arrow-undo-sharp"></ion-icon>Replied</div>
+        <?php
+        foreach ($totalReviews as $review) { ?>
+            <div class="bg-productCardBgColor py-5 px-5 shadow-md mt-5">
                 <div class="flex justify-between items-center">
                     <!-- user img and rating star img -->
                     <div class="flex justify-start items-center">
-                        <img class="w-10" src="../resources/img/item_detail/c2 4.svg" alt="">
-                        <img class="ml-2 w-24 review_userRatingImg" src="../resources/img/item_detail/4stars.svg" alt="">
+                        <div class="rounded-[50%] bg-tertiary w-10 h-10 flex justify-center items-center text-xl text-white">C</div>
+                        <input class="ml-2" data-role="rating" data-stared-color="#F36823" data-static="true" data-value="<?= $review["rating"] ?>">
                     </div>
                     <!-- Date review written -->
                     <div>
-                        <p class="review_createDate text-lg">2023/07/20</p>
+                        <p class="review_createDate text-lg"><?= $review["create_date"] ?></p>
                     </div>
                 </div>
-                <p class="review_title font-bold text-lg pl-12">Nice graphics</p>
-                <p class="review_text mt-3 pl-12">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, laborum?</p>
+                <p class="review_title font-bold text-lg pl-12"><?= $review["review_title"] ?></p>
+                <p class="review_text mt-3 pl-12"><?= $review["review_text"] ?></p>
             </div>
-        </div>
-    </div>
 
-    <div class="mt-5 px-5 md:px-28">
-        <div class="bg-productCardBgColor py-5 px-5 shadow-md">
-            <div class="flex justify-between items-center">
-                <!-- user img and rating star img -->
-                <div class="flex justify-start items-center">
-                    <img class="w-10" src="../resources/img/item_detail/c2 4.svg" alt="">
-                    <img class="ml-2 w-24 review_userRatingImg" src="../resources/img/item_detail/4stars.svg" alt="">
-                </div>
-                <!-- Date review written -->
-                <div>
-                    <p class="review_createDate text-lg">2023/07/20</p>
-                </div>
-            </div>
-            <p class="review_title font-bold text-lg pl-12">Nice graphics</p>
-            <p class="review_text mt-3 pl-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quam odio quibusdam nesciunt reprehenderit consequuntur ab, adipisci labore unde commodi.</p>
-        </div>
-    </div>
+            <?php
+            if ($review["reply_text"] != null) {
+                $repliedMerchant = ($review["m_bname"] != null) ? $review["m_bname"] : $review["m_name"] ;
+                ?>
+                <div class="replies mt-2 pl-10">
+                    <div class="bg-productCardBgColor py-5 px-5 shadow-md">
+                        <div class="font-bold text-lg mb-3"><ion-icon class="mr-2" name="arrow-undo-sharp"></ion-icon>Replied</div>
 
+                        <!-- Date review written -->
+                        <div class="flex justify-between items-center">
+                            <p class="font-bold text-lg pl-6">From: <span class="text-tertiary"><?= $repliedMerchant ?></span></p>
+                            <p class="review_createDate text-lg"><?= $review["update_date"] ?></p>
+                        </div>
+
+                        <p class="review_text mt-3 pl-12"><?= $review["reply_text"] ?></p>
+                    </div>
+                </div>
+
+            <?php } ?>
+
+        <?php } ?>
+    </div>
     <!-- Start of Modal Pop Up -->
 
     <!-- Modal background -->
@@ -268,8 +269,8 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
         <div class="z-10 fixed top-0 w-full h-screen pt-2 bg-[rgba(0,0,0,0.5)] flex justify-center items-center">
             <div class="bg-white m-auto p-5 md:p-10 border rounded-sm md:rounded-md w-[80%] md:w-[60%]">
                 <form class="container mx-auto px-4 py-8" action="../../Controller/reviewController.php" method="post">
-                    <input type="hidden" name="reviewProductID" value="51">
-                    <input type="hidden" name="reviewCustomerID" value="17">
+                    <input type="hidden" name="reviewProductID" value="<?= $currentDetailProductID ?>">
+                    <input type="hidden" name="reviewCustomerID" value="<?= $currentLoginUserID ?>">
                     <h1 class="text-3xl font-semibold mb-4">Create Review</h1>
                     <p class="text-lg font-semibold">Overall Rating</p>
                     <input name="rating" id="rating-events" data-role="rating" data-star-color="#F36823" data-stared-color="#F36823" class="mt-3" required>
@@ -283,7 +284,7 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
                         <textarea name="reviewText" class="w-full px-3 py-3 h-24 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="What do you like or dislike?" required></textarea>
 
                     </div>
-                    <div class="flex justify-end items-center space-x-5">
+                    <div class="flex justify-end items-center space-x-5 mt-3">
                         <button type="button" id="cancelReview" class="px-4 py-[6px] border-2 border-tertiary text-tertiary rounded">Cancel</button>
                         <button type="submit" name="submitReview" class="bg-[#F36823] text-white font-semibold px-4 py-2 rounded">
                             Submit Review
@@ -313,8 +314,17 @@ $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
             $('#cancelReview').click(function() {
                 $('#reviewPopup').addClass("hidden");
             })
+
+           
+
         })
     </script>
 </body>
 
 </html>
+
+<?php
+
+unset($_SESSION["cannotReview"]);
+unset($_SESSION["alreadyReview"]);
+?>
