@@ -6,10 +6,20 @@ if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
 }
 if (!isset($view)) {
-  include "../../../Controller/categoryController.php";
+  include "../../Controller/commonCategoryController.php";
 }
+include "../../Controller/uiElement/editInfoController.php";
 
+// print_r($editInfo);
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
+$secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+
+
 
 ?>
 
@@ -34,6 +44,7 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
   /* For Webkit-based browsers (Chrome, Safari and Opera) */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+    scrollbar-width: none;
   }
 
   /* For IE, Edge and Firefox */
@@ -48,23 +59,23 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
 </style>
 
 
-<body class="bg-[#FFFAFA] font-roboto scrollbar-hide">
+<body class="font-roboto bg-[<?=$primaryColor?>] scrollbar-hide">
 
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-40">
     <!-- start first navbar -->
-    <nav class="py-2 px-4 bg-white shadow md:flex md:items-center md:justify-between">
+    <nav class="py-2 px-4 bg-[<?=$primaryColor?>]  shadow md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
 
         <!-- desktop logo -->
-        <img class="md:block hidden" src="../../../<?= $logo ?>" alt="">
+        <img class="md:block hidden" src=" ../../../<?= $logo ?>" alt="">
 
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
 
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
-          <button class="bg-[#F36823] text-textWhite py-2 px-6 rounded md:hidden order-3">
+          <button class="bg-[<?= $buttonColor?>] text-[<?= $primaryColor ?>]   py-2 px-6 rounded md:hidden order-3">
             <a href="../Login/login.php">Login</a>
           </button>
         <?php  } else { ?>
@@ -79,25 +90,25 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
         </span>
       </div>
 
-      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?=$primaryColor?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0">
-          <a href="../index.php" class="text-md hover:text-[#F36823]  duration-300">Home</a>
+          <a href="../index.php" class="text-md text-[<?= $navColor ?>]  duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/aboutUs.php" class="text-md hover:text-[#F36823]  duration-300">About</a>
+          <a href="../Contact/aboutUs.php" class="text-md text-[<?= $navColor ?>]  duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/services.php" class="text-md hover:text-[#F36823]  duration-300">Service</a>
+          <a href="../Contact/services.php" class="text-md text-[<?= $navColor ?>]  duration-300">Service</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/help.php" class="text-md hover:text-[#F36823]  duration-300">Help</a>
+          <a href="../Contact/help.php" class="text-md text-[<?= $navColor ?>]  duration-300">Help</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="../Contact/contact.php" class="text-md hover:text-[#F36823] duration-300">Contact</a>
+          <a href="../Contact/contact.php" class="text-md text-[<?= $navColor ?>] duration-300">Contact</a>
         </li>
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class=" bg-tertiary text-textWhite  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+            <button class=" bg-[<?= $tertiaryColor?>] text-[<?= $primaryColor ?>]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
               Login
             </button>
           </a>
@@ -112,14 +123,15 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
     <!-- end first navbar -->
     <!-- start second navbar -->
     <?php if (!isset($view)) { ?>
-      <nav class="bg-[#E4E4D2] py-2 px-3 md:px-7">
+      <nav class="bg-[<?= $secondaryColor ?>] py-2 px-3 md:px-7">
         <div class="flex justify-between">
           <div class="flex">
 
             <!-- desktop categories -->
-            <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[#F36823] hover:bg-[#F36823] text-textWhite rounded-l-md cursor-pointer">
+            <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor ?>]  text-[<?= $buttonText?>] rounded-l-md cursor-pointer">
               Categories
-              <img class="inline" src="../resources/img/header/down-arrow.png" alt="">
+              <ion-icon class="relative top-1" name="caret-down-outline"></ion-icon>
+
 
               <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
                 <?php foreach ($categoriesResult as $category) { ?>
@@ -130,8 +142,9 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
             <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
             <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
-          <a href="../Checkout/shoppingCart.php"> <img class="pr-2 mt-2" src="../resources/img/header/cart.svg" alt=""></a>
-          <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-tertiary">0</span>
+          <a href="../Checkout/shoppingCart.php">  <ion-icon class="text-3xl text-[<?=  $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
+          <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor?>]">0</span>
+
         </div>
       </nav>
     <?php  } ?>
@@ -159,6 +172,8 @@ $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[
   <?php } ?>
   <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
+<script src="../../View/resources/js/navbar/navbar.js"></script>
+
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 

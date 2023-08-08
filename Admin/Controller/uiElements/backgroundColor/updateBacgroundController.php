@@ -8,6 +8,7 @@ if(count($_POST) == 0){
    $backgroundPrimary = $_POST["bgPrimary"];
    $backgroundSecondary= $_POST['bgSecondary'];
    $backgroundTertiary= $_POST['bgTertiary'];
+   $lightTertiary = $_POST['lightTertiary'];
 
 
    include "../../../Model/model.php";
@@ -16,7 +17,8 @@ if(count($_POST) == 0){
     " UPDATE ui_setting SET 
     primary_color= :primary_color,
     secondary_color = :secondary_color,
-    tertiary_color = :tertiary
+    tertiary_color = :tertiary,
+    light_tertiary = :lightTertiary 
     WHERE id = 0;
     "
    );
@@ -24,6 +26,7 @@ if(count($_POST) == 0){
    $sql->bindValue(":primary_color",$backgroundPrimary);
    $sql->bindValue(":secondary_color",$backgroundSecondary);
    $sql->bindValue(":tertiary",$backgroundTertiary);
+   $sql->bindValue(":lightTertiary",$lightTertiary);
 
    $sql->execute();
  
