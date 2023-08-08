@@ -32,6 +32,7 @@ $buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_
 $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
 
 
+
 ?>
 
 <body class="bg- font-roboto scrollHide">
