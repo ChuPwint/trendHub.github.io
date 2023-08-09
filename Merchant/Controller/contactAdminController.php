@@ -1,8 +1,8 @@
 
 <?php
 include "../Model/model.php";
-// $merchantId =  $_SESSION["currentLoginUser"];
-$merchantId = 10;
+$merchantId =  $_SESSION["currentLoginUser"];
+
 // Get user input from AJAX request
 $message = $_POST["message"];
 

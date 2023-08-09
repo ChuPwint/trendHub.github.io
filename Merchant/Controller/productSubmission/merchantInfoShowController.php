@@ -1,6 +1,6 @@
 <?php   
-// $merchantId =  $_SESSION["currentLoginUser"];
-$merchantId = 10;
+$merchantId =  $_SESSION["currentLoginUser"];
+
 include "../../Model/model.php";
 
 $sql = $pdo->prepare("SELECT * FROM m_marchents WHERE id = :id");

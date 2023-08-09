@@ -4,8 +4,8 @@ session_start();
 if (!isset($_POST["addProduct"])) {
    
 } else {
-    // $merchantId =  $_SESSION["currentLoginUser"];
-    $merchantId  = 10;
+    $merchantId =  $_SESSION["currentLoginUser"];
+   
     $category = $_POST["category"];
     $productName = $_POST["productName"];
     $brand = (isset($_POST["brand"])) ? $_POST["brand"] : null;
