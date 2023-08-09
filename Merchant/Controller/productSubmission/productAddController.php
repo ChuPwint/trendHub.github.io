@@ -73,6 +73,7 @@ if (!isset($_POST["addProduct"])) {
         $sql->bindValue(":createDate", date("Y-m-d"));
 
         $sql->execute();
+       
         header("Location: ./merchantProductController.php");
     } else {
         header("Location: ../../View/Error/error.php");
