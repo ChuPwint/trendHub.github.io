@@ -33,7 +33,7 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
 
 
     <!-- Welcome -->
-    <section class="container w-full mx-auto">
+    <section class="container w-full mx-auto mt-[120px]">
         <!-- <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-11"> -->
         <div class="flex flex-col space-y-5 items-center bg-[<?= $lightTertiary ?>] py-11">
             <h1 class="md:text-3xl text-[<?= $navColor ?>] font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[#FB4949] md:text-tertiary">Trend Hub!</span></h1>

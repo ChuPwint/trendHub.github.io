@@ -7,7 +7,14 @@ include "../../Controller/uiElement/editInfoController.php";
 // print_r($editInfo);
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
 
+
+
+
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H');
 
 ?>
 
@@ -34,47 +41,157 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
 
 </body>
 
-<footer class="bg-[<?= $secondaryColor ?>] w-full h-auto font-roboto mt-[90px]">
+<footer class="bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#4f4f4f";
+      }else{
+       echo $secondaryColor;
+      }
+  
+
+      ?>] w-full h-auto font-roboto mt-[90px]">
 <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
     <div class="">
-        <span class="block text-[18px] font-semibold text-[<?= $navColor ?>] py-3">Customer Care</span>
+        <span class="block text-[18px] font-semibold text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] py-3">Customer Care</span>
 
         <a href="../Contact/help.php">
-        <span class="cursor-pointer text-[<?= $navColor ?>] block">FAQs</span>
+        <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">FAQs</span>
 
 
         </a>
         <a href="../Point/points.php">
-        <span class="cursor-pointer text-[<?= $navColor ?>] block">Exchange Points</span>
+        <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Exchange Points</span>
 
         </a>
         <a href="../Contact/privacyAndPolicy.php">
-        <span class="cursor-pointer text-[<?= $navColor ?>] block">Privay & Policy</span>
+        <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Privay & Policy</span>
 
         </a>
         <a href="../../../Merchant/View/Login/login.php">
-        <span class="cursor-pointer text-[<?= $navColor ?>] block">Sell on Shop</span>
+        <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Sell on Shop</span>
 
         </a>
     </div>
 
     <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-[<?= $navColor ?>] md:mt-0 mt-5">Shop</span>
+        <span class="block text-[18px] font-semibold py-3 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] md:mt-0 mt-5">Shop</span>
         <a href="../index.php">
-        <span class="block cursor-pointer text-[<?= $navColor ?>]">Shop</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Shop</span>
 
         </a>
         <a href="../#trending">
-        <span class="block cursor-pointer text-[<?= $navColor ?>]">Trending Products</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Trending Products</span>
 
         </a>
         <a href="../#best">
-        <span class="block cursor-pointer text-[<?= $navColor ?>]">Bestsellers Product</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Bestsellers Product</span>
 
         </a>
 
         <a href="../#new">
-        <span class="block cursor-pointer text-[<?= $navColor ?>]">New Products</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">New Products</span>
 
         </a>
 
@@ -89,28 +206,118 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
 
 ?>
     <div class="">
-        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?= $navColor ?>] ">Contact Us</span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>] ">Email : <?= $editEmail ?> <a href="mailto:<?=  $editEmail  ?>"></a></span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>]  ">Phone : <?= $editPhoneNumber ?><a href="tel:<?= $editPhoneNumber ?>"></a></span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>]  w-[400px]"><a target="_blank" href="<?= $editAddressLink ?>">Address : <?= $editAddress ?></a></span>
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] ">Contact Us</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] ">Email : <?= $editEmail ?> <a href="mailto:<?=  $editEmail  ?>"></a></span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  ">Phone : <?= $editPhoneNumber ?><a href="tel:<?= $editPhoneNumber ?>"></a></span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  w-[400px]"><a target="_blank" href="<?= $editAddressLink ?>">Address : <?= $editAddress ?></a></span>
         
     </div>
 
     <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?= $navColor ?>]">Follow Us</span>
+        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Follow Us</span>
       <div class="flex justify-center space-x-3">
         <a href="https://web.facebook.com/extbrainedu">
-      <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-facebook"></ion-icon>
+      <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-facebook"></ion-icon>
 
         </a>
-      <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-instagram"></ion-icon>
-      <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-twitter"></ion-icon>
+      <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-instagram"></ion-icon>
+      <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-twitter"></ion-icon>
       </div>
     </div>
 
   
 </div>
-<span class="text-center text-sm block pb-5 text-[<?= $navColor ?>]">Copyright © 2023 TrendHub  | Created by X-Tech</span>
+<span class="text-center text-sm block pb-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Copyright © 2023 TrendHub  | Created by X-Tech</span>
 </footer>
 
 

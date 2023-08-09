@@ -26,16 +26,16 @@ display: none;
 
     
     ?>
-<body class="bg-[<?= $primaryColor ?>] font-roboto scrollHide">
+<body class="bg-[<?=$primaryColor?>] font-roboto scrollHide">
 
    
 
-    <section class="container w-full mx-auto py-10 px-10 md:px-20  bg-[<?=$lightTertiary?>]">
+    <section class="container w-full mx-auto py-10 mt-[120px] px-10 md:px-20  bg-[<?=$primaryColor?>]">
 
         <h1 class="text-center text-[<?=$titleColor?>] text-lg md:text-3xl font-bold">What We Offer</h1>
 
         <!-- card1 -->
-        <div class="px-8 md:flex justify-evenly py-11  mt-10 drop-shadow md:space-x-20 md:px-20">
+        <div class="px-8 md:flex bg-[<?=$lightTertiary?>] justify-evenly py-11  mt-10 drop-shadow md:space-x-20 md:px-20">
             <div>
                 <img src="../resources/img/service_page/vast_selection.svg" alt="vast_selection">
             </div>

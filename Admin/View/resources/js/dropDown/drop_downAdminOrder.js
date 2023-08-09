@@ -1,13 +1,12 @@
 $(document).ready(function () {
     //in admin order.php
-    $("#searchAdminOrder").keyup(function () {
-        ($(this).val() == "") ? $("#dropDownAdminOrder").val("order_status0") : "";
+    $("#dropDownAdminOrder").change(function () {
         $.ajax({
-            url: "../../Controller/search/orderList/adminOrderSearchController.php",
+            url: "../../Controller/dropDown/orderList/sortAdminOrderController.php",
             type: "POST",
             data: {
-                searchText: $(this).val(),
-                sortBy: $("#dropDownAdminOrder").val(),
+                searchText: $("#searchAdminOrder").val(),
+                sortBy: $(this).val(),
             },
             success: function (res) {
                 let totalPending = 0;
@@ -19,7 +18,6 @@ $(document).ready(function () {
                 for (const order of adminOrders) {
                     let totalItem = 0;
                     if(order.order_status == 0){
-                        console.log(totalPending);
                         totalPending += 1;
                     }
                     $("#noOfPending").text(totalPending + " Order Pending");

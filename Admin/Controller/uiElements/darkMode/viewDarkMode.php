@@ -9,7 +9,7 @@ $sql = $pdo->prepare(
 );
 
 $sql->execute();
-$editFontColor = $sql->fetchAll(PDO::FETCH_ASSOC);
+$editDark = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
 

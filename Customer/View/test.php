@@ -17,7 +17,7 @@ include "../Controller/uiElement/editInfoControllerIndex.php";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./resources/img/header/headerLogo.svg" type="image/icon type">
-  <title>Trend Hub</title>
+  <title>Home</title>
 
   <!-- Start Navbar -->
   <!-- google font link -->
@@ -76,6 +76,12 @@ $editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $ed
 $editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
 $editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
 $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H');
+
 
 ?>
 
@@ -85,16 +91,45 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
   }
 </style>
 
-<body class=" font-roboto bg-[<?= $primaryColor ?>] scrollHide">
+<body class=" font-roboto bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $primaryColor;
+      }
+  
+
+      ?>] scrollHide">
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
     <!-- start first navbar -->
-    <nav class="py-2 px-4 bg-[<?= $primaryColor ?>] shadow md:flex md:items-center md:justify-between">
+    <nav class="py-2 px-4 bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $primaryColor;
+      }
+  
+
+      ?>] shadow md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
 
         <!-- desktop logo -->
         <!-- <img class="md:block hidden" src="./resources/img/header/logo.svg" alt=""> -->
-        <img class="md:block hidden" src=" ../../<?= $logo ?>" alt="">
+        <img class="md:block hidden" src=" ../../<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo 'Storage/logo/darkLogo.svg';
+          }else{
+            echo $logo ;
+          }
+
+      ?>" alt="">
 
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="./resources/img/header/headerLogo.svg " alt="">
@@ -102,7 +137,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $navColor ?>] py-2 px-6 rounded md:hidden order-3">
+            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>] py-2 px-6 rounded md:hidden order-3">
               Login
             </button>
           </a>
@@ -120,26 +155,106 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         </span>
       </div>
 
-      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?= $primaryColor ?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
+      
+      if ($currentHour < 1)  {
+
+        echo "#000000";
+      }else{
+        $primaryColor;
+      }
+  
+
+      ?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0">
-          <a href="./index.php" class="text-md text-[<?= $navColor ?>]  duration-300">Home</a>
+          <a href="./index.php" class="text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/aboutUs.php" class="text-md text-[<?= $navColor ?>]  duration-300">About</a>
+          <a href="./Contact/aboutUs.php" class="text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/services.php" class="text-md text-[<?= $navColor ?>]  duration-300">Service</a>
+          <a href="./Contact/services.php" class="text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  duration-300">Service</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/help.php" class="text-md text-[<?= $navColor ?>]  duration-300">Help</a>
+          <a href="./Contact/help.php" class="text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  duration-300">Help</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
-          <a href="./Contact/contact.php" class="text-md text-[<?= $navColor ?>] duration-300">Contact</a>
+          <a href="./Contact/contact.php" class="text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] duration-300">Contact</a>
         </li>
 
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class=" bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>]  duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
+            <button class=" bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $tertiaryColor;
+      }
+  
+
+      ?>] text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $primaryColor;
+      }
+  
+
+      ?>] duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
               Login
             </button>
           </a>
@@ -153,12 +268,42 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
     </nav>
     <!-- end first navbar -->
     <!-- start second navbar -->
-    <nav class="bg-[<?= $secondaryColor ?>] py-2 px-3 md:px-7 shadow-md">
+    <nav class="bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#4f4f4f";
+      }else{
+       echo $secondaryColor;
+      }
+  
+
+      ?>] py-2 px-3 md:px-7 shadow-md">
       <div class="flex justify-between">
         <div class="flex">
 
           <!-- desktop categories -->
-          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?= $buttonColor ?>] text-[<?= $buttonText ?>] rounded-l-md cursor-pointer">
+          <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>]  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
@@ -173,8 +318,28 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?= $tertiaryColor ?>]" name="cart-outline"></ion-icon></a>
-        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?= $buttonColor ?>]">0</span>
+        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $tertiaryColor;
+      }
+  
+
+      ?>]" name="cart-outline"></ion-icon></a>
+        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>]">0</span>
       </div>
     </nav>
     <!-- end second navbar -->
@@ -203,17 +368,47 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <!-- end set default value -->
 
 
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor1 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#282828";
+      }else{
+       echo $sliderBackgroundColor1;
+      }
+  
+
+      ?>] flex justify-around relative">
           <div class="img md:w-[300px] w-[180px]">
             <img src="../../<?= $sliderImg1 ?>" alt="">
 
 
           </div>
           <div class="content w-[400px] h-[250px]  ">
-            <span class="md:text-xl text-sm text-[<?= $slideTextColor1 ?>]  md:mt-0 block mt-[60px] ">
+            <span class="md:text-xl text-sm text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor1;
+      }
+  
+
+      ?>]  md:mt-0 block mt-[60px] ">
               <?= $sliderTitle1 ?>
             </span>
-            <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor1 ?>]  hidden md:block">
+            <span class="md:text-md text-sm mt-5  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor1;
+      }
+  
+
+      ?>]  hidden md:block">
               <?= $sliderDsc1 ?>
             </span>
           </div>
@@ -222,17 +417,47 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor2 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#282828";
+      }else{
+       echo $sliderBackgroundColor2;
+      }
+  
+
+      ?>] flex justify-around relative">
 
           <div class="  img w-[300px]  ">
             <img src="../../<?= $sliderImg2 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-sm text-[<?= $slideTextColor2 ?>]  md:mt-0 block mt-[60px] ">
+            <span class="md:text-xl text-sm text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor2;
+      }
+  
+
+      ?>]  md:mt-0 block mt-[60px] ">
               <?= $sliderTitle2 ?>
 
             </span>
-            <span class="md:text-md text-sm mt-5  text-[<?= $slideTextColor2 ?>]  hidden md:block">
+            <span class="md:text-md text-sm mt-5  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor2;
+      }
+  
+
+      ?>]  hidden md:block">
               <?= $sliderDsc2 ?>
             </span>
           </div>
@@ -241,16 +466,46 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?= $sliderBackgroundColor3 ?>] flex justify-around relative">
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#282828";
+      }else{
+       echo $sliderBackgroundColor3;
+      }
+  
+
+      ?>] flex justify-around relative">
 
           <div class="img w-[300px] ">
             <img src="../../<?= $sliderImg3 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
-            <span class="md:text-xl text-md text-[<?= $slideTextColor3 ?>]  md:mt-0 block mt-[60px] ">
+            <span class="md:text-xl text-md text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor3;
+      }
+  
+
+      ?>]  md:mt-0 block mt-[60px] ">
               <?= $sliderTitle3 ?>
             </span>
-            <span class="text-md mt-5 md:block hidden text-[<?= $slideTextColor3 ?>] ">
+            <span class="text-md mt-5 md:block hidden text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $slideTextColor2;
+      }
+  
+
+      ?>] ">
               <?= $sliderDsc3 ?>
             </span>
           </div>
@@ -265,36 +520,76 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
   <!-- start deals -->
   <div class=" max-w-[1700px] mx-auto">
     <div class="pt-[120px] -z-50 ">
-      <h2 class="px-8 py-4 ml-[60px] text-xl font-bold  text-[<?= $titleColor ?>]">DAILY DEALS</h2>
+      <h2 class="px-8 py-4 ml-[60px] text-xl font-bold  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $titleColor;
+      }
+  
+
+      ?>]">DAILY DEALS</h2>
       <div class="flex justify-center z-0 flex-wrap  ">
 
         <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-[#FDC6DB] cursor-pointer card ">
           <div class="flex justify-around px-4 mt-[10px] relative">
-            <div class="mt-[50px] font-bold">Make Up</div>
+            <div class="mt-[50px] font-semibold ">Make Up</div>
             <img class="mt-[30px]" src="./resources/img/homePage/Deals/makeup.png" alt="">
           </div>
 
-          <div class="circle absolute w-[50px] h-[50px] bg-[<?= $buttonColor ?>] rounded-full right-3 top-3  ">
+          <div class="circle absolute w-[50px] h-[50px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] rounded-full right-3 top-3  ">
             <span class="text-textWhite leading-[50px] text-center mx-auto block">10%</span>
           </div>
         </div>
 
         <div class=" -z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
           <div class="flex justify-around px-4 mt-[10px] relative">
-            <div class="mt-[50px] font-bold">Smart Watch</div>
+            <div class="mt-[50px] font-bol font-semiboldd">Smart Watch</div>
             <img class="mt-[20px] w-[150px]" src="./resources/img/homePage/Deals/watch.png" alt="">
           </div>
-          <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3 ">
+          <div class="circle absolute w-[50px] h-[50px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] rounded-full right-3 top-3 ">
             <span class="text-textWhite leading-[50px] text-center mx-auto block">5%</span>
           </div>
         </div>
 
         <div class="-z-50 w-[365px] md:my-0 my-5 mx-8 relative h-[200px] rounded-md shadow-md bg-primary cursor-pointer card ">
           <div class="flex justify-around px-4 mt-[10px] relative">
-            <div class="mt-[50px] font-bold">Shoes</div>
+            <div class="mt-[50px] font-semibold">Shoes</div>
             <img class="mt-[30px]" src="./resources//img/homePage/Deals/shoes.png" alt="">
           </div>
-          <div class="circle absolute w-[50px] h-[50px] bg-tertiary rounded-full right-3 top-3 ">
+          <div class="circle absolute w-[50px] h-[50px] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] rounded-full right-3 top-3 ">
             <span class="text-textWhite leading-[50px] text-center mx-auto block">5%</span>
           </div>
         </div>
@@ -308,43 +603,173 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
   <!-- start trending products -->
   <div id="trending" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Trending Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $titleColor;
+      }
+  
+
+      ?>] ">Trending Products</h2>
     <div class="flex justify-center flex-wrap">
 
       <div style=" box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080] "><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -355,42 +780,172 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
   <!-- start bestsellers products -->
   <div id="best" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">Bestseller Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $titleColor;
+      }
+  
+
+      ?>] ">Bestseller Products</h2>
     <div class="flex justify-center flex-wrap">
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -401,43 +956,173 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
   <!-- start new products -->
   <div id="new" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold text-[<?= $titleColor ?>] ">New Products</h2>
+    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $titleColor;
+      }
+  
+
+      ?>] ">New Products</h2>
     <div class="flex justify-center flex-wrap">
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
       </div>
 
       <div  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
         <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
         <img class="imgEffect w-[160px] cursor-pointer mx-auto" src="./resources/img/homePage/Deals/watch1.png" alt="">
-        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal ">Smart Watch</div>
-        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?= $priceColor ?>] ">KS 4,775,000</div>
+        <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
+        <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $priceColor;
+      }
+  
+
+      ?>] ">KS 4,775,000</div>
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
-        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?= $buttonText ?>] bg-[<?= $buttonColor ?>] text-center ">Add to Cart</div>
+        <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $buttonText;
+      }
+  
+
+      ?>] bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#000000";
+      }else{
+       echo $buttonColor;
+      }
+  
+
+      ?>] text-center ">Add to Cart</div>
         <span class="absolute  -bottom-[50px] right-[4px] hover:text-[#f36823] ">See More <ion-icon name="arrow-forward-outline"></ion-icon></span>
       </div>
     </div>
@@ -446,44 +1131,154 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
 
 
-  <footer class="bg-[<?= $secondaryColor ?>] w-full h-auto font-roboto mt-[90px]">
+  <footer class="bg-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#4f4f4f";
+      }else{
+       echo $secondaryColor;
+      }
+  
+
+      ?>] w-full h-auto font-roboto mt-[90px]">
     <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-[<?= $navColor ?>]">Customer Care</span>
+        <span class="block text-[18px] font-semibold py-3 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Customer Care</span>
 
         <a href="./Contact/help.php">
-          <span class="cursor-pointer text-[<?= $navColor ?>] block">FAQs</span>
+          <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">FAQs</span>
         </a>
 
         <a href="./Point/points.php">
-          <span class="cursor-pointer text-[<?= $navColor ?>] block">Exchange Points</span>
+          <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Exchange Points</span>
         </a>
 
         <a href="./Contact/privacyAndPolicy.php">
-          <span class="cursor-pointer text-[<?= $navColor ?>] block">Privay & Policy</span>
+          <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Privay & Policy</span>
         </a>
 
         <a href="../../Merchant/View/Login/login.php">
-          <span class="cursor-pointer text-[<?= $navColor ?>] block">Sell on Shop</span>
+          <span class="cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] block">Sell on Shop</span>
         </a>
       </div>
 
       <div class="">
-        <span class="block text-[18px] text-[<?= $navColor ?>] font-semibold py-3 md:mt-0 mt-5">Shop</span>
+        <span class="block text-[18px] text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] font-semibold py-3 md:mt-0 mt-5">Shop</span>
         <a href="./index.php">
-          <span class="block cursor-pointer text-[<?= $navColor ?>]">Shop</span>
+          <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Shop</span>
 
         </a>
         <a href="#trending">
-          <span class="block cursor-pointer text-[<?= $navColor ?>]">Trending Products</span>
+          <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Trending Products</span>
 
         </a>
         <a href="#best">
-          <span class="block cursor-pointer text-[<?= $navColor ?>]">Bestsellers Product</span>
+          <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Bestsellers Product</span>
         </a>
 
         <a href="#new">
-          <span class="block cursor-pointer text-[<?= $navColor ?>]">New Products</span>
+          <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">New Products</span>
         </a>
       </div>
 
@@ -491,24 +1286,114 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
 
 
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?= $navColor ?>]">Contact Us</span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>] ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>] ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
-        <span class="block cursor-pointer text-[<?= $navColor ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Contact Us</span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
+        <span class="block cursor-pointer text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?= $navColor ?>]">Follow Us</span>
+        <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Follow Us</span>
         <div class="flex justify-center space-x-3">
           <a href="https://web.facebook.com/extbrainedu">
-            <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-facebook"></ion-icon>
+            <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-facebook"></ion-icon>
           </a>
-          <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-instagram"></ion-icon>
-          <ion-icon class="text-2xl text-[<?= $navColor ?>]" name="logo-twitter"></ion-icon>
+          <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-instagram"></ion-icon>
+          <ion-icon class="text-2xl text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]" name="logo-twitter"></ion-icon>
         </div>
       </div>
     </div>
-    <span class="text-center text-sm block pb-5 text-[<?= $navColor ?>]">Copyright © 2023 TrendHub | Created by X-Tech</span>
+    <span class="text-center text-sm block pb-5 text-[<?php
+      
+      if ($currentHour >= $startTime && $currentHour < $endTime)  {
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>]">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
 
   <script>
