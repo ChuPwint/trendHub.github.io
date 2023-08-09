@@ -107,7 +107,7 @@
             <!-- product-card -->
             <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
                 <div>
-                    <img src="../resources/img/products/msi_summit.svg" alt="msi">
+                    <img class="w-[280px]" src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
 
                 <div class="pl-5">
