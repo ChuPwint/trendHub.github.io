@@ -6,12 +6,14 @@ if (isset($_SESSION["totalCount"]) || isset($_SESSION["merchantProducts"]) || is
     $totalCount  = $_SESSION["totalCount"];
     $merProducts = $_SESSION["merchantProducts"];
     $allCategories = $_SESSION["allCategories"];
-  
 }
 
 include "../../Controller/productSubmission/merchantInfoShowController.php";
 include "../../Controller/categoryController.php";
 
+if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitController"] == false)) {
+    $_SESSION["productSubmitView"] = 0;
+}
 
 
 ?>
@@ -26,7 +28,7 @@ include "../../Controller/categoryController.php";
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
-    
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js" defer></script>
@@ -138,18 +140,18 @@ include "../../Controller/categoryController.php";
         <!-- End of Logo Add Modal Pop Up -->
 
         <!-- start of product submit finish modal box -->
-      
-        <div class="productSubmitFinishModal hidden fixed w-full h-full pt-16 bg-black bg-opacity-50 z-20">
-            <div class="bg-white m-auto p-5 border rounded-sm w-[50%]">
-                <h2 class="text-xl font-bold mb-4">Product Submission is complete.</h2>
-                <hr>
-                <p class="mt-6 text-center">Your Product Submission is complete. We will verify the information details and notify you about your products approval. Check your notifications for any updates.</p>
-                <div class="flex mt-5 justify-center">
-                    <button id="closeProductSubmitFinishModal" class="mt-4 bg-secondary text-white font-semibold py-2 px-4 rounded">Close</button>
+        <?php if (isset($_SESSION["productSubmitView"]) && ($_SESSION["productSubmitView"] == 1)) { ?>
+            <div class="productSubmitFinishModal fixed w-full h-full pt-16 bg-black bg-opacity-50 z-20">
+                <div class="bg-white m-auto p-5 border rounded-sm w-[50%]">
+                    <h2 class="text-xl font-bold mb-4">Product Submission is complete.</h2>
+                    <hr>
+                    <p class="mt-6 text-center">Your Product Submission is complete. We will verify the information details and notify you about your products approval. Check your notifications for any updates.</p>
+                    <div class="flex mt-5 justify-center">
+                        <button id="closeProductSubmitFinishModal" class="mt-4 bg-secondary text-white font-semibold py-2 px-4 rounded">Close</button>
+                    </div>
                 </div>
             </div>
-        </div>
-       
+        <?php } ?>
         <!-- end of product submit finish modal box -->
 
         <!-- start of add product modal box -->
@@ -287,7 +289,7 @@ include "../../Controller/categoryController.php";
         </div>
         <!-- end modal box  delete-->
 
-    <!-- Right-side Start -->
+        <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <div>
                 <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer underline">Your Logo Here</h1>
@@ -304,29 +306,29 @@ include "../../Controller/categoryController.php";
                 <div>
                     <div class="mb-4 relative">
                         <label for="name" class="z-0 absolute top-0 left-0 pr-16 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Name</label>
-                        <input id="name" type="text" value="<?= $merchantInfo[0]['m_name']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="name" required>
+                        <input id="name" type="text" value="<?= $merchantInfo[0]['m_name'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="name" required>
                     </div>
                     <div class="mb-4 relative">
                         <label for="storeName" class="z-0 absolute top-0 left-0 pr-5 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Store Name</label>
-                        <input id="storeName" type="text" value="<?= $merchantInfo[0]['m_bname']?>"  class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="storeName" required>
+                        <input id="storeName" type="text" value="<?= $merchantInfo[0]['m_bname'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="storeName" required>
                     </div>
                     <div class="relative">
                         <label for="license" class="z-0 absolute top-0 left-0 pr-[52px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">License</label>
-                        <input id="license" type="text" value="<?= $merchantInfo[0]['m_licene']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="license">
+                        <input id="license" type="text" value="<?= $merchantInfo[0]['m_licene'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="license">
                     </div>
                 </div>
                 <div>
                     <div class="mb-4 relative">
                         <label for="email" class="absolute top-0 left-0 pr-16 text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Email</label>
-                        <input id="email" type="email" value="<?= $merchantInfo[0]['m_email']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="email" required>
+                        <input id="email" type="email" value="<?= $merchantInfo[0]['m_email'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="email" required>
                     </div>
                     <div class="mb-4 relative">
                         <label for="phone" class="absolute top-0 left-0 pr-[58px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Phone</label>
-                        <input id="phone" type="text" value="<?= $merchantInfo[0]['m_phone']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="phone" required>
+                        <input id="phone" type="text" value="<?= $merchantInfo[0]['m_phone'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="phone" required>
                     </div>
                     <div class="relative">
                         <label for="address" class="absolute top-0 left-0 pr-[46px] text-white bg-darkGreenColor font-semibold py-2 pl-3 rounded-md">Address</label>
-                        <input id="address" type="text" value="<?= $merchantInfo[0]['m_address']?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="address" required>
+                        <input id="address" type="text" value="<?= $merchantInfo[0]['m_address'] ?>" class="h-10 py-2 pl-32 font-semibold rounded-md shadow-md outline-none border border-darkGreenColor" name="address" required>
                     </div>
                 </div>
                 <div>
@@ -336,8 +338,8 @@ include "../../Controller/categoryController.php";
             <!-- End of input text fields and add product button -->
 
             <!-- Start of product table -->
-            <div class="h-40 overflow-y-scroll mt-10">
-                
+            <div class="h-60 overflow-y-scroll mt-10">
+
                 <table class="table-fixed w-full">
                     <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
                         <tr>
@@ -351,9 +353,10 @@ include "../../Controller/categoryController.php";
                             <th class="p-2 w-32">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableElement">
                         <?php
                         $idCount = 1;
+
                         if ($totalCount > 0) {
                             $count = 1;
                             foreach ($merProducts as $product) {
@@ -368,7 +371,7 @@ include "../../Controller/categoryController.php";
                                     <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> kyat</td>
                                     <!-- Calculate total value -->
                                     <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> kyat</td>
-                                    <td  deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
+                                    <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
                                 </tr>
                         <?php }
                         } ?>
@@ -376,16 +379,22 @@ include "../../Controller/categoryController.php";
                     </tbody>
                 </table>
             </div>
-            <!-- End of product table -->
-            <div class="mt-5 mr-2 text-right">
-                <button type="submit" id="submitProductBtn" class="px-3 py-2 bg-darkGreenColor text-white rounded-md">
-                <a href="../../Controller/productSubmission/submitToAdminController.php">
-                Submit Products </a></button>
-            </div>
+            <?php if ($idCount > 1) {  ?>
 
+
+                <!-- End of product table -->
+                <div class="mt-5 mr-2 text-right">
+                    <button type="submit" id="submitProductBtn" class="px-3 py-2 bg-darkGreenColor text-white rounded-md">
+                        <a href="../../Controller/productSubmission/submitToAdminController.php">
+                            Submit Products </a></button>
+                </div>
+            <?php } ?>
         </div>
         <!-- Right-side End -->
     </section>
 </body>
 
 </html>
+<?php
+$_SESSION["productSubmitController"] = false;
+?>

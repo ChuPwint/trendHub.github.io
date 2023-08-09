@@ -42,8 +42,9 @@ $(document).ready(function () {
         $("#logoutModal").toggle();
     });
 
+
     $("#submitProductBtn").click(function () {
-        $(".productSubmitFinishModal").toggle();
+       
         $("#name").val($("#name").val());
         $("#storeName").val($("#storeName").val());
         $("#license").val($("#license").val());
@@ -52,10 +53,10 @@ $(document).ready(function () {
         $("#address").val($("#address").val());
         $(".productSubmitData").remove();
 
-        $("#submitProductBtn").addClass("hidden");
+       
     });
 
     $("#closeProductSubmitFinishModal").click(function () {
-        $(".productSubmitFinishModal").toggle();
+        $(".productSubmitFinishModal").addClass("hidden");
     });
 });
