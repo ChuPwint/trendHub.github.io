@@ -29,7 +29,7 @@ include "../../Controller/categoryController.php";
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../resources/lib/jquery3.6.0.js" defer></script>
+    <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
 </head>
