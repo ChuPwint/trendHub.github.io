@@ -1,6 +1,6 @@
 <?php
 session_start();
-$currentDetailProductID = $_SESSION["currentDetailPrdocutID"]; 
+$currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
 $currentLoginUserID = 18; //session
 $productDetail = $_SESSION["productDetail"];
 $averageRating = $_SESSION["averageRating"];
@@ -13,7 +13,6 @@ $totalOnestarRating = $_SESSION["totalOnestarRating"];
 $totalReviews =  $_SESSION["reviews"];
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +33,44 @@ $totalReviews =  $_SESSION["reviews"];
             height: 50px;
             font-size: 50px;
         }
+
+        .navUL {
+            display: flex !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .navUL li {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+            scrollbar-width: none;
+        }
+
+        .cart_item{
+            top: -2px !important;
+            right: -8px !important;
+        }
+
+        .secondNav{
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+        }
+
+    
     </style>
 </head>
 
-<body class="bg-primary font-roboto">
+<body class="bg-primary font-roboto scrollbar-hide">
     <?php
     include "../resources/common/navbar.php";
     ?>
+    
 
     <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">
         <span>Home > </span>
@@ -200,12 +230,12 @@ $totalReviews =  $_SESSION["reviews"];
                 <div class="hidden text-center md:block md:ml-5 md:flex-none">
                     <p class="font-semibold text-lg">Review this product after buying</p>
                     <p>Share your thoughts with other customers!</p>
-                    <small class="text-red-400"><?php 
-                    if(isset($_SESSION["cannotReview"])) echo $_SESSION["cannotReview"]; 
-                    if(isset($_SESSION["alreadyReview"])) echo $_SESSION["alreadyReview"]
-                    ?></small>
+                    <small class="text-red-400"><?php
+                                                if (isset($_SESSION["cannotReview"])) echo $_SESSION["cannotReview"];
+                                                if (isset($_SESSION["alreadyReview"])) echo $_SESSION["alreadyReview"]
+                                                ?></small>
                     <div>
-                    <button class="bg-tertiary text-white px-4 py-1 rounded mt-3 reviewNow">Review Now</button>
+                        <button class="bg-tertiary text-white px-4 py-1 rounded mt-3 reviewNow">Review Now</button>
                     </div>
                 </div>
             </div>
@@ -242,8 +272,8 @@ $totalReviews =  $_SESSION["reviews"];
 
             <?php
             if ($review["reply_text"] != null) {
-                $repliedMerchant = ($review["m_bname"] != null) ? $review["m_bname"] : $review["m_name"] ;
-                ?>
+                $repliedMerchant = ($review["m_bname"] != null) ? $review["m_bname"] : $review["m_name"];
+            ?>
                 <div class="replies mt-2 pl-10">
                     <div class="bg-productCardBgColor py-5 px-5 shadow-md">
                         <div class="font-bold text-lg mb-3"><ion-icon class="mr-2" name="arrow-undo-sharp"></ion-icon>Replied</div>
@@ -315,7 +345,7 @@ $totalReviews =  $_SESSION["reviews"];
                 $('#reviewPopup').addClass("hidden");
             })
 
-           
+
 
         })
     </script>
