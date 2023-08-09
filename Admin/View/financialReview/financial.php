@@ -60,7 +60,16 @@
                             <canvas id="myChart"></canvas>
                         </div>
                     </div><br>
-                    <span class="text-center font-semibold block">Click each bar to know the payment history/earning of that particular month.</span>
+                    <span class="text-center font-semibold block">
+                        Choose month to check particular month payment history: 
+                        <select class="ml-4" name="" id="">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <button class="ml-4 px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">Go</button>
+                    </span>
                 </div>
                 <div class="mt-4">
                     <span class="text-xl font-semibold pl-12 text-white">In this year:</span>
@@ -69,18 +78,6 @@
                             <div class="mt-5">
                                 <span class="text-center font-semibold block text-lg text-white">Total Earning From Customer</span>
                                 <span class="text-center font-semibold block text-2xl text-white mt-2">300,000,000</span>
-                            </div>
-                        </div>
-                        <div class="w-[340px] h-[150px] bg-[#4EB5EE] rounded-sm">
-                            <div class="mt-5">
-                                <span class="text-center font-semibold block text-lg text-white">Total Earning From Merchant</span>
-                                <span class="text-center font-semibold block text-2xl text-white mt-2">100,000,000</span>
-                            </div>
-                        </div>
-                        <div class="w-[340px] h-[150px] bg-[#FF7373] rounded-sm">
-                            <div class="mt-5">
-                                <span class="text-center font-semibold block text-lg text-white">Total Profit</span>
-                                <span class="text-center font-semibold block text-2xl text-white mt-2">330,000,000</span>
                             </div>
                         </div>
                     </div>
