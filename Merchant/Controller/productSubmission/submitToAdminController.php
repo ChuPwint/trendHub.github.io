@@ -7,8 +7,7 @@ $sql = $pdo->prepare("
 $sql->bindValue(":id", $merchantId);
 $sql->execute();
 $submittedProducts = $sql->fetchAll(PDO::FETCH_ASSOC);
-echo "<pre>";
-print_r($submittedProducts);
+
 
 
 //search the last id+1 to get product submit id 

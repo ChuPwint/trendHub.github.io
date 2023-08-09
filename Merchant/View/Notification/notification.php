@@ -110,7 +110,7 @@ include "../../Controller/notificationController.php";
                 <div id="leftSide" class="mr-4">
         <!-- notify messages -->
         <!-- Left-side start  -->
-                    <div id="leftSide" class="h-[70vh] overflow-y-scroll scrollbar-hide w-[900px]">
+                    <div id="leftSide" class="h-[600px] overflow-y-scroll scrollbar-hide w-[900px]">
                         <!-- Noti card 1 start  -->
                         <?php
                         foreach ($notifications as $notify) { ?>
