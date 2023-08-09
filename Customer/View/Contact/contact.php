@@ -32,7 +32,7 @@ $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["pri
     <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
     </div>
 
-    <section class="container w-full mx-auto md:h-[80vh] flex justify-center items-center px-10 py-10 md:py-0">
+    <section class="container mt-[120px] w-full mx-auto md:h-[80vh] flex justify-center items-center px-10 py-10 md:py-0">
         <!-- contact container -->
         <div class="bg-white md:bg-[url('../resources/img/contact/contact_bg.svg')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
             <!-- left side -->

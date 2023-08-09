@@ -102,7 +102,7 @@ $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["l
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
-            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $navColor ?>] py-2 px-6 rounded md:hidden order-3">
+            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>] py-2 px-6 rounded md:hidden order-3">
               Login
             </button>
           </a>
