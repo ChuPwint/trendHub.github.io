@@ -253,7 +253,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
             <!-- end of search button and select box -->
 
             <!-- Start of product table -->
-            <div class="h-[530px] overflow-y-scroll mt-10">
+            <div class="h-[500px] overflow-y-scroll scroll-bar-hide mt-5">
             <table class="table-fixed mt-10 w-full">
                 <thead class="bg-darkGreenColor text-white font-semibold text-lg">
                     <tr>
@@ -283,7 +283,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                             <td class="p-2 text-center"><?= '$' . $product['buy_price'] ?></td>
                             <td class="p-2 text-center"><?= '$' . $product['sell_price'] ?></td>
                             <td class=" p-2 text-center font-semibold underline cursor-pointer">
-                            <a href="../../Controller/allProduct/productDetailShowController.php?id=<?= $product["id"] ?>" > 
+                            <a href="../../Controller/allProduct/productDetailShowController.php?id=<?= $product["pId"] ?>" > 
                             View Detail</a>
 
                             

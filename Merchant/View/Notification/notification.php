@@ -104,7 +104,7 @@ include "../../Controller/notificationController.php";
 
         <!-- Right-side Start -->
 
-        <div class="mainPage h-screen overflow-hidden w-full p-6 container ml-20">
+        <div class="mainPage h-screen overflow-hidden w-full p-6 container ml-10">
         <h1 class="text-darkGreenColor text-3xl font-bold mb-5 ">Notifications</h1>
             <div class="flex flex-row">
                 <div id="leftSide" class="mr-4">
@@ -151,7 +151,7 @@ include "../../Controller/notificationController.php";
                     <div class="w-full h-full bg-gray-100 shadow-md border-secondary container px-4 py-4 mt-3 border hover:bg-pink-100 hover:border-secondary">
                         <!-- message 1    -->
                         <!-- Right-side start  -->
-                        <div id="rightSide" class="h-[70vh] overflow-y-scroll scrollbar-hide w-[900px]">
+                        <div id="rightSide" class="h-[70vh]  ">
                             <!-- message 1    -->
                             <?php
                             $counter = 1;
@@ -159,7 +159,7 @@ include "../../Controller/notificationController.php";
                                 <div class="message bg-white shadow-lg px-4 py-3 border rounded <?php if ($counter != 1) echo "hidden" ?>">
                                     <div class="flex flex-row">
                                         <div class="flex flex-row justify-start">
-                                            <img src="../resources/img/profile/notifyProfile.png" alt="">
+                                            <img src="../resources/img/profile/notifyProfile.png" alt="" class="w-6 h-6">
                                             <p class="px-2">TrendHub Admin</p>
                                         </div>
                                         <p class="ml-56"><?= $notifyText['title'] ?></p>

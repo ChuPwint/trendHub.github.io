@@ -69,8 +69,8 @@ $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"
 $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
-$startTime = isset($editDark[0]["h1_color"]) && !empty($editDark[0]["h1_color"]) ? $editDark[0]["h1_color"] : '00';
-$endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ? $editDark[0]["h2_color"] : '00';
+$startTime = isset($darkMode[0]["h1_color"]) && !empty($darkMode[0]["h1_color"]) ? $darkMode[0]["h1_color"] : '00';
+$endTime = isset($darkMode[0]["h2_color"]) && !empty($darkMode[0]["h2_color"]) ? $darkMode[0]["h2_color"] : '00';
 
 
 
@@ -275,14 +275,14 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
                         <div class="flex justify-between mt-4">
                             <span>Start Time</span>
-                            <input value="<?= $startTime ?>" name="startTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                            <input value="<?= $editDark[0]["h1_color"]?>" name="startTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
                          
 
                         </div>
 
                         <div class="flex justify-between mt-4">
                             <span>End Time</span>
-                            <input value="<?= $endTime?>" name="endTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                            <input value="<?= $editDark[0]["h2_color"]?>" name="endTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
                         </div>
 
                         <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[125px] bg-[white]">Save</button>
@@ -553,19 +553,13 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex  mt-4">
                             <span>Title</span>
-                            <textarea placeholder="Enter Title" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3">
-                                    <?=
-                                    $sliderTitle1 ?>
-                                </textarea>
+                            <textarea placeholder="Enter Title" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3"> <?=$sliderTitle1 ?> </textarea>
 
                         </div>
 
                         <div class="flex  mt-4">
                             <span>Des</span>
-                            <textarea placeholder="Enter Description" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5">
-                                <?=
-                                $sliderDsc1 ?>
-                                </textarea>
+                            <textarea placeholder="Enter Description" class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscOne" id="" cols="32" rows="5"> <?= $sliderDsc1 ?></textarea>
 
                         </div>
                         <div class="flex justify-between mt-4">
@@ -615,17 +609,13 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/imgSlider2/updateTextController.php" method="post">
                         <div class="flex  mt-4">
                             <span>Title</span>
-                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3">
-                                <?= $sliderTitle2 ?>
-                                </textarea>
+                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3"><?= $sliderTitle2 ?></textarea>
 
                         </div>
 
                         <div class="flex  mt-4">
                             <span>Des</span>
-                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5">
-                                <?= $sliderDsc2 ?>
-                                </textarea>
+                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5"><?= $sliderDsc2 ?></textarea>
 
                         </div>
 
@@ -678,18 +668,13 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/imgSlider3/updateTextController.php" method="post">
                         <div class="flex  mt-4">
                             <span>Title</span>
-                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="32" rows="3">
-                                <?= $sliderTitle3 ?>
-                                </textarea>
+                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="32" rows="3"> <?= $sliderTitle3 ?></textarea>
 
                         </div>
 
                         <div class="flex  mt-4">
                             <span>Des</span>
-                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="32" rows="5">
-                                <?= $sliderDsc3 ?>
-
-                                </textarea>
+                            <textarea class="resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="32" rows="5"><?= $sliderDsc3 ?></textarea>
 
                         </div>
 
@@ -737,15 +722,11 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex justify-between w-[1040px]">
                             <span class="block text-white ">Ques:</span>
-                            <textarea name="questionOne" cols="120" rows="2" class=" resize-none text-black" type="text" placeholder="Question 1">
-                                <?= $question1 ?>
-                                </textarea>
+                            <textarea name="questionOne" cols="120" rows="2" class=" resize-none text-black" type="text" placeholder="Question 1"><?= $question1 ?></textarea>
                         </div>
                         <div class="flex  mt-4 justify-between">
                             <span class="block text-white">Ans:</span>
-                            <textarea cols="120" rows="4" name="answerOne" class="resize-none  text-black" type="text" placeholder="Answer 1">
-                                <?= $answer1 ?>
-                                </textarea>
+                            <textarea cols="120" rows="4" name="answerOne" class="resize-none  text-black" type="text" placeholder="Answer 1"><?= $answer1 ?></textarea>
                         </div>
                         <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
@@ -759,15 +740,11 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex justify-between w-[1040px]">
                             <span class="block text-white ">Ques:</span>
-                            <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
-                                                     <?= $question2 ?>
-                                                  </textarea>
+                            <textarea name="questionTwo" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1"><?= $question2 ?></textarea>
                         </div>
                         <div class="flex  mt-4 justify-between">
                             <span class="block text-white">Ans:</span>
-                            <textarea cols="120" rows="4" name="answerTwo" class="resize-none  text-black" type="text" placeholder="Answer 1">
-                                     <?= $answer2 ?>
-                                         </textarea>
+                            <textarea cols="120" rows="4" name="answerTwo" class="resize-none  text-black" type="text" placeholder="Answer 1"><?= $answer2 ?> </textarea>
                         </div>
                         <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
@@ -779,15 +756,11 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex justify-between w-[1040px]">
                             <span class="block text-white ">Ques:</span>
-                            <textarea name="questionThree" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1">
-                                                              <?= $question3 ?>
-                                                             </textarea>
+                            <textarea name="questionThree" cols="120" rows="2" class=" resize-none  text-black" type="text" placeholder="Question 1"><?= $question3 ?> </textarea>
                         </div>
                         <div class="flex  mt-4 justify-between">
                             <span class="block text-white">Ans:</span>
-                            <textarea cols="120" rows="4" name="answerThree" class="resize-none  text-black" type="text" placeholder="Answer 1">
-                                                     <?= $anwer3 ?>
-                                                                 </textarea>
+                            <textarea cols="120" rows="4" name="answerThree" class="resize-none  text-black" type="text" placeholder="Answer 1"><?= $anwer3 ?></textarea>
                         </div>
                         <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
 
@@ -810,9 +783,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex  mt-4">
                             <span>Terms:</span>
-                            <textarea class="resize-none text-black outline-none rounded-sm ml-[20px] text-start justify-start " name="terms" id="" cols="123" rows="3">
-                                    <?= $editTerms[0]["terms"] ?>
-                                </textarea>
+                            <textarea class="resize-none text-black outline-none rounded-sm ml-[20px] text-start justify-start " name="terms" id="" cols="123" rows="3"><?= $editTerms[0]["terms"] ?></textarea>
 
                         </div>
 
