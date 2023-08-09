@@ -13,7 +13,6 @@ include "../../Controller/uiElement/editInfoController.php";
 // print_r($editInfo);
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
-// $primaryColor = isset($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
 $buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
@@ -63,9 +62,7 @@ $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ?
 
 <?php 
 
-
 date_default_timezone_set('Asia/Yangon'); 
-
 $currentHour = date('H');
 
 ?>
@@ -101,7 +98,6 @@ $currentHour = date('H');
           }
 
       ?>" alt="">
-
         <!-- mobile logo -->
         <img class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
 
@@ -128,11 +124,11 @@ $currentHour = date('H');
 
         echo "#000000";
       }else{
-        $tertiaryColor;
+        $primaryColor;
       }
   
 
-      ?>]] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      ?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
         <li class="mx-4 my-6 md:my-0">
           <a href="../index.php" class="text-md text-[<?php
       
