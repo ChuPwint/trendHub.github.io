@@ -5,8 +5,8 @@ if(count($_POST) == 0){
     echo "ERROR";
     header("Location: ../../View/Error/error.php");
 }else{
-   $h1_color = $_POST["h1Color"];
-   $h2_color = $_POST['h2Color'];
+   $h1_color = $_POST["startTime"];
+   $h2_color = $_POST['endTime'];
 
 
    include "../../../Model/model.php";
@@ -25,7 +25,7 @@ if(count($_POST) == 0){
    $sql->execute();
  
 
-   header("Location: ../../../View/UI Elements/ui.php");
+   header("Location: ../../../View/uiElements/ui.php");
 
 
 }

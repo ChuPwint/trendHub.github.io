@@ -40,7 +40,7 @@ $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_c
 
 
     <!-- Question about order -->
-    <section class="container w-full mx-auto ">
+    <section class="container w-full mx-auto mt-[120px] ">
         <div class="text-center py-5">
             <p class="text-sm md:text-2xl font-semibold py-5 text-[<?= $titleColor ?>]">Hello, What can we help you with?</p>
             <input type="text" name="" id="" class="border-2 border-[<?= $tertiaryColor ?>] bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
