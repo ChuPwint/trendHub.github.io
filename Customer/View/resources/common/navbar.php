@@ -118,7 +118,7 @@ $currentHour = date('H');
         </span>
       </div>
 
-      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
+      <ul class="navUL md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
       
       if ($currentHour < 1)  {
 
@@ -231,7 +231,7 @@ $currentHour = date('H');
     <!-- end first navbar -->
     <!-- start second navbar -->
     <?php if (!isset($view)) { ?>
-      <nav class="bg-[<?php
+      <nav class="secondNav bg-[<?php
       
       if ($currentHour >= $startTime && $currentHour < $endTime)  {
 
