@@ -21,13 +21,13 @@ include "../../Controller/uiElements/banner5/viewBannerController.php";
 include "../../Controller/uiElements/backgroundColor/viewBackgroundController.php";
 include "../../Controller/uiElements/textColor/viewTextController.php";
 include "../../Controller/uiElements/cardColor/viewCardController.php";
-// include "../../Controller/uiElements/fontColor/viewFontColorController.php";
+include "../../Controller/uiElements/darkMode/viewDarkMode.php";
 include "../../Controller/uiElements/buttonColor/viewButtonColorController.php";
 include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 
 $logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
-$primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacground[0]["primary_color"]) ? $editBacground[0]["primary_color"] : '#FFFAFA';
+$primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacground[0]["primary_color"]) ? $editBacground[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editBacground[0]["secondary_color"]) && !empty($editBacground[0]["secondary_color"]) ? $editBacground[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editBacground[0]["tertiary_color"]) && !empty($editBacground[0]["tertiary_color"]) ? $editBacground[0]["tertiary_color"] : '#F36823';
 $lightTertiary = isset($editBacground[0]["light_tertiary"]) && !empty($editBacground[0]["light_tertiary"]) ? $editBacground[0]["light_tertiary"] : '#F5F5F5';
@@ -69,6 +69,8 @@ $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"
 $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
+$startTime = isset($editDark[0]["h1_color"]) && !empty($editDark[0]["h1_color"]) ? $editDark[0]["h1_color"] : '00';
+$endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ? $editDark[0]["h2_color"] : '00';
 
 
 
@@ -249,22 +251,7 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
                         <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                     </form>
                 </div>
-                <div>
-                    <span class="text-xl">Font Color</span>
-                    <form action="">
-                        <div class="flex justify-between mt-4">
-                            <span>h1</span>
-                            <input value="black" class="rounded-sm" type="color">
-                        </div>
 
-                        <div class="flex justify-between mt-4">
-                            <span>h2</span>
-                            <input value="#F36823" class="rounded-sm" type="color">
-                        </div>
-
-                        <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
-                    </form>
-                </div>
 
                 <div>
                     <span class="text-xl">Button Color</span>
@@ -282,10 +269,32 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
                         <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[105px] bg-[white]">Save</button>
                     </form>
                 </div>
+
+                <div>
+                    <span class="text-xl">Set Time(Dark Mode)</span>
+                    <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
+                        <div class="flex justify-between mt-4">
+                            <span>Start Time</span>
+                            <input value="<?= $startTime ?>" name="startTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                         
+
+                        </div>
+
+                        <div class="flex justify-between mt-4">
+                            <span>End Time</span>
+                            <input value="<?= $endTime?>" name="endTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                        </div>
+
+                        <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[125px] bg-[white]">Save</button>
+                    </form>
+                </div>
+
+
             </div>
 
 
-      
+
+
 
 
 
@@ -824,6 +833,7 @@ $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $
     <script src="../resources/js/modal_box.js"></script>
     <script src="../resources/js/faq.js"></script>
     <script src="../resources//js/imgSave.js"></script>
+    <script src="../resources/js/customHour.js"></script>
 </body>
 
 </html>

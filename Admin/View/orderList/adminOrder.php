@@ -14,6 +14,8 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/js/search/searchAdminOrder.js" defer></script>
+    <script src="../resources/js/orderList/adminOrder.js" defer></script>
+    <script src="../resources/js/dropDown/drop_downAdminOrder.js" defer></script>
 </head>
 
 <style>
@@ -66,7 +68,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
             <div class="px-[53px] py-8 data-output">
                 <!-- Sort Start  -->
                 <div class="flex items-center justify-between space-x-2 mb-2">
-                    <span class="text-white">
+                    <span id="noOfPending" class="text-white">
                         <?php
                         $orderPendingTotal = 0;
                         foreach ($adminOrderList as $order) {
@@ -192,36 +194,37 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                     </div>
                     <!-- end of order detail texts -->
                     <!-- start of order summary -->
-                    <div class="w-[40%] h-[350px] overflow-y-scroll py-5 px-3 bg-[#E4E4D2]">
+                    <div class="w-[40%] h-[350px] overflow-y-scroll scrollbar-hide py-5 px-3 bg-[#E4E4D2]">
                         <p class="font-medium mb-5 text-lg">Order Summary</p>
                         <!-- start of products -->
                         <div class="flex justify-between items-center mb-5 text-lg">
-                            <div>
-                                <p class="mb-3">T-shirt</p>
-                                <p class="mb-3">Shoes</p>
+                            <div id="productNameList">
+                                
                             </div>
-                            <div>
-                                <p class="mb-3">5</p>
-                                <p class="mb-3">1</p>
+                            <div id="productItemList">
+                                
+                            </div>
+                            <div id="productPriceList">
+                                
                             </div>
                         </div>
                         <hr class="border border-dashed mb-3 border-gray-400">
                         <!-- end of products -->
                         <!-- start of prices -->
-                        <div class="flex justify-between items-start">
+                        <div class="flex justify-between items-center text-lg">
                             <div>
                                 <p class="mb-3">Sub-total</p>
                                 <p>Delivery</p>
                             </div>
                             <div>
-                                <p class="mb-3">$800</p>
-                                <p>$80</p>
+                                <p id="subTotal" class="mb-3"></p>
+                                <p id="deliveryAmt"></p>
                             </div>
                         </div>
                         <hr class="border border-dashed mb-3 mt-3 border-gray-400">
-                        <div class="flex justify-between items-center mt-5">
+                        <div class="flex justify-between items-center mt-5 text-lg">
                             <p>Grand Total</p>
-                            <p>$880</p>
+                            <p id="totalPrice"></p>
                         </div>
                         <!-- end of prices -->
                     </div>
@@ -276,121 +279,6 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
         <!-- end of container box -->
     </div>
     <!-- end of order status change modal box -->
-
-    <script>
-        $(document).ready(function() {
-            //Start of Change Status Modal Box
-            $(document).on("click", ".changeStatus", function() {
-                $(".changeStatusModal").removeClass("hidden");
-                $.ajax({
-                    url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
-                    type: "POST",
-                    data: {
-                        id: this.id,
-                    },
-                    success: function(result) {
-                        let orders = JSON.parse(result);
-                        $("#orderId").val(orders[0].id);
-                        $("#orderDate").val(orders[0].create_date);
-                        $("#customerName").val(orders[0].c_name);
-
-                        if (orders[0].order_status == 0) {
-                            $("#orderStatus").val("Pending");
-                            $("#orderStatus").prop("disabled", false);
-                        } else {
-                            $("#orderStatus").val("Completed");
-                            $("#orderStatus").prop("disabled", true);
-                        }
-
-                        if (orders[0].payment_status == 0) {
-                            $("#paymentStatus").val("Pending");
-                            $("#paymentStatus").prop("disabled", false);
-                        } else {
-                            $("#paymentStatus").val("Completed");
-                            $("#paymentStatus").prop("disabled", true);
-                        }
-
-                        $("#orderInput").val($("#orderStatus").val());
-                        $("#paymentInput").val($("#paymentStatus").val());
-
-                        if (($("#orderStatus").val() == "Completed") && ($("#paymentStatus").val() == "Completed")) {
-                            $("#confirm").addClass("hidden");
-                        } else {
-                            $("#confirm").removeClass("hidden");
-                        }
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    },
-                });
-            });
-
-            $("#orderStatus").change(function() {
-                $("#orderInput").val($("#orderStatus").val());
-                if ($("#paymentStatus").prop('disabled') == false) {
-                    $("#paymentStatus").val($("#orderStatus").val());
-                    $("#paymentInput").val($("#paymentStatus").val());
-                }
-            });
-
-            $("#paymentStatus").change(function() {
-                $("#paymentInput").val($("#paymentStatus").val());
-                $("#orderStatus").val($("#paymentStatus").val());
-                $("#orderInput").val($("#orderStatus").val());
-            });
-
-            $("#close").click(function() {
-                $(".changeStatusModal").addClass("hidden");
-            });
-
-            $("#confirm").click(function() {
-                $(".changeStatusModal").addClass("hidden");
-            });
-            //end of change status modal box
-
-            //Show Detail
-            $(document).on("click", ".showDetail", function() {
-                $(".viewOrderDetailModal").removeClass("hidden");
-                $.ajax({
-                    url: "../../Controller/orderList/adminOrders/modalShowOrderDetailController.php",
-                    type: "POST",
-                    data: {
-                        id: $(this).attr("detailID"),
-                    },
-                    success: function(result) {
-                        let orderDetail = JSON.parse(result);
-                        console.log(orderDetail);
-                        $("#detailOrderId").text(orderDetail[0].id);
-                        $("#detailOrderDate").text(orderDetail[0].create_date);
-                        $("#detailCustomerName").text(orderDetail[0].c_name);
-                        if(orderDetail[0].order_status == 0){
-                            $("#detailOrderStatus").text("Pending");
-                        }else{
-                            $("#detailOrderStatus").text("Completed");
-                        }
-                        $("#detailPaymentType").text(orderDetail[0].payment_method);
-                        if(orderDetail[0].payment_status == 0){
-                            $("#detailPaymentStatus").text("Pending");
-                        }else{
-                            $("#detailPaymentStatus").text("Completed");
-                        }
-                        $("#detailCustomerAddress").text(orderDetail[0].address);
-                        $("#detailCustomerPhone").text(orderDetail[0].c_phone);
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    },
-                });
-            })
-
-            //Hide Detail
-            $("#closeDetailModal").click(function() {
-                $(".viewOrderDetailModal").addClass("hidden");
-            })
-
-        });
-    </script>
-
 </body>
 
 </html>

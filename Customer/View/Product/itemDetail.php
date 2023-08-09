@@ -1,6 +1,6 @@
 <?php
 session_start();
-$currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
+$currentDetailProductID = $_SESSION["currentDetailPrdocutID"]; 
 $currentLoginUserID = 18; //session
 $productDetail = $_SESSION["productDetail"];
 $averageRating = $_SESSION["averageRating"];
