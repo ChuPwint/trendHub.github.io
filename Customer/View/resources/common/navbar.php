@@ -140,7 +140,7 @@ $currentHour = date('H');
 
         echo "#ffffff";
       }else{
-       echo $primaryColor;
+       echo $navColor;
       }
   
 
