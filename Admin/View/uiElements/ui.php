@@ -69,8 +69,8 @@ $question3 = isset($editInfo[0]["question3"]) && !empty($editInfo[0]["question3"
 $answer1 = isset($editInfo[0]["answer1"]) && !empty($editInfo[0]["answer1"]) ? $editInfo[0]["answer1"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $editInfo[0]["answer2"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
-$startTime = isset($darkMode[0]["h1_color"]) && !empty($darkMode[0]["h1_color"]) ? $darkMode[0]["h1_color"] : '00';
-$endTime = isset($darkMode[0]["h2_color"]) && !empty($darkMode[0]["h2_color"]) ? $darkMode[0]["h2_color"] : '00';
+$startTime = isset($editDark[0]["h1_color"]) && !empty($editDark[0]["h1_color"]) ? $editDark[0]["h1_color"] : '00:00';
+$endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ? $editDark[0]["h2_color"] : '00:00';
 
 
 
@@ -275,14 +275,17 @@ $endTime = isset($darkMode[0]["h2_color"]) && !empty($darkMode[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
                         <div class="flex justify-between mt-4">
                             <span>Start Time</span>
-                            <input value="<?= $editDark[0]["h1_color"]?>" name="startTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                            <input  value="<?=$startTime?>" name="startTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
+
+
                          
 
                         </div>
 
                         <div class="flex justify-between mt-4">
                             <span>End Time</span>
-                            <input value="<?= $editDark[0]["h2_color"]?>" name="endTime" type="number" class="pl-2 w-[50px] text-black rounded-sm focus:outline-none " min="0" max="24">
+                            <input value="<?= $endTime?>" name="endTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
+
                         </div>
 
                         <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[125px] bg-[white]">Save</button>
