@@ -1,7 +1,7 @@
 <?php
 include "../../Model/model.php";
 $sql = $pdo->prepare(
-    "SELECT SUM( total_amt)
+    "SELECT SUM(total_amt) AS earning
     FROM t_orders
     WHERE payment_status = 1;
     "
@@ -33,7 +33,7 @@ $sql->execute();
 $mostSoldProduct = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->prepare(
-    "SELECT COUNT(id)
+    "SELECT COUNT(id) AS total_order
     FROM t_orders
     WHERE merchant_id = 1    
     "
@@ -41,4 +41,11 @@ $sql = $pdo->prepare(
 $sql->execute();
 $totalOrders = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-?>
+$sql = $pdo->prepare(
+    "SELECT DISTINCT m.month
+    FROM t_orders o
+    JOIN m_months m ON MONTH(o.create_date) = m.id  
+    "
+);
+$sql->execute();
+$totalPaymentMonth = $sql->fetchAll(PDO::FETCH_ASSOC);
