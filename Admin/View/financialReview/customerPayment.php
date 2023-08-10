@@ -59,9 +59,6 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
                     ?>
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
-                <?php if (count($eachMonthResult) > 0) { ?>
-                    <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search by customer name">
-                <?php } ?>
             </div>
             <!-- Search End-->
 
