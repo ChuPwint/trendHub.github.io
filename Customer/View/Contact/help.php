@@ -33,6 +33,7 @@ $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_c
 $startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
 $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
 $currentHour = date('H:i'); 
+date_default_timezone_set('Asia/Yangon'); 
 $profile = "/Storage/general/my_profile.svg";
 $point = "/Storage/general/my_points.svg";
 $order = "/Storage/general/my_orders.svg";

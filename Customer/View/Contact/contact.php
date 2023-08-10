@@ -13,37 +13,122 @@
 </head>
 
 <?php
-    include "../resources/common/navbar.php";
-    include "../../Controller/uiElement/editInfoController.php";
+include "../resources/common/navbar.php";
+include "../../Controller/uiElement/editInfoController.php";
 
-    $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
-    $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
-    $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
-    $buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
-    $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
+$titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
+$lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+$background = "/Storage/general/contact_bg.svg";
+$currentHour = date('H:i'); 
+date_default_timezone_set('Asia/Yangon'); 
+?>
 
-    $lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
-    ?>
-<body class="bg-secondary md:bg-[<?=$primayColor?>] font-roboto">
+<style>
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
- 
+<body class="scrollHide  bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo "ffffff"; 
+    }
+  
+
+      ?>] md:bg-[
+      <?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] font-roboto">
+
+
 
     <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
     </div>
 
     <section class="container mt-[120px] w-full mx-auto md:h-[80vh] flex justify-center items-center px-10 py-10 md:py-0">
         <!-- contact container -->
-        <div class="bg-white md:bg-[url('../resources/img/contact/contact_bg.svg')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
+        <div class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo "#ffffff"; 
+    }
+  
+
+      ?>] md:bg-[url('../../../<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+
+   echo 'Storage/general/darkContactBg.svg';
+     }else{
+       echo $background ;
+     }
+
+ ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
             <!-- left side -->
             <div class="text-center md:text-start px-5 py-5">
-                <h1 class="text-xl font-bold md:text-4xl">Contact Us</h1>
-                <p class="text-sm pt-5 pb-10 md:text-xl md:w-[350px]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
+                <h1 class="text-xl font-bold md:text-4xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">Contact Us</h1>
+                <p class="text-sm pt-5 pb-10 md:text-xl md:w-[350px] text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
                 <form action="">
-                    <textarea name="" id="" cols="30" rows="10" class="resize-none border-2 border-[<?=$buttonColor?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" class="resize-none border-2 border-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
                 </form>
 
-                <button type="submit" class="w-full bg-[<?=$buttonColor?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
+                <button type="submit" class="w-full bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
             </div>
 
             <?php
@@ -57,24 +142,78 @@ $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["pri
 
             <!-- right side  -->
             <div class="hidden md:block md:w-">
-                <div class="px-10 py-10 bg-[<?=$secondaryColor?>] leading-10 pr-18">
-                    <p class="text-3xl font-medium text-[<?=$titleColor?>]">Info</p>
-                    <div class="flex items-center space-x-5 mt-2 text-[<?=$navColor?>]">
-                    <ion-icon class="w-[20px] h-[20px]" name="mail-outline"></ion-icon>
+                <div class="px-10 py-10 bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#3d3d3d";
+    } else {
+        echo $secondaryColor; 
+    }
+  
+
+      ?>] leading-10 pr-18">
+                    <p class="text-3xl font-medium text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">Info</p>
+                    <div class="flex items-center space-x-5 mt-2 text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">
+                        <ion-icon class="w-[20px] h-[20px]" name="mail-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_message.svg" alt="message"> -->
                         <span class="md:text-sm"><a href="mailto:<?= $editEmail ?>"><?= $editEmail ?> </a></span>
                     </div>
-                    <div class="flex items-center space-x-5 text-[<?=$titleColor?>]">
-                    <ion-icon class="w-[20px] h-[20px]" name="call-outline"></ion-icon>
+                    <div class="flex items-center space-x-5 text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">
+                        <ion-icon class="w-[20px] h-[20px]" name="call-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_phone.svg" alt="phone"> -->
                         <span><a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
                     </div>
-                    <div class="flex items-start space-x-5 text-[<?=$titleColor?>]">
-                    <ion-icon class="w-[20px] h-[20px]" name="location-outline"></ion-icon>
+                    <div class="flex items-start space-x-5 text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">
+                        <ion-icon class="w-[20px] h-[20px]" name="location-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_address.svg" alt="address"> -->
                         <span class="w-[190px] md:text-sm"><a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
                     </div>
-                    <div class="flex items-center space-x-5 text-[<?=$titleColor?>]">
+                    <div class="flex items-center space-x-5 text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_time.svg" alt="time"> -->
                         <ion-icon class="w-[20px] h-[20px]" name="time-outline"></ion-icon>
                         <span><?= $editTime ?></span>
