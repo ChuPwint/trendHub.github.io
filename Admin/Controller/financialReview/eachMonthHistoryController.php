@@ -8,7 +8,8 @@ $sql = $pdo->prepare(
     JOIN m_months m ON MONTH(o.create_date) = m.id
     JOIN t_payment_method pm ON o.payment_method_id = pm.id
     JOIN m_customers c ON o.customer_id = c.id
-    WHERE m.month = :month AND o.payment_status = 1
+    JOIN m_marchents ON o.merchant_id = m_marchents.id
+    WHERE (m.month = :month AND o.payment_status = 1) AND m_marchents.id = 1
     "
 );
 $sql->bindValue(":month", $month);
@@ -21,7 +22,8 @@ $sql = $pdo->prepare(
     JOIN m_months m ON MONTH(o.create_date) = m.id
     JOIN t_payment_method pm ON o.payment_method_id = pm.id
     JOIN m_customers c ON o.customer_id = c.id
-    WHERE m.month = :month AND o.payment_status = 1
+    JOIN m_marchents ON o.merchant_id = m_marchents.id
+    WHERE (m.month = :month AND o.payment_status = 1) AND m_marchents.id = 1
     "
 );
 $sql->bindValue(":month", $month);
