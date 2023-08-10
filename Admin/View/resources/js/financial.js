@@ -1,12 +1,12 @@
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('paymentHistoryChart');
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: months,
       datasets: [{
         label: '# of Orders',
-        data: [12, 19, 3, 5, 2, 3],
+        data: noOfOrders,
         borderWidth: 1
       }]
     },

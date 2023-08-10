@@ -41,6 +41,7 @@ $sql = $pdo->prepare(
 $sql->execute();
 $totalOrders = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+//if has orders in february, get february in select option
 $sql = $pdo->prepare(
     "SELECT DISTINCT m.month
     FROM t_orders o
@@ -49,3 +50,17 @@ $sql = $pdo->prepare(
 );
 $sql->execute();
 $totalPaymentMonth = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+//January - 3 order
+//February - 4 order
+$sql = $pdo->prepare(
+    "SELECT m.month, COUNT(o.id) AS order_count
+    FROM t_orders o
+    JOIN m_months m ON MONTH(o.create_date) = m.id
+    GROUP BY m.month ORDER BY m.id 
+    "
+);
+$sql->execute();
+$eachMonthTotalOrder = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+

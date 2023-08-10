@@ -60,17 +60,19 @@ include "../../Controller/financialReview/financialReviewDataController.php";
                 <div class="w-[1200px] bg-[#FFFFFF] mx-auto mt-8 p-4">
                     <div class="w-[1100px] mx-auto border border-black">
                         <div class="h-[300px] w-[1000px] flex justify-center">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="paymentHistoryChart"></canvas>
                         </div>
                     </div><br>
                     <span class="text-center font-semibold block">
                         Choose month to check particular month payment history:
-                        <select class="ml-4 outline-none rounded py-1 px-3 border border-green-950" name="paymentMonth" id="paymentMonth">
-                            <?php foreach ($totalPaymentMonth as $month) { ?>
-                                <option value="<?= $month["month"] ?>"><?= $month["month"] ?></option>
-                            <?php } ?>                            
-                        </select>
-                        <button class="ml-4 px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">Go</button>
+                        <form action="../../Controller/financialReview/customerPaymentHistoryController.php" method="post">
+                            <select class="ml-4 outline-none rounded py-1 px-3 border border-green-950" name="paymentMonth" id="paymentMonth">
+                                <?php foreach ($totalPaymentMonth as $month) { ?>
+                                    <option value="<?= $month["month"] ?>"><?= $month["month"] ?></option>
+                                <?php } ?>
+                            </select>
+                            <button name="chooseMonth" type="submit" class="ml-4 px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">Go</button>
+                        </form>
                     </span>
                 </div>
                 <div class="mt-10">
@@ -79,7 +81,7 @@ include "../../Controller/financialReview/financialReviewDataController.php";
                         <div class="flex justify-evenly items-center">
                             <div class="bg-[#F36823] p-5  mt-5  rounded-sm">
                                 <span class="text-center font-semibold block text-lg text-white">Total Earning From Customer</span>
-                                <span class="text-center font-semibold block text-2xl text-white mt-2"><?= number_format($earningFromCustomer[0]["earning"])?> Ks</span>
+                                <span class="text-center font-semibold block text-2xl text-white mt-2"><?= number_format($earningFromCustomer[0]["earning"]) ?> Ks</span>
                             </div>
                             <div class="bg-[#F36823] p-5 mt-5 rounded-sm">
                                 <span class="text-center font-semibold block text-lg text-white">Most Sold Category</span>
@@ -91,7 +93,7 @@ include "../../Controller/financialReview/financialReviewDataController.php";
                             </div>
                             <div class="bg-[#F36823] p-5 mt-5 rounded-sm">
                                 <span class="text-center font-semibold block text-lg text-white">Total Orders</span>
-                                <span class="text-center font-semibold block text-2xl text-white mt-2"><?= number_format($totalOrders[0]["total_order"])?></span>
+                                <span class="text-center font-semibold block text-2xl text-white mt-2"><?= number_format($totalOrders[0]["total_order"]) ?></span>
                             </div>
                         </div>
                     </div>
@@ -101,6 +103,15 @@ include "../../Controller/financialReview/financialReviewDataController.php";
         </div>
         <!-- Right-side End -->
     </section>
+    <script>
+        let serverData = <?php echo json_encode($eachMonthTotalOrder); ?>;
+        let months = [];
+        let noOfOrders = [];
+        for (let index = 0; index < serverData.length; index++) {
+            months.push(serverData[index].month);
+            noOfOrders.push(serverData[index].order_count);
+        }
+    </script>
 </body>
 
 </html>
