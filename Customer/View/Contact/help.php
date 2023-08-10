@@ -43,7 +43,7 @@ $order = "/Storage/general/my_orders.svg";
 
 <body class="bg- font-roboto bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#000000";
     } else {
         echo $primaryColor; 
@@ -59,7 +59,7 @@ $order = "/Storage/general/my_orders.svg";
         <div class="text-center py-5">
             <p class="text-sm md:text-2xl font-semibold py-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $titleColor; 
@@ -69,7 +69,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>]">Hello, What can we help you with?</p>
             <input type="text" name="" id="" class="border-2 border-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#4d4d4d";
     } else {
         echo $tertiaryColor; 
@@ -85,7 +85,7 @@ $order = "/Storage/general/my_orders.svg";
         <div>
             <p class="text-sm font-semibold md:text-2xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $titleColor; 
@@ -96,7 +96,7 @@ $order = "/Storage/general/my_orders.svg";
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
                 <div class="bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#fafafa";
     } else {
         echo $primaryColor; 
@@ -106,7 +106,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20 " src="../../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
    echo 'Storage/general/darkProfile.svg';
      }else{
@@ -120,7 +120,7 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
    echo 'Storage/general/darkOrder.svg';
      }else{
@@ -135,7 +135,7 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
    echo 'Storage/general/darkCoin.svg';
      }else{
@@ -165,7 +165,7 @@ $order = "/Storage/general/my_orders.svg";
         <div class="mt-10 md:mt-20">
             <p class="text-sm font-semibold md:text-2xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $titleColor; 
@@ -178,7 +178,7 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $tertiaryColor; 
@@ -188,7 +188,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -199,7 +199,7 @@ $order = "/Storage/general/my_orders.svg";
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -213,7 +213,7 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $tertiaryColor; 
@@ -223,7 +223,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -234,7 +234,7 @@ $order = "/Storage/general/my_orders.svg";
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -248,7 +248,7 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $tertiaryColor; 
@@ -258,7 +258,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -269,7 +269,7 @@ $order = "/Storage/general/my_orders.svg";
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $navColor; 
@@ -290,7 +290,7 @@ $order = "/Storage/general/my_orders.svg";
             <div class="text-sm md:text-2xl font-semibold py-5 md:flex md:flex-wrap">
                 <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $titleColor; 
@@ -300,7 +300,7 @@ $order = "/Storage/general/my_orders.svg";
       ?>]">Still have some questions?</p>
                 <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $titleColor; 
@@ -311,7 +311,7 @@ $order = "/Storage/general/my_orders.svg";
             </div>
             <button class="bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#ffffff";
     } else {
         echo $tertiaryColor; 
@@ -320,7 +320,7 @@ $order = "/Storage/general/my_orders.svg";
 
       ?>] text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#000000";
     } else {
         echo $primaryColor; 

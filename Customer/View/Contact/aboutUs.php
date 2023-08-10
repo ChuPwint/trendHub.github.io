@@ -35,7 +35,7 @@ $currentHour = date('H:i');
 
 <body class="font-roboto bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#000000";
     } else {
         echo $primaryColor; 
@@ -50,7 +50,7 @@ $currentHour = date('H:i');
     <section class="container w-full mx-auto mt-[120px]">
         <div class="flex flex-col space-y-5 items-center bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#3d3d3d";
@@ -62,7 +62,7 @@ $currentHour = date('H:i');
       ?>] py-11">
             <h1 class="md:text-3xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#000000";
@@ -73,7 +73,7 @@ $currentHour = date('H:i');
 // #FB4949
       ?>] font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
    echo "#ffffff";
  
@@ -109,7 +109,7 @@ $currentHour = date('H:i');
     <section class="container w-full mx-auto px-5 md:px-28">
         <div class="text-center py-5 bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#3d3d3d";
@@ -121,7 +121,7 @@ $currentHour = date('H:i');
       ?>] rounded drop-shadow-md px-5 md:px-40 md:py-20">
             <h1 class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#ffffff";
@@ -162,7 +162,7 @@ $currentHour = date('H:i');
             <div>
                 <h1 class="font-bold text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#ffffff";
@@ -181,7 +181,7 @@ $currentHour = date('H:i');
     <section class="container w-full mx-auto px-5 md:px-28">
         <div class="text-center py-5 bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
     
 
         echo "#3d3d3d";
