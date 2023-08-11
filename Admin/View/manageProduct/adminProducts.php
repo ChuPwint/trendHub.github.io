@@ -2,13 +2,13 @@
 
 session_start();
 
-if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !isset($_SESSION["allCategories"])){
-    header("Location: ../Error/error.php");
-}else{
-    $totalCount  = $_SESSION["totalCount"];
-    $adminProducts = $_SESSION["adminProducts"];
-    $allCategories = $_SESSION["allCategories"];
-}
+// if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !isset($_SESSION["allCategories"])){
+//     header("Location: ../Error/error.php");
+// }else{
+//     $totalCount  = $_SESSION["totalCount"];
+//     $adminProducts = $_SESSION["adminProducts"];
+//     $allCategories = $_SESSION["allCategories"];
+// }
 ?>
 
 
@@ -378,7 +378,7 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
     <!-- start review -->
     <div id="modalReview" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
-            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
+            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews and Ratings</span>
             <button id="hideReview" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -392,76 +392,8 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
                     </div>
                     <div class="text-md font-semibold ml-2 ">
                         <span>Name : T-shirt</span><br>
-                        <span>Stock : 20</span><br>
-                        <span>Price : $750.00</span>
                     </div>
                 </div>
-
-                <div class="rating pr-10 w-[230px]">
-                    <h1 class="text-xl font-semibold underline tracking-wider ">Rating & Reviews</h1>
-                    <div class="flex">
-                        <div>
-                            <span class="text-2xl font-semibold">4.0/</span>
-                            <span>5</span>
-                            <span class="text-md  block">20 ratings</span>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">15</span>
-
-
-                            </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">5</span>
-
-
-                            </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
-                            </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
-                            </div>
-
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
             </div>
 
 
