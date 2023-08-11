@@ -141,6 +141,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <p class="text-2xl font-semibold">UI Elements</p>
                     <?php
                     $timestamp = time();
+                    $time12HourSeconds = date('h:i:s A');
 
                     date_default_timezone_set('Asia/Yangon');
                     $day = date('D');
@@ -151,9 +152,24 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                     ?>
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
+                   
+
+<script>
+    function updateLiveTime() {
+        var date = new Date();
+        var options = { hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' };
+        var formattedTime = date.toLocaleTimeString('en-US', options);
+        document.getElementById('liveTime').textContent = 'Current Time: ' + formattedTime;
+    }
+
+    // Update the time every second
+    setInterval(updateLiveTime, 1000);
+
+    // Initial call to display time immediately
+    updateLiveTime();
+</script>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
             <!-- Search End-->
 
@@ -274,13 +290,15 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                 <div>
                     <span class="text-xl">Set Time(Dark Mode)</span>
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
+
+                    <div class="flex justify-between mt-4">
+                            <span></span>
+                           <p id="liveTime"></p>
+                        </div>
+
                         <div class="flex justify-between mt-4">
                             <span>Start Time</span>
                             <input  value="<?=$startTime?>" name="startTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
-
-
-                         
-
                         </div>
 
                         <div class="flex justify-between mt-4">
