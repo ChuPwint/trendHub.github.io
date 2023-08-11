@@ -1,3 +1,6 @@
+<?php
+include "../../Controller/financialAndPayment/financialReviewDataController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,20 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .table {
+        border-spacing: 0 10px;
+    }
+</style>
 
 <body>
     <section class="sectionContainer w-full flex relative">
@@ -99,37 +116,73 @@
         </div>
 
         <!-- Right-side Start -->
-        <div class="mainPage h-screen overflow-hidden w-full p-3">
+        <div class="mainPage h-screen overflow-hidden w-full px-10 py-4">
+
             <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Earning Overview</h1>
             <!-- Total Display -->
+
             <div class="text-white flex justify-between p-5 mb-5">
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Earning</p>
-                    <p class="mt-2 text-xl">Ks 2,503,000</p>
+                    <p class="mt-2 text-xl"><?= number_format($earningFromCustomer[0]["earning"]) ?> Ks</p>
                 </div>
 
                 <div class="bg-secondary w-40 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Orders</p>
-                    <p class="mt-2 text-xl">230</p>
+                    <p class="mt-2 text-xl"><?= number_format($totalOrders[0]["total_order"]) ?></p>
                 </div>
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Category</p>
-                    <p class="mt-2 text-xl">Electronic Device</p>
+                    <p class="mt-2 text-xl"><?= $mostSoldCategory[0]["category_name"] ?></p>
                 </div>
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Product </p>
-                    <p class="mt-2 text-xl">Laptop</p>
+                    <p class="mt-2 text-xl"><?= $mostSoldProduct[0]["p_name"] ?></p>
                 </div>
 
-                <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
-                    <p>Total Profit</p>
-                    <p class="mt-2 text-xl">450,000 kyat</p>
+
+            </div>
+        
+            
+            
+
+            <div class=" data-output">
+                <div class="w-[1300px] bg-[#FFFFFF] mx-auto mt-8 ">
+                <div class="bg-secondary text-white  py-3 px-10">
+                
+                    <p class="text-2xl font-semibold tracking-wider">Earning Per Year</p>
+                    <?php
+                    $timestamp = time();
+                    date_default_timezone_set('Asia/Yangon');
+                    $day = date('D');
+                    $month = date('F');
+                    $date = date('j');
+                    $year = date('Y', $timestamp);
+                    ?>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
+                </div>
+            
+                    <div class="w-[1300px] mx-auto border border-black bg-white ">
+                        <div class="h-[250px] w-[1000px] flex justify-center">
+                            <canvas id="paymentHistoryChart"></canvas>
+                        </div>
+                    </div><br>
+                    <span class="text-center font-semibold flex justify-center items-center ">
+                        Choose month to check particular month payment history:
+                        <form action="../../Controller/financialAndPayment/eachMonthHistoryController.php" method="post">
+                            <select class="ml-4 outline-none rounded py-1 px-3 border border-secondary" name="paymentMonth" id="paymentMonth">
+                                <?php foreach ($totalPaymentMonth as $month) { ?>
+                                    <option value="<?= $month["month"] ?>"><?= $month["month"] ?></option>
+                                <?php } ?>
+                            </select>
+                            <button name="chooseMonth" type="submit" class="ml-4 px-4 py-2 cursor-pointer bg-secondary text-white rounded-md">Go</button>
+                        </form>
+                    </span>
                 </div>
             </div>
-        </div>
-        <!-- Right-side End -->
+            <!-- Right-side End -->
     </section>
     <script>
         $(document).ready(function() {
@@ -140,7 +193,7 @@
             $("#confirmLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-            
+
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
