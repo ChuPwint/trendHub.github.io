@@ -1,3 +1,14 @@
+<?php
+session_start();
+$month = $_SESSION["paymentMonth"];
+if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"])) {
+    header("Location: ../Error/error.php");
+} else {
+    $eachMonthResult = $_SESSION["eachMonthHistory"];
+    $eachEarningResult = $_SESSION["eachMonthEarning"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +23,23 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .table {
+        border-spacing: 0 10px;
+    }
+</style>
 
 <body>
     <section class="sectionContainer w-full flex relative">
@@ -85,19 +113,20 @@
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
-            <h1 class="text-darkGreenColor text-3xl font-bold mb-5"><span>July</span> Payment History</h1>
+            <h1 class="text-darkGreenColor text-3xl font-bold mb-5"><span><?= $month ?></span> Payment History</h1>
+
             <!-- start of search button and select box -->
+
             <div class="flex justify-between items-center p-2">
-                <!-- start of search button -->
-                <div class="relative">
-                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for order" required>
-                    <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
-                        <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </button>
-                </div>
-                <!-- end of search button -->
+                <?php
+                $timestamp = time();
+                date_default_timezone_set('Asia/Yangon');
+                $day = date('D');
+                $month = date('F');
+                $date = date('j');
+                $year = date('Y', $timestamp);
+                ?>
+                <p class="px-4 py-2 text-white bg-secondary"><?php echo "Date : $day, $month $date, $year" ?></p>
                 <!-- start of select box -->
                 <div>
                     <span class="mr-2 font-medium">Sort By</span>
@@ -110,77 +139,62 @@
             </div>
             <!-- end of search button and select box -->
 
+            <!-- All Customers Data End  -->
             <!-- Start of payment history to customer table -->
-            <table class="table-fixed mt-10 w-full">
-                <thead class="bg-darkGreenColor text-white font-semibold text-lg">
-                    <tr>
-                        <th class="p-2 w-20">Payment Id</th>
-                        <th class="p-2 w-40">Customer</th>
-                        <th class="p-2 w-20">Payment Date</th>
-                        <th class="p-2 w-32">Payment Via</th>
-                        <th class="p-2 w-32">Payment Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="paymentListCustomer">
-                        <td class="p-2 text-center">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">2023/07/27</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">23,000 kyat</td>
-                    </tr>
-                    <tr class="paymentListCustomer bg-[#C4C9C9]">
-                        <td class="p-2 text-center">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">2023/07/27</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">23,000 kyat</td>
-                    </tr>
-                    <tr class="paymentListCustomer">
-                        <td class="p-2 text-center">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">2023/07/27</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">23,000 kyat</td>
-                    </tr>
-                    <tr class="paymentListCustomer bg-[#C4C9C9]">
-                        <td class="p-2 text-center">1234</td>
-                        <td class="p-2 text-center">John Doe</td>
-                        <td class="p-2 text-center">2023/07/27</td>
-                        <td class="p-2 text-center">card</td>
-                        <td class="p-2 text-center">23,000 kyat</td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- End of payment history to customer table -->
-            <div class="text-right font-bold text-xl text-darkGreenColor mt-5 mr-10">
-                <p>Total Earning From Customers: <span class="pl-3">800,000 kyat</span></p>
-                <p>Payout to Admin: <span class="pl-5">80,000 kyat</span></p>
-                <p>Total Earning: <span class="pl-3">720,000 kyat</span></p>
-            </div>
-            <div class="mt-5">
-                <p class="font-bold text-xl text-darkGreenColor">Monthly Payment History to Admin</p>
-                <table class="table-fixed mt-10 w-full">
+            <?php if (count($eachMonthResult) == 0) { ?>
+                <span class="text-white font-lg text-center">There is no payment yet.</span>
+            <?php } ?>
+            <div class="h-[420px] overflow-y-scroll scrollbar-hide">
+                <table class="table-fixed mt-10 w-full ">
                     <thead class="bg-darkGreenColor text-white font-semibold text-lg">
                         <tr>
+                            <th class="p-2 w-20">No.</th>
                             <th class="p-2 w-20">Payment Id</th>
+                            <th class="p-2 w-40">Customer</th>
                             <th class="p-2 w-20">Payment Date</th>
-                            <th class="p-2 w-32">Payment Due Date</th>
-                            <th class="p-2 w-32">Payment Month</th>
-                            <th class="p-2 w-32">Amount</th>
+                            <th class="p-2 w-32">Payment Via</th>
+                            <th class="p-2 w-32">Payment Amount</th>
                         </tr>
                     </thead>
-                    <tbody class="border-b">
-                        <tr class="paymentHistoryToAdmin">
-                            <td class="p-2 text-center">1234</td>
-                            <td class="p-2 text-center">2023/07/25</td>
-                            <td class="p-2 text-center">2023/07/27</td>
-                            <td class="p-2 text-center">July</td>
-                            <td class="p-2 text-center">23,000 kyat</td>
-                        </tr>
+                    <tbody>
+                        <?php
+                        $counter = 0;
+                        $num = 1;
+                        foreach ($eachMonthResult as $each) :
+                            $counter++;
+                            $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
+                        ?>
+
+
+                            <tr class=" <?= $rowClass ?>">
+                                <td class="p-3 text-center"><?= $num++; ?></td>
+                                <td class="p-3 text-center"><?= $each["id"] ?></td>
+                                <td class="mName p-3 text-center"><?= $each["c_name"] ?></td>
+                                <?php
+                                $paymentDate = "";
+                                if ($each["payment_method_id"] == 3) {
+                                    $paymentDate = $each["update_date"];
+                                } else {
+                                    $paymentDate = $each["create_date"];
+                                }
+                                ?>
+                                <td class="mEmail p-3 text-center"><?= $paymentDate ?></td>
+                                <td class="p-3 text-center"><?= $each["payment_method"] ?></td>
+                                <td class="p-3 text-center"><?= number_format($each["total_amt"]) ?></td>
+                            </tr>
+
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
+            <!-- End of payment history to customer table -->
+            <div class="text-right font-bold text-xl text-darkGreenColor mt-5 mr-10">
+                <?php foreach ($eachEarningResult as $earning) { ?>
+                    <span>Total Earnings<span class="ml-5"><?= number_format($earning["earning"]) ?></span></span>
+                <?php } ?>
+            </div>
+
         </div>
         <!-- Right-side End -->
     </section>
@@ -193,7 +207,7 @@
             $("#confirmLogout").click(function() {
                 $("#logoutModal").toggle();
             });
-            
+
             $("#cancelLogout").click(function() {
                 $("#logoutModal").toggle();
             });
