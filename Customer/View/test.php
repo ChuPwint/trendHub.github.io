@@ -93,7 +93,7 @@ $currentHour = date('H:i');
 
 <body class=" font-roboto bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#000000";
     } else {
         echo $primaryColor; 
@@ -106,7 +106,7 @@ $currentHour = date('H:i');
     <!-- start first navbar -->
     <nav class="py-2 px-4 bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -121,7 +121,7 @@ $currentHour = date('H:i');
         <!-- <img class="md:block hidden" src="./resources/img/header/logo.svg" alt=""> -->
         <img class="md:block hidden" src=" ../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo 'Storage/logo/darkLogo.svg';
           }else{
@@ -156,7 +156,7 @@ $currentHour = date('H:i');
 
       <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
 
         echo "#000000";
@@ -169,7 +169,7 @@ $currentHour = date('H:i');
         <li class="mx-4 my-6 md:my-0">
           <a href="./index.php" class="text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -182,7 +182,7 @@ $currentHour = date('H:i');
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/aboutUs.php" class="text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -195,7 +195,7 @@ $currentHour = date('H:i');
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/services.php" class="text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -208,7 +208,7 @@ $currentHour = date('H:i');
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/help.php" class="text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -221,7 +221,7 @@ $currentHour = date('H:i');
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/contact.php" class="text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -236,7 +236,7 @@ $currentHour = date('H:i');
           <a href="./Login/login.php">
             <button class=" bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -246,7 +246,7 @@ $currentHour = date('H:i');
 
       ?>] text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -270,7 +270,7 @@ $currentHour = date('H:i');
     <!-- start second navbar -->
     <nav class="bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#4f4f4f";
       }else{
@@ -285,7 +285,7 @@ $currentHour = date('H:i');
           <!-- desktop categories -->
           <div id="dropdownButton" class="relative  md:block hidden px-3 py-2 bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -295,7 +295,7 @@ $currentHour = date('H:i');
 
       ?>]  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -320,7 +320,7 @@ $currentHour = date('H:i');
         </div>
         <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -331,7 +331,7 @@ $currentHour = date('H:i');
       ?>]" name="cart-outline"></ion-icon></a>
         <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -370,7 +370,7 @@ $currentHour = date('H:i');
 
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#282828";
       }else{
@@ -387,7 +387,7 @@ $currentHour = date('H:i');
           <div class="content w-[400px] h-[250px]  ">
             <span class="md:text-xl text-sm text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -400,7 +400,7 @@ $currentHour = date('H:i');
             </span>
             <span class="md:text-md text-sm mt-5  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -419,7 +419,7 @@ $currentHour = date('H:i');
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#282828";
       }else{
@@ -435,7 +435,7 @@ $currentHour = date('H:i');
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-sm text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -449,7 +449,7 @@ $currentHour = date('H:i');
             </span>
             <span class="md:text-md text-sm mt-5  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -468,7 +468,7 @@ $currentHour = date('H:i');
       <div class="swiper-slide">
         <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#282828";
       }else{
@@ -484,7 +484,7 @@ $currentHour = date('H:i');
           <div class="content w-[400px] h-[250px] ">
             <span class="md:text-xl text-md text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -497,7 +497,7 @@ $currentHour = date('H:i');
             </span>
             <span class="text-md mt-5 md:block hidden text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -522,7 +522,7 @@ $currentHour = date('H:i');
     <div class="pt-[120px] -z-50 ">
       <h2 class="px-8 py-4 ml-[60px] text-xl font-bold  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -541,7 +541,7 @@ $currentHour = date('H:i');
 
           <div class="circle absolute w-[50px] h-[50px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -561,7 +561,7 @@ $currentHour = date('H:i');
           </div>
           <div class="circle absolute w-[50px] h-[50px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -581,7 +581,7 @@ $currentHour = date('H:i');
           </div>
           <div class="circle absolute w-[50px] h-[50px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -605,7 +605,7 @@ $currentHour = date('H:i');
   <div id="trending" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -622,7 +622,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -634,7 +634,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -644,7 +644,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -661,7 +661,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -673,7 +673,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -683,7 +683,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -700,7 +700,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -712,7 +712,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -722,7 +722,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -739,7 +739,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -751,7 +751,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -761,7 +761,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -782,7 +782,7 @@ $currentHour = date('H:i');
   <div id="best" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -798,7 +798,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -810,7 +810,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -820,7 +820,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -837,7 +837,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -849,7 +849,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -859,7 +859,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -876,7 +876,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -888,7 +888,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -898,7 +898,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -915,7 +915,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -927,7 +927,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -937,7 +937,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -958,7 +958,7 @@ $currentHour = date('H:i');
   <div id="new" class="max-w-[1700px] mx-auto relative">
     <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -975,7 +975,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -987,7 +987,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -997,7 +997,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1014,7 +1014,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1026,7 +1026,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1036,7 +1036,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1053,7 +1053,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1065,7 +1065,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1075,7 +1075,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1092,7 +1092,7 @@ $currentHour = date('H:i');
         <div class="title pl-[6px]  text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold ">Smart Watch</div>
         <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1104,7 +1104,7 @@ $currentHour = date('H:i');
         <div class=" absolute bottom-[72px] price text-sm text-gray-600  line-through pl-5">KS 5,000,000</div>
         <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1114,7 +1114,7 @@ $currentHour = date('H:i');
 
       ?>] bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#000000";
       }else{
@@ -1133,7 +1133,7 @@ $currentHour = date('H:i');
 
   <footer class="bg-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#4f4f4f";
       }else{
@@ -1146,7 +1146,7 @@ $currentHour = date('H:i');
       <div class="">
         <span class="block text-[18px] font-semibold py-3 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1159,7 +1159,7 @@ $currentHour = date('H:i');
         <a href="./Contact/help.php">
           <span class="cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1173,7 +1173,7 @@ $currentHour = date('H:i');
         <a href="./Point/points.php">
           <span class="cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1187,7 +1187,7 @@ $currentHour = date('H:i');
         <a href="./Contact/privacyAndPolicy.php">
           <span class="cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1201,7 +1201,7 @@ $currentHour = date('H:i');
         <a href="../../Merchant/View/Login/login.php">
           <span class="cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1216,7 +1216,7 @@ $currentHour = date('H:i');
       <div class="">
         <span class="block text-[18px] text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1228,7 +1228,7 @@ $currentHour = date('H:i');
         <a href="./index.php">
           <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1242,7 +1242,7 @@ $currentHour = date('H:i');
         <a href="#trending">
           <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1256,7 +1256,7 @@ $currentHour = date('H:i');
         <a href="#best">
           <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1270,7 +1270,7 @@ $currentHour = date('H:i');
         <a href="#new">
           <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1288,7 +1288,7 @@ $currentHour = date('H:i');
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1299,7 +1299,7 @@ $currentHour = date('H:i');
       ?>]">Contact Us</span>
         <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1310,7 +1310,7 @@ $currentHour = date('H:i');
       ?>] ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
         <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1321,7 +1321,7 @@ $currentHour = date('H:i');
       ?>] ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
         <span class="block cursor-pointer text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1335,7 +1335,7 @@ $currentHour = date('H:i');
       <div class="">
         <span class="block text-[18px] font-semibold py-3 text-center md:mt-0 mt-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1348,7 +1348,7 @@ $currentHour = date('H:i');
           <a href="https://web.facebook.com/extbrainedu">
             <ion-icon class="text-2xl text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1360,7 +1360,7 @@ $currentHour = date('H:i');
           </a>
           <ion-icon class="text-2xl text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1371,7 +1371,7 @@ $currentHour = date('H:i');
       ?>]" name="logo-instagram"></ion-icon>
           <ion-icon class="text-2xl text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{
@@ -1385,7 +1385,7 @@ $currentHour = date('H:i');
     </div>
     <span class="text-center text-sm block pb-5 text-[<?php
       
-          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
         echo "#ffffff";
       }else{

@@ -99,7 +99,7 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
                                             ?>
                                             <td class="mEmail p-3 text-center"><?= $paymentDate ?></td>
                                             <td class="p-3 text-center"><?= $each["payment_method"] ?></td>
-                                            <td class="p-3 text-center"><?= number_format($each["total_amt"]) ?></td>
+                                            <td class="p-3 text-center"><?= number_format($each["total_amt"]) ?> Ks</td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
