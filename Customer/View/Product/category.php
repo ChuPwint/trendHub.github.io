@@ -1,4 +1,18 @@
-<?php include "../../Controller/uiElement/editInfoController.php" ?>
+<?php include "../../Controller/uiElement/editInfoController.php";
+
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+$cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+
+
+
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H:i');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -15,8 +30,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
+<style>
+  .scrollHide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<body class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
 
-<body class="bg-primary font-roboto">
+      ?>] font-roboto scrollHide ">
 
     <?php
     include "../resources/common/navbar.php";
@@ -38,7 +66,16 @@
             </div>
 
             <div class="flex items-center space-x-2">
-                <span class="text-xs md:text-base">Sort by: </span>
+                <span class="text-xs md:text-base text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">Sort by: </span>
                 <select name="" id="" class="border-2 border-[#6A6969] rounded py-1 w-32 md:w-auto">
                     <option value="">Best Match</option>
                     <option value="">Price Low to High</option>
@@ -53,8 +90,26 @@
         <div class="hidden md:block w-80 pr-5 pl-7">
             <!-- Brand -->
             <div>
-                <p>Brand</p>
-                <ul>
+                <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">Brand</p>
+                <ul class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">
                     <li class="flex items-center space-x-1"><input type="checkbox" name="" id="" class="w-4 h-4"><span>Lenovo</span></li>
                     <li class="flex items-center space-x-1"><input type="checkbox" name="" id="" class="w-4 h-4"><span>Dell</span></li>
                     <li class="flex items-center space-x-1"><input type="checkbox" name="" id="" class="w-4 h-4"><span>ASUS</span></li>
@@ -65,7 +120,16 @@
 
             <!-- Price -->
             <div class="mt-5">
-                <p>Price</p>
+                <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>]">Price</p>
                 <div>
                     <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Min">
                 </div>
@@ -73,13 +137,42 @@
                     <input type="number" name="" id="" class="outline-none border-2 border-[#6A6969] rounded px-4 w-full" placeholder="Max">
                 </div>
                 <div class="text-right">
-                    <button class="bg-tertiary px-8 rounded text-textWhite py-[2px]">Go</button>
+                    <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] px-8 rounded bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>] text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] py-[2px]">Go</button>
                 </div>
             </div>
 
             <?php
         $banner3 = isset($editInfo[0]["banner3"]) && !empty($editInfo[0]["banner3"]) ? $editInfo[0]["banner3"] : '/Storage/banner/bannerP2.svg';
         $banner4 = isset($editInfo[0]["banner4"]) && !empty($editInfo[0]["banner4"]) ? $editInfo[0]["banner4"] : '/Storage/banner/bannerP2.svg';
+$banner5 = isset($editInfo[0]["banner5"]) && !empty($editInfo[0]["banner5"]) ? $editInfo[0]["banner5"] : '/Storage/banner/banner5.svg';
+        
 
             ?>
 
@@ -101,11 +194,30 @@
         <div class="flex flex-col space-y-5 md:pr-7 px-5">
             <!-- Bannner -->
             <div class="rounded overflow-hidden">
-                <img class="w-full md:h-[170px] object-cover" src="../resources/img/products/banner2.svg" alt="banner">
+                <img class="w-full md:h-[170px] object-cover" src="../../../<?=$banner5?>" alt="banner">
+              
             </div>
 
             <!-- product-card -->
-            <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
+            <div class="flex text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $cardColor; 
+    }
+  
+
+      ?>] px-7 py-2 rounded">
                 <div>
                     <img class="w-[280px]" src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -121,18 +233,54 @@
                         <img src="../resources/img/products/full_star.svg" alt="star">
                         <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
-                    <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
+                    <p class="md:text-xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>] pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
                     <div class="flex justify-between items-center">
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
-                        <button class="bg-tertiary text-textWhite px-6 py-1 rounded">Buy Now</button>
+                        <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
                 </div>
             </div>
             <!-- product-card End-->
 
             <!-- product-card -->
-            <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
+            <div class="flex text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $cardColor; 
+    }
+  
+
+      ?>] px-7 py-2 rounded">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -148,18 +296,54 @@
                         <img src="../resources/img/products/full_star.svg" alt="star">
                         <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
-                    <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
+                    <p class="md:text-xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>] pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
                     <div class="flex justify-between items-center">
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
-                        <button class="bg-tertiary text-textWhite px-6 py-1 rounded">Buy Now</button>
+                        <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
                 </div>
             </div>
             <!-- product-card End-->
 
             <!-- product-card -->
-            <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
+            <div class="flex text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $cardColor; 
+    }
+  
+
+      ?>] px-7 py-2 rounded">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -175,18 +359,54 @@
                         <img src="../resources/img/products/full_star.svg" alt="star">
                         <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
-                    <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
+                    <p class="md:text-xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>] pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
                     <div class="flex justify-between items-center">
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
-                        <button class="bg-tertiary text-textWhite px-6 py-1 rounded">Buy Now</button>
+                        <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
                 </div>
             </div>
             <!-- product-card End-->
 
             <!-- product-card -->
-            <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
+            <div class="flex text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $cardColor; 
+    }
+  
+
+      ?>] px-7 py-2 rounded">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -202,18 +422,54 @@
                         <img src="../resources/img/products/full_star.svg" alt="star">
                         <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
-                    <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
+                    <p class="md:text-xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>] pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
                     <div class="flex justify-between items-center">
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
-                        <button class="bg-tertiary text-textWhite px-6 py-1 rounded">Buy Now</button>
+                        <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
                 </div>
             </div>
             <!-- product-card End-->
 
             <!-- product-card -->
-            <div class="flex bg-[#F7F7F7] px-7 py-2 rounded">
+            <div class="flex text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $cardColor; 
+    }
+  
+
+      ?>] px-7 py-2 rounded">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -229,11 +485,29 @@
                         <img src="../resources/img/products/full_star.svg" alt="star">
                         <img src="../resources/img/products/hollow_star.svg" alt="star">
                     </div>
-                    <p class="md:text-xl text-textOrange pb-0">Ks 4750000</p>
+                    <p class="md:text-xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor; 
+    }
+  
+
+      ?>] pb-0">Ks 4750000</p>
                     <p class="text-sm md:text-sm text-textGray line-through">Ks 5000000</p>
                     <div class="flex justify-between items-center">
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
-                        <button class="bg-tertiary text-textWhite px-6 py-1 rounded">Buy Now</button>
+                        <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor; 
+    }
+  
+
+      ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -241,11 +515,56 @@
 
             <!-- Pagination -->
             <div class="flex mx-auto">
-                <a href="" class="border-2 px-3 py-1 border-textGray flex items-center"><ion-icon name="chevron-back-outline"></ion-icon></a>
-                <a href="" class="border-2 w-9 py-1 border-textGray text-center">1</a>
-                <a href="" class="border-2 w-9 py-1 border-textGray text-center">2</a>
-                <a href="" class="border-2 w-9 py-1 border-textGray text-center">3</a>
-                <a href="" class="border-2 px-3 py-1 border-textGray flex items-center"><ion-icon name="chevron-forward-outline"></ion-icon></a>
+                <a href="" class="border-2 px-3 py-1 border-textGray flex items-center text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]"><ion-icon name="chevron-back-outline"></ion-icon></a>
+                <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">1</a>
+                <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">2</a>
+                <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]">3</a>
+                <a href="" class="border-2 px-3 py-1 border-textGray flex items-center text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]"><ion-icon name="chevron-forward-outline"></ion-icon></a>
             </div>
             <!-- Pagination End-->
 

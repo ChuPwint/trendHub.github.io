@@ -46,6 +46,7 @@ $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banne
 $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/banner/bannerP1.svg';
 $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/banner/bannerP2.svg';
 $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/banner/bannerP2.svg';
+$bannerImg5 = isset($editbanner5[0]["banner5"]) && !empty($editbanner5[0]["banner5"]) ? $editbanner5[0]["banner5"] : '/Storage/banner/banner5.svg';
 $moneyAmount = isset($editPoint[0]["money_amout"]) && !empty($editPoint[0]["money_amout"]) ? $editPoint[0]["money_amout"] : '10000';
 $pointAmount = isset($editPoint[0]["point_amount"]) && !empty($editPoint[0]["point_amount"]) ? $editPoint[0]["point_amount"] : '1';
 $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/slider/acer.png';
@@ -140,6 +141,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <p class="text-2xl font-semibold">UI Elements</p>
                     <?php
                     $timestamp = time();
+                    $time12HourSeconds = date('h:i:s A');
 
                     date_default_timezone_set('Asia/Yangon');
                     $day = date('D');
@@ -150,9 +152,24 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                     ?>
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
+                   
+
+<script>
+    function updateLiveTime() {
+        var date = new Date();
+        var options = { hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' };
+        var formattedTime = date.toLocaleTimeString('en-US', options);
+        document.getElementById('liveTime').textContent = 'Current Time: ' + formattedTime;
+    }
+
+    // Update the time every second
+    setInterval(updateLiveTime, 1000);
+
+    // Initial call to display time immediately
+    updateLiveTime();
+</script>
                 </div>
 
-                <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
             </div>
             <!-- Search End-->
 
@@ -273,13 +290,15 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                 <div>
                     <span class="text-xl">Set Time(Dark Mode)</span>
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
+
+                    <div class="flex justify-between mt-4">
+                            <span></span>
+                           <p id="liveTime"></p>
+                        </div>
+
                         <div class="flex justify-between mt-4">
                             <span>Start Time</span>
                             <input  value="<?=$startTime?>" name="startTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
-
-
-                         
-
                         </div>
 
                         <div class="flex justify-between mt-4">
@@ -452,30 +471,35 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <input value="" name="banner4" accept=".png,.jpg,.svg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                         </div>
-                        <!-- <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button> -->
+                      
                         <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
 
                     </form>
 
+                    <form class="relative" action="../../Controller/uiElements/banner5/updateBannerController.php" method="post" enctype="multipart/form-data">
+                        <div class="flex  mt-4">
+                            <label for="banner5">
+                                <a target="_blank" href="../../../<?= $bannerImg5 ?>">
+                                    <img id="saveBanner5" src="../../../<?= $bannerImg5 ?>" class=" h-[30px] w-[40px] mr-2" alt="">
 
-                    <!-- <form action="../../Controller/uiElements/banner5/updateBannerController.php" method="post" enctype="multipart/form-data">
-                            <div class="flex  mt-4">
-                                <label for="banner5">
-                                    <img id="saveBanner5" src="../../../<?= $editbanner5[0]["banner5"] ?>" class=" h-[30px] w-[40px] mr-2" alt="">
+                                </a>
 
-                                </label>
-                                
-                                <span>Banner 3 from Category Page</span>
-                                <label for="banner5" class="custom-file-upload text-black ml-2 pt-3 h-[25px]">
-                                    Choose File
-                                </label>
-                                
+                            </label>
 
-                                <input value="" name="banner5" accept=".png,.jpg,.svg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+                            <span>Banner 3 from Category Page</span>
+                            <label for="banner5" class="custom-file-upload text-black ml-[80px] relative right-[72px] h-[25px]">
+                                Choose File
+                            </label>
 
-                            </div>
-                            <button type="submit" class="px-[15px] h-6 -mt-7 rounded-sm text-[black] ml-[400px] bg-[white]">Save</button>
-                        </form> -->
+
+
+                            <input value="" name="banner5" accept=".png,.jpg,.svg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+                        </div>
+                      
+                        <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
+
+                    </form>
 
                 </div>
 
