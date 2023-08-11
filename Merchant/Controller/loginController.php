@@ -31,6 +31,9 @@ if(!isset($_POST["login"])){
     }elseif($result[0]["approval"] == 0){
         $_SESSION["needApproval"] = "Your account has not been approved by admin yet! We will let you know by email when your account is approved by the admin.";
         header("Location: ../View/Login/login.php");
+    }elseif($result[0]["banned"] == 1){
+        $_SESSION["bannedMerchant"] = "Your account has been banned";
+        header("Location: ../View/Login/login.php");
     }elseif(!$passwordCorrect){
         $_SESSION["wrongPassword"] = "Password Incorrect!";
         header("Location: ../View/Login/login.php");
