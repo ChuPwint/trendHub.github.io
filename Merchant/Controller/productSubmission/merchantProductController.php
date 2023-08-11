@@ -2,7 +2,7 @@
 
 session_start();
 include "../../Model/model.php";
-$merchantId = 10;
+$merchantId =  $_SESSION["currentLoginUser"];
 $sql = $pdo->prepare("
     SELECT pt.*, mc.category_name
     FROM m_product_temp pt

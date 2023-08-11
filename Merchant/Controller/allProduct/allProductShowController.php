@@ -3,8 +3,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-// $merchantId =  $_SESSION["currentLoginUser"];
-$merchantId = 10;
+$merchantId =  $_SESSION["currentLoginUser"];
+
 
 
 $sql = $pdo->prepare("

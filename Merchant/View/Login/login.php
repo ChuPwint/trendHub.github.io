@@ -25,6 +25,7 @@ session_start();
                                         if (isset($_SESSION["wrongEmail"])) echo $_SESSION["wrongEmail"];
                                         if (isset($_SESSION["needVerify"])) echo $_SESSION["needVerify"];
                                         if (isset($_SESSION["needApproval"])) echo $_SESSION["needApproval"];
+                                        if (isset($_SESSION["bannedMerchant"])) echo $_SESSION["bannedMerchant"];
                                         ?></small>
             <form action="../../Controller/loginController.php" method="POST">
                 <div class="mb-4">

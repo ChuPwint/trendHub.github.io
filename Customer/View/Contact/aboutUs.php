@@ -22,21 +22,68 @@
 <?php
 include "../resources/common/navbar.php";
 include "../../Controller/uiElement/editInfoController.php";
-$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FFFAFA';
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
 $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H:i'); 
+
 
 ?>
 
-<body class="font-roboto bg-[<?= $primaryColor ?>] scrollHide">
+<body class="font-roboto bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] scrollHide">
 
 
 
     <!-- Welcome -->
-    <section class="container w-full mx-auto mt-[130px]">
-        <!-- <div class="flex flex-col space-y-5 items-center bg-[#F5F5F5] py-11"> -->
-        <div class="flex flex-col space-y-5 items-center bg-[<?= $lightTertiary ?>] py-11">
-            <h1 class="md:text-3xl text-[<?= $navColor ?>] font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[#FB4949] md:text-tertiary">Trend Hub!</span></h1>
+    <section class="container w-full mx-auto mt-[120px]">
+        <div class="flex flex-col space-y-5 items-center bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#3d3d3d";
+      }else{
+       echo $lightTertiary;
+      }
+  
+
+      ?>] py-11">
+            <h1 class="md:text-3xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#000000";
+      }else{
+       echo $navColor;
+      }
+  
+// #FB4949
+      ?>] font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+   echo "#ffffff";
+ 
+      }else{
+    
+       echo "#FB4949";
+      }
+  
+
+      ?>] md:text-tertiary">Trend Hub!</span></h1>
             <p class="text-sm md:w-[700px] px-10 md:px-0 text-center text-textGray">At [Trend Hub] ,we believe in providing an exceptional online shopping experience. We understand the importance of convenience
                 and variety, which is why we have curated a wide rage of high-quality products to cater to your every need.</p>
         </div>
@@ -60,8 +107,30 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
 
     <!-- What We Offer? -->
     <section class="container w-full mx-auto px-5 md:px-28">
-        <div class="text-center py-5 bg-[<?= $lightTertiary ?>] rounded drop-shadow-md px-5 md:px-40 md:py-20">
-            <h1 class="text-[<?= $navColor ?>] font-bold text-xl md:text-3xl">What We Offer?</h1>
+        <div class="text-center py-5 bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#3d3d3d";
+      }else{
+       echo $lightTertiary;
+      }
+  
+
+      ?>] rounded drop-shadow-md px-5 md:px-40 md:py-20">
+            <h1 class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] font-bold text-xl md:text-3xl">What We Offer?</h1>
             <p class="text-sm md:text-xl text-textGray mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation, secure transaction,
                 and exceptional customer service.</p>
         </div>
@@ -91,7 +160,18 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
             </div>
 
             <div>
-                <h1 class="font-bold text-[<?= $navColor ?>] text-xl md:text-3xl">Customer Satisfaction</h1>
+                <h1 class="font-bold text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#ffffff";
+      }else{
+       echo $navColor;
+      }
+  
+
+      ?>] text-xl md:text-3xl">Customer Satisfaction</h1>
                 <p class="text-sm md:text-xl text-textGray md:w-[450px] mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation,
                     secure transaction, and exceptional customer service.</p>
             </div>
@@ -99,7 +179,18 @@ $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_te
     </section>
 
     <section class="container w-full mx-auto px-5 md:px-28">
-        <div class="text-center py-5 bg-[<?= $lightTertiary ?>] rounded drop-shadow-md px-5 md:px-30 md:py-20">
+        <div class="text-center py-5 bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+    
+
+        echo "#3d3d3d";
+      }else{
+       echo $lightTertiary;
+      }
+  
+
+      ?>] rounded drop-shadow-md px-5 md:px-30 md:py-20">
             <p class="text-sm md:text-xl text-textGray mt-5 md:px-16">Thank you for choosing [Trend Hub]. We hope you enjoy exploring our extensive product rage and have a delightful shopping experience.If you have any quentions or need assistance ,
                 please don’t hesitate to reach out to our delicated customer service team.</p>
         </div>

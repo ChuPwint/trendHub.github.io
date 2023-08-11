@@ -1,8 +1,8 @@
 <?php
 session_start();
 include "../../Model/model.php";
-// $merchantId =  $_SESSION["currentLoginUser"];
-$merchantId = 10;
+$merchantId =  $_SESSION["currentLoginUser"];
+
 $sql = $pdo->prepare("
     SELECT * FROM m_product_temp WHERE merchant_id = :id AND del_flg = 0 AND submitted = 0");
 $sql->bindValue(":id", $merchantId);

@@ -30,41 +30,119 @@ $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["t
 $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
 $buttonText = isset($editInfo[0]["button_text"]) && !empty($editInfo[0]["button_text"]) ? $editInfo[0]["button_text"] : '#FFFFFF';
 $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
-
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+$currentHour = date('H:i'); 
+date_default_timezone_set('Asia/Yangon'); 
+$profile = "/Storage/general/my_profile.svg";
+$point = "/Storage/general/my_points.svg";
+$order = "/Storage/general/my_orders.svg";
 
 
 ?>
 
-<body class="bg- font-roboto scrollHide">
+<body class="bg- font-roboto bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] scrollHide">
 
 
 
     <!-- Question about order -->
     <section class="container w-full mx-auto mt-[120px] ">
         <div class="text-center py-5">
-            <p class="text-sm md:text-2xl font-semibold py-5 text-[<?= $titleColor ?>]">Hello, What can we help you with?</p>
-            <input type="text" name="" id="" class="border-2 border-[<?= $tertiaryColor ?>] bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
+            <p class="text-sm md:text-2xl font-semibold py-5 text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">Hello, What can we help you with?</p>
+            <input type="text" name="" id="" class="border-2 border-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4d4d4d";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>] bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
         </div>
     </section>
 
     <!-- Common Topics -->
     <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div>
-            <p class="text-sm font-semibold md:text-2xl text-[<?= $titleColor ?>]">Common Topics</p>
+            <p class="text-sm font-semibold md:text-2xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">Common Topics</p>
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
-                <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
-                    <img class="md:w-20 md:h-20 " src="../resources/img/help/my_profile.svg" alt="profile">
+                <div class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
+                    <img class="md:w-20 md:h-20 " src="../../../<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+
+   echo 'Storage/general/darkProfile.svg';
+     }else{
+       echo $profile ;
+     }
+
+ ?>" alt="profile">
                     <p class="text-xs md:text-xl">My Profile</p>
                 </div>
 
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
-                    <img class="md:w-20 md:h-20" src="../resources/img/help/my_orders.svg" alt="order">
+                    <img class="md:w-20 md:h-20" src="../../../<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+
+   echo 'Storage/general/darkOrder.svg';
+     }else{
+       echo $order;
+     }
+
+ ?>" alt="order">
                     <p class="text-xs md:text-xl">My Orders</p>
                 </div>
 
 
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
-                    <img class="md:w-20 md:h-20" src="../resources/img/help/my_points.svg" alt="point">
+                    <img class="md:w-20 md:h-20" src="../../../<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+
+   echo 'Storage/general/darkCoin.svg';
+     }else{
+       echo $point ;
+     }
+
+ ?>" alt="point">
                     <p class="text-xs md:text-xl">My Points</p>
                 </div>
             </div>
@@ -85,30 +163,120 @@ $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_c
     <!-- Frequently Asked Questions -->
     <section class="container w-full mx-auto px-7 md:px-[200px]">
         <div class="mt-10 md:mt-20">
-            <p class="text-sm font-semibold md:text-2xl text-[<?= $titleColor ?>]">Frequently Asked Questions</p>
+            <p class="text-sm font-semibold md:text-2xl text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">Frequently Asked Questions</p>
             <div class="text-xs md:text-2xl px-5 leading-6 md:leading-10 mt-3">
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
-                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
-                    <p class="text-[<?= $navColor ?>]"><?= $question1 ?></p>
+                    <ion-icon class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]"><?= $question1 ?></p>
                 </div>
-                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
+                <div class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
                     <?= $answer1  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
-                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
-                    <p class="text-[<?= $navColor ?>]"><?= $question2 ?></p>
+                    <ion-icon class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]"><?= $question2 ?></p>
                 </div>
-                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
+                <div class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="orders-answer">
                     <?= $answer2  ?>
                 </div>
 
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
-                    <ion-icon class="text-[<?= $tertiaryColor ?>]" name="chevron-forward-outline"></ion-icon>
-                    <p class="text-[<?= $navColor ?>]"><?= $question3 ?></p>
+                    <ion-icon class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>]" name="chevron-forward-outline"></ion-icon>
+                    <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>]"><?= $question3 ?></p>
                 </div>
-                <div class="text-[<?= $navColor ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
+                <div class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor; 
+    }
+  
+
+      ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
                     <?= $answer3   ?>
                 </div>
 
@@ -120,10 +288,46 @@ $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_c
     <section class="container w-full mx-auto md:px-[200px]">
         <div class="text-center md:flex md:items-center md:space-x-32 md:mt-10 md:flex-wrap">
             <div class="text-sm md:text-2xl font-semibold py-5 md:flex md:flex-wrap">
-                <p class="text-[<?= $titleColor ?>]">Still have some questions?</p>
-                <p class="text-[<?= $titleColor ?>]">To contact our customer services:</p>
+                <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">Still have some questions?</p>
+                <p class="text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $titleColor; 
+    }
+  
+
+      ?>]">To contact our customer services:</p>
             </div>
-            <button class="bg-[<?= $tertiaryColor ?>] text-[<?= $primaryColor ?>] px-9 py-2 rounded">Contact Admin</button>
+            <button class="bg-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $tertiaryColor; 
+    }
+  
+
+      ?>] text-[<?php
+      
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor; 
+    }
+  
+
+      ?>] px-9 py-2 rounded">Contact Admin</button>
         </div>
     </section>
 

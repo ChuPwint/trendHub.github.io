@@ -27,8 +27,4 @@ if(count($result) > 0){
     header("Location: ../View/Error/error.php");
 }
 
-
-
-
-
 ?>

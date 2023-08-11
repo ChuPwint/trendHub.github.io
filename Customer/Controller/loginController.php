@@ -24,6 +24,9 @@ if(!isset($_POST["login"])){
     }elseif($result[0]["verify"] == 0){
         $_SESSION["needVerify"] = "You need to verify your account before login! Please Check your email for varification link!";
         header("Location: ../View/Login/login.php");
+    }elseif($result[0]["banned"] == 1){
+        $_SESSION["bannedEmailLogin"] = "Your account has been banned!";
+        header("Location: ../View/Login/login.php");
     }elseif(!$passwordCorrect){
         $_SESSION["wrongPassword"] = "Password Incorrect!";
         header("Location: ../View/Login/login.php");
@@ -33,8 +36,3 @@ if(!isset($_POST["login"])){
     }
     
 }
-
-
-
-
-?>

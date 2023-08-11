@@ -18,7 +18,9 @@
 
         <!-- Categories Start-->
         <div class="px-3 mt-5">
-            <p class="py-1 px-2 rounded hover:bg-red-400 cursor-pointer categories <?= ($menu == "analytics") ? "bg-red-400" : false ?>"><a href="../Analytics/analytics.php">Analytics</a></p>
+            <a href="../Analytics/analytics.php">
+                <p class="py-1 px-2 rounded hover:bg-red-400 cursor-pointer categories <?= ($menu == "analytics") ? "bg-red-400" : false ?>">Analytics</p>
+            </a>
 
             <div id="customers-list" class="flex items-center py-1 px-2 space-x-2 mt-2 cursor-pointer rounded hover:bg-red-400  categories <?= ($menu == "customersList") ? "bg-red-400" : false ?>">
                 <p>Customers List</p>
@@ -101,7 +103,7 @@
             </div>
             <!-- Order List Sub Menu  End-->
 
-            <a href="">
+            <a href="../financialReview/financial.php">
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "financialReview") ? "bg-red-400" : false ?>">Financial Reviews</p>
             </a>
 
