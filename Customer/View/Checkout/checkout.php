@@ -10,11 +10,11 @@
     <script src="../resources/js/checkout/checkout.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
-
-<body class="bg-primary font-roboto">
-    <?php
+<?php
     include "../resources/common/navbar.php";
     ?>
+<body class="bg-primary font-roboto">
+   
     <p class="px-5 mt-36 md:mt-28 md:px-10 md:pt-8 font-bold text-xl">Delivery Information</p>
     <div class="md:p-10">
         <!--start of container -->
@@ -85,7 +85,23 @@
                         </div>
                     </div>
                     <div class="mt-6 flex items-center justify-center">
-                        <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-tertiary md:px-6 py-2 px-10 font-semibold text-white">Save and Deliver Here</button>
+                        <button id="saveDeliInfoBtn" type="submit" class="rounded-md bg-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $buttonColor;
+        }
+    }
+    
+  
+
+      ?>] md:px-6 py-2 px-10 font-semibold text-white">Save and Deliver Here</button>
                     </div>
                 </form>
                 <!-- end of delivery information container -->
@@ -126,3 +142,6 @@
 </body>
 
 </html>
+<?php
+    include "../resources/common/footer.php";
+    ?>
