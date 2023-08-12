@@ -120,9 +120,10 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
             <div class="bg-white m-auto overflow-y-auto p-2 border rounded-sm w-[80%] relative">
                 <div class="closeViewDetailModal text-4xl font-bold absolute right-8 top-5 cursor-pointer"><ion-icon name="close-outline"></ion-icon></div>
                 <h2 class="text-2xl font-bold px-6 py-3">Product Details</h2>
-                <form action="../../Controller/allProduct/updateProductController.php"  method="post">
+                <form action="../../Controller/allProduct/editProductController.php"  method="post" enctype="multipart/form-data">
                     <!-- start of upper row -->
                     <div class="px-6 py-4 grid grid-cols-2 gap-4">
+                    <input type="hidden" name="editID" id="editID" value="<?= $detail[0]['id'] ?>">
                         <!-- start of add product text fields -->
                         <div class="col-span-1">
                             <div class="bg-secondary p-4">
@@ -171,11 +172,11 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                             <div class="h-full flex justify-center items-center rounded-lg border border-dashed border-gray-600 px-6 py-10">
                                 <div class="text-center">
                                     <div class="mt-4">
-                                        <div class="flex justify-center"><img class="p_Image" src="../resources/img/allProduct/cpu-nb 385.svg" alt=""></div>
+                                        <div class="flex justify-center"><img class="p_Image max-w-xs max-h-60" src="<?= "../../..".$detail[0]['p_path'] ?>" alt=""></div>
                                         <label for="file_upload" class="mt-2 cursor-pointer rounded-md bg-white font-semibold text-darkGreenColor">
                                             <span class="font-bold underline">Upload a file: </span>
                                         </label>
-                                        <input id="file_upload" name="file_upload" type="file" class="hidden mt-2 text-center">
+                                        <input id="file_upload" name="fileUpload" type="file" class="hidden mt-2 text-center">
                                     </div>
                                     <p>PNG, JPG up to 10MB</p>
                                 </div>
@@ -184,7 +185,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                         <!-- end of upload photo -->
                     </div>
                     <!-- end of upper row -->
-
+                    
                     <!-- start of bottom row -->
                     <div class="px-6 py-2">
                         <div class="grid grid-cols-2 gap-4">
@@ -280,8 +281,8 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                             <td class="p-2 text-center"><?= $product['p_name']; ?></td>
                             <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                             <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-                            <td class="p-2 text-center"><?= '$' . $product['buy_price'] ?></td>
-                            <td class="p-2 text-center"><?= '$' . $product['sell_price'] ?></td>
+                            <td class="p-2 text-center"><?=  $product['buy_price']." Ks" ?></td>
+                            <td class="p-2 text-center"><?=  $product['sell_price']." Ks" ?></td>
                             <td class=" p-2 text-center font-semibold underline cursor-pointer">
                             <a href="../../Controller/allProduct/productDetailShowController.php?id=<?= $product["pId"] ?>" > 
                             View Detail</a>

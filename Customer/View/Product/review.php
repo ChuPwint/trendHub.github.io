@@ -4,12 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Page with Tailwind CSS</title>
+    <title>Review Page </title>
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <script src="../resources/lib/jquery3.6.0.js"></script>
-</head>
 
-<body class="bg-primary">
+    <script src="../resources/lib/jquery3.6.0.js"></script>
+
+    <?php
+    include "../../Controller/uiElement/editInfoController.php";
+
+    $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+    $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+    $startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
+    $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+    $cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+    $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+    $priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+    $titleColor = isset($editText[0]["title_color"]) && !empty($editText[0]["title_color"]) ? $editText[0]["title_color"] : '#000000';
+
+
+    date_default_timezone_set('Asia/Yangon');
+    $currentHour = date('H:i');
+    ?>
+</head>
+<style>
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<?php
+
+include "../resources/common/navbar.php";
+?>
+<body class="bg-primary scrollHide">
     <div class="flex flex-row justify-around container mx-auto px-8 py-8">
         <div class="container mx-auto px-4 py-8">
             <h1 class="text-3xl font-semibold mb-4">Create Review</h1>

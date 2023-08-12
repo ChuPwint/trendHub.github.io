@@ -159,7 +159,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
         var date = new Date();
         var options = { hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' };
         var formattedTime = date.toLocaleTimeString('en-US', options);
-        document.getElementById('liveTime').textContent = 'Current Time: ' + formattedTime;
+        document.getElementById('liveTime').innerHTML = 'Current Time: ' + formattedTime;
     }
 
     // Update the time every second
@@ -292,8 +292,8 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
 
                     <div class="flex justify-between mt-4">
-                            <span></span>
-                           <p id="liveTime"></p>
+                            
+                           <p class="ml-[30px]" id="liveTime"></p>
                         </div>
 
                         <div class="flex justify-between mt-4">

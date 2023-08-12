@@ -2,9 +2,9 @@
 
 session_start();
 
-if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !isset($_SESSION["allCategories"])){
+if (!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !isset($_SESSION["allCategories"])) {
     header("Location: ../Error/error.php");
-}else{
+} else {
     $totalCount  = $_SESSION["totalCount"];
     $adminProducts = $_SESSION["adminProducts"];
     $allCategories = $_SESSION["allCategories"];
@@ -71,11 +71,11 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
                     $day = date('D');
                     $month = date('F');
                     $date = date('j');
-                    $year = date('Y', $timestamp); 
+                    $year = date('Y', $timestamp);
 
-                    
+
                     ?>
-                    <p><?php  echo "Date : $day, $month $date, $year"?></p>
+                    <p><?php echo "Date : $day, $month $date, $year" ?></p>
                 </div>
 
                 <input type="text" name="" id="" class="w-[800px] py-2 px-5 rounded outline-none" placeholder="Search...">
@@ -343,7 +343,7 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
                         <div class="w-[650px] h-[150px] p-5" id="detailTxt">
                             MSI Summit E13 Flip Evo 13.4" FHD+ 120hz Touch 2 in 1 Business Laptop: Intel Core i7-1260P Iris Xe 32GB LPDDR5 1TB NVMe SSD, 360-Degree Flip, Thunderbolt 4, MSI Pen, Win 11
                         </div>
-                        <input type="hidden" id="reviewID" name="">                   
+                        <input type="hidden" id="reviewID" name="">
 
                     </div>
                     <div class="flex -mt-[53px]">
@@ -378,7 +378,7 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
     <!-- start review -->
     <div id="modalReview" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
-            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews</span>
+            <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews and Ratings</span>
             <button id="hideReview" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6 text-[#F36823] " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -388,158 +388,56 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
             <div class="w-[950px] h-[180px] mt-[25px] mx-auto flex justify-between">
                 <div class="flex">
                     <div>
-                        <img src="../resources/img/Admin Product/tshirt.png" alt="">
+                        <img id="reviewImg" class="w-[100px]" src="" alt="">
                     </div>
                     <div class="text-md font-semibold ml-2 ">
-                        <span>Name : T-shirt</span><br>
-                        <span>Stock : 20</span><br>
-                        <span>Price : $750.00</span>
+                        <span>Name : <span id="reviewProductName"></span></span><br>
                     </div>
                 </div>
+            </div>
 
-                <div class="rating pr-10 w-[230px]">
-                    <h1 class="text-xl font-semibold underline tracking-wider ">Rating & Reviews</h1>
-                    <div class="flex">
-                        <div>
-                            <span class="text-2xl font-semibold">4.0/</span>
-                            <span>5</span>
-                            <span class="text-md  block">20 ratings</span>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">15</span>
-
-
+            <div id="customerReviews" class=" h-[300px] overflow-y-scroll">
+                <!-- 1st -->
+                <!-- <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2">
+                    <div class="w-[900px] h-[30px] relative">
+                        <div class="profile flex ">
+                            <div class="w-[30px] h-[30px] rounded-full mt-1">
+                                <img class="leading-[30px] -mt-1" src="../resources/img/profile/default_pic" alt="">
+                                <div class="rating text flex">
+                                    <span class="starColor">&#9733;</span>
+                                    <span class="starColor">&#9733;</span>
+                                    <span class="starColor">&#9733;</span>
+                                    <span class="starColor">&#9733;</span>
+                                    <span class="">&#9733;</span>
+                                </div>
                             </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">5</span>
-
-
-                            </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
-                            </div>
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
-                            </div>
-
-
-                            <div class="rating text">
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span class="">&#9733;</span>
-                                <span></span>
+                            <p class=" font-semibold text-lg ml-2">User A</p>
+                            <div>
+                                <span class="absolute right-4">2023/07/12</span>
                             </div>
                         </div>
-
+                        <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
                     </div>
-                </div>
+                </div> -->
 
+                <!-- reply -->
+                <!-- <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
 
-            </div>
-
-
-            <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7]">
-                <div class="w-[900px] h-[30px] relative">
-                    <div class="profile flex ">
-                        <div class="w-[30px] h-[30px] rounded-full mt-1">
-                            <img class="leading-[30px]" src="../resources/img/Admin Product/profile.png" alt="">
-                            <div class="rating text flex">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-
-
-
-                            </div>
-                        </div>
-
-                        <span class=" font-semibold text-lg ">User A</span>
-
-
-                        <div>
-                            <span class="absolute right-0">2023/07/12</span>
-                        </div>
+                    <div>
+                        <span class="text-md font-semibold">
+                            <img class="inline" src="../resources/img/Admin Product/arrow.svg" alt="">
+                            Reply to UserA</span>
                     </div>
-                    <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
-                </div>
+                    <form class="mt-1" action="../../Controller/manageProducts/replyReviewController.php" method="post">
+                        <input type="hidden" name="replyCustomerID">
+                        <input type="hidden" name="productDetailID">
+                        <input type="text" placeholder="Message" class="w-[320px] h-[40px] border border-black rounded-sm ml-5 pl-4">
+                        <button type="submit" class="px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
+                    </form>
 
-
+                </div> -->
             </div>
 
-
-            <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
-
-                <div>
-                    <span class="text-md font-semibold">
-                        <img class="inline" src="../resources/img/Admin Product/arrow.svg" alt="">
-                        Reply to UserA</span>
-                </div>
-                <div class="mt-1">
-                    <input type="text" placeholder="Message" class="w-[320px] h-[40px] border border-black rounded-sm ml-5 pl-4">
-                    <button class="px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
-                </div>
-
-            </div>
-
-            <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] mt-2">
-                <div class="w-[900px] h-[30px] relative">
-                    <div class="profile flex ">
-                        <div class="w-[30px] h-[30px] rounded-full mt-1">
-                            <img class="leading-[30px]" src="../resources/img/Admin Product/profile.png" alt="">
-                            <div class="rating text flex">
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="starColor">&#9733;</span>
-                                <span class="">&#9733;</span>
-
-
-
-                            </div>
-                        </div>
-
-                        <span class=" font-semibold text-lg ">User A</span>
-
-
-                        <div>
-                            <span class="absolute right-0">2023/07/12</span>
-                            <button class="px-5 rounded-sm py-1 bg-[#304547] text-white absolute right-0 top-10">Reply</button>
-                        </div>
-                    </div>
-                    <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
-                </div>
-
-
-            </div>
 
 
 
@@ -635,11 +533,8 @@ if(!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !iss
 
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
-    <!-- <script src="../resources/js/modal_box.js"></script> -->
-    <!-- <script src="../resources/js/editModal.js"></script>
-    <script src="../resources/js/drop_down.js"></script> -->
     <script src="../resources/js/adminProducts.js"></script>
-
+    <script src="../resources//js/review.js"></script>
 
 </body>
 

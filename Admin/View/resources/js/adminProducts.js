@@ -162,33 +162,7 @@ $(document).ready(function () {
     $("#modalDetail").addClass("hidden");
   })
 
-  //Show Review
-  $("#showReview").click(function (){
-    $("#modalReview").removeClass("hidden");
-
-    $.ajax({
-      url: "../../Controller/manageProducts/viewReviewController.php",
-      type: "POST",
-      data: {
-        id: $("#reviewID").val(),
-      },
-      success: function (result) {
-        console.log(result);
-        // let product = JSON.parse(result);
-        // $("#reviewID").val(product[0].id);
-        // $("#detailImg").attr("src", "../../.." + product[0].p_path);
-        // $("#detailTxt").text(product[0].p_detail);
-        // $("#detailBrand").text(product[0].brand_name);
-        // $("#detailMBrand").text(product[0].m_bname);
-        // $("#detailDesc").text(product[0].p_description);       
-      },
-      error: function (error) {
-        console.log(error);
-      },
-    });
-
-    $("#modalDetail").addClass("hidden");
-  })
+      
 
   // Hide review 
   $("#hideReview").click(function (){
