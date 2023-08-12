@@ -33,19 +33,41 @@ include "../Controller/homePage/homeProductController.php";
   <script src="./resources/lib/jquery3.6.0.js"></script>
   <!-- end navbar -->
 
-
   <!-- tailwind  link -->
-
   <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
 
   <!-- css link -->
-  <link href="./resources/css/HomePage/effect.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-
 </head>
 
+<style>
+  #card:hover {
+    margin-top: -8px;
+    margin-left: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 
+  .card {
+    transition: 200ms linear;
+  }
+
+  .imgEffect {
+    transition: 500ms linear;
+    cursor: pointer;
+  }
+
+  .productCard:hover .imgEffect {
+    transform: translateY(-40px);
+  }
+
+  .cartBtn {
+    transition: 500ms linear;
+  }
+
+  .cartBtn:hover {
+    letter-spacing: 2px;
+  }
+</style>
 
 <?php
 
@@ -494,22 +516,22 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($trendingProductsList as $trending) { ?>
         <div style=" box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <?php 
-          if(isset($_SESSION["currentLoginUser"])){
-            foreach($wishlistedProductIdList as $wishlist){
-              if($wishlist["product_id"] == $trending["id"]){
+          <?php
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $trending["id"]) {
                 $wishlistColor = "#ff6347";
-              }else{
+              } else {
                 $wishlistColor = "#808080";
               }
             }
           }
           ?>
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[<?= $wishlistColor ?>]">
-            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i>
-          </Button>
+          <button wishlist-productId="<?= $trending["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
           <a href="./Product/itemDetail.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#000000";
@@ -548,9 +570,22 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($bestSellerProductsList as $bestSeller) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+          <?php
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $bestSeller["id"]) {
+                $wishlistColor = "#ff6347";
+              } else {
+                $wishlistColor = "#808080";
+              }
+            }
+          }
+          ?>
+          <button class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
           <a href="./Product/itemDetail.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#000000";
@@ -589,9 +624,22 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($newProductsList as $newProduct) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+          <?php
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $newProduct["id"]) {
+                $wishlistColor = "#ff6347";
+              } else {
+                $wishlistColor = "#808080";
+              }
+            }
+          }
+          ?>
+          <button class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
           <a href="./Product/itemDetail.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
-          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
+          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
           <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                               echo "#000000";
@@ -798,21 +846,51 @@ $currentHour = date('H:i');
   </footer>
 
   <script>
-    function toggleColor(button) {
-      if (button.style.color === "tomato") {
-        button.style.color = "grey";
-      } else {
-        button.style.color = "tomato";
-      }
-    }
+    // function toggleColor(button) {
+    //   if (button.style.color === "tomato") {
+    //     button.style.color = "grey";
+    //   } else {
+    //     button.style.color = "tomato";
+    //   }
+    // }
 
-    var buttons = document.getElementsByClassName("heartBtn");
+    // var buttons = document.getElementsByClassName("heartBtn");
 
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function() {
-        toggleColor(this);
+    // for (var i = 0; i < buttons.length; i++) {
+    //   buttons[i].addEventListener("click", function() {
+    //     toggleColor(this);
+    //   });
+    // }
+    $(document).ready(() => {
+      $(".heartBtn").click(() => {
+        if ($(this).hasClass("text-[#ff6347]")) {
+          $(".heartBtn").removeClass("text-[#ff6347]");
+          $(".heartBtn").addClass("text-[#808080]");
+        } else if ($(".heartBtn").hasClass("text-[#808080]")) {
+          $(".heartBtn").removeClass("text-[#808080]");
+          $(".heartBtn").addClass("text-[#ff6347]");
+        }
       });
-    }
+    });
+    // function toggleColor(button) {
+    //   var productId = button.getAttribute("data-product-id");
+    //   var currentColor = button.style.color;
+    //   var newColor = currentColor === "tomato" ? "grey" : "tomato";
+
+    //   // Send AJAX request to update wishlist
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open("POST", "update_wishlist.php", true);
+    //   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //   xhr.onreadystatechange = function() {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //       // Update button color based on server response
+    //       if (xhr.responseText === "success") {
+    //         button.style.color = newColor;
+    //       }
+    //     }
+    //   };
+    //   xhr.send("productId=" + encodeURIComponent(productId));
+    // }
   </script>
 
   <!-- start navbar -->
