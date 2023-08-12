@@ -230,16 +230,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
             <!-- end of pie chart -->
             <!-- start of search button and select box -->
             <div class="flex justify-between items-center p-2">
-                <!-- start of search button -->
-                <div class="relative">
-                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for product" required>
-                    <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
-                        <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </button>
-                </div>
-                <!-- end of search button -->
+               
                 <!-- start of select box -->
                 <div>
                     <span class="mr-2 font-medium">Sort By</span>
