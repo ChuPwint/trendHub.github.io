@@ -131,12 +131,18 @@ $currentHour = date('H:i');
 
       <ul class="navUL md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
       
-      if ($currentHour < 1)  {
-
-        echo "#000000";
-      }else{
-        $primaryColor;
-      }
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
+    }
+    
   
 
       ?>] w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">

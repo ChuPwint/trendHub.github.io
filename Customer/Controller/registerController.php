@@ -2,9 +2,9 @@
 
 session_start();
 
-if(!isset($_POST["register"])){
+if (!isset($_POST["register"])) {
     header("Location: ../View/Error/error.php");
-}else{
+} else {
     $cUsername = $_POST["username"];
     $cEmail = $_POST["email"];
     $cRegion = $_POST["region"];
@@ -25,7 +25,7 @@ if(!isset($_POST["register"])){
     $searchEmailResult = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     // Check email already exits or not 
-    if(count($searchEmailResult) > 0){
+    if (count($searchEmailResult) > 0) {
         $_SESSION["emailError"] = "Email is already exists!";
         $_SESSION["cUsername"] = $cUsername;
         $_SESSION["cEmail"] = $cEmail;
@@ -52,6 +52,13 @@ if(!isset($_POST["register"])){
         // Genereate token 
         $token = getToken(128);
 
+        // To check email already exits or not 
+        $sql = $pdo->prepare(
+            "SELECT id FROM m_customers ORDER BY id DESC LIMIT 1"
+        );
+        $sql->execute();
+        $searchIdResult = $sql->fetchAll(PDO::FETCH_ASSOC);
+        
         // insert into database 
         $sql = $pdo->prepare(
             "INSERT INTO m_customers
@@ -82,7 +89,12 @@ if(!isset($_POST["register"])){
                 )           
             "
         );
-        $id = $searchEmailResult[0]["id"];
+        if(count($searchIdResult) == 0){
+            $id = 1;
+        }else{
+            $id = $searchIdResult[0]["id"] + 1;
+        }
+        
         $sql->bindValue(":cUsername", $cUsername);
         $sql->bindValue(":cEmail", $cEmail);
         $sql->bindValue(":cPhone", $cPhone);
@@ -103,18 +115,14 @@ if(!isset($_POST["register"])){
         $mail = new SendMail();
         $mail->sendMail(
             $cEmail,
-            "Welcome To TrendHUB", 
-            "<p>Thank you for registeration!</p>
+            "Welcome To TrendHUB",
+            "<p>Thank you for your customer registeration!</p>
             <a href='http://$domain/Trend_HUB/Customer/Controller/verifyController.php?token=$token'>Click here to veirfy your account!</a>"
         );
 
         $_SESSION["registerd"] = "Registration is completed! You need to verify your account before login. Please Check your email to verify your account!";
         header("Location: ../View/Login/login.php");
     }
-
-
-    
-
 }
 
 // print_r($_POST);
