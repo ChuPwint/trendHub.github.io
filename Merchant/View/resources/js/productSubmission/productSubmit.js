@@ -18,9 +18,6 @@ document.getElementById("file_upload").onchange = function (evt) {
   }
 };
 
-
-
-
   //merchant Product Delete Model Box
   $(document).on("click", ".delete", function () {
     $("#deleteModal").removeClass("hidden");

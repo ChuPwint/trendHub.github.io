@@ -115,21 +115,21 @@ if (isset($_SESSION["saveChangeController"]) && ($_SESSION["saveChangeController
                     <form action="../../Controller/profile/editProfileController.php" method="post" enctype="multipart/form-data">
                         <p class="p-6 text-2xl font-bold">Edit Profile</p>
                         <div class="flex flex-col items-center justify-center"> <!-- Adding a flex container -->
-                        <?php
+                            <?php
 
-                                if (($merchant[0]["m_logo"]) == null) {
-                                    $setLogo = "../resources/img/profile/noProfile.png.jpg";
-                                } else {
-                                    $setLogo = "../../.." . $merchant[0]["m_logo"];
-                                }
+                            if (($merchant[0]["m_logo"]) == null) {
+                                $setLogo = "../resources/img/profile/noProfile.png.jpg";
+                            } else {
+                                $setLogo = "../../.." . $merchant[0]["m_logo"];
+                            }
 
-                                ?>
+                            ?>
 
-                                <label for="logo">
-                                    <img src="<?= $setLogo ?>" id="merLogo" alt="Profile Picture" class="w-28 h-28  rounded-full ">
-                                </label>
-                                <input type="file" name="merimg" id="logo" accept=".png,.jpeg" class="hidden" >
-                             <!-- <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="rounded-full w-32 shadow-md"> -->
+                            <label for="logo">
+                                <img src="<?= $setLogo ?>" id="merLogo" alt="Profile Picture" class="w-28 h-28 border shadow-md  border-secondary  rounded-full ">
+                            </label>
+                            <input type="file" name="merimg" id="logo" accept=".png,.jpeg" class="hidden">
+                            <!-- <img src="../resources/img/profile/profile.png" alt="Profile Picture" class="rounded-full w-32 shadow-md"> -->
 
                         </div>
                         <div class="flex flex-col md:flex-row items-center justify-between mt-8">
@@ -182,7 +182,7 @@ if (isset($_SESSION["saveChangeController"]) && ($_SESSION["saveChangeController
             <div class="fixed w-full h-full inset-0 z-40 flex items-center justify-center bg-opacity-50" id="modal">
                 <div class="bg-white rounded-lg  shadow-2xl py-6 w-1/4 flex flex-col justify-center items-center">
                     <p class="text-center font-bold">Your profile Info is Updated!</p>
-                    <button  class="px-12 py-1 mt-4 bg-secondary text-white rounded " id="close-modal-btn">
+                    <button class="px-12 py-1 mt-4 bg-secondary text-white rounded " id="close-modal-btn">
                         Close
                     </button>
                 </div>
@@ -193,9 +193,26 @@ if (isset($_SESSION["saveChangeController"]) && ($_SESSION["saveChangeController
         </div>
 
         <!-- Right-side End -->
-        
+
     </section>
+   
+
+
 </body>
+<script>
+    $(document).ready(function() {
+        $("#logoutBtn").click(function() {
+            $("#logoutModal").toggle();
+        });
+
+        $("#confirmLogout").click(function() {
+            $("#logoutModal").toggle();
+        });
+        $("#cancelLogout").click(function() {
+            $("#logoutModal").toggle();
+        });
+    });
+</script>
 
 </html>
 <?php

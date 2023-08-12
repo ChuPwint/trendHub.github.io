@@ -214,7 +214,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                     foreach ($detail as $detailItem) {
                                         if ($detailItem['order_id'] === $order[0]['id']) {
                                             // Append each product name to the $totalItems variable
-                                            $itemsPrice .= "<p class='mb-3'>" . number_format($detailItem['sell_price'], 2) . " Kyat" . "</p>";
+                                            $itemsPrice .= "<p class='mb-3'>" . number_format($detailItem['sell_price'], 2) . " Ks" . "</p>";
                                             $subTotal += $detailItem['sell_price'];
                                         }
                                     }
@@ -232,14 +232,14 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                     <p>Delivery</p>
                                 </div>
                                 <div>
-                                    <p class="mb-3"><?= number_format($subTotal, 2) . " Kyat"   ?></p>
-                                    <p><?= number_format($order[0]["delivery_fee"], 2) . " Kyat"  ?></p>
+                                    <p class="mb-3"><?= number_format($subTotal, 2) . " Ks"   ?></p>
+                                    <p><?= number_format($order[0]["delivery_fee"], 2) . " Ks"  ?></p>
                                 </div>
                             </div>
                             <hr class="border border-dashed mb-3 mt-3 border-gray-400">
                             <div class="flex justify-between items-center mt-5">
                                 <p>Grand Total</p>
-                                <p><?= number_format(($order[0]["delivery_fee"] + $subTotal), 2) . " Kyat" ?></p>
+                                <p><?= number_format(($order[0]["delivery_fee"] + $subTotal), 2) . " Ks" ?></p>
                             </div>
                             <!-- end of prices -->
                         </div>
@@ -415,7 +415,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                 echo $totalQuantity;
                                 ?>
                             </td>
-                            <td class="p-2 text-center"><?= "$" . $order['total_amt']; ?></td>
+                            <td class="p-2 text-center"><?= $order['total_amt']; ?> Ks</td>
                             <td class="p-2 text-center"><?= $order['payment_method']; ?></td>
                             <td class="p-2 text-center">
                                 <?= date('Y/m/d', strtotime($order['create_date'])); ?>

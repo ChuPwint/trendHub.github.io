@@ -288,12 +288,12 @@ include "../../Controller/allReview/customerReviewController.php";
                             $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                             ?>
                             <tr class="orderList <?=  $rowClass ?>">
-                                <td class="viewOrderDetailBtn p-2 text-center underline font-semibold cursor-pointer"><?= $product['id'] ?></td>
+                                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $product['id'] ?></td>
                                 <td class="p-2 text-center"><?= $product['p_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-                                <td class="p-2 text-center"><?= $product['sell_price'] ?></td>
-                                <td class="p-2 text-center"><?= $product['p_stock'] * $product['sell_price'] ?></td>
+                                <td class="p-2 text-center"><?= $product['sell_price'] ?> Ks</td>
+                                <td class="p-2 text-center"><?= $product['p_stock'] * $product['sell_price'] ?> Ks</td>
 
                                 <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
                                 <a href="../../Controller/allReview/reviewDetailController.php?id=<?= $product["id"] ?>">

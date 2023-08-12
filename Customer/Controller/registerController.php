@@ -76,7 +76,7 @@ if(!isset($_POST["register"])){
                     :cRegion,
                     :cTownship,
                     :cAddress,
-                    :wishlist
+                    :wishlist,
                     :token,
                     :createDate
                 )           

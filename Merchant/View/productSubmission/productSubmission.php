@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-if (isset($_SESSION["totalCount"]) || isset($_SESSION["merchantProducts"]) || isset($_SESSION["allCategories"])) {
-
-    $totalCount  = $_SESSION["totalCount"];
+if (isset($_SESSION["merchantProducts"]) || isset($_SESSION["allCategories"])) {
+  
     $merProducts = $_SESSION["merchantProducts"];
     $allCategories = $_SESSION["allCategories"];
 }
@@ -356,7 +355,10 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                     <tbody id="tableElement">
                         <?php
                         $idCount = 1;
+                        if(isset($_SESSION["totalCount"])){
+                            $totalCount  = $_SESSION["totalCount"];
 
+                          
                         if ($totalCount > 0) {
                             $count = 1;
                             foreach ($merProducts as $product) {
@@ -367,13 +369,14 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                                     <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                                     <td class="p-2 text-center"><?= $product['p_name'] ?></td>
                                     <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-                                    <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> kyat</td>
-                                    <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> kyat</td>
+                                    <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> ks</td>
+                                    <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> ks</td>
                                     <!-- Calculate total value -->
-                                    <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> kyat</td>
+                                    <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> ks</td>
                                     <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
                                 </tr>
                         <?php }
+                        }
                         } ?>
 
                     </tbody>
