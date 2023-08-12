@@ -1,17 +1,31 @@
+<?php
+include "../../Controller/allReview/customerReviewController.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-   
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../resources/js/review.js" defer></script>
 
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
+
 <body>
+    <input type="hide" id="reviewID" value="53">
+    <div id="showReview"   class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
+       See Review
+ 
+    </div>
     <!-- start review -->
-<div id="modalReview" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+    <div id="modalReview" class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[1000px] h-[650px] rounded shadow-md relative">
             <span class=" font-semibold text-lg px-5 block mt-3 ">Item's Reviews and Ratings</span>
             <button id="hideReview" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
@@ -33,7 +47,7 @@
 
             <div id="customerReviews" class=" h-[300px] overflow-y-scroll">
                 <!-- 1st -->
-                <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2">
+                <!-- <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2">
                     <div class="w-[900px] h-[30px] relative">
                         <div class="profile flex ">
                             <div class="w-[30px] h-[30px] rounded-full mt-1">
@@ -53,10 +67,10 @@
                         </div>
                         <span class="mt-3 block">Lorem ipsum dolor sit amet consectetur. Eu dictumst orci egestas vitae donec. </span>
                     </div>
-                </div> 
+                </div>  -->
 
                 <!-- reply -->
-                <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
+                <!-- <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
 
                     <div>
                         <span class="text-md font-semibold">
@@ -70,7 +84,7 @@
                         <button type="submit" class="px-5 rounded-sm py-1 bg-[#304547] text-white">Reply</button>
                     </form>
 
-                </div>
+                </div> -->
             </div>
 
 
@@ -82,4 +96,5 @@
 
     <!-- end review -->
 </body>
+
 </html>
