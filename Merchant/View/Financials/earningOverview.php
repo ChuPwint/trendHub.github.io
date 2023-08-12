@@ -134,12 +134,14 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Category</p>
-                    <p class="mt-2 text-xl"><?= $mostSoldCategory[0]["category_name"] ?></p>
+                    <p class="mt-2 text-xl"><?= isset($mostSoldCategory[0]["category_name"]) ? $mostSoldCategory[0]["category_name"] : "Nothing" ?></p>
+
                 </div>
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Product </p>
-                    <p class="mt-2 text-xl"><?= $mostSoldProduct[0]["p_name"] ?></p>
+                    <p class="mt-2 text-xl"><?= isset($mostSoldProduct[0]["p_name"]) ? $mostSoldProduct[0]["p_name"] : "Nothing" ?></p>
+
                 </div>
 
 

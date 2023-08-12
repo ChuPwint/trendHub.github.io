@@ -1,11 +1,11 @@
 <?php
 session_start();
-if(isset ( $_SESSION["selectedOrder"])){
+if (isset($_SESSION["selectedOrder"])) {
     $order =  $_SESSION["selectedOrder"];
     $detail =  $_SESSION["orderDetails"];
 };
-if (isset($_SESSION["change"])){
-    $changes =$_SESSION["change"];  
+if (isset($_SESSION["change"])) {
+    $changes = $_SESSION["change"];
 }
 
 include "../../Controller/allOrder/allOrderShowcontroller.php";
@@ -239,7 +239,11 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                             <hr class="border border-dashed mb-3 mt-3 border-gray-400">
                             <div class="flex justify-between items-center mt-5">
                                 <p>Grand Total</p>
-                                <p><?= number_format(($order[0]["delivery_fee"] + $subTotal), 2) . " Ks" ?></p>
+                                <?php
+                                $grandTotal = number_format(($order[0]["delivery_fee"] + $subTotal), 2) . " Ks";
+                                ?>
+
+                                <p><?= $grandTotal ?></p>
                             </div>
                             <!-- end of prices -->
                         </div>
@@ -354,15 +358,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
 
             <!-- start of search button and select box -->
             <div class="flex justify-between items-center p-2">
-                <!-- start of search button -->
-                <div class="relative">
-                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for order" required>
-                    <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
-                        <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </button>
-                </div>
+
                 <!-- end of search button -->
                 <!-- start of select box -->
                 <div>
@@ -415,6 +411,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                                 echo $totalQuantity;
                                 ?>
                             </td>
+                            
                             <td class="p-2 text-center"><?= $order['total_amt']; ?> Ks</td>
                             <td class="p-2 text-center"><?= $order['payment_method']; ?></td>
                             <td class="p-2 text-center">
@@ -472,7 +469,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                 $("#order").val($("#payment").val());
                 $("#orderInput").val($("#order").val());
             });
-         });
+        });
     </script>
 </body>
 
