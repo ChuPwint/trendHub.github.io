@@ -43,12 +43,19 @@ $order = "/Storage/general/my_orders.svg";
 
 <body class="bg- font-roboto bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+  if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $primaryColor;
+        }
     } else {
-        echo $primaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
     }
-  
 
       ?>] scrollHide">
 
@@ -59,20 +66,36 @@ $order = "/Storage/general/my_orders.svg";
         <div class="text-center py-5">
             <p class="text-sm md:text-2xl font-semibold py-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
     }
   
 
       ?>]">Hello, What can we help you with?</p>
             <input type="text" name="" id="" class="border-2 border-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#4d4d4d";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4d4d4d";
+        }else {
+            echo $tertiaryColor;
+        }
     } else {
-        echo $tertiaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4d4d4d";
+        } else {
+            echo $tertiaryColor;
+        }
     }
   
 
@@ -85,10 +108,18 @@ $order = "/Storage/general/my_orders.svg";
         <div>
             <p class="text-sm font-semibold md:text-2xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
     }
   
 
@@ -96,22 +127,38 @@ $order = "/Storage/general/my_orders.svg";
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
                 <div class="bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#fafafa";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#fafafa";
+        }else {
+            echo $primaryColor;
+        }
     } else {
-        echo $primaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#fafafa";
+        } else {
+            echo $primaryColor;
+        }
     }
   
 
       ?>] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20 " src="../../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo 'Storage/general/darkProfile.svg';
+        }else {
+          echo $profile ;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo 'Storage/general/darkProfile.svg';
+        } else {
+          echo $profile ;
+        }
+    }
 
-   echo 'Storage/general/darkProfile.svg';
-     }else{
-       echo $profile ;
-     }
 
  ?>" alt="profile">
                     <p class="text-xs md:text-xl">My Profile</p>
@@ -119,13 +166,20 @@ $order = "/Storage/general/my_orders.svg";
 
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../../../<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+           if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+              echo 'Storage/general/darkOrder.svg';
+            }else {
+              echo $order;
+            }
+        } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+              echo 'Storage/general/darkOrder.svg';
+            } else {
+              echo $order;
+            }
+        }
 
-   echo 'Storage/general/darkOrder.svg';
-     }else{
-       echo $order;
-     }
 
  ?>" alt="order">
                     <p class="text-xs md:text-xl">My Orders</p>
@@ -134,13 +188,20 @@ $order = "/Storage/general/my_orders.svg";
 
                 <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20" src="../../../<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+             if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo 'Storage/general/darkCoin.svg';
+              }else {
+                echo $point ;
+              }
+          } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo 'Storage/general/darkCoin.svg';
+              } else {
+                echo $point ;
+              }
+          }
 
-   echo 'Storage/general/darkCoin.svg';
-     }else{
-       echo $point ;
-     }
 
  ?>" alt="point">
                     <p class="text-xs md:text-xl">My Points</p>
@@ -165,11 +226,20 @@ $order = "/Storage/general/my_orders.svg";
         <div class="mt-10 md:mt-20">
             <p class="text-sm font-semibold md:text-2xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo "#ffffff";
+        }else {
+          echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo "#ffffff";
+        } else {
+          echo $titleColor;
+        }
     }
+
   
 
       ?>]">Frequently Asked Questions</p>
@@ -178,33 +248,57 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="points">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $tertiaryColor;
+        }
     } else {
-        echo $tertiaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $tertiaryColor;
+        }
     }
+
   
 
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
-    } else {
-        echo $navColor; 
-    }
+        if ($startTime > $endTime) {
+          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo '#ffffff';
+          }else {
+            echo $navColor;
+          }
+      } else {
+          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo '#ffffff';
+          } else {
+            echo $navColor;
+          }
+      }
+  
   
 
       ?>]"><?= $question1 ?></p>
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $navColor;
+        }
     }
-  
 
       ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="points-answer">
                     <?= $answer1  ?>
@@ -213,20 +307,36 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="orders">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $tertiaryColor;
+        }
     } else {
-        echo $tertiaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $tertiaryColor;
+        }
     }
   
 
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $navColor;
+        }
     }
   
 
@@ -234,10 +344,18 @@ $order = "/Storage/general/my_orders.svg";
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $navColor;
+        }
     }
   
 
@@ -248,20 +366,35 @@ $order = "/Storage/general/my_orders.svg";
                 <div class="flex items-center space-x-1 cursor-pointer" id="payments">
                     <ion-icon class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $tertiaryColor;
+        }
     } else {
-        echo $tertiaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $tertiaryColor;
+        }
     }
-  
 
       ?>]" name="chevron-forward-outline"></ion-icon>
                     <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $navColor;
+        }
     }
   
 
@@ -269,12 +402,19 @@ $order = "/Storage/general/my_orders.svg";
                 </div>
                 <div class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $navColor;
+        }
     }
-  
 
       ?>] pl-4 md:pl-7 md:text-lg leading-2 pb-3 hidden" id="payments-answer">
                     <?= $answer3   ?>
@@ -290,20 +430,36 @@ $order = "/Storage/general/my_orders.svg";
             <div class="text-sm md:text-2xl font-semibold py-5 md:flex md:flex-wrap">
                 <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $titleColor;
+        }
     }
   
 
       ?>]">Still have some questions?</p>
                 <p class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $titleColor;
+        }
     }
   
 
@@ -311,19 +467,34 @@ $order = "/Storage/general/my_orders.svg";
             </div>
             <button class="bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        }else {
+          echo $tertiaryColor;
+        }
     } else {
-        echo $tertiaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#ffffff';
+        } else {
+          echo $tertiaryColor;
+        }
     }
   
 
       ?>] text-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo '#000000';
+        }else {
+          echo $primaryColor;
+        }
     } else {
-        echo $primaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo '#000000';
+        } else {
+          echo $primaryColor;
+        }
     }
   
 
