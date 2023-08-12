@@ -253,12 +253,14 @@ $totalReviews =  $_SESSION["reviews"];
     <!-- Start of user reviews -->
     <div class="mt-5 px-5 md:px-28">
         <?php
-        foreach ($totalReviews as $review) { ?>
+        foreach ($totalReviews as $review) { 
+            $firstLetterOfName =  substr($review["c_name"], 0, 1);
+            ?>
             <div class="bg-productCardBgColor py-5 px-5 shadow-md mt-5">
                 <div class="flex justify-between items-center">
                     <!-- user img and rating star img -->
                     <div class="flex justify-start items-center">
-                        <div class="rounded-[50%] bg-tertiary w-10 h-10 flex justify-center items-center text-xl text-white">C</div>
+                        <div class="rounded-[50%] bg-tertiary w-10 h-10 flex justify-center items-center text-xl text-white"><?= $firstLetterOfName ?></div>
                         <input class="ml-2" data-role="rating" data-stared-color="#F36823" data-static="true" data-value="<?= $review["rating"] ?>">
                     </div>
                     <!-- Date review written -->
