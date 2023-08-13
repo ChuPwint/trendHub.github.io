@@ -102,8 +102,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
 
                 <!-- Profile Form Card -->
-
-                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll " id="profileEdit">
+                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
                         <form action="../../Controller/profileSaveChangeController.php" method="post" enctype="multipart/form-data">
@@ -121,7 +120,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                 <label for="photo">
                                     <img src="<?= $setProfile ?>" id="profile" alt="Profile Picture" class="w-36 h-36  rounded-full ">
                                 </label>
-                                <input type="file" name="userimg" id="photo" accept=".png,.jpeg" class="hidden" >
+                                <input type="file" name="userimg" id="photo" accept=".png,.jpeg" class="hidden">
 
 
                                 <div class="flex flex-col">
@@ -178,7 +177,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
                                 <div class="flex flex-col md:flex-row  items-center justify-between ">
                                     <div class="md:w-1/2 w-full p-2 ">
-                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border  border-borderOrange rounded" readonly >
+                                        <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border  border-borderOrange rounded" readonly>
                                     </div>
                                     <div class="md:w-1/2 w-full p-2">
                                         <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address" required>
@@ -190,13 +189,11 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         </form>
                     </div>
                 </div>
-
                 <!-- End Profile Edit Card -->
-
 
                 <!-- start Wishlist card -->
                 <!-- wishlist destop view  -->
-                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll" id="wishlistDestop">
+                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="wishlistDestop">
                     <div class="toggleWishlist  bg-white shadow-md rounded-lg p-6 md:block hidden">
                         <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
                         <table class="w-full border-collapse">
@@ -207,26 +204,21 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <th class="px-4 py-2 border">Price</th>
                                     <th class="px-4 py-2 border">Add to Cart</th>
                                     <th class="px-4 py-2 border">Remove</th>
-                                    <th class="px-4 py-2 border">Share</th>
-
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($wishlistProducts as $product) : ?>
                                     <tr>
-                                        <td class="px-4 py-2">
-                                            <img src="../resources/img/orderHistory/product1.png" alt="Product Thumbnail" class="w-16 h-16 object-contain">
+                                        <td class="px-4 py-2 flex justify-center items-center">
+                                            <img src="../../..<?= $product["p_path"] ?>" alt="Product Thumbnail" class="w-16 h-16 object-contain">
                                         </td>
-                                        <td class="px-4 py-2"><?php echo $product['p_name']; ?></td>
-                                        <td class="px-4 py-2"><?php echo "$" . $product['sell_price']; ?></td>
-                                        <td class="px-4 py-2">
-                                            <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                        <td class="px-4 py-2 text-center"><?php echo $product['p_name']; ?></td>
+                                        <td class="px-4 py-2 text-center"><?php echo number_format($product['sell_price']) . " Ks"; ?></td>
+                                        <td class="px-4 py-2 text-center">
+                                            <button class="bg-tertiary text-white text-sm px-4 py-2 rounded">Add to cart</button>
                                         </td>
-                                        <td class="px-4 py-2">
-                                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5">
-                                        </td>
-                                        <td class="px-4 py-2">
-                                            <img src="../resources/img/orderHistory/share.svg" alt="share">
+                                        <td class="pl-10 py-2 cursor-pointer">
+                                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5">
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -235,6 +227,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         </table>
                     </div>
                 </div>
+
                 <!-- wishlist mobile view -->
                 <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
                     <div class="block md:hidden">
@@ -242,25 +235,22 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
                         <!-- Loop through the $wishlistProducts array and display each product in a div -->
                         <?php foreach ($wishlistProducts as $product) : ?>
-                            <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                                <img src="../resources/img/orderHistory/product2.png" alt="Product Thumbnail" class="w-18 h-18 object-contain">
+                            <div class="bg-secondary shadow-lg m-4 p-4 rounded-sm">
+                                <div class="max-w-sm flex justify-center">
+                                    <img src="../../..<?= $product["p_path"] ?>" alt="Product Thumbnail" class="w-18 h-18 object-contain">
+                                </div>
                                 <div class="p-4">
                                     <div><?php echo $product['p_name']; ?></div>
-                                    <div>$<?php echo $product['sell_price']; ?></div>
-                                    <button class="bg-tertiary text-white text-sm px-2 py-1">Add</button>
+                                    <div class="mt-3"><?php echo number_format($product['sell_price']) . " Ks" ?></div>
                                 </div>
-                                <div class="py-8">
-                                    <img src="../resources/img/orderHistory/share.svg" alt="share" class="flex top-2 right-2">
-                                    <img src="../resources/img/orderHistory/trash.png" alt="delete" class="w-5 flex button-2 right-2">
+                                <div class="flex justify-around items-center">
+                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
+                                    <img src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 flex button-2 right-2">
                                 </div>
                             </div>
                         <?php endforeach; ?>
-
-
-
                     </div>
                 </div>
-
                 <!-- End Wishlist card -->
 
                 <!-- Start Order History Card -->
@@ -277,7 +267,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <th class="px-4 py-2 border">Payment</th>
                                     <th class="px-4 py-2 border">Total</th>
                                     <th class="px-4 py-2 border">Status</th>
-                                
+
                                 </tr>
                             </thead>
                             <tbody class="col space-y-4">
@@ -320,7 +310,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             }
                                             ?>
                                         </td>
-                                        
+
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -389,7 +379,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                                 ?>
                                             </span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -423,17 +413,17 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
 
                 </div>
-                <?php if (isset($_SESSION["userChangeView"]) && ($_SESSION["userChangeView"] == 1)) { ?> 
-                <!-- Modal for save change-->
-                <div class="flex justify-center items-center">
-                    <div class="fixed w-full   flex items-center justify-center " id="modal">
-                        <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
-                            <p class="text-center font-bold">Your profile change is complete!</p>
-                            <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
+                <?php if (isset($_SESSION["userChangeView"]) && ($_SESSION["userChangeView"] == 1)) { ?>
+                    <!-- Modal for save change-->
+                    <div class="flex justify-center items-center">
+                        <div class="fixed w-full   flex items-center justify-center " id="modal">
+                            <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
+                                <p class="text-center font-bold">Your profile change is complete!</p>
+                                <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php   } ?> 
+                <?php   } ?>
 
                 <!-- Modal Box for log out -->
                 <div class="flex justify-center items-center ">
@@ -487,6 +477,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 </body>
 
 </html>
- <?php
-        $_SESSION["userSaveChangeController"] = false;
-        ?> 
+<?php
+$_SESSION["userSaveChangeController"] = false;
+?>
