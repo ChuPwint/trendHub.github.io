@@ -1,16 +1,16 @@
 <?php
 session_start();
 $currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
-$currentLoginUserID = $_SESSION["currentLoginUser"]; //session
-if(isset($_SESSION["productDetail"])) $productDetail = $_SESSION["productDetail"];
-if(isset($_SESSION["averageRating"])) $averageRating = $_SESSION["averageRating"];
-if(isset($_SESSION["totalRatedCustomer"])) $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
-if(isset($_SESSION["totalFivestarRating"])) $totalFivestarRating = $_SESSION["totalFivestarRating"];
-if(isset($_SESSION["totalFourstarRating"])) $totalFourstarRating = $_SESSION["totalFourstarRating"];
-if(isset($_SESSION["totalThreestarRating"])) $totalThreestarRating = $_SESSION["totalThreestarRating"];
-if(isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["totalTwostarRating"];
-if(isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
-if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
+$currentLoginUserID = (isset($_SESSION["currentLoginUser"])) ? $_SESSION["currentLoginUser"] : false; //session
+if (isset($_SESSION["productDetail"])) $productDetail = $_SESSION["productDetail"];
+if (isset($_SESSION["averageRating"])) $averageRating = $_SESSION["averageRating"];
+if (isset($_SESSION["totalRatedCustomer"])) $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
+if (isset($_SESSION["totalFivestarRating"])) $totalFivestarRating = $_SESSION["totalFivestarRating"];
+if (isset($_SESSION["totalFourstarRating"])) $totalFourstarRating = $_SESSION["totalFourstarRating"];
+if (isset($_SESSION["totalThreestarRating"])) $totalThreestarRating = $_SESSION["totalThreestarRating"];
+if (isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["totalTwostarRating"];
+if (isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
+if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
 
 ?>
 
@@ -52,17 +52,15 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
             scrollbar-width: none;
         }
 
-        .cart_item{
+        .cart_item {
             top: -2px !important;
             right: -8px !important;
         }
 
-        .secondNav{
+        .secondNav {
             padding-left: 28px !important;
             padding-right: 28px !important;
         }
-
-    
     </style>
 </head>
 
@@ -70,7 +68,7 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
     <?php
     include "../resources/common/navbar.php";
     ?>
-    
+
 
     <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">
         <span>Home > </span>
@@ -166,7 +164,6 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
 
 
             <div class="flex justify-evenly space-x-[200px] items-center">
-
                 <div class="">
                     <p class="text-xl font-bold underline">Rating & Reviews</p>
                     <p class="mt-3 text-gray-500"><?= $totalRatedCustomer ?> Global Ratings</p>
@@ -175,9 +172,12 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalFivestarRating) / $totalRatedCustomer ?>%"></div>
+                                    <?php
+                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalFivestarRating) / $totalRatedCustomer;
+                                    ?>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalFivestarRating) / $totalRatedCustomer) ?>%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round($width) ?>%</span>
                             </div>
                         </div>
 
@@ -185,9 +185,12 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">4 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalFourstarRating) / $totalRatedCustomer ?>%"></div>
+                                    <?php
+                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalFourstarRating) / $totalRatedCustomer;
+                                    ?>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalFourstarRating) / $totalRatedCustomer) ?>%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round($width) ?>%</span>
                             </div>
                         </div>
 
@@ -195,9 +198,12 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">3 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalThreestarRating) / $totalRatedCustomer ?>%"></div>
+                                    <?php
+                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalThreestarRating) / $totalRatedCustomer;
+                                    ?>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalThreestarRating) / $totalRatedCustomer) ?>%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round($width) ?>%</span>
                             </div>
                         </div>
 
@@ -205,9 +211,12 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">2 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalTwostarRating) / $totalRatedCustomer ?>%"></div>
+                                    <?php
+                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalTwostarRating) / $totalRatedCustomer;
+                                    ?>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalTwostarRating) / $totalRatedCustomer) ?>%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round($width) ?>%</span>
                             </div>
                         </div>
 
@@ -215,9 +224,12 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                             <span class="text-sm font-medium text-gray-500 dark:text-gray-400">1 star</span>
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= (100 * $totalOnestarRating) / $totalRatedCustomer ?>%"></div>
+                                    <?php
+                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalOnestarRating) / $totalRatedCustomer;
+                                    ?>
+                                    <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round((100 * $totalOnestarRating) / $totalRatedCustomer) ?>%</span>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400"><?= round($width) ?>%</span>
                             </div>
                         </div>
 
@@ -253,9 +265,9 @@ if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
     <!-- Start of user reviews -->
     <div class="mt-5 px-5 md:px-28">
         <?php
-        foreach ($totalReviews as $review) { 
+        foreach ($totalReviews as $review) {
             $firstLetterOfName =  substr($review["c_name"], 0, 1);
-            ?>
+        ?>
             <div class="bg-productCardBgColor py-5 px-5 shadow-md mt-5">
                 <div class="flex justify-between items-center">
                     <!-- user img and rating star img -->

@@ -527,7 +527,6 @@ $currentHour = date('H:i');
             }
           }
           ?>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
           <button w_productId="<?= $trending["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>

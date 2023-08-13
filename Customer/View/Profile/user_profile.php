@@ -320,7 +320,10 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             }
                                             ?>
                                         </td>
+<<<<<<< HEAD
                                         <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
+=======
+>>>>>>> origin/main
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -389,9 +392,12 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                                 ?>
                                             </span>
                                         </div>
+<<<<<<< HEAD
                                         <div class="flex justify-end">
                                             <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
                                         </div>
+=======
+>>>>>>> origin/main
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -420,7 +426,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                             </div>
                         </div>
                     <?php } ?>
-
                     <!-- End Notifications Card -->
 
 
@@ -443,14 +448,11 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
-
                                 <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
                                 <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
 
@@ -486,6 +488,29 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
     </div>
     <!-- Mobile menu button End-->
 
+<<<<<<< HEAD
+=======
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", ".deleteWishlist", function() {
+                //$(".changeStatusModal").removeClass("hidden");
+                $.ajax({
+                    url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
+                    type: "POST",
+                    data: {
+                        id: this.id,
+                    },
+                    success: function(result) {
+                        
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    },
+                });
+            });
+        });
+    </script>
+>>>>>>> origin/main
 </body>
 
 </html>
