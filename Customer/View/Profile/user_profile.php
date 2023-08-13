@@ -308,8 +308,11 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             }
                                             ?>
                                         </td>
+<<<<<<< HEAD
                                         <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
 
+=======
+>>>>>>> origin/main
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -376,12 +379,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                                 ?>
                                             </span>
                                         </div>
-<<<<<<< HEAD
-                                        <div class="flex justify-end">
-                                            <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
-                                        </div>
-=======
->>>>>>> origin/main
                                     </div>
                                 </div>
                             <?php endforeach; ?>
