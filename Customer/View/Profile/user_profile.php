@@ -222,7 +222,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-
                             </tbody>
                         </table>
                     </div>
@@ -255,7 +254,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
                 <!-- Start Order History Card -->
                 <!-- Destop View: order history-->
-                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll" id="orderHistoryDestop">
+                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="orderHistoryDestop">
                     <div class="bg-primary shadow-md rounded-lg p-6  hidden md:block">
                         <h2 class="text-2xl font-semibold mb-4">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
@@ -321,9 +320,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                 <!--Mobile View: order history -->
                 <div class="orderHistoryMobile container mx-auto mt-2 hidden relative">
                     <div class="block md:hidden">
-
                         <h2 class="text-2xl font-semibold mb-4 text-center ">Order History</h2>
-
                         <div class="space-y-4 px-4 ">
                             <!-- Loop through $orderPaymentInfo and generate order history entries -->
                             <?php foreach ($orderPaymentInfo as $order) : ?>
@@ -379,22 +376,16 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                                 ?>
                                             </span>
                                         </div>
-
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-
-
-
                         </div>
                     </div>
                 </div>
                 <!-- End Order History Card -->
 
-
-
                 <!-- Start Notifications Card -->
-                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll" id="notification">
+                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="notification">
                     <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
                     <?php foreach ($notifications as $notification) { ?>
                         <div class="w-full mx-auto mt-8">
@@ -424,7 +415,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         </div>
                     </div>
                 <?php   } ?>
-
                 <!-- Modal Box for log out -->
                 <div class="flex justify-center items-center ">
                     <div class="fixed  w-full flex items-center justify-center hidden" id="logoutModal">
@@ -440,11 +430,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
 
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
 
@@ -453,13 +439,9 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
             <img id="mobile-user" src="../resources/img/profile/user.png" alt="" class="w-6">
         </div>
-
-
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
             <img id="mobile-wishlist" src="../resources/img/profile/wishlist.png" alt="" class="w-6">
         </div>
-
-
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
             <img id="mobile-order" src="../resources/img/profile/orderhistory.png" alt="" class="w-6">
         </div>
@@ -470,10 +452,8 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
             <img id="mobile-logout" src="../resources/img/login/logout1.png" alt="" class="w-6">
         </div>
-
     </div>
     <!-- Mobile menu button End-->
-
 </body>
 
 </html>
