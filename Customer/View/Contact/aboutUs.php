@@ -35,12 +35,19 @@ $currentHour = date('H:i');
 
 <body class="font-roboto bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $primaryColor;
+        }
     } else {
-        echo $primaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
     }
-  
 
       ?>] scrollHide">
 

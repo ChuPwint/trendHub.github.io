@@ -107,7 +107,7 @@
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "financialReview") ? "bg-red-400" : false ?>">Financial Reviews</p>
             </a>
 
-            <a href="">
+            <a href="../uiElements/ui.php">
                 <p class="py-1 px-2 mt-2 cursor-pointer rounded hover:bg-red-400 categories <?= ($menu == "uiElement") ? "bg-red-400" : false ?>">UI Elements</p>
             </a>
 
