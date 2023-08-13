@@ -281,7 +281,7 @@ $currentHour = date('H:i');
           </a>
         <?php  } else { ?>
           <div>
-            <a href=""><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
+            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
