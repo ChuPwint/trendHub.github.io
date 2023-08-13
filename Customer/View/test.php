@@ -508,7 +508,7 @@ $currentHour = date('H:i');
           <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[<?= $wishlistColor ?>]">
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i>
           </Button>
-          <a href="./Product/itemDetail.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
+          <a href="../Controller/itemDetailController.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
           <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -517,7 +517,7 @@ $currentHour = date('H:i');
                                                                         echo $priceColor;
                                                                       }
                                                                       ?>] ">Ks <?= number_format($trending["sell_price"]) ?></div>
-          <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+          <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                         echo "#ffffff";
                                                                                                                       } else {
@@ -549,7 +549,7 @@ $currentHour = date('H:i');
       <?php foreach ($bestSellerProductsList as $bestSeller) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
           <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-          <a href="./Product/itemDetail.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
+          <a href="../Controller/itemDetailController.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
           <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -558,7 +558,7 @@ $currentHour = date('H:i');
                                                                         echo $priceColor;
                                                                       }
                                                                       ?>] ">Ks <?= number_format($bestSeller["sell_price"]) ?></div>
-          <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+          <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                         echo "#ffffff";
                                                                                                                       } else {
@@ -590,7 +590,7 @@ $currentHour = date('H:i');
       <?php foreach ($newProductsList as $newProduct) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
           <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
-          <a href="./Product/itemDetail.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
+          <a href="../Controller/itemDetailController.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
           <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
           <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -599,7 +599,7 @@ $currentHour = date('H:i');
                                                                               echo $priceColor;
                                                                             }
                                                                             ?>] ">Ks <?= number_format($newProduct["sell_price"]) ?></div>
-          <div class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+          <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                         echo "#ffffff";
                                                                                                                       } else {
@@ -820,7 +820,7 @@ $currentHour = date('H:i');
   <script src="./resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="./resources/js/navbar/navbar.js"></script>
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
-  <script src="./resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="./resources/js/addItemToCart/addToCart.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 

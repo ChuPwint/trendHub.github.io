@@ -1,16 +1,16 @@
 <?php
 session_start();
 $currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
-$currentLoginUserID = 18; //session
-$productDetail = $_SESSION["productDetail"];
-$averageRating = $_SESSION["averageRating"];
-$totalRatedCustomer = $_SESSION["totalRatedCustomer"];
-$totalFivestarRating = $_SESSION["totalFivestarRating"];
-$totalFourstarRating = $_SESSION["totalFourstarRating"];
-$totalThreestarRating = $_SESSION["totalThreestarRating"];
-$totalTwostarRating = $_SESSION["totalTwostarRating"];
-$totalOnestarRating = $_SESSION["totalOnestarRating"];
-$totalReviews =  $_SESSION["reviews"];
+$currentLoginUserID = $_SESSION["currentLoginUser"]; //session
+if(isset($_SESSION["productDetail"])) $productDetail = $_SESSION["productDetail"];
+if(isset($_SESSION["averageRating"])) $averageRating = $_SESSION["averageRating"];
+if(isset($_SESSION["totalRatedCustomer"])) $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
+if(isset($_SESSION["totalFivestarRating"])) $totalFivestarRating = $_SESSION["totalFivestarRating"];
+if(isset($_SESSION["totalFourstarRating"])) $totalFourstarRating = $_SESSION["totalFourstarRating"];
+if(isset($_SESSION["totalThreestarRating"])) $totalThreestarRating = $_SESSION["totalThreestarRating"];
+if(isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["totalTwostarRating"];
+if(isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
+if(isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
 
 ?>
 
