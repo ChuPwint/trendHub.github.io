@@ -397,7 +397,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                             </div>
                         </div>
                     <?php } ?>
-
                     <!-- End Notifications Card -->
 
 
@@ -419,14 +418,11 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
-
                                 <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
                                 <button class="bg-tertiary hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -452,6 +448,56 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
         </div>
     </div>
     <!-- Mobile menu button End-->
+
+    <script>
+        $(document).ready(function() {
+            //Start of Change Status Modal Box
+            $(document).on("click", ".changeStatus", function() {
+                $(".changeStatusModal").removeClass("hidden");
+                $.ajax({
+                    url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
+                    type: "POST",
+                    data: {
+                        id: this.id,
+                    },
+                    success: function(result) {
+                        let orders = JSON.parse(result);
+                        $("#orderId").val(orders[0].id);
+                        $("#orderDate").val(orders[0].create_date);
+                        $("#customerName").val(orders[0].c_name);
+
+                        if (orders[0].order_status == 0) {
+                            $("#orderStatus").val("Pending");
+                            $("#orderStatus").prop("disabled", false);
+                        } else {
+                            $("#orderStatus").val("Completed");
+                            $("#orderStatus").prop("disabled", true);
+                        }
+
+                        if (orders[0].payment_status == 0) {
+                            $("#paymentStatus").val("Pending");
+                            $("#paymentStatus").prop("disabled", false);
+                        } else {
+                            $("#paymentStatus").val("Completed");
+                            $("#paymentStatus").prop("disabled", true);
+                        }
+
+                        $("#orderInput").val($("#orderStatus").val());
+                        $("#paymentInput").val($("#paymentStatus").val());
+
+                        if (($("#orderStatus").val() == "Completed") && ($("#paymentStatus").val() == "Completed")) {
+                            $("#confirm").addClass("hidden");
+                        } else {
+                            $("#confirm").removeClass("hidden");
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    },
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
