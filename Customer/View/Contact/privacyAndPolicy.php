@@ -18,6 +18,7 @@
     }
 </style>
 <?php
+include "../../Controller/uiElement/editInfoController.php";
     include "../resources/common/navbar.php";
     $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
     $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
@@ -37,6 +38,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -59,6 +62,8 @@
  if ($startTime > $endTime) {
     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
         echo "#000000";
+    }else {
+        echo $primaryColor;
     }
 } else {
     if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -76,6 +81,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -120,6 +127,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $cardColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -137,6 +146,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -197,6 +208,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $cardColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -214,6 +227,8 @@
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {

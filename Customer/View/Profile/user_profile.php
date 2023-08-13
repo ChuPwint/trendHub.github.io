@@ -277,7 +277,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <th class="px-4 py-2 border">Payment</th>
                                     <th class="px-4 py-2 border">Total</th>
                                     <th class="px-4 py-2 border">Status</th>
-                                    <th class="px-4 py-2 border"></th>
+                                
                                 </tr>
                             </thead>
                             <tbody class="col space-y-4">
@@ -320,7 +320,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             }
                                             ?>
                                         </td>
-                                        <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
+                                        
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -389,9 +389,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                                 ?>
                                             </span>
                                         </div>
-                                        <div class="flex justify-end">
-                                            <img class="h-6 w-6" src="../resources/img/orderHistory//carbon_review.svg" alt="">
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             <?php endforeach; ?>
