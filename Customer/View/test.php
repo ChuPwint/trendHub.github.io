@@ -33,19 +33,41 @@ include "../Controller/homePage/homeProductController.php";
   <script src="./resources/lib/jquery3.6.0.js"></script>
   <!-- end navbar -->
 
-
   <!-- tailwind  link -->
-
   <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
 
   <!-- css link -->
-  <link href="./resources/css/HomePage/effect.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-
 </head>
 
+<style>
+  #card:hover {
+    margin-top: -8px;
+    margin-left: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 
+  .card {
+    transition: 200ms linear;
+  }
+
+  .imgEffect {
+    transition: 500ms linear;
+    cursor: pointer;
+  }
+
+  .productCard:hover .imgEffect {
+    transform: translateY(-40px);
+  }
+
+  .cartBtn {
+    transition: 500ms linear;
+  }
+
+  .cartBtn:hover {
+    letter-spacing: 2px;
+  }
+</style>
 
 <?php
 
@@ -218,7 +240,7 @@ $currentHour = date('H:i');
             </button>
           </a>
         <?php  } else { ?>
-          <div>
+          <div class="logged_in">
             <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../View/resources/img/profile/profile.png" alt=""></a>
           </div>
         <?php  } ?>
@@ -494,22 +516,23 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($trendingProductsList as $trending) { ?>
         <div style=" box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <?php 
-          if(isset($_SESSION["currentLoginUser"])){
-            foreach($wishlistedProductIdList as $wishlist){
-              if($wishlist["product_id"] == $trending["id"]){
+          <?php
+          $wishlistColor = "#808080"; // Default color
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $trending["id"]) {
                 $wishlistColor = "#ff6347";
-              }else{
-                $wishlistColor = "#808080";
+                break;
               }
             }
           }
           ?>
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[<?= $wishlistColor ?>]">
-            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i>
-          </Button>
-          <a href="../Controller/itemDetailController.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
           <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
+          <button w_productId="<?= $trending["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
+          <a href="../Controller/itemDetailController.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#000000";
@@ -548,9 +571,22 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($bestSellerProductsList as $bestSeller) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <?php
+          $wishlistColor = "#808080"; // Default color
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $bestSeller["id"]) {
+                $wishlistColor = "#ff6347";
+                break;
+              }
+            }
+          }
+          ?>
+          <button w_productId="<?= $bestSeller["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
           <a href="../Controller/itemDetailController.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#000000";
@@ -589,9 +625,22 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($newProductsList as $newProduct) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <Button onclick="toggleColor()" id="btnh1" class="heartBtn text-[#808080]"><i class="fa fa-heart absolute right-3 top-3 text-lg "></i></i></Button>
+        <?php
+          $wishlistColor = "#808080"; // Default color
+          if (isset($_SESSION["currentLoginUser"])) {
+            foreach ($wishlistedProductIdList as $wishlist) {
+              if ($wishlist["product_id"] == $newProduct["id"]) {
+                $wishlistColor = "#ff6347";
+                break;
+              }
+            }
+          }
+          ?>
+          <button w_productId="<?= $newProduct["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
+            <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
+          </button>
           <a href="../Controller/itemDetailController.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
-          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[132px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
+          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
           <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                               echo "#000000";
@@ -617,8 +666,6 @@ $currentHour = date('H:i');
     </div>
   </div>
   <!-- end new products -->
-
-
 
   <footer class="bg-[<?php
                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -796,31 +843,14 @@ $currentHour = date('H:i');
                                                       }
                                                       ?>]">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
-
-  <script>
-    function toggleColor(button) {
-      if (button.style.color === "tomato") {
-        button.style.color = "grey";
-      } else {
-        button.style.color = "tomato";
-      }
-    }
-
-    var buttons = document.getElementsByClassName("heartBtn");
-
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function() {
-        toggleColor(this);
-      });
-    }
-  </script>
-
   <!-- start navbar -->
   <script src="./resources/js/homePage/header/navbarMobile.js"></script>
   <script src="./resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="./resources/js/navbar/navbar.js"></script>
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
   <script src="./resources/js/addItemToCart/addToCart.js"></script>
+  <script src="./resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="./resources/js/homePage/header/wishlistAjax.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
