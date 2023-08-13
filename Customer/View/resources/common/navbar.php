@@ -417,7 +417,7 @@ $currentHour = date('H:i');
     <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
     <script src="../resources/js/homePage/header/categoryMobile.js"></script>
   <?php } ?>
-  <script src="../resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="../resources/js/addItemToCart/addToCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
 
