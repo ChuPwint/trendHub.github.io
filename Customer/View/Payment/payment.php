@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
     <title>Payment</title>
 
     <!-- google font link -->
@@ -19,7 +20,22 @@
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
+<?php
+    include "../../Controller/uiElement/editInfoController.php";
 
+    $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+    $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+    $startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
+    $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+    $cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+    $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+    $priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+    $titleColor = isset($editText[0]["title_color"]) && !empty($editText[0]["title_color"]) ? $editText[0]["title_color"] : '#000000';
+
+
+    date_default_timezone_set('Asia/Yangon');
+    $currentHour = date('H:i');
+    ?>
 
 <style>
     .waveInput {
@@ -57,26 +73,192 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 
 
+<?php
+include "../../View/resources/common/navbar.php"
+?>
+<body class="bg-[<?php
 
-<body class="bg-primary font-roboto">
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $primaryColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor;
+    }
+}
 
 
-    <div class="md:w-[1300px] md:h-[620px] mx-auto relative md:flex md:justify-between mt-[80px] shadow-md rounded-lg">
+                    ?>] font-roboto scrollHide">
+
+
+    <div class="md:w-[1300px] md:h-[620px] mx-auto relative md:flex md:justify-between mt-[120px] shadow-md rounded-lg">
 
         <div class="bg-secondary md:w-[400px] rounded-r-lg z-0 order-2">
-            <div class="w-[330px] h-[230px] bg-primary mx-auto mt-7 rounded-md shadow-md relative">
-                <span class="text-lg font-semibold pl-5 pt-4 block">Order Summary</span>
-                <span class=" block mt-[18px] pl-5">Subtotal</span>
-                <span class="absolute right-[20px] top-[68px] ">$324</span>
-                <span class=" block mt-[18px] pl-5">Delivery</span>
-                <span class="absolute right-[20px] top-[111px] ">$2324</span>
+            <div class="w-[330px] h-[230px] bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4f4f4f";
+    } else {
+        echo $secondaryColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#4f4f4f";
+    } else {
+        echo $secondaryColor;
+    }
+}
+
+
+
+?>] mx-auto mt-7 rounded-md shadow-md relative">
+                <span class="text-lg font-semibold pl-5 pt-4 block text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">Order Summary</span>
+                <span class=" block mt-[18px] pl-5 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">Subtotal</span>
+                <span class="absolute right-[20px] top-[68px]  text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">$324</span>
+                <span class=" block mt-[18px] pl-5 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">Delivery</span>
+                <span class="absolute right-[20px] top-[111px] text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">$2324</span>
                 <hr class="h-[1px] w-[290px] bg-black mx-auto mt-3">
-                <span class=" block mt-[18px] pl-5">Grand Total</span>
-                <span class="absolute right-[20px] top-[167px] ">$2648</span>
+                <span class=" block mt-[18px] pl-5 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>]">Grand Total</span>
+                <span class="absolute right-[20px] top-[167px] text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+
+?>] ">$2648</span>
 
             </div>
 
@@ -84,26 +266,94 @@
         </div>
 
         <div class="w-auto rounded-l-lg">
-            <span class=" text-xl my-[20px] font-semibold block ml-10">Payment Method</span>
+            <span class=" text-xl my-[20px] font-semibold block ml-10 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>]">Payment Method</span>
             <div class="paymentBox flex md:justify-center justify-start md:space-x-4 space-x-2  w-auto mt-8 md:mr-[70px] ml-10  ">
 
 
                 <!-- master card -->
-                <div id="pay1" class="pay md:w-[200px] md:h-[110px]  w-[100px] h-[55px] border-[#F36823]  border-2 rounded-md relative">
+                <div id="pay1" class="pay md:w-[200px] bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    }else {
+        echo $cardColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    } else {
+        echo $cardColor;
+    }
+}
+
+
+                    ?>]  md:h-[110px]  w-[100px] h-[55px] border-[#F36823] ml-[50px]  border-2 rounded-md relative">
                     <span class="block text-center md:text-lg text-sm font-semibold mt-1">Card</span>
                     <img src="../resources/img/payment/masterCard.png "
                         class="md:w-[160px] inset-x-0 absolute mx-auto bottom-1  md:bottom-5 w-[80px] " alt="">
                 </div>
 
                 <!-- cash on delivery -->
-                <div id="pay2" class="pay cashOnDelivery md:w-[200px] md:h-[110px] w-[100px] h-[55px] border-black border-2 rounded-md relative">
+                <div id="pay2" class="pay bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    }else {
+        echo $cardColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    } else {
+        echo $cardColor;
+    }
+}
+
+
+                    ?>] cashOnDelivery md:w-[200px] md:h-[110px] w-[100px] h-[55px] border-black border-2 rounded-md relative">
                     <span class="block text-center font-semibold mt-1 md:text-lg text-[12px]">Cash on Delivery</span>
                     <img src="../resources/img/payment/cashOnDelivery.png"
                         class="w-[160px] inset-x-0 absolute mx-auto md:bottom-4 bottom-0" alt="">
                 </div>
 
                 <!-- wave pay -->
-                <div id="pay3" class="pay md:w-[200px] md:h-[110px] w-[100px] h-[55px] border-black border-2 rounded-md relative">
+                <div id="pay3" class="pay bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    }else {
+        echo $cardColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#fafafa";
+    } else {
+        echo $cardColor;
+    }
+}
+
+
+                    ?>] md:w-[200px] md:h-[110px] w-[100px] h-[55px] border-black border-2 rounded-md relative">
                     <span class="block text-center font-semibold mt-1 md:text-lg text-sm">Wave Pay</span>
                     <img src="../resources/img/payment/waePay.png" class=" w-[50px] md:w-[100px] inset-x-0 absolute mx-auto bottom-1 md:bottom-4"
                         alt="">
@@ -116,7 +366,7 @@
 
                     <!-- Card -->
                     <div class="pay1">
-                        <div class="flex md:justify-between justify-start flex-col space-x-0 md:space-x-8 md:flex-row md:space-y-0 space-y-4">
+                        <div class="flex  md:justify-between justify-start flex-col space-x-0 md:space-x-8 md:flex-row md:space-y-0 space-y-4">
                             <div class="rounded-lg md:w-[360px] w-[340px]   md:mx-0 h-[220px] bg-[#E2E2E2]">
                                 <span class="text-[#7D7B7B] text-sm block mt-16 px-[20px] ">Card Number</span>
                                 <input required type="number" placeholder="0000 0000 0000 0000"
@@ -158,7 +408,19 @@
                         </div>
 
                    
-                        <div class="py-5">
+                        <div class="py-5 text-[<?php if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+} ?>]">
                             <input  type="checkbox" class=" w-[15px] h-[15px]">
                             <span class="text-md">Save this card.</span>
                             <br>
@@ -172,14 +434,84 @@
                         <span class="block pb-4 pt-5">Login with <span class="text-blue-500">Wave Id</span> to make the
                             purchase</span>
                         <input required type="number" placeholder="Wave Account Phone Number"
-                            class="border pl-3 mt-5 h-[40px] border-[#F36823] rounded-md w-[338px] outline-none bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                            class="border pl-3 mt-5 h-[40px] border-[<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                }else {
+                                    echo $buttonColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                } else {
+                                    echo $buttonColor;
+                                }
+                            }
+                            ?>] rounded-md w-[338px] outline-none bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
                         <div class="mt-5">
                             <input required type="number" placeholder="One Time Password"
-                                class="border pl-3 h-[40px] border-[#F36823] rounded-md w-[185px] outline-none  bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
-                            <button class="ml-7 h-[40px] w-[120px] bg-[#F36823] text-white rounded-sm shadow-md">GET
+                                class="border pl-3 h-[40px] border-[<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                }else {
+                                    echo $buttonColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                } else {
+                                    echo $buttonColor;
+                                }
+                            }
+                            ?>] rounded-md w-[185px] outline-none  bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                            <button class="ml-7 h-[40px] w-[120px] bg-[<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                }else {
+                                    echo $buttonColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                } else {
+                                    echo $buttonColor;
+                                }
+                            }
+                            ?>] text-[<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                }else {
+                                    echo "#ffffff";
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                } else {
+                                    echo "#ffffff";
+                                }
+                            }
+                            ?>] rounded-sm shadow-md">GET
                                 OTP</button>
                         </div>
-                        <span class="pt-16 block">OTP SMS will be sent to your WavePay registered Phone Number.</span>
+                        <span class="pt-16 block text-[<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                }else {
+                                    echo $navColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#ffffff";
+                                } else {
+                                    echo $navColor;
+                                }
+                            }
+                            ?>]">OTP SMS will be sent to your WavePay registered Phone Number.</span>
                     </div>
 
 
@@ -189,7 +521,32 @@
 
 
                 <div id="confirm" class="pl-10 submit">
-                    <button  class="px-10 py-2 mt-4 bg-[#F36823] text-white rounded">Confirm</button>
+                    <button  class="px-10 py-2 mt-4 bg-[<?php 
+                    if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $buttonColor;
+    }
+}?>] text-[<?php if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo "#ffffff";
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo "#ffffff";
+    }
+}?>] rounded">Confirm</button>
                 </div>
             </form>
 
@@ -201,11 +558,37 @@
                 <hr class="h-[2px] bg-[#00000094] md:w-[500px] w-[200px]  mx-auto">
                 <span class="text-center block mt-12">Do you want to proceed Cash on Delivery?</span>
                 <button id="confirmCod"
-                class="mt-4 mx-auto block px-20 py-2 rounded-md bg-[#F36823] text-white">Confirm</button>
+                class="mt-4 mx-auto block px-20 py-2 rounded-md bg-[<?php
+                if ($startTime > $endTime) {
+                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                        echo "#000000";
+                    }else {
+                        echo $buttonColor;
+                    }
+                } else {
+                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                        echo "#000000";
+                    } else {
+                        echo $buttonColor;
+                    }
+                }
+                ?>] text-white">Confirm</button>
 
 
                 <button id="closeModalButton"
-                    class="mt-4 mx-auto block px-20 py-2 rounded-md border border-[#F36823] text-black">Cancel</button>
+                    class="mt-4 mx-auto block px-20 py-2 rounded-md border border-[<?php if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}?>] text-black">Cancel</button>
             </div>
 
 
@@ -215,7 +598,22 @@
                 <span class="text-center block mt-12 md:text-lg text-sm">Congratuations! You have successfully</span>
                 <span class="text-center block md:text-lg text-sm">received 1000 points!</span>
                 <button id="closePoints"
-                    class="mt-4 mx-auto block text-white px-20 py-2 rounded-md bg-[#F36823]">Ok</button>
+                    class="mt-4 mx-auto block text-white px-20 py-2 rounded-md bg-[<?php
+                    
+                    if ($startTime > $endTime) {
+                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                            echo "#000000";
+                        }else {
+                            echo $buttonColor;
+                        }
+                    } else {
+                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                            echo "#000000";
+                        } else {
+                            echo $buttonColor;
+                        }
+                    }
+                    ?>]">Ok</button>
             </div>
 
             
@@ -332,6 +730,8 @@
     </script>
 
 </body>
-
+<?php
+include "../../View/resources/common/footer.php";
+?>
 
 </html>

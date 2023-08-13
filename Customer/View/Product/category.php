@@ -38,11 +38,19 @@ $currentHour = date('H:i');
 
 <body class="bg-[<?php
 
-                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                        echo "#000000";
-                    } else {
-                        echo $primaryColor;
-                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $primaryColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor;
+    }
+}
 
 
                     ?>] font-roboto scrollHide ">
@@ -68,12 +76,19 @@ $currentHour = date('H:i');
 
             <div class="flex items-center space-x-2">
                 <span class="text-xs md:text-base text-[<?php
-
-                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                            echo "#ffffff";
-                                                        } else {
-                                                            echo $navColor;
-                                                        }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                                         ?>]">Sort by: </span>
@@ -93,21 +108,37 @@ $currentHour = date('H:i');
             <div>
                 <p class="text-[<?php
 
-                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                    echo "#ffffff";
-                                } else {
-                                    echo $navColor;
-                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                 ?>]">Brand</p>
                 <ul class="text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                     ?>]">
@@ -123,11 +154,19 @@ $currentHour = date('H:i');
             <div class="mt-5">
                 <p class="text-[<?php
 
-                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                    echo "#ffffff";
-                                } else {
-                                    echo $priceColor;
-                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                 ?>]">Price</p>
@@ -140,29 +179,52 @@ $currentHour = date('H:i');
                 <div class="text-right">
                     <button class="bg-[<?php
 
-                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                            echo "#000000";
-                                        } else {
-                                            echo $buttonColor;
-                                        }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
 
                                         ?>] px-8 rounded bg-[<?php
 
-                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $tertiaryColor;
-                            }
-
+                                        if ($startTime > $endTime) {
+                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                echo "#ffffff";
+                                            }else {
+                                                echo $tertiaryColor;
+                                            }
+                                        } else {
+                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                echo "#ffffff";
+                                            } else {
+                                                echo $tertiaryColor;
+                                            }
+                                        }
 
                             ?>] text-[<?php
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#000000";
-                } else {
-                    echo $primaryColor;
-                }
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                }else {
+                                    echo $primaryColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                } else {
+                                    echo $primaryColor;
+                                }
+                            }
 
 
                 ?>] py-[2px]">Go</button>
@@ -202,23 +264,38 @@ $currentHour = date('H:i');
             <!-- product-card -->
             <div class="flex text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
-
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
                                     ?>] bg-[<?php
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#4d4d4d";
-                } else {
-                    echo $cardColor;
-                }
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        }else {
+                                            echo $cardColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        } else {
+                                            echo $cardColor;
+                                        }
+                                    }
 
 
-                ?>] px-7 py-2 rounded">
+                ?>] px-7 py-2 rounded shadow-md">
                 <div>
                     <img class="w-[280px]" src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -236,11 +313,19 @@ $currentHour = date('H:i');
                     </div>
                     <p class="md:text-xl text-[<?php
 
-                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                    echo "#ffffff";
-                                                } else {
-                                                    echo $priceColor;
-                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                                 ?>] pb-0">Ks 4750000</p>
@@ -249,11 +334,19 @@ $currentHour = date('H:i');
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
                         <button class="bg-[<?php
 
-                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                echo "#000000";
-                                            } else {
-                                                echo $buttonColor;
-                                            }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
 
                                             ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
@@ -265,23 +358,38 @@ $currentHour = date('H:i');
             <!-- product-card -->
             <div class="flex text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                     ?>] bg-[<?php
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        }else {
+                                            echo $cardColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        } else {
+                                            echo $cardColor;
+                                        }
+                                    }
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#4d4d4d";
-                } else {
-                    echo $cardColor;
-                }
 
-
-                ?>] px-7 py-2 rounded">
+                ?>] px-7 py-2 rounded shadow-md ">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -299,11 +407,19 @@ $currentHour = date('H:i');
                     </div>
                     <p class="md:text-xl text-[<?php
 
-                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                    echo "#ffffff";
-                                                } else {
-                                                    echo $priceColor;
-                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                                 ?>] pb-0">Ks 4750000</p>
@@ -312,12 +428,19 @@ $currentHour = date('H:i');
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
                         <button class="bg-[<?php
 
-                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                echo "#000000";
-                                            } else {
-                                                echo $buttonColor;
-                                            }
-
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
                                             ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
@@ -328,23 +451,39 @@ $currentHour = date('H:i');
             <!-- product-card -->
             <div class="flex text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                     ?>] bg-[<?php
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#4d4d4d";
-                } else {
-                    echo $cardColor;
-                }
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        }else {
+                                            echo $cardColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        } else {
+                                            echo $cardColor;
+                                        }
+                                    }
 
 
-                ?>] px-7 py-2 rounded">
+                ?>] px-7 py-2 rounded shadow-md">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -362,11 +501,19 @@ $currentHour = date('H:i');
                     </div>
                     <p class="md:text-xl text-[<?php
 
-                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                    echo "#ffffff";
-                                                } else {
-                                                    echo $priceColor;
-                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                                 ?>] pb-0">Ks 4750000</p>
@@ -375,11 +522,19 @@ $currentHour = date('H:i');
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
                         <button class="bg-[<?php
 
-                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                echo "#000000";
-                                            } else {
-                                                echo $buttonColor;
-                                            }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
 
                                             ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
@@ -391,23 +546,39 @@ $currentHour = date('H:i');
             <!-- product-card -->
             <div class="flex text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                     ?>] bg-[<?php
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#4d4d4d";
-                } else {
-                    echo $cardColor;
-                }
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        }else {
+                                            echo $cardColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        } else {
+                                            echo $cardColor;
+                                        }
+                                    }
 
 
-                ?>] px-7 py-2 rounded">
+                ?>] px-7 py-2 rounded shadow-md">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -425,11 +596,19 @@ $currentHour = date('H:i');
                     </div>
                     <p class="md:text-xl text-[<?php
 
-                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                    echo "#ffffff";
-                                                } else {
-                                                    echo $priceColor;
-                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                                 ?>] pb-0">Ks 4750000</p>
@@ -438,12 +617,19 @@ $currentHour = date('H:i');
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
                         <button class="bg-[<?php
 
-                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                echo "#000000";
-                                            } else {
-                                                echo $buttonColor;
-                                            }
-
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
                                             ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
                     </div>
@@ -454,23 +640,39 @@ $currentHour = date('H:i');
             <!-- product-card -->
             <div class="flex text-[<?php
 
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo "#ffffff";
-                                    } else {
-                                        echo $navColor;
-                                    }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                     ?>] bg-[<?php
 
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                    echo "#4d4d4d";
-                } else {
-                    echo $cardColor;
-                }
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        }else {
+                                            echo $cardColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#4d4d4d";
+                                        } else {
+                                            echo $cardColor;
+                                        }
+                                    }
 
 
-                ?>] px-7 py-2 rounded">
+                ?>] px-7 py-2 rounded shadow-md">
                 <div>
                     <img src="../resources/img/products/msi_summit.svg" alt="msi">
                 </div>
@@ -488,11 +690,19 @@ $currentHour = date('H:i');
                     </div>
                     <p class="md:text-xl text-[<?php
 
-                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                    echo "#ffffff";
-                                                } else {
-                                                    echo $priceColor;
-                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $priceColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $priceColor;
+    }
+}
 
 
                                                 ?>] pb-0">Ks 4750000</p>
@@ -501,11 +711,19 @@ $currentHour = date('H:i');
                         <span class="text-sm md:text-base text-textRed">Only 2 left in stock.</span>
                         <button class="bg-[<?php
 
-                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                echo "#000000";
-                                            } else {
-                                                echo $buttonColor;
-                                            }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $buttonColor;
+    }
+}
 
 
                                             ?>] text-textWhite px-6 py-1 rounded">Buy Now</button>
@@ -518,54 +736,90 @@ $currentHour = date('H:i');
             <div class="flex mx-auto">
                 <a href="" class="border-2 px-3 py-1 border-textGray flex items-center text-[<?php
 
-                                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                    echo "#ffffff";
-                                                                                                } else {
-                                                                                                    echo $navColor;
-                                                                                                }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                                                                                 ?>]"><ion-icon name="chevron-back-outline"></ion-icon></a>
                 <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
-
-                                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                            echo "#ffffff";
-                                                                                        } else {
-                                                                                            echo $navColor;
-                                                                                        }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                                                                         ?>]">1</a>
                 <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
 
-                                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                            echo "#ffffff";
-                                                                                        } else {
-                                                                                            echo $navColor;
-                                                                                        }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                                                                         ?>]">2</a>
                 <a href="" class="border-2 w-9 py-1 border-textGray text-center text-[<?php
 
-                                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                            echo "#ffffff";
-                                                                                        } else {
-                                                                                            echo $navColor;
-                                                                                        }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
 
 
                                                                                         ?>]">3</a>
                 <a href="" class="border-2 px-3 py-1 border-textGray flex items-center text-[<?php
 
-                                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                    echo "#ffffff";
-                                                                                                } else {
-                                                                                                    echo $navColor;
-                                                                                                }
-
-
-                                                                                                ?>]"><ion-icon name="chevron-forward-outline"></ion-icon></a>
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}?>]"><ion-icon name="chevron-forward-outline"></ion-icon></a>
             </div>
             <!-- Pagination End-->
 
