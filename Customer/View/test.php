@@ -240,7 +240,7 @@ $currentHour = date('H:i');
             </button>
           </a>
         <?php  } else { ?>
-          <div>
+          <div class="logged_in">
             <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../View/resources/img/profile/profile.png" alt=""></a>
           </div>
         <?php  } ?>
@@ -517,17 +517,17 @@ $currentHour = date('H:i');
       <?php foreach ($trendingProductsList as $trending) { ?>
         <div style=" box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
           <?php
+          $wishlistColor = "#808080"; // Default color
           if (isset($_SESSION["currentLoginUser"])) {
             foreach ($wishlistedProductIdList as $wishlist) {
               if ($wishlist["product_id"] == $trending["id"]) {
                 $wishlistColor = "#ff6347";
-              } else {
-                $wishlistColor = "#808080";
+                break;
               }
             }
           }
           ?>
-          <button wishlist-productId="<?= $trending["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
+          <button w_productId="<?= $trending["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="./Product/itemDetail.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
@@ -570,18 +570,18 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($bestSellerProductsList as $bestSeller) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <?php
+        <?php
+          $wishlistColor = "#808080"; // Default color
           if (isset($_SESSION["currentLoginUser"])) {
             foreach ($wishlistedProductIdList as $wishlist) {
               if ($wishlist["product_id"] == $bestSeller["id"]) {
                 $wishlistColor = "#ff6347";
-              } else {
-                $wishlistColor = "#808080";
+                break;
               }
             }
           }
           ?>
-          <button class="heartBtn text-[<?= $wishlistColor ?>]">
+          <button w_productId="<?= $bestSeller["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="./Product/itemDetail.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
@@ -624,18 +624,18 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($newProductsList as $newProduct) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-          <?php
+        <?php
+          $wishlistColor = "#808080"; // Default color
           if (isset($_SESSION["currentLoginUser"])) {
             foreach ($wishlistedProductIdList as $wishlist) {
               if ($wishlist["product_id"] == $newProduct["id"]) {
                 $wishlistColor = "#ff6347";
-              } else {
-                $wishlistColor = "#808080";
+                break;
               }
             }
           }
           ?>
-          <button class="heartBtn text-[<?= $wishlistColor ?>]">
+          <button w_productId="<?= $newProduct["id"] ?>" class="heartBtn text-[<?= $wishlistColor ?>]">
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="./Product/itemDetail.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
@@ -665,8 +665,6 @@ $currentHour = date('H:i');
     </div>
   </div>
   <!-- end new products -->
-
-
 
   <footer class="bg-[<?php
                       if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -844,61 +842,13 @@ $currentHour = date('H:i');
                                                       }
                                                       ?>]">Copyright © 2023 TrendHub | Created by X-Tech</span>
   </footer>
-
-  <script>
-    // function toggleColor(button) {
-    //   if (button.style.color === "tomato") {
-    //     button.style.color = "grey";
-    //   } else {
-    //     button.style.color = "tomato";
-    //   }
-    // }
-
-    // var buttons = document.getElementsByClassName("heartBtn");
-
-    // for (var i = 0; i < buttons.length; i++) {
-    //   buttons[i].addEventListener("click", function() {
-    //     toggleColor(this);
-    //   });
-    // }
-    $(document).ready(() => {
-      $(".heartBtn").click(() => {
-        if ($(this).hasClass("text-[#ff6347]")) {
-          $(".heartBtn").removeClass("text-[#ff6347]");
-          $(".heartBtn").addClass("text-[#808080]");
-        } else if ($(".heartBtn").hasClass("text-[#808080]")) {
-          $(".heartBtn").removeClass("text-[#808080]");
-          $(".heartBtn").addClass("text-[#ff6347]");
-        }
-      });
-    });
-    // function toggleColor(button) {
-    //   var productId = button.getAttribute("data-product-id");
-    //   var currentColor = button.style.color;
-    //   var newColor = currentColor === "tomato" ? "grey" : "tomato";
-
-    //   // Send AJAX request to update wishlist
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.open("POST", "update_wishlist.php", true);
-    //   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //   xhr.onreadystatechange = function() {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //       // Update button color based on server response
-    //       if (xhr.responseText === "success") {
-    //         button.style.color = newColor;
-    //       }
-    //     }
-    //   };
-    //   xhr.send("productId=" + encodeURIComponent(productId));
-    // }
-  </script>
-
   <!-- start navbar -->
   <script src="./resources/js/homePage/header/navbarMobile.js"></script>
   <script src="./resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="./resources/js/navbar/navbar.js"></script>
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
   <script src="./resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="./resources/js/homePage/header/wishlistAjax.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
