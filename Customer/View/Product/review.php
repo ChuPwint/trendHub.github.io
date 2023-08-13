@@ -36,12 +36,75 @@
 <?php
 
 include "../resources/common/navbar.php";
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+$cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+
+
+
+date_default_timezone_set('Asia/Yangon');
+$currentHour = date('H:i');
 ?>
-<body class="bg-primary scrollHide">
-    <div class="flex flex-row justify-around container mx-auto px-8 py-8">
+<body class="bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    }else {
+        echo $primaryColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#000000";
+    } else {
+        echo $primaryColor;
+    }
+}
+
+
+                    ?>] scrollHide">
+    <div class="flex flex-row justify-around container mx-auto px-8 py-8 mt-[100px]">
         <div class="container mx-auto px-4 py-8">
-            <h1 class="text-3xl font-semibold mb-4">Create Review</h1>
-            <p class="text-lg font-semibold">Overall Rating</p>
+            <h1 class="text-3xl font-semibold mb-4 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>]">Create Review</h1>
+            <p class="text-lg font-semibold text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>]">Overall Rating</p>
             <div class="flex flex-row">
                 <img src="../resources/img/products/star.svg" alt="star">
                 <img src="../resources/img/products/star.svg" alt="star">
@@ -50,7 +113,24 @@ include "../resources/common/navbar.php";
                 <img src="../resources/img/products/star.svg" alt="star">
             </div>
             <div>
-                <label class="block text-gray-700 font-semibold mb-2" for="message">Review Title</label>
+                <label class="block text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>] font-semibold mb-2" for="message ">Review Title</label>
                 <textarea class="w-1/2 px-3 py-3 h-16 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="Add a headline review"></textarea>
             </div>
             <!-- <p>Add a photo</p>
@@ -59,11 +139,62 @@ include "../resources/common/navbar.php";
             </div> -->
 
             <div>
-                <label class="block text-gray-700 font-semibold mb-2" for="message">Add a written review:</label>
+                <label class="block text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>] font-semibold mb-2" for="message">Add a written review:</label>
                 <textarea class="w-full px-3 py-3 h-24 resize-none border border-tertiary rounded focus:outline-none " id="message" placeholder="What do you like or dislike?"></textarea>
 
             </div>
-            <button class="bg-tertiary  text-white font-semibold px-4 py-2 rounded focus:outline-none focus:ring focus:ring-blue-300">
+            <button class="bg-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+       echo "#ffffff";
+    }else {
+        echo $buttonColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+       echo "#ffffff";
+    } else {
+        echo $buttonColor;
+    }
+}
+
+
+                    ?>]  text-[<?php
+
+                    if ($startTime > $endTime) {
+                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                           echo "#000000";
+                        }else {
+                            echo $buttonText;
+                        }
+                    } else {
+                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                           echo "#000000";
+                        } else {
+                            echo $buttonText;
+                        }
+                    }
+                    
+                    
+                                        ?>] font-semibold px-4 py-2 rounded focus:outline-none focus:ring focus:ring-blue-300">
                 Submit Review
             </button>
         </div>
@@ -72,5 +203,6 @@ include "../resources/common/navbar.php";
         </div> -->
     </div>
 </body>
+<?php include "../../View/resources/common/footer.php" ?>
 
 </html>

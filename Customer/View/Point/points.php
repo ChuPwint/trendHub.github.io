@@ -40,6 +40,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -64,6 +66,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $cardColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -82,6 +86,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -110,6 +116,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -127,6 +135,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -145,6 +155,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -162,6 +174,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -184,6 +198,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -201,6 +217,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -219,6 +237,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -236,6 +256,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -258,6 +280,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -275,6 +299,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -293,6 +319,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -310,6 +338,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -333,6 +363,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -349,6 +381,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -375,6 +409,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $cardColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -393,6 +429,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -413,6 +451,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -430,6 +470,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -447,6 +489,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -463,6 +507,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -485,6 +531,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -511,6 +559,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $cardColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -529,6 +579,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -548,6 +600,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -570,6 +624,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -586,6 +642,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -610,6 +668,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -627,6 +687,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -646,6 +708,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -665,6 +729,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -681,6 +747,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -698,6 +766,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -714,6 +784,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -745,6 +817,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $titleColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -762,6 +836,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -789,6 +865,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -814,6 +892,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -834,6 +914,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -851,6 +933,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -869,6 +953,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -886,6 +972,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -902,6 +990,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -923,6 +1013,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -943,6 +1035,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -960,6 +1054,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -978,6 +1074,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -995,6 +1093,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1011,6 +1111,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1032,6 +1134,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1052,6 +1156,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1069,6 +1175,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1087,6 +1195,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1104,6 +1214,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1120,6 +1232,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1144,6 +1258,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1164,6 +1280,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1181,6 +1299,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1199,6 +1319,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1216,6 +1338,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1232,6 +1356,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1253,6 +1379,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1273,6 +1401,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1290,6 +1420,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1308,6 +1440,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1325,6 +1459,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        }else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1341,6 +1477,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1362,6 +1500,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $primaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1382,6 +1522,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#4d4d4d";
+        }else {
+            echo $secondaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1399,6 +1541,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1417,6 +1561,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $tertiaryColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1434,6 +1580,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
+        } else {
+            echo $buttonColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1450,6 +1598,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $buttonText;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1478,6 +1628,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1495,6 +1647,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        } else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1512,6 +1666,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1529,6 +1685,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
@@ -1546,6 +1704,8 @@ $currentHour = date('H:i');
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#ffffff";
+        }else {
+            echo $navColor;
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
