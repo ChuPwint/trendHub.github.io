@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_GET["productId"])) {
-    header("Location: ../View/Error/error.php");
-} else {
+if (isset($_GET["productId"]) || isset($_SESSION["cannotReview"]) || isset($_SESSION["success"])) {
+
     $productID = $_GET["productId"]; //get method
     $customerID = $_SESSION["currentLoginUser"];
     $_SESSION["currentDetailPrdocutID"] = $productID;
@@ -131,4 +130,6 @@ if (!isset($_GET["productId"])) {
     $_SESSION["reviews"] = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     header("Location: ../View/Product/itemDetail.php");
+} else {
+    header("Location: ../View/Error/error.php");
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
-$currentLoginUserID = $_SESSION["currentLoginUser"]; //session
+$currentLoginUserID = (isset($_SESSION["currentLoginUser"])) ? $_SESSION["currentLoginUser"] : false; //session
 if (isset($_SESSION["productDetail"])) $productDetail = $_SESSION["productDetail"];
 if (isset($_SESSION["averageRating"])) $averageRating = $_SESSION["averageRating"];
 if (isset($_SESSION["totalRatedCustomer"])) $totalRatedCustomer = $_SESSION["totalRatedCustomer"];

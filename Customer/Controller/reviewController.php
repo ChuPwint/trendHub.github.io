@@ -95,6 +95,7 @@ if (!isset($_POST["submitReview"])) {
             header("Location: ./itemDetailController.php");
         } else {
             // Successfully inserted review, redirect to item detail page
+            $_SESSION["success"] = "Success";
             header("Location: ./itemDetailController.php");
         }
     }
