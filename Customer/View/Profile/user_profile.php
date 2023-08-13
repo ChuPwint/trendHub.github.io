@@ -308,11 +308,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             }
                                             ?>
                                         </td>
-<<<<<<< HEAD
-                                        <td class="px-4 py-2"><img src="../resources/img/orderHistory//carbon_review.svg" alt=""></td>
-
-=======
->>>>>>> origin/main
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -456,9 +451,8 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 
     <script>
         $(document).ready(function() {
-            //Start of Change Status Modal Box
-            $(document).on("click", ".changeStatus", function() {
-                $(".changeStatusModal").removeClass("hidden");
+            $(document).on("click", ".deleteWishlist", function() {
+                //$(".changeStatusModal").removeClass("hidden");
                 $.ajax({
                     url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
                     type: "POST",
@@ -466,35 +460,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                         id: this.id,
                     },
                     success: function(result) {
-                        let orders = JSON.parse(result);
-                        $("#orderId").val(orders[0].id);
-                        $("#orderDate").val(orders[0].create_date);
-                        $("#customerName").val(orders[0].c_name);
-
-                        if (orders[0].order_status == 0) {
-                            $("#orderStatus").val("Pending");
-                            $("#orderStatus").prop("disabled", false);
-                        } else {
-                            $("#orderStatus").val("Completed");
-                            $("#orderStatus").prop("disabled", true);
-                        }
-
-                        if (orders[0].payment_status == 0) {
-                            $("#paymentStatus").val("Pending");
-                            $("#paymentStatus").prop("disabled", false);
-                        } else {
-                            $("#paymentStatus").val("Completed");
-                            $("#paymentStatus").prop("disabled", true);
-                        }
-
-                        $("#orderInput").val($("#orderStatus").val());
-                        $("#paymentInput").val($("#paymentStatus").val());
-
-                        if (($("#orderStatus").val() == "Completed") && ($("#paymentStatus").val() == "Completed")) {
-                            $("#confirm").addClass("hidden");
-                        } else {
-                            $("#confirm").removeClass("hidden");
-                        }
+                        
                     },
                     error: function(error) {
                         console.log(error);
