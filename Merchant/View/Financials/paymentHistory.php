@@ -4,6 +4,7 @@ $month = $_SESSION["paymentMonth"];
 if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"])) {
     header("Location: ../Error/error.php");
 } else {
+    
     $eachMonthResult = $_SESSION["eachMonthHistory"];
     $eachEarningResult = $_SESSION["eachMonthEarning"];
 }
@@ -111,6 +112,22 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
         </div>
         <!-- Left-side Categories End-->
 
+         <!-- Logout Confirmation Modal -->
+         <div id="logoutModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
+            <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
+                <h2 class="text-xl font-bold mb-4 ">Logout</h2>
+                <hr>
+                <div class="p-3">
+                    <p class="mb-10">Are you sure you want to log out?</p>
+                    <div class="mt-4 flex justify-around space-x-4">
+                        <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
+                        <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <h1 class="text-darkGreenColor text-3xl font-bold mb-5"><span><?= $month ?></span> Payment History</h1>
@@ -180,7 +197,7 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
                                 ?>
                                 <td class="mEmail p-3 text-center"><?= $paymentDate ?></td>
                                 <td class="p-3 text-center"><?= $each["payment_method"] ?></td>
-                                <td class="p-3 text-center"><?= number_format($each["total_amt"]) ?></td>
+                                <td class="p-3 text-center"><?= number_format($each["total_amt"]) ?> Ks</td>
                             </tr>
 
                         <?php endforeach; ?>
@@ -191,7 +208,7 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
             <!-- End of payment history to customer table -->
             <div class="text-right font-bold text-xl text-darkGreenColor mt-5 mr-10">
                 <?php foreach ($eachEarningResult as $earning) { ?>
-                    <span>Total Earnings<span class="ml-5"><?= number_format($earning["earning"]) ?></span></span>
+                    <span>Total Earnings<span class="ml-5"><?= number_format($earning["earning"]) ?> Ks</span></span>
                 <?php } ?>
             </div>
 

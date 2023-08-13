@@ -1,6 +1,8 @@
 $(document).ready(function () {
     //Show Review
-    $("#showReview").click(function () {
+    $(".showReview").click(function () {
+      
+      
       $("#modalReview").removeClass("hidden");
 
   
@@ -9,7 +11,7 @@ $(document).ready(function () {
         url: "../../Controller/allReview/productReviewController.php",
         type: "POST",
         data: {
-          id: $("#reviewID").val(),
+          id:$(this).attr("reviewID")
    
         },
        
@@ -33,14 +35,14 @@ $(document).ready(function () {
                   <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2 mt-2">
                       <div class="w-[900px] h-[30px] relative">
                           <div class="profile flex ">
-                          <p class="font-semibold text-lg ml-6">${review.c_name}</p>
+                         
                               <div class="w-[30px] h-[30px] rounded-full mt-1">
                                   <img class="leading-[30px] -mt-1" src="../resources/img/profile/default_pic" alt="">
                                   <div class="rating text flex">
                                       ${starRatingHTML}
                                   </div>
                               </div>
-                             
+                              <p class="font-semibold text-lg ml-6">${review.c_name}</p>
                               <div>
                                   <span class="absolute right-4">${review.create_date}</span>
                               </div>
@@ -57,7 +59,7 @@ $(document).ready(function () {
                         <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
                         <div>
                             <span class="text-md font-semibold">
-                                <img class="inline" src="../resources/img/Admin Product/arrow.svg" alt="">
+                                <img class="inline" src="../resources/img/allProduct/arrow.svg" alt="">
                                 Reply to ${review.c_name}</span>
                         </div>
                         <div class="mt-1">
@@ -74,7 +76,7 @@ $(document).ready(function () {
                       <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
                       <div>
                           <span class="text-md font-semibold px-4">
-                              <img class="inline" src="../resources/img/Admin Product/arrow.svg" alt="">
+                              <img class="inline" src="../resources/img/allProduct/arrow.svg" alt="">
                               Reply to ${review.c_name}</span>
                       </div>
                       <form class="mt-1" action="../../Controller/allReview/reviewReplyController.php" method="post">

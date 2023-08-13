@@ -16,7 +16,8 @@ if (!isset($_POST["id"])) {
     $sql->bindValue(":id",$id);
     $sql->execute();
 
-    // header("Location: ./adminProductController.php");
+    header("Location: ../../View/productSubmission/productSubmission.php");
+    
 
 }
 ?>

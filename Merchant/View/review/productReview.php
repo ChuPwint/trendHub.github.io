@@ -1,5 +1,7 @@
 <?php
+
 include "../../Controller/allReview/customerReviewController.php";
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +13,16 @@ include "../../Controller/allReview/customerReviewController.php";
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/review.js" defer></script>
+    <style>
+        .starColor {
+            color: #F36823;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,7 +104,8 @@ include "../../Controller/allReview/customerReviewController.php";
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                        <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>
@@ -123,8 +134,8 @@ include "../../Controller/allReview/customerReviewController.php";
                 </div>
 
                 <div id="customerReviews" class=" h-[300px] overflow-y-scroll">
-                       <!-- 1st -->
-                <!-- <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2">
+                    <!-- 1st -->
+                    <!-- <div class="w-[900px] h-[100px] mx-auto bg-[#F7F7F7] p-2">
                     <div class="w-[900px] h-[30px] relative">
                         <div class="profile flex ">
                             <div class="w-[30px] h-[30px] rounded-full mt-1">
@@ -146,8 +157,8 @@ include "../../Controller/allReview/customerReviewController.php";
                     </div>
                 </div> -->
 
-                <!-- reply -->
-                <!-- <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
+                    <!-- reply -->
+                    <!-- <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
 
                     <div>
                         <span class="text-md font-semibold">
@@ -219,8 +230,8 @@ include "../../Controller/allReview/customerReviewController.php";
                                 <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
                                 <td class="p-2 text-center"><?= $product['sell_price'] ?> Ks</td>
                                 <td class="p-2 text-center"><?= $product['p_stock'] * $product['sell_price'] ?> Ks</td>
-                                <input type="hidden" id="reviewID" value="<?= $product['id'] ?>">
-                                <td id="showReview"  class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer"> See Review </td>
+
+                                <td reviewID="<?= $product['id'] ?>" class="showReview p-2 text-center underline font-semibold cursor-pointer"> See Review </td>
                             </tr>
                         <?php  } ?>
 
@@ -229,7 +240,6 @@ include "../../Controller/allReview/customerReviewController.php";
                 <!-- End of order table -->
             </div>
             <!-- Right-side End -->
-
 
     </section>
     <script>
@@ -261,7 +271,6 @@ include "../../Controller/allReview/customerReviewController.php";
                 $("#modalReview").removeClass("hidden");
             });
         });
-     
     </script>
 
 </body>

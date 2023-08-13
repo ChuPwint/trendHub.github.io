@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 
 
 
@@ -15,11 +15,24 @@ $sql = $pdo->prepare("
     AND m_products.del_flg = 0;
 ");
 
+
+
 $sql->bindValue(":id", $merchantId);
 $sql->execute();
 $allProduct= $sql->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";
 // print_r($allProduct);
+$sql = $pdo->prepare("
+SELECT p.p_name, COUNT(p.p_name) AS num
+FROM m_products p
+JOIN t_wishlist_details w ON p.id = w.product_id
+JOIN m_marchents m ON p.merchant_id = m.id
+WHERE m.id = :id
+GROUP BY p.p_name;
+");
 
+$sql->bindValue(":id", $merchantId);
+$sql->execute();
+$wishlist = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>

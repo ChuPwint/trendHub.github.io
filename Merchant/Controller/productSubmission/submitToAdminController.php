@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 
 $sql = $pdo->prepare("
     SELECT * FROM m_product_temp WHERE merchant_id = :id AND del_flg = 0 AND submitted = 0");
@@ -55,8 +55,8 @@ $sql->execute();
 $_SESSION["productSubmitController"] = true;
 $_SESSION["productSubmitView"] = 1;
 
- header("Location: ./merchantProductController.php");
-// include "./merchantProductController.php"
+ header("Location: ../../View/productSubmission/productSubmission.php");
+
 
 
 ?>
