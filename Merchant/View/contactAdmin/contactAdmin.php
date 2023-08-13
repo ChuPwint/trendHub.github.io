@@ -1,3 +1,9 @@
+<?php   
+session_start();
+if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
+        header("Location: ../Error/error.php" );
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +107,8 @@
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                    <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>

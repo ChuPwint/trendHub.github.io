@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 
 $sql = $pdo->prepare(
     "SELECT t_orders.*, t_payment_method.payment_method, m_customers.c_name 

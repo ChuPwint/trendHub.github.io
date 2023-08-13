@@ -48,7 +48,7 @@
                 <img class="" src="../resources/img/error/clock.svg" alt="">
                 <span class=" text-[120px] text-black">4</span>
             </div>
-            <span class="text-black text-xl">Whoops.. Cart Not Found!!</span>
+           
             <a href="../Login/login.php">
                 <button class="md:mt-7 block mx-auto text-xl px-[30px] rounded-md mt-[100px] py-[6px] bg-black text-white hover:bg-tertiary">Login</button>
             </a>

@@ -1,8 +1,10 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-session_start();
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 $sql = $pdo->prepare("
     SELECT pt.*, mc.category_name
     FROM m_product_temp pt
@@ -12,11 +14,7 @@ $sql = $pdo->prepare("
 $sql->bindValue(":id", $merchantId);
 $sql->execute();
 $products = $sql->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION["totalCount"] = count($products);
-$_SESSION["merchantProducts"] = $products;
+$totalCount = count($products);
+$merchantProducts = $products;
 
-
-
-
-header("Location: ../../View/productSubmission/productSubmission.php");
 ?>

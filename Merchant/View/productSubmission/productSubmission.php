@@ -1,18 +1,24 @@
 <?php
 session_start();
 
-if (isset($_SESSION["merchantProducts"])) {
+// if (isset($_SESSION["merchantProducts"])) {
 
-    $merProducts = $_SESSION["merchantProducts"];
+//     $merProducts = $_SESSION["merchantProducts"];
+// }
+if (!isset($_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"] == '') {
+    header("Location: ../../View/Error/error.php");
+} else {
+
+    include "../../Controller/productSubmission/merchantInfoShowController.php";
+    include "../../Controller/productSubmission/merchantProductController.php";
+
+    include "../../Controller/categoryController.php";
+    // print_r($merchantProducts);
+
+    if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitController"] == false)) {
+        $_SESSION["productSubmitView"] = 0;
+    }
 }
-
-include "../../Controller/productSubmission/merchantInfoShowController.php";
-include "../../Controller/categoryController.php";
-
-if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitController"] == false)) {
-    $_SESSION["productSubmitView"] = 0;
-}
-
 
 ?>
 
@@ -33,6 +39,18 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+
+        scrollbar-width: none;
+    }
+</style>
 
 <body>
     <section class="sectionContainer w-full flex relative">
@@ -112,7 +130,8 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                        <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>
@@ -273,7 +292,7 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
-        <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Product Submission</h1>
+            <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Product Submission</h1>
             <div class="flex flex-row">
                 <?php
 
@@ -288,9 +307,9 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                 <label for="logo">
                     <img src="<?= $setLogo ?>" id="merLogo" alt="Profile Picture" class="w-28  h-28 border shadow-md mx-28 border-secondary  rounded-full ">
                 </label>
-              
+
             </div>
-        
+
 
             <!-- Start of input text fields and add product button -->
             <div class="mt-8 flex justify-around items-center z-0">
@@ -329,7 +348,7 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
             <!-- End of input text fields and add product button -->
 
             <!-- Start of product table -->
-            <div class="h-60 overflow-y-scroll mt-10">
+            <div class="h-[250px] overflow-y-scroll scrollbar-hide mt-10">
 
                 <table class="table-fixed w-full">
                     <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
@@ -347,34 +366,31 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                     <tbody id="tableElement">
                         <?php
                         $idCount = 1;
-                        if (isset($_SESSION["totalCount"])) {
-                            $totalCount  = $_SESSION["totalCount"];
 
-
-                            if ($totalCount > 0) {
-                                $count = 1;
-                                foreach ($merProducts as $product) {
+                         if ($totalCount > 0) {
+                            $count = 1;
+                            foreach ($merchantProducts as $product) {
                         ?>
 
-                                    <tr class="productSubmitData">
-                                        <td class="p-2 text-center"><?= $idCount++ ?></td>
-                                        <td class="p-2 text-center"><?= $product['category_name'] ?></td>
-                                        <td class="p-2 text-center"><?= $product['p_name'] ?></td>
-                                        <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-                                        <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> ks</td>
-                                        <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> ks</td>
-                                        <!-- Calculate total value -->
-                                        <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> ks</td>
-                                        <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
-                                    </tr>
+                                <tr class="productSubmitData">
+                                    <td class="p-2 text-center"><?= $idCount++ ?></td>
+                                    <td class="p-2 text-center"><?= $product['category_name'] ?></td>
+                                    <td class="p-2 text-center"><?= $product['p_name'] ?></td>
+                                    <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
+                                    <td class="p-2 text-center"><?= number_format($product['buy_price']) ?> ks</td>
+                                    <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> ks</td>
+                                    <!-- Calculate total value -->
+                                    <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> ks</td>
+                                    <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline cursor-pointer">Delete</td>
+                                </tr>
                         <?php }
-                            }
-                        } ?>
+                        }
+                        ?>
 
                     </tbody>
                 </table>
             </div>
-            <?php if ($idCount > 1) {  ?>
+            <?php if ($idCount >= 1) {  ?>
 
 
                 <!-- End of product table -->
