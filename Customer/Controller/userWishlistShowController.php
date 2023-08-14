@@ -12,7 +12,7 @@ $sql = $pdo->prepare("
     FROM t_wishlist_details
     JOIN m_products ON t_wishlist_details.product_id = m_products.id
     JOIN m_customers ON t_wishlist_details.wishlist_id = m_customers.wishlist_id
-    WHERE m_customers.id = :id;
+    WHERE m_customers.id = :id AND t_wishlist_details.del_flg = 0;
 ");
 
 $sql->bindValue(":id", $id);
