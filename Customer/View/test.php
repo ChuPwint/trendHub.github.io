@@ -287,7 +287,7 @@ $currentHour = date('H:i');
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <ion-icon class="cartItems cursor-pointer text-3xl text-[<?php
+        <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl text-[<?php
                                                                   if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                     echo "#ffffff";
                                                                   } else {
@@ -539,7 +539,7 @@ $currentHour = date('H:i');
                                                                         echo $priceColor;
                                                                       }
                                                                       ?>] ">Ks <?= number_format($trending["sell_price"]) ?></div>
-          <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+          <div id="<?= $trending["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                       echo "#ffffff";
                                                                                                                                                     } else {
@@ -647,7 +647,7 @@ $currentHour = date('H:i');
                                                                               echo $priceColor;
                                                                             }
                                                                             ?>] ">Ks <?= number_format($newProduct["sell_price"]) ?></div>
-          <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+          <div id="<?= $newProduct["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                       echo "#ffffff";
                                                                                                                                                     } else {
