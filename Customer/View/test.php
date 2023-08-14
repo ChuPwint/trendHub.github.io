@@ -287,13 +287,13 @@ $currentHour = date('H:i');
           <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt="">
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="./Checkout/shoppingCart.php"> <ion-icon class="text-3xl text-[<?php
-                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                  echo "#ffffff";
-                                                                                } else {
-                                                                                  echo $tertiaryColor;
-                                                                                }
-                                                                                ?>]" name="cart-outline"></ion-icon></a>
+        <ion-icon class="cartItems cursor-pointer text-3xl text-[<?php
+                                                                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                    echo "#ffffff";
+                                                                  } else {
+                                                                    echo $tertiaryColor;
+                                                                  }
+                                                                  ?>]" name="cart-outline"></ion-icon>
         <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?php
                                                                                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                               echo "#000000";
@@ -540,12 +540,12 @@ $currentHour = date('H:i');
                                                                       }
                                                                       ?>] ">Ks <?= number_format($trending["sell_price"]) ?></div>
           <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
-                                                                                                                      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                                        echo "#ffffff";
-                                                                                                                      } else {
-                                                                                                                        echo $buttonText;
-                                                                                                                      }
-                                                                                                                      ?>] bg-[<?php
+                                                                                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                      echo "#ffffff";
+                                                                                                                                                    } else {
+                                                                                                                                                      echo $buttonText;
+                                                                                                                                                    }
+                                                                                                                                                    ?>] bg-[<?php
                                                                                                                               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                 echo "#000000";
                                                                                                                               } else {
@@ -570,7 +570,7 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($bestSellerProductsList as $bestSeller) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-        <?php
+          <?php
           $wishlistColor = "#808080"; // Default color
           if (isset($_SESSION["currentLoginUser"])) {
             foreach ($wishlistedProductIdList as $wishlist) {
@@ -594,12 +594,12 @@ $currentHour = date('H:i');
                                                                       }
                                                                       ?>] ">Ks <?= number_format($bestSeller["sell_price"]) ?></div>
           <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
-                                                                                                                      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                                        echo "#ffffff";
-                                                                                                                      } else {
-                                                                                                                        echo $buttonText;
-                                                                                                                      }
-                                                                                                                      ?>] bg-[<?php
+                                                                                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                      echo "#ffffff";
+                                                                                                                                                    } else {
+                                                                                                                                                      echo $buttonText;
+                                                                                                                                                    }
+                                                                                                                                                    ?>] bg-[<?php
                                                                                                                               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                 echo "#000000";
                                                                                                                               } else {
@@ -624,7 +624,7 @@ $currentHour = date('H:i');
     <div class="flex justify-center flex-wrap">
       <?php foreach ($newProductsList as $newProduct) { ?>
         <div style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px;" class="productCard mx-4 md:my-0 my-4 w-[280px] h-[360px] bg-[<?= $cardColor ?>] shadow-md rounded-md relative">
-        <?php
+          <?php
           $wishlistColor = "#808080"; // Default color
           if (isset($_SESSION["currentLoginUser"])) {
             foreach ($wishlistedProductIdList as $wishlist) {
@@ -648,12 +648,12 @@ $currentHour = date('H:i');
                                                                             }
                                                                             ?>] ">Ks <?= number_format($newProduct["sell_price"]) ?></div>
           <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
-                                                                                                                      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                                        echo "#ffffff";
-                                                                                                                      } else {
-                                                                                                                        echo $buttonText;
-                                                                                                                      }
-                                                                                                                      ?>] bg-[<?php
+                                                                                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                      echo "#ffffff";
+                                                                                                                                                    } else {
+                                                                                                                                                      echo $buttonText;
+                                                                                                                                                    }
+                                                                                                                                                    ?>] bg-[<?php
                                                                                                                               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                 echo "#000000";
                                                                                                                               } else {
@@ -848,7 +848,7 @@ $currentHour = date('H:i');
   <script src="./resources/js/navbar/navbar.js"></script>
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
   <script src="./resources/js/addItemToCart/addToCart.js"></script>
-  <script src="./resources/js/addItemToCart/addItemtoCart.js"></script>
+  <script src="./resources/js/addItemToCart/cartItems.js"></script>
   <script src="./resources/js/homePage/header/wishlistAjax.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->

@@ -879,6 +879,10 @@ video {
   margin-left: 1.75rem;
 }
 
+.ml-\[50px\] {
+  margin-left: 50px;
+}
+
 .ml-\[60px\] {
   margin-left: 60px;
 }
@@ -1051,16 +1055,16 @@ video {
   height: 6rem;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
 .h-4 {
   height: 1rem;
 }
 
 .h-5 {
   height: 1.25rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .h-8 {
@@ -1365,10 +1369,6 @@ video {
 
 .max-w-\[750px\] {
   max-width: 750px;
-}
-
-.max-w-sm {
-  max-width: 24rem;
 }
 
 .flex-1 {
@@ -1705,6 +1705,11 @@ video {
 
 .bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
   background-color: rgba(0,0,0,0.5);
+}
+
+.bg-\[white\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-black {
@@ -2859,16 +2864,6 @@ video {
   }
 
   .md\:bg-\[\#F7F7F7\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(247 247 247 / var(--tw-bg-opacity));
-  }
-
-  .md\:bg-primary {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 250 250 / var(--tw-bg-opacity));
-  }
-
-  .md\:bg-productCardBgColor {
     --tw-bg-opacity: 1;
     background-color: rgb(247 247 247 / var(--tw-bg-opacity));
   }

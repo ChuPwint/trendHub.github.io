@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-if (isset($_GET["productId"]) || isset($_SESSION["cannotReview"]) || isset($_SESSION["success"])) {
-
+if (isset($_GET["productId"])) {
     $productID = $_GET["productId"]; //get method
     $customerID = $_SESSION["currentLoginUser"];
     $_SESSION["currentDetailPrdocutID"] = $productID;
