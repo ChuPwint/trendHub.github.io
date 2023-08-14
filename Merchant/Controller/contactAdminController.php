@@ -1,7 +1,8 @@
-
 <?php
+session_start();
+
 include "../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 
 // Get user input from AJAX request
 $message = $_POST["message"];
@@ -14,8 +15,7 @@ $sql =  $pdo->prepare("INSERT INTO t_contact_merchants
     create_date
 
 ) 
-       
-       VALUES 
+     VALUES 
        (
         :id,
         :msg,
@@ -32,4 +32,5 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo json_encode(array("message" => "Error: " . $conn->error));
 }
+
 ?>

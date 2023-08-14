@@ -1,9 +1,3 @@
-<?php
-session_start();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,28 +8,29 @@ session_start();
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/background/background.css">
     <script src="../resources/lib/jquery3.6.0.js"></script>
-    <style>
-        /* Custom styles for the scrolling content */
-        #term,
-        #privacyText {
-            max-height: calc(100vh - 100px);
-            /* Set the max-height based on viewport height minus some padding (100px in this case) */
-            overflow-y: scroll;
-            /* Enable scrolling for the content */
-            scrollbar-width: none;
-            /* Hide the scrollbar for Firefox */
-            -ms-overflow-style: none;
-            /* Hide the scrollbar for Internet Explorer/Edge */
-        }
 
-        /* Hide the scrollbar for Chrome, Safari, and Opera */
-        #term::-webkit-scrollbar,
-        #privacyText::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
 
 </head>
+<style>
+    /* Custom styles for the scrolling content */
+    #term,
+    #privacyText {
+        max-height: calc(100vh - 100px);
+        /* Set the max-height based on viewport height minus some padding (100px in this case) */
+        overflow-y: scroll;
+        /* Enable scrolling for the content */
+        scrollbar-width: none;
+        /* Hide the scrollbar for Firefox */
+        -ms-overflow-style: none;
+        /* Hide the scrollbar for Internet Explorer/Edge */
+    }
+
+    /* Hide the scrollbar for Chrome, Safari, and Opera */
+    #term::-webkit-scrollbar,
+    #privacyText::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
 <body class="merchantBg w-screen h-screen overflow-hidden">
     <div class="flex justify-center items-center p-6">
@@ -53,7 +48,7 @@ session_start();
             <div class="col-span-1">
 
                 <input type="text" id="business-license" name="business-license" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Business License" <?php
-                                                                                                                                                                                                                                                        if (isset($_SESSION["mLicense"])) { ?> value="<?= $_SESSION["mLicense"] ?>" <?php }
+                                                                                                                                                                                                                                                if (isset($_SESSION["mLicense"])) { ?> value="<?= $_SESSION["mLicense"] ?>" <?php }
                                                                                                                                                                                                                                                                                                                                     ?>>
             </div>
             <div class="col-span-1">
@@ -83,7 +78,7 @@ session_start();
                                                                                                                                                                                                                                                                                                         ?>>
             </div>
             <div class="col-span-1">
-               
+
                 <input type="password" id="password" name="password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Password" required>
             </div>
             <div class="col-span-1">
@@ -91,8 +86,8 @@ session_start();
                 <input type="password" id="confirm-password" name="confirm_password" class="w-full shadow-md  border border-secondary rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:ring-secondary" placeholder="Confirm Password" required>
             </div>
             <small class="text-red-600"><?php
-                                            if (isset($_SESSION["pwdError"])) echo $_SESSION["pwdError"];
-                                            ?></small>
+                                        if (isset($_SESSION["pwdError"])) echo $_SESSION["pwdError"];
+                                        ?></small>
             <div class="col-span-2">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox border border-secondary rounded focus:outline-none focus:ring " id="terms">
@@ -153,7 +148,7 @@ session_start();
                     </div>
 
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="accept" class="bg-secondary  shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-red-300">Accept T & C</button>
+                        <button id="accept" class="bg-secondary  shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded  focus:outline-none focus:ring focus:ring-red-300" >Accept T & C</button>
                         <button id="decline" class="bg-primary shadow-md w-1/3 border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Decline</button>
                     </div>
 
@@ -237,27 +232,46 @@ session_start();
                 registerBtn.classList.add("opacity-50");
             }
         }
+
+
+        // function updateAcceptTermBtn() {
+        //     if (termText.scrollHeight - termText.scrollTop >= termText.clientHeight) {
+        //         acceptBtn.removeAttribute('disabled');
+        //         acceptBtn.classList.remove('opacity-50');
+        //         acceptBtn.classList.add('opacity-100');
+        //     } else {
+        //         acceptBtn.setAttribute('disabled', 'true');
+        //         acceptBtn.classList.remove('opacity-100');
+        //         acceptBtn.classList.add('opacity-50');
+        //     }
+        // }
+      
+
         acceptBtn.setAttribute("disabled", "disabled");
         acceptBtn.classList.add("opacity-50");
 
         function updateAcceptTermBtn() {
-            if (termText.scrollHeight - termText.scrollTop === termText.clientHeight) {
+            if (termText.scrollHeight - termText.scrollTop >= termText.clientHeight) {
                 acceptBtn.removeAttribute("disabled");
                 acceptBtn.classList.remove("opacity-50");
                 acceptBtn.classList.add("opacity-100");
+
             }
 
         }
-        acceptBtnPrivacy.setAttribute("disabled", "disabled");
-        acceptBtnPrivacy.classList.add("opacity-50");
-
+       
+        
         function updateAcceptPrivacyBtn() {
-            if (privacyText.scrollHeight - privacyText.scrollTop === privacyText.clientHeight) {
+            if (privacyText.scrollHeight - privacyText.scrollTop >= privacyText.clientHeight) {
                 acceptBtnPrivacy.removeAttribute("disabled");
                 acceptBtnPrivacy.classList.remove("opacity-50");
                 acceptBtnPrivacy.classList.add("opacity-100");
             }
         }
+        acceptBtnPrivacy.setAttribute("disabled", "disabled");
+        acceptBtnPrivacy.classList.add("opacity-50");
+
+       
 
         checkboxTerms.addEventListener('change', updateRegisterBtn);
         checkboxPrivacy.addEventListener('change', updateRegisterBtn);

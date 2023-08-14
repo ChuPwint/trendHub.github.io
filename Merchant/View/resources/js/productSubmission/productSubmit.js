@@ -54,7 +54,7 @@ document.getElementById("file_upload").onchange = function (evt) {
       },
       success: function (result) {
         window.location.href =
-          "../../Controller/productSubmission/merchantProductController.php";
+          "http://localhost/Trend_HUB/Merchant/View/productSubmission/productSubmission.php";
       },
       error: function (error) {
         console.log(error);
@@ -207,4 +207,5 @@ document.getElementById("file_upload").onchange = function (evt) {
       },
     });
   });
+
 

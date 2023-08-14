@@ -1,5 +1,11 @@
 <?php
-include "../../Controller/financialAndPayment/financialReviewDataController.php";
+session_start();
+if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
+    header("Location: ../Error/error.php" );
+}else{
+    include "../../Controller/financialAndPayment/financialReviewDataController.php";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +19,11 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="../resources/js/financial.js" defer></script>
+
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -108,7 +118,8 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                    <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>
@@ -134,12 +145,14 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Category</p>
-                    <p class="mt-2 text-xl"><?= $mostSoldCategory[0]["category_name"] ?></p>
+                    <p class="mt-2 text-xl"><?= isset($mostSoldCategory[0]["category_name"]) ? $mostSoldCategory[0]["category_name"] : "Nothing" ?></p>
+
                 </div>
 
                 <div class="bg-secondary w-60 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Most Sold Product </p>
-                    <p class="mt-2 text-xl"><?= $mostSoldProduct[0]["p_name"] ?></p>
+                    <p class="mt-2 text-xl"><?= isset($mostSoldProduct[0]["p_name"]) ? $mostSoldProduct[0]["p_name"] : "Nothing" ?></p>
+
                 </div>
 
 
@@ -171,7 +184,7 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
                     </div><br>
                     <span class="text-center font-semibold flex justify-center items-center ">
                         Choose month to check particular month payment history:
-                        <form action="../../Controller/financialAndPayment/eachMonthHistoryController.php" method="post">
+                        <form action="../../Controller/financialAndPayment/customerPaymentHistoryController.php" method="post">
                             <select class="ml-4 outline-none rounded py-1 px-3 border border-secondary" name="paymentMonth" id="paymentMonth">
                                 <?php foreach ($totalPaymentMonth as $month) { ?>
                                     <option value="<?= $month["month"] ?>"><?= $month["month"] ?></option>
@@ -198,6 +211,15 @@ include "../../Controller/financialAndPayment/financialReviewDataController.php"
                 $("#logoutModal").toggle();
             });
         });
+       
+        let serverData = <?php echo json_encode($eachMonthTotalOrder); ?>;
+        let months = [];
+        let noOfOrders = [];
+        for (let index = 0; index < serverData.length; index++) {
+            months.push(serverData[index].month);
+            noOfOrders.push(serverData[index].order_count);
+        }
+   
     </script>
 </body>
 

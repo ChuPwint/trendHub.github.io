@@ -1,12 +1,13 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-}
+session_start();
+if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
+    header("Location: ../../View/Error/error.php" );
+}else{
+
     include "../../Model/model.php";
-    
-    $merchantId =  $_SESSION["currentLoginUser"];
-  
+
+    $merchantId =  $_SESSION["currentMerchantLogin"];
+
     $sql = $pdo->prepare("SELECT * FROM m_marchents WHERE id = :id;");
     $sql->bindValue(":id", $merchantId );
     $sql->execute();
@@ -15,6 +16,6 @@ if(!isset($_SESSION))
 
     $merchant = $sql->fetchAll(PDO::FETCH_ASSOC);
     // print_r($merchant);
-  
+}
 
 ?>

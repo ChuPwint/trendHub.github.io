@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 
 $sql = $pdo->prepare(
     "SELECT t_orders.*, t_payment_method.payment_method, m_customers.c_name 
@@ -15,7 +15,7 @@ $sql = $pdo->prepare(
 $sql->bindValue(":id", $merchantId );
 $sql->execute();
 $orderPaymentInfo = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+// print_r($orderPaymentInfo);
 $sql2 = $pdo->prepare(
     "SELECT t_order_details.*, m_products.* 
     FROM t_order_details
