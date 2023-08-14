@@ -35,6 +35,7 @@ $currentHour = date('H:i');
 
 <body class="font-roboto bg-[<?php
       
+     
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
@@ -57,38 +58,56 @@ $currentHour = date('H:i');
     <section class="container w-full mx-auto mt-[120px]">
         <div class="flex flex-col space-y-5 items-center bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#3d3d3d";
-      }else{
-       echo $lightTertiary;
-      }
   
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        }else {
+            echo $lightTertiary;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        } else {
+            echo $lightTertiary;
+        }
+    }
 
       ?>] py-11">
             <h1 class="md:text-3xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#000000";
-      }else{
-       echo $navColor;
-      }
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $navColor;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $navColor;
+        }
+    }
   
 // #FB4949
       ?>] font-semibold">Welcome to <span class="text-2xl md:text-3xl font-semibold italic text-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-   echo "#ffffff";
- 
-      }else{
-    
-       echo "#FB4949";
-      }
-  
+     
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo "#FB4949";
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo "#FB4949";
+        }
+    }
+
 
       ?>] md:text-tertiary">Trend Hub!</span></h1>
             <p class="text-sm md:w-[700px] px-10 md:px-0 text-center text-textGray">At [Trend Hub] ,we believe in providing an exceptional online shopping experience. We understand the importance of convenience
@@ -115,27 +134,35 @@ $currentHour = date('H:i');
     <!-- What We Offer? -->
     <section class="container w-full mx-auto px-5 md:px-28">
         <div class="text-center py-5 bg-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#3d3d3d";
-      }else{
-       echo $lightTertiary;
-      }
-  
-
+    if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        }else {
+            echo $lightTertiary;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        } else {
+            echo $lightTertiary;
+        }
+    }
       ?>] rounded drop-shadow-md px-5 md:px-40 md:py-20">
             <h1 class="text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#ffffff";
-      }else{
-       echo $navColor;
-      }
-  
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $navColor;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
 
       ?>] font-bold text-xl md:text-3xl">What We Offer?</h1>
             <p class="text-sm md:text-xl text-textGray mt-5">Our mission is to be your go-to destination for all your shopping requirements. We strive to offer an extensive selection of products that not only affordable but also of the highest quality.We aim to simply your online shopping experience by providing user-frendly navigation, secure transaction,
@@ -169,13 +196,19 @@ $currentHour = date('H:i');
             <div>
                 <h1 class="font-bold text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#ffffff";
-      }else{
-       echo $navColor;
-      }
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $navColor;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
   
 
       ?>] text-xl md:text-3xl">Customer Satisfaction</h1>
@@ -188,13 +221,19 @@ $currentHour = date('H:i');
     <section class="container w-full mx-auto px-5 md:px-28">
         <div class="text-center py-5 bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-    
-
-        echo "#3d3d3d";
-      }else{
-       echo $lightTertiary;
-      }
+       if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        }else {
+            echo $lightTertiary;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        } else {
+            echo $lightTertiary;
+        }
+    }
   
 
       ?>] rounded drop-shadow-md px-5 md:px-30 md:py-20">

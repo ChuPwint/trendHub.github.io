@@ -16,6 +16,8 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
+
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/itemDetail.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -24,16 +26,110 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
     <script src="../resources/js/shoppingCart/shoppingCart.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
+<?php
+include "../../Controller/uiElement/editInfoController.php";
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+$tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+$cardColor = isset($editInfo[0]["price_card_color"]) && !empty($editInfo[0]["price_card_color"]) ? $editInfo[0]["price_card_color"] : '#ffffff';
+$buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
+$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+$titleColor = isset($editText[0]["title_color"]) && !empty($editText[0]["title_color"]) ? $editText[0]["title_color"] : '#000000';
+date_default_timezone_set('Asia/Yangon');
+$currentHour = date('H:i');
+?>
+<style>
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
-<body class="bg-primary font-roboto">
-    <?php
-    include "../resources/common/navbar.php";
-    ?>
-    <p class="px-5 py-4 mt-32 md:px-10 md:pt-8 font-bold text-xl">Items in cart</p>
+<?php
+include "../resources/common/navbar.php";
+
+?>
+
+<body class="
+    bg-[<?php
+
+        if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $primaryColor;
+            }
+        } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $primaryColor;
+            }
+        }
+
+
+
+        ?>] font-roboto scrollHide">
+
+
+    <p class="px-5 py-4 mt-32 md:px-10 md:pt-8 font-bold text-xl 
+    text-[<?php
+
+            if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $titleColor;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $titleColor;
+                }
+            }
+
+
+
+            ?>]">Items in cart</p>
     <div class="md:p-10">
         <!--start of container -->
-        <div class="px-4 py-4 bg-white shadow-md">
-            <div id="noItem" class="<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "block" : "hidden" ?> text-2xl text-center font-bold">No items yet!</div>
+        <div class="px-4 py-4 
+    bg-[<?php
+
+        if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo "#3d3d3d";
+            } else {
+                echo $primaryColor;
+            }
+        } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo "#3d3d3d";
+            } else {
+                echo $primaryColor;
+            }
+        }
+
+
+
+        ?>] shadow-md">
+            <div id="noItem" class="<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "block" : "hidden" ?> text-2xl text-center font-bold
+    text-[<?php if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            } ?>]
+
+            ">No items yet!</div>
             <!-- start of product and summary container -->
             <div class="md:flex md:justify-between">
                 <!--start of products card container -->
@@ -81,10 +177,67 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
                 <!-- start of order summary container -->
                 <div id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
                     <!-- start of order summary card -->
-                    <div class="p-4 m-5 bg-secondary text-lg md:text-xl">
-                        <p class="hidden font-medium mb-5 text-lg md:block">Order Summary</p>
+                    <div class="p-4 m-5 
+    bg-[<?php
+
+        if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo "#4f4f4f";
+            } else {
+                echo $secondaryColor;
+            }
+        } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo "#4f4f4f";
+            } else {
+                echo $secondaryColor;
+            }
+        }
+
+
+
+        ?>] text-lg md:text-xl">
+                        <p class="hidden font-medium 
+    text-[<?php
+
+            if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            }
+
+
+
+            ?>] mb-5 text-lg md:block">Order Summary</p>
                         <!-- start of prices -->
-                        <div class="flex justify-between items-center mb-5">
+                        <div class="flex justify-between items-center mb-5 
+    text-[<?php
+
+            if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            }
+
+
+
+            ?>]">
                             <div>
                                 <p class="mb-3">Sub-total</p>
                                 <p>Delivery</p>
@@ -95,13 +248,70 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
                             </div>
                         </div>
                         <hr class="border border-dashed border-gray-400">
-                        <div class="flex justify-between items-center mt-5">
+                        <div class="flex justify-between items-center mt-5 
+    text-[<?php
+
+            if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $navColor;
+                }
+            }
+
+
+
+            ?>] ">
                             <p>Grand Total</p>
                             <p class="totalPrice">$880</p>
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <a href="./checkout.php"><button class="bg-tertiary rounded-md px-8 py-2 text-white">Proceed to Checkout (<span class="itemAmount">3</span>)</button></a>
+                            <a href="./checkout.php"><button class="
+    bg-[<?php
+
+        if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $buttonColor;
+            }
+        } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $buttonColor;
+            }
+        }
+
+
+
+        ?>] rounded-md px-8 py-2 
+    text-[<?php
+
+            if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $buttonText;
+                }
+            } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo "#ffffff";
+                } else {
+                    echo $buttonText;
+                }
+            }
+
+
+
+            ?>]">Proceed to Checkout (<span class="itemAmount">3</span>)</button></a>
                         </div>
                     </div>
                     <!-- end of order summary card -->
@@ -118,5 +328,6 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
         <!--end of container -->
     </div>
 </body>
+<?php include "../resources/common/footer.php" ?>
 
 </html>

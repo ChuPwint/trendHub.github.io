@@ -39,20 +39,36 @@ date_default_timezone_set('Asia/Yangon');
 
 <body class="scrollHide  bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo "ffffff";
+        }
     } else {
-        echo "ffffff"; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo "ffffff";
+        }
     }
   
 
       ?>] md:bg-[
       <?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $primaryColor;
+        }
     } else {
-        echo $primaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
     }
   
 
@@ -66,42 +82,73 @@ date_default_timezone_set('Asia/Yangon');
     <section class="container mt-[120px] w-full mx-auto md:h-[80vh] flex justify-center items-center px-10 py-10 md:py-0">
         <!-- contact container -->
         <div class="bg-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo "ffffff";
+        }
     } else {
-        echo "#ffffff"; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo "ffffff";
+        }
     }
   
 
       ?>] md:bg-[url('../../../<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 
-   echo 'Storage/general/darkContactBg.svg';
-     }else{
-       echo $background ;
-     }
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo 'Storage/general/darkContactBg.svg';
+    }else {
+        echo $background ;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo 'Storage/general/darkContactBg.svg';
+    } else {
+        echo $background ;
+    }
+}
 
  ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
             <!-- left side -->
             <div class="text-center md:text-start px-5 py-5">
                 <h1 class="text-xl font-bold md:text-4xl text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
     }
   
 
       ?>]">Contact Us</h1>
                 <p class="text-sm pt-5 pb-10 md:text-xl md:w-[350px] text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
     }
   
 
@@ -109,10 +156,18 @@ date_default_timezone_set('Asia/Yangon');
                 <form action="">
                     <textarea name="" id="" cols="30" rows="10" class="resize-none border-2 border-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $buttonColor;
+        }
     } else {
-        echo $buttonColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $buttonColor;
+        }
     }
   
 
@@ -121,10 +176,18 @@ date_default_timezone_set('Asia/Yangon');
 
                 <button type="submit" class="w-full bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $buttonColor;
+        }
     } else {
-        echo $buttonColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $buttonColor;
+        }
     }
   
 
@@ -134,40 +197,62 @@ date_default_timezone_set('Asia/Yangon');
             <?php
             $editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
             $editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
-            $editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+            $editAddress = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
             $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
             $editTime = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editInfo[0]["time"] : '08:00 am - 08:00 pm';
 
             ?>
 
             <!-- right side  -->
-            <div class="hidden md:block md:w-">
-                <div class="px-10 py-10 bg-[<?php
+            <div class="hidden md:block ">
+                <div class="px-10 py-10 mr-[3px] bg-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#3d3d3d";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        }else {
+            echo $secondaryColor;
+        }
     } else {
-        echo $secondaryColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#3d3d3d";
+        } else {
+            echo $secondaryColor;
+        }
     }
-  
 
       ?>] leading-10 pr-18">
                     <p class="text-3xl font-medium text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
     }
   
 
       ?>]">Info</p>
                     <div class="flex items-center space-x-5 mt-2 text-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+    if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $navColor;
+        }
     } else {
-        echo $navColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
     }
   
 
@@ -178,11 +263,20 @@ date_default_timezone_set('Asia/Yangon');
                     </div>
                     <div class="flex items-center space-x-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
-    }
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
+    }; 
+    
   
 
       ?>]">
@@ -192,10 +286,18 @@ date_default_timezone_set('Asia/Yangon');
                     </div>
                     <div class="flex items-start space-x-5 text-[<?php
       
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
     }
   
 
@@ -205,13 +307,19 @@ date_default_timezone_set('Asia/Yangon');
                         <span class="w-[190px] md:text-sm"><a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
                     </div>
                     <div class="flex items-center space-x-5 text-[<?php
-      
-      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
+     if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+            echo $titleColor;
+        }
     } else {
-        echo $titleColor; 
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $titleColor;
+        }
     }
-  
 
       ?>]">
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_time.svg" alt="time"> -->
