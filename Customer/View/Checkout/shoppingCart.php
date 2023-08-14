@@ -1,3 +1,14 @@
+<?php
+
+use function PHPSTORM_META\type;
+
+session_start();
+
+if (isset($_SESSION["cartItemsDetails"])) $cartItemsDetails = $_SESSION["cartItemsDetails"];
+if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,79 +33,53 @@
     <div class="md:p-10">
         <!--start of container -->
         <div class="px-4 py-4 bg-white shadow-md">
-            <div id="noItem" class="hidden text-2xl text-center font-bold">No items yet!</div>
+            <div id="noItem" class="<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "block" : "hidden" ?> text-2xl text-center font-bold">No items yet!</div>
             <!-- start of product and summary container -->
             <div class="md:flex md:justify-between">
                 <!--start of products card container -->
                 <div class="md:w-[70%]">
                     <!-- start of cards -->
-                    <div class="itemCard relative bg-white shadow-md m-5 p-4 flex">
-                        <div class="flex items-center">
-                            <img src="../resources/img/shoppingCart/images 5.svg" alt="">
-                        </div>
-                        <div class="ml-5 md:flex md:items-center">
-                            <p class="pName pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
-                            <p class="pPrice pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
-                            <div class="font-semibold pt-1 md:ml-3">
-                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
-                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                    <?php if (isset($_SESSION["cartItemsDetails"])) {
+                        foreach ($cartItemsDetails as $itemDetail) {?>
+                            <div class="itemCard relative bg-white shadow-md m-5 p-4 flex">
+                                <div class="flex items-center">
+                                    <img class=" w-16" src="../../..<?= $itemDetail["p_path"] ?>" alt="">
+                                </div>
+                                <div class="ml-5 md:flex md:items-center">
+                                    <p class="pName pb-3 w-48 break-words md:ml-3"><?= $itemDetail["p_name"] ?></p>
+                                    <?php
+                                    foreach ($cartItems as $cartItem) {
+                                        if ($cartItem["productID"] == $itemDetail["id"]) $price =  $cartItem["qty"] * $itemDetail["sell_price"];
+                                    }
+                                    ?>
+                                    <p class="pPrice pt-3 pb-3 w-48 break-words md:hidden"><?= number_format($price) ?>Ks</p>
+                                    <div class="font-semibold pt-1 md:ml-3">
+                                    <?php
+                                        foreach ($cartItems as $cartItem) {
+                                            if ($cartItem["productID"] == $itemDetail["id"]) $value =  $cartItem["qty"];
+                                        }
+                                        ?>
+                                        <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                        <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
+                                        <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                    </div>
+                                    <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
+                                    <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
+                                    <div><img class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
+                                </div>
+                                <ion-icon class="mobileHeart text-gray-400 text-2xl md:hidden w-7 absolute right-3 top-3 cursor-pointer" name="heart"></ion-icon>
+                                <img class="mTrashImg md:hidden w-7 absolute right-3 bottom-3 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt="">
                             </div>
-                            <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
-                            <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
-                            <div><img class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
-                        </div>
-                        <ion-icon class="mobileHeart text-gray-400 text-2xl md:hidden w-7 absolute right-3 top-3 cursor-pointer" name="heart"></ion-icon>
-                        <img class="mTrashImg md:hidden w-7 absolute right-3 bottom-3 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt="">
-                    </div>
+                    <?php }
+                    } ?>
+
                     <!-- end of cards -->
-                    <!-- start of cards -->
-                    <div class="itemCard relative bg-white shadow-md m-5 p-4 flex">
-                        <div class="flex items-center">
-                            <img src="../resources/img/shoppingCart/images 5.svg" alt="">
-                        </div>
-                        <div class="ml-5 md:flex md:items-center">
-                            <p class="pName pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
-                            <p class="pPrice pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
-                            <div class="font-semibold pt-1 md:ml-3">
-                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
-                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
-                            </div>
-                            <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
-                            <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
-                            <div><img class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
-                        </div>
-                        <ion-icon class="mobileHeart text-gray-400 text-2xl md:hidden w-7 absolute right-3 top-3 cursor-pointer" name="heart"></ion-icon>
-                        <img class="mTrashImg md:hidden w-7 absolute right-3 bottom-3 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt="">
-                    </div>
-                    <!-- end of cards -->
-                    <!-- start of cards -->
-                    <div class="itemCard relative bg-white shadow-md m-5 p-4 flex">
-                        <div class="flex items-center">
-                            <img src="../resources/img/shoppingCart/images 5.svg" alt="">
-                        </div>
-                        <div class="ml-5 md:flex md:items-center">
-                            <p class="pName pb-3 w-48 break-words md:ml-3">The One Bag Leather Clutch</p>
-                            <p class="pPrice pt-3 pb-3 w-48 break-words md:hidden">400,555,000 kyat</p>
-                            <div class="font-semibold pt-1 md:ml-3">
-                                <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
-                                <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
-                            </div>
-                            <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16">400,555,000 kyat</p>
-                            <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
-                            <div><img class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
-                        </div>
-                        <ion-icon class="mobileHeart text-gray-400 text-2xl md:hidden w-7 absolute right-3 top-3 cursor-pointer" name="heart"></ion-icon>
-                        <img class="mTrashImg md:hidden w-7 absolute right-3 bottom-3 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt="">
-                    </div>
-                    <!-- end of cards -->
+
                 </div>
                 <!--end of products card container -->
 
                 <!-- start of order summary container -->
-                <div id="orderCard" class="md:w-[28%]">
+                <div id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
                     <!-- start of order summary card -->
                     <div class="p-4 m-5 bg-secondary text-lg md:text-xl">
                         <p class="hidden font-medium mb-5 text-lg md:block">Order Summary</p>
@@ -124,8 +109,10 @@
                 <!-- end of order summary container -->
             </div>
             <!-- end of product and summary container -->
-            <div id="totalItem" class="hidden md:block md:font-bold md:p-4 md:text-lg md:w-[70%] md:text-right">
-                Total: <span class="itemAmount">3</span> items
+            <div id="totalItem" class="hidden md:<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?> md:font-bold md:p-4 md:text-lg md:w-[70%] md:text-right ">
+                Total: <span class="itemAmount"><?=
+                                                (isset($_SESSION["cartItems"])) ? count($_SESSION["cartItems"]) : 0;
+                                                ?></span> items
             </div>
         </div>
         <!--end of container -->

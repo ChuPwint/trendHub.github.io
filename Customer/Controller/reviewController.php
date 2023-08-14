@@ -4,7 +4,9 @@ session_start();
 
 if (!isset($_POST["submitReview"])) {
     header("Location: ../View/Error/error.php");
-} else {
+}elseif(isset($_POST["submitReview"]) && !isset($_SESSION["currentLoginUser"])){
+    header("Location: ../View/Login/login.php");
+}else {
     include "../Model/model.php";
     $rating = $_POST["rating"];
     $title = $_POST["reviewTitle"];
@@ -33,11 +35,11 @@ if (!isset($_POST["submitReview"])) {
 
     if(count($alreadyReviewd) > 0) {
         $_SESSION["alreadyReview"] = "You already reviewed this product!";
-        header("Location: ./itemDetailController.php");
+        header("Location: ./itemDetailController.php?productId=$productID");
     }elseif (count($searchOrderIDs) == 0) {
         // have not ordered this product
         $_SESSION["cannotReview"] = "You haven't not buy this product yet!";
-        header("Location: ./itemDetailController.php");
+        header("Location: ./itemDetailController.php?productId=$productID");
     } else {
         $productIDFound = false;
         foreach ($searchOrderIDs as $orderID) {
@@ -92,11 +94,10 @@ if (!isset($_POST["submitReview"])) {
         if (!$productIDFound) {
             // Have ordered, but not this product
             $_SESSION["cannotReview"] = "You haven't not bought this product yet!";
-            header("Location: ./itemDetailController.php");
+            header("Location: ./itemDetailController.php?productId=$productID");
         } else {
             // Successfully inserted review, redirect to item detail page
-            $_SESSION["success"] = "Success";
-            header("Location: ./itemDetailController.php");
+            header("Location: ./itemDetailController.php?productId=$productID");
         }
     }
 
