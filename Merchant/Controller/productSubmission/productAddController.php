@@ -1,10 +1,12 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 if (!isset($_POST["addProduct"])) {
    
 } else {
-    $merchantId =  $_SESSION["currentLoginUser"];
+    $merchantId =  $_SESSION["currentMerchantLogin"];
    
     $category = $_POST["category"];
     $productName = $_POST["productName"];
@@ -74,7 +76,8 @@ if (!isset($_POST["addProduct"])) {
 
         $sql->execute();
        
-        header("Location: ./merchantProductController.php");
+        header("Location: ../../View/productSubmission/productSubmission.php");
+      
     } else {
         header("Location: ../../View/Error/error.php");
     }

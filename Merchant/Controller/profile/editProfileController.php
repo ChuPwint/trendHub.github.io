@@ -6,7 +6,7 @@ if(!isset($_POST["profileChange"])){
  
 }else{
     
-    $merchantId =  $_SESSION["currentLoginUser"];
+    $merchantId =  $_SESSION["currentMerchantLogin"];
     $m_name = $_POST["m_name"];
     $b_name = $_POST["b_name"];
     $b_licene = $_POST["b_licene"];
@@ -71,6 +71,7 @@ if(!isset($_POST["profileChange"])){
  
 }
 ?>
+
 
 
 

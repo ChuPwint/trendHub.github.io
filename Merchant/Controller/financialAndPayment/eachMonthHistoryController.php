@@ -2,7 +2,7 @@
 session_start();
 include "../../Model/model.php";
 
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 $month = $_SESSION["paymentMonth"];
 $sql = $pdo->prepare(
     "SELECT o.*, c.c_name, pm.payment_method

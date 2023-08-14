@@ -38,7 +38,7 @@ if(!isset($_POST["login"])){
         $_SESSION["wrongPassword"] = "Password Incorrect!";
         header("Location: ../View/Login/login.php");
     }else{
-        $_SESSION["currentLoginUser"] = $result[0]["id"];
+        $_SESSION["currentMerchantLogin"] = $result[0]["id"];
         header("Location: ../View/allProduct/allProduct.php");
     }
     

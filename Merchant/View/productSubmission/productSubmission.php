@@ -1,19 +1,24 @@
 <?php
 session_start();
 
-if (isset($_SESSION["merchantProducts"]) || isset($_SESSION["allCategories"])) {
-  
-    $merProducts = $_SESSION["merchantProducts"];
-    $allCategories = $_SESSION["allCategories"];
+// if (isset($_SESSION["merchantProducts"])) {
+
+//     $merProducts = $_SESSION["merchantProducts"];
+// }
+if (!isset($_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"] == '') {
+    header("Location: ../../View/Error/error.php");
+} else {
+
+    include "../../Controller/productSubmission/merchantInfoShowController.php";
+    include "../../Controller/productSubmission/merchantProductController.php";
+
+    include "../../Controller/categoryController.php";
+    // print_r($merchantProducts);
+
+    if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitController"] == false)) {
+        $_SESSION["productSubmitView"] = 0;
+    }
 }
-
-include "../../Controller/productSubmission/merchantInfoShowController.php";
-include "../../Controller/categoryController.php";
-
-if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitController"] == false)) {
-    $_SESSION["productSubmitView"] = 0;
-}
-
 
 ?>
 
@@ -34,6 +39,18 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+
+        scrollbar-width: none;
+    }
+</style>
 
 <body>
     <section class="sectionContainer w-full flex relative">
@@ -113,30 +130,15 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                        <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Star of Logo Add Modal Pop Up -->
-        <!-- Modal background -->
-        <div class="addLogoModal hidden fixed w-full h-full pt-16 bg-black bg-opacity-50 z-20">
-            <div class="bg-white m-auto p-5 border rounded-sm w-[80%] ">
-                <!-- Modal Content -->
-                <p class="font-semibold md:text-2xl">Add Your Logo</p>
-                <hr class="border-black mt-4 mb-4">
-                <label class="block mb-2 font-medium" for="file_input">Upload file</label>
-                <input class="block ml-10 text-sm rounded-lg cursor-pointer " id="file_input" type="file">
-                <!-- Modal Close Button -->
-                <div class="flex justify-center md:mt-6">
-                    <button class="closeLogoAddModal mt-5 bg-secondary text-white text-center px-8 py-1 rounded-md md:px-10 md:text-lg">Close</button>
-                </div>
-                <!-- End of Modal Content -->
-            </div>
-        </div>
-        <!-- End of Logo Add Modal Pop Up -->
+
 
         <!-- start of product submit finish modal box -->
         <?php if (isset($_SESSION["productSubmitView"]) && ($_SESSION["productSubmitView"] == 1)) { ?>
@@ -290,15 +292,24 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
 
         <!-- Right-side Start -->
         <div class="mainPage h-screen overflow-hidden w-full p-3">
-            <div>
-                <h1 id="addLogo" class="text-secondary font-bold text-4xl cursor-pointer underline">Your Logo Here</h1>
-                <img class="logoPhoto hidden rounded-full w-20 h-20" src="" alt="">
+            <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Product Submission</h1>
+            <div class="flex flex-row">
+                <?php
+
+                if (($merchantInfo[0]["m_logo"]) == null) {
+                    $setLogo = "../resources/img/profile/noProfile.png.jpg";
+                } else {
+                    $setLogo = "../../.." . $merchantInfo[0]["m_logo"];
+                }
+
+                ?>
+
+                <label for="logo">
+                    <img src="<?= $setLogo ?>" id="merLogo" alt="Profile Picture" class="w-28  h-28 border shadow-md mx-28 border-secondary  rounded-full ">
+                </label>
+
             </div>
-            <hr class="mt-5 mb-3 border border-black">
-            <div>
-                <p class="font-bold text-xl mb-2">Whole Teams: </p>
-                <textarea class="border p-2 text-lg border-darkGreenColor" name="merchantTeam" cols="160" rows="3" placeholder="Text Here"></textarea>
-            </div>
+
 
             <!-- Start of input text fields and add product button -->
             <div class="mt-8 flex justify-around items-center z-0">
@@ -337,7 +348,7 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
             <!-- End of input text fields and add product button -->
 
             <!-- Start of product table -->
-            <div class="h-60 overflow-y-scroll mt-10">
+            <div class="h-[250px] overflow-y-scroll scrollbar-hide mt-10">
 
                 <table class="table-fixed w-full">
                     <thead class="bg-darkGreenColor  w-full text-white font-semibold text-lg ">
@@ -355,13 +366,10 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                     <tbody id="tableElement">
                         <?php
                         $idCount = 1;
-                        if(isset($_SESSION["totalCount"])){
-                            $totalCount  = $_SESSION["totalCount"];
 
-                          
-                        if ($totalCount > 0) {
+                         if ($totalCount > 0) {
                             $count = 1;
-                            foreach ($merProducts as $product) {
+                            foreach ($merchantProducts as $product) {
                         ?>
 
                                 <tr class="productSubmitData">
@@ -373,16 +381,16 @@ if (isset($_SESSION["productSubmitController"]) && ($_SESSION["productSubmitCont
                                     <td class="p-2 text-center"><?= number_format($product['sell_price']) ?> ks</td>
                                     <!-- Calculate total value -->
                                     <td class="p-2 text-center"><?= number_format($product['p_stock'] * $product['sell_price']) ?> ks</td>
-                                    <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline">Delete</td>
+                                    <td deleteId="<?= $product["id"] ?>" class="delete p-2 text-center underline cursor-pointer">Delete</td>
                                 </tr>
                         <?php }
                         }
-                        } ?>
+                        ?>
 
                     </tbody>
                 </table>
             </div>
-            <?php if ($idCount > 1) {  ?>
+            <?php if ($idCount >= 1) {  ?>
 
 
                 <!-- End of product table -->

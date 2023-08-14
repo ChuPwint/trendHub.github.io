@@ -1,6 +1,6 @@
 <?php
 session_start();
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 if (isset($_POST['deleteProduct'])) {
 
     $idToDelete = $_POST['product_id'];
@@ -10,8 +10,7 @@ if (isset($_POST['deleteProduct'])) {
     $sql->bindValue(":id", $idToDelete);
     $sql->execute();
     header("Location: ../../View/allProduct/allProduct.php");
-}
-if (isset($_POST["editProduct"])) {
+}else if(isset($_POST["editProduct"])) {
 
     $id = $_POST["editID"];
     $sellPrice = $_POST["sellPrice"];
@@ -73,3 +72,4 @@ if (isset($_POST["editProduct"])) {
 } else {
     header("Location: ../../View/Error/error.php");
 }
+
