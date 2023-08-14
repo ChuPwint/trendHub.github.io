@@ -431,7 +431,24 @@ if ($startTime > $endTime) {
 
                     <!-- Wave  -->
                     <div class="pay3 hidden">
-                        <span class="block pb-4 pt-5">Login with <span class="text-blue-500">Wave Id</span> to make the
+                        <span class="block pb-4 pt-5 text-[<?php
+
+if ($startTime > $endTime) {
+    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    }else {
+        echo $navColor;
+    }
+} else {
+    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+    } else {
+        echo $navColor;
+    }
+}
+
+
+                    ?>]">Login with <span class="text-blue-500">Wave Id</span> to make the
                             purchase</span>
                         <input required type="number" placeholder="Wave Account Phone Number"
                             class="border pl-3 mt-5 h-[40px] border-[<?php
