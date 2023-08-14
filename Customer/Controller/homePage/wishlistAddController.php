@@ -28,10 +28,12 @@ $existProductId = $sql->fetchAll(PDO::FETCH_ASSOC);
 if(count($existProductId) > 0){
     $sql = $pdo->prepare(
         "UPDATE t_wishlist_details SET
-        del_flg = 0
+        del_flg = 0,
+        update_date = :date
         WHERE wishlist_id = :id AND product_id = :pid
         "
     );
+    $sql->bindValue(":date", date("Y-m-d"));
     $sql->bindValue(":id", $wishlistId);
     $sql->bindValue(":pid", $productId);
     $sql->execute();
@@ -40,19 +42,19 @@ if(count($existProductId) > 0){
         "INSERT INTO t_wishlist_details
         (
             wishlist_id,
-            product_id
+            product_id,
+            create_date
         )
         VALUES
         (
             :wId,
-            :pId
+            :pId,
+            :createDate
         )
         "
     );
     $sql->bindValue(":wId", $wishlistId);
     $sql->bindValue(":pId", $productId);
+    $sql->bindValue(":createDate", date("Y-m-d"));
     $sql->execute();
 }
-
-
-?>
