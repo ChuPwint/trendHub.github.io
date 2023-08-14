@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 session_start();
 
 if (isset($_SESSION["cartItemsDetails"])) $cartItemsDetails = $_SESSION["cartItemsDetails"];
@@ -92,7 +90,7 @@ include "../resources/common/navbar.php";
 
 
             ?>]">Items in cart</p>
-    <div class="md:p-10">
+    <div class="md:p-10 min-h-[250px]">
         <!--start of container -->
         <div class="px-4 py-4 
     bg-[<?php
