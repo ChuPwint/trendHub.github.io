@@ -1,7 +1,8 @@
 <?php
-session_start();
+
+
 include "../../Model/model.php";
-$merchantId =  $_SESSION["currentLoginUser"];
+$merchantId =  $_SESSION["currentMerchantLogin"];
 $sql = $pdo->prepare(
     "SELECT SUM(total_amt) AS earning
     FROM t_orders

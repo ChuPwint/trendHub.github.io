@@ -1,11 +1,11 @@
 <?php
 session_start();
 include "../../Controller/regionAndTownshipController.php";
-
 include "../../Controller/profileDataShowController.php";
 include "../../Controller/userWishlistShowController.php";
 include "../../Controller/orderController.php";
 include "../../Controller/notifyController.php";
+
 if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeController"] == false)) {
     $_SESSION["userChangeView"] = 0;
 }
@@ -100,36 +100,28 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                 </div>
                 <!--End Left Side menu bar -->
 
-
                 <!-- Profile Form Card -->
-
-                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll " id="profileEdit">
+                <div class="flex-1 md:p-5 relative md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="profileEdit">
                     <!-- Start Profile Edit Card -->
                     <div id="profile-edit" class="md:p-8 p-3">
                         <form action="../../Controller/profileSaveChangeController.php" method="post" enctype="multipart/form-data">
                             <div class="flex md:flex-row flex-col justify-start items-center mb-4">
                                 <?php
-
                                 if (($edit[0]["c_profile"]) == null) {
                                     $setProfile = "../../Storage/profiles/noProfile.jpg";
                                 } else {
                                     $setProfile = "../.." . $edit[0]["c_profile"];
                                 }
-
                                 ?>
-
                                 <label for="photo">
                                     <img src="<?= $setProfile ?>" id="profile" alt="Profile Picture" class="w-20 h-20  rounded-full ">
                                 </label>
                                 <input type="file" name="userimg" id="photo" accept=".png,.jpeg,.jpg" class="hidden">
-
-
                                 <div class="flex flex-col px-3">
                                     <span class="font-bold"><?= $edit[0]["c_name"]; ?></span>
                                     <span class="text-xs font-bold"><?= $edit[0]["c_address"]; ?></span>
                                 </div>
                             </div>
-
                             <div>
                                 <div class="flex flex-col md:flex-row items-center justify-between  ">
                                     <div class="md:w-1/2 w-full p-2">
@@ -145,7 +137,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                         <select name="region" id="region" required class="w-full mr-2 py-1 md:py-2 px-3 text-md rounded border border-[#FF5500] mb-4 focus:outline-none focus:ring-2">
                                             <?php
                                             $selectedRegionID = $edit[0]["region_id"];
-
                                             foreach ($totalRegions as $region) {
                                             ?>
                                                 <option value="<?= $region["id"] ?>" <?php
@@ -175,7 +166,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="flex flex-col md:flex-row  items-center justify-between ">
                                     <div class="md:w-1/2 w-full p-2 ">
                                         <input type="email" name="email" value="<?= $edit[0]["c_email"]; ?>" class="w-full p-2 border  border-borderOrange rounded" readonly>
@@ -186,17 +176,14 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                 </div>
                                 <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
-
                 <!-- End Profile Edit Card -->
-
 
                 <!-- start Wishlist card -->
                 <!-- wishlist destop view  -->
-                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll" id="wishlistDestop">
+                <div class="container mx-auto mt-8 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="wishlistDestop">
                     <div class="toggleWishlist  bg-white shadow-md rounded-lg p-6 md:block hidden">
                         <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
                         <table class="w-full border-collapse">
@@ -207,26 +194,24 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <th class="px-4 py-2 border">Price</th>
                                     <th class="px-4 py-2 border">Add to Cart</th>
                                     <th class="px-4 py-2 border">Remove</th>
-                                    <th class="px-4 py-2 border">Share</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="wDelete_Desktop">
                                 <?php foreach ($wishlistProducts as $product) : ?>
                                     <tr>
                                         <td class="px-4 py-2">
                                             <img src="../../..<?= $product["p_path"] ?>" alt="Product Thumbnail" class="w-16 h-16 object-contain">
                                         </td>
                                         <td class="px-4 py-2"><?php echo $product['p_name']; ?></td>
-                                        <td class="px-4 py-2"><?php echo $product['sell_price']; ?> Ks</td>
+                                        <td class="px-4 py-2"><?php echo number_format($product['sell_price']); ?> Ks</td>
                                         <td class="px-4 py-2">
                                             <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
                                         </td>
-                                        <td class="px-4 py-2">
-                                            <img src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5">
+                                        <td class="px-4 py-2 pl-10">
+                                            <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-
                             </tbody>
                         </table>
                     </div>
@@ -236,28 +221,28 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                     <div class="block md:hidden">
                         <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
                         <!-- Loop through the $wishlistProducts array and display each product in a div -->
-                        <?php foreach ($wishlistProducts as $product) : ?>
-                            <div class="bg-secondary shadow-lg m-4 p-4 flex">
-                                <div class="max-w-sm">
+                        <div class="bg-secondary shadow-lg m-4 p-4 wDelete_Mobile">
+                            <?php foreach ($wishlistProducts as $product) : ?>
+                                <div class="flex justify-center items-center">
                                     <img src="../../..<?= $product["p_path"] ?>" alt="Product Thumbnail" class="w-18 h-18 object-contain">
                                 </div>
                                 <div class="p-4">
-                                    <div><?php echo $product['p_name']; ?></div>
-                                    <div><?php echo $product['sell_price']; ?> Ks</div>
-                                    <button class="bg-tertiary text-white text-sm px-2 py-1">Add</button>
+                                    <div class="font-semibold"><?php echo $product['p_name']; ?></div>
+                                    <div class="mt-3"><?php echo number_format($product['sell_price']); ?> Ks</div>
                                 </div>
-                                <div class="py-8">
-                                    <img src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 flex button-2 right-2">
+                                <div class="flex justify-around">
+                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
+                                    <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
                 <!-- End Wishlist card -->
 
                 <!-- Start Order History Card -->
                 <!-- Destop View: order history-->
-                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll" id="orderHistoryDestop">
+                <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="orderHistoryDestop">
                     <div class="bg-primary shadow-md rounded-lg p-6  hidden md:block">
                         <h2 class="text-2xl font-semibold mb-4">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
@@ -269,7 +254,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     <th class="px-4 py-2 border">Payment</th>
                                     <th class="px-4 py-2 border">Total</th>
                                     <th class="px-4 py-2 border">Status</th>
-                                    <th class="px-4 py-2 border"></th>
                                 </tr>
                             </thead>
                             <tbody class="col space-y-4">
@@ -296,7 +280,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                             ?>
                                         </td>
                                         <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
-                                        <td class="px-4 py-2"><?php echo "$" . $order['total_amt']; ?></td>
+                                        <td class="px-4 py-2"><?php number_format($order['total_amt']); ?> Ks</td>
                                         <td class="px-4 py-2">
                                             <?php
                                             if ($order['order_status'] == 0) {
@@ -358,7 +342,7 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                         </div>
                                         <div class="flex justify-between items-center mb-2">
                                             <span class="text-lg font-semibold">Total:</span>
-                                            <span class="text-sm"><?php echo "$" . $order['total_amt']; ?></span>
+                                            <span class="text-sm"><?php number_format($order['total_amt']); ?> Ks</span>
                                         </div>
                                         <div class="flex justify-between items-center mb-2">
                                             <span class="text-lg font-semibold">Status:</span>
@@ -377,16 +361,13 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-
-
-
                         </div>
                     </div>
                 </div>
                 <!-- End Order History Card -->
 
                 <!-- Start Notifications Card -->
-                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll" id="notification">
+                <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="notification">
                     <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
                     <?php foreach ($notifications as $notification) { ?>
                         <div class="w-full mx-auto mt-8">
@@ -463,12 +444,51 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
             $(document).on("click", ".deleteWishlist", function() {
                 //$(".changeStatusModal").removeClass("hidden");
                 $.ajax({
-                    url: "../../Controller/orderList/adminOrders/modalShowChangeOrderStatus.php",
+                    url: "../../Controller/wishlists/removeWishlistProfileController.php",
                     type: "POST",
                     data: {
-                        id: this.id,
+                        productId: $(this).attr("w-productId"),
                     },
                     success: function(result) {
+
+                        let products = JSON.parse(result);
+                        console.log(products);
+                        $(".wDelete_Desktop").empty();
+                        $(".wDelete_Mobile").empty();
+                        for (const product of products) {
+                            $(".wDelete_Desktop").append(
+                                `
+                            <tr>
+                                <td class="px-4 py-2">
+                                    <img src="../../..${product.p_path}" alt="Product Thumbnail" class="w-16 h-16 object-contain">
+                                </td>
+                                <td class="px-4 py-2">${product.p_name}</td>
+                                <td class="px-4 py-2">${product.sell_price} Ks</td>
+                                <td class="px-4 py-2">
+                                    <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                </td>
+                                <td class="px-4 py-2 pl-10">
+                                    <img w-productId="${product.id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
+                                </td>
+                            </tr>
+                            `
+                            );
+                            $(".wDelete_Mobile").append(
+                                `
+                                <div class="flex justify-center items-center">
+                                    <img src="../../..${product.p_path}" alt="Product Thumbnail" class="w-18 h-18 object-contain">
+                                </div>
+                                <div class="p-4">
+                                    <div class="font-semibold">${product.p_name}</div>
+                                    <div class="mt-3">${product.sell_price} Ks</div>
+                                </div>
+                                <div class="flex justify-around">
+                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
+                                    <img w-productId="${product.id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
+                                </div>
+                            `
+                            );
+                        }
 
                     },
                     error: function(error) {

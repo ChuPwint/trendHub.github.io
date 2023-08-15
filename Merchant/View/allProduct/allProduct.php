@@ -5,7 +5,9 @@ if(isset($_SESSION["viewProduct"])){
     $detail =$_SESSION["viewProduct"];
 };
 
-
+if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
+    header("Location: ../../View/Error/error.php" );
+}else{
 
 include "../../Controller/allProduct/allProductShowController.php";
 include "../../Controller/categoryController.php";
@@ -13,6 +15,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
     $_SESSION["mProductDetailView"] = 0;
 }
 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +31,22 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="../resources/js/wishlist.js" defer></script>
+   
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+       
+        scrollbar-width: none;
+    }
+</style>
 <body>
     <section class="sectionContainer w-full flex relative">
         <!-- space for the main page to not move -->
@@ -107,7 +124,8 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                 <div class="p-3">
                     <p class="mb-10">Are you sure you want to log out?</p>
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300">Confirm</button>
+                    <a href="../../Controller/logOutController.php">
+                            <button id="confirmLogout" class="bg-secondary text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-red-300"> Confirm </button></a>
                         <button id="cancelLogout" class="bg-primary border border-secondary text-secondary font-semibold py-2 px-6 rounded focus:outline-none focus:ring focus:ring-blue-300">Cancel</button>
                     </div>
                 </div>
@@ -178,7 +196,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                                         </label>
                                         <input id="file_upload" name="fileUpload" type="file" class="hidden mt-2 text-center">
                                     </div>
-                                    <p>PNG, JPG up to 10MB</p>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -220,26 +238,18 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                 <div class="p-2 border border-darkGreenColor">
                     <div class="p-2">
                         <p class="text-2xl font-bold text-darkGreenColor">Wishlist</p>
-                        <div class="flex justify-between items-center">
-                            <div id="lastMonthPie"></div>
-                            <div id="thisMonthPie"></div>
+                        <div class="w-[1300px] mx-auto bg-white ">
+                        <div class="h-[250px] w-[1000px] flex justify-center">
+                            <canvas id="wishlistChart"></canvas>
                         </div>
+                    </div><br>
                     </div>
                 </div>
             </div>
             <!-- end of pie chart -->
             <!-- start of search button and select box -->
             <div class="flex justify-between items-center p-2">
-                <!-- start of search button -->
-                <div class="relative">
-                    <input type="text" class="block w-80 p-2.5 pr-8 rounded-lg border border-darkGreenColor outline-none" placeholder="Search for product" required>
-                    <button type="submit" class="absolute top-0 left-[300px] h-full p-2.5 font-medium text-white bg-darkGreenColor rounded-r-lg border border-darkGreenColor">
-                        <svg class="w-8 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </button>
-                </div>
-                <!-- end of search button -->
+               
                 <!-- start of select box -->
                 <div>
                     <span class="mr-2 font-medium">Sort By</span>
@@ -254,9 +264,9 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
             <!-- end of search button and select box -->
 
             <!-- Start of product table -->
-            <div class="h-[500px] overflow-y-scroll scroll-bar-hide mt-5">
+            <div class="h-[250px] overflow-y-scroll scrollbar-hide mt-2">
             <table class="table-fixed mt-10 w-full">
-                <thead class="bg-darkGreenColor text-white font-semibold text-lg">
+                <thead class=" bg-darkGreenColor text-white font-semibold text-lg">
                     <tr>
                         <th class="p-2 w-10">No.</th>
                         <th class="p-2 w-40">Product Name</th>
@@ -299,7 +309,16 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
         </div>
         <!-- Right-side End -->
     </section>
-
+<script>
+     let serverData = <?php echo json_encode($wishlist); ?>;
+        let productNames = [];
+        let noOfWishlists = [];
+        for (let index = 0; index < serverData.length; index++) {
+            productNames.push(serverData[index].p_name);
+            noOfWishlists.push(serverData[index].num);
+        }
+   
+</script>
 
   
 </body>

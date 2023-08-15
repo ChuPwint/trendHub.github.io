@@ -8,11 +8,11 @@ if (!isset($id)) {
 } else {
     include "../../Model/model.php";
     $sql = $pdo->prepare(
-        "SELECT t_orders.*, t_payment_method.payment_method, m_customers.c_name, c_phone, m_townships.delivery_fee
+        "SELECT t_orders.*, t_payment_method.payment_method, m_customers.c_name, c_phone, m_regions.delivery_fee
         FROM t_orders
         JOIN t_payment_method ON t_orders.payment_method_id = t_payment_method.id
         JOIN m_customers ON t_orders.customer_id = m_customers.id
-        JOIN m_townships ON t_orders.township_id = m_townships.id
+        JOIN m_regions ON t_orders.region_id = m_regions.id
         WHERE t_orders.id = :id"
     );
     $sql->bindValue(":id", $id);
