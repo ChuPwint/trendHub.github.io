@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-// if (isset($_SESSION["merchantProducts"])) {
-
-//     $merProducts = $_SESSION["merchantProducts"];
-// }
 if (!isset($_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"] == '') {
     header("Location: ../../View/Error/error.php");
 } else {
@@ -390,7 +386,7 @@ if (!isset($_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin
                     </tbody>
                 </table>
             </div>
-            <?php if ($idCount >= 1) {  ?>
+            <?php if ($idCount > 1) {  ?>
 
 
                 <!-- End of product table -->

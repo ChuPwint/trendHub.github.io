@@ -3,6 +3,7 @@
 session_start();
 if(isset($_SESSION["viewProduct"])){
     $detail =$_SESSION["viewProduct"];
+   
 };
 
 if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
@@ -26,11 +27,12 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
     <title>Merchant All Product</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
+    <script src="../resources/lib/jquery3.6.0.js" defer></script>
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/allProduct/allProduct.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../resources/lib/jquery3.6.0.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="../resources/js/wishlist.js" defer></script>
    
@@ -242,30 +244,32 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                         <div class="h-[250px] w-[1000px] flex justify-center">
                             <canvas id="wishlistChart"></canvas>
                         </div>
-                    </div><br>
+                    </div>
                     </div>
                 </div>
             </div>
             <!-- end of pie chart -->
-            <!-- start of search button and select box -->
-            <div class="flex justify-between items-center p-2">
-               
-                <!-- start of select box -->
-                <div>
-                    <span class="mr-2 font-medium">Sort By</span>
-                    <select name="allProductTableSort" class="border border-darkGreenColor p-2 font-medium">
-                        <option class="p-2" value="category">Category</option>
-                        <option class="p-2" value="pName">Product Name</option>
-                        <option class="p-2" value="sellPrice">Sell Price</option>
-                    </select>
+
+              <!-- start sort-->
+              <div date-rangepicker class="flex items-center justify-between  relative">
+                    <div class="text-secondary text-lg font-bold"><?= $totalCount ?> products found.</div>
+                    <div class="">
+                        <label class="inline-flex text-secondary" for="">Sort By:</label>
+                        <select id="dropdown" class="inline-block mt-1  w-[165px] px-3 py-2 bg-white border border-secondary rounded-md shadow-sm focus:outline-none">
+                            <option value="p_name">Product Name</option>
+                            <option value="p_stock">Stock</option>
+                            <option value="sell_price">Sell Price</option>
+                            <option value="buy_price">Buy Price</option>
+                        </select>
+                    </div>
                 </div>
-                <!-- end of select box -->
-            </div>
-            <!-- end of search button and select box -->
+                <!-- end sort -->
+            
+              
 
             <!-- Start of product table -->
-            <div class="h-[250px] overflow-y-scroll scrollbar-hide mt-2">
-            <table class="table-fixed mt-10 w-full">
+            <div class="h-[250px] overflow-y-scroll scrollbar-hide mt-4">
+            <table class="table-fixed w-full">
                 <thead class=" bg-darkGreenColor text-white font-semibold text-lg">
                     <tr>
                         <th class="p-2 w-10">No.</th>
@@ -277,17 +281,18 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                         <th class="p-2 w-32">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortResult">
                     <?php
-                    $counter = 0; 
-                    $count = 0;
+                   if($totalCount >0){
+                    $counter = 0;
+                    $count = 1;
                     foreach ($allProduct as $product) { 
                         $counter++; 
                         $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                         
                         ?>
                         <tr class="productSubmitData <?= $rowClass ?>">
-                            <td class="p-2 text-center"><?= ++$count ?></td>
+                            <td class="p-2 text-center"><?= $count++ ?></td>
                             <td class="p-2 text-center"><?= $product['p_name']; ?></td>
                             <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                             <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
@@ -301,7 +306,8 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
                             </td>
 
                         </tr>
-                    <?php } ?>
+                    <?php }
+                    } ?>
                 </tbody>
             </table>
                     </div>
@@ -320,7 +326,7 @@ if(isset($_SESSION["passDetailController"]) && ($_SESSION["passDetailController"
    
 </script>
 
-  
+
 </body>
 
 </html>

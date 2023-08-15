@@ -18,6 +18,7 @@ $sql = $pdo->prepare("
 $sql->bindValue(":id", $merchantId);
 $sql->execute();
 $allProduct= $sql->fetchAll(PDO::FETCH_ASSOC);
+$totalCount = count($allProduct);
 // echo "<pre>";
 // print_r($allProduct);
 $sql = $pdo->prepare("
