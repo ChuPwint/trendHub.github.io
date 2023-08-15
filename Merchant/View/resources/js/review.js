@@ -59,7 +59,7 @@ $(document).ready(function () {
                         <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2 px-3">
                         <div>
                             <span class="text-md font-semibold">
-                                <img class="inline" src="../resources/img/allProduct/arrow.svg" alt="">
+                                <img class="inline" src="../resources/img/profile/arrow.svg" alt="">
                                 Reply to ${review.c_name}</span>
                         </div>
                         <div class="mt-1">
@@ -76,7 +76,7 @@ $(document).ready(function () {
                       <div class="w-[850px] h-[100px]  ml-[100px] bg-[#F7F7F7] mt-2">
                       <div>
                           <span class="text-md font-semibold px-4">
-                              <img class="inline" src="../resources/img/allProduct/arrow.svg" alt="">
+                              <img class="inline" src="../resources/img/profile/arrow.svg" alt="">
                               Reply to ${review.c_name}</span>
                       </div>
                       <form class="mt-1" action="../../Controller/allReview/reviewReplyController.php" method="post">
@@ -100,7 +100,7 @@ $(document).ready(function () {
       $("#hideReview").click(function () {
         $("#modalReview").addClass("hidden");
       });
-    
+   
     });
     
   });

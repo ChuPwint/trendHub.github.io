@@ -8,7 +8,7 @@
     include "../../Model/model.php";
 
     $sql = $pdo->prepare(
-        "SELECT * FROM t_notify_to_merchant WHERE merchant_id = :id");
+        "SELECT * FROM t_notify_to_merchant WHERE merchant_id = :id ORDER BY create_date DESC");
     $sql->bindValue(":id", $merchantId);
 
     $sql->execute();

@@ -128,6 +128,32 @@ if (isset($_GET["productId"])) {
     $sql->execute();
     $_SESSION["reviews"] = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+    $sql = $pdo->prepare(
+        "SELECT wishlist_id
+        FROM m_customers
+        WHERE m_customers.id = :id"
+    );
+    $sql->bindValue(":id", $customerID);
+    $sql->execute();
+    $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $wishlistId = $result[0]["wishlist_id"];
+
+    $sql = $pdo->prepare(
+        "SELECT product_id
+    FROM t_wishlist_details
+    WHERE t_wishlist_details.wishlist_id = :id AND t_wishlist_details.del_flg = 0"
+    );
+
+    $sql->bindValue(":id", $wishlistId);
+    $sql->execute();
+    $wishlistedProductIdList = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION["isWishlisted"] = false;
+    foreach ($wishlistedProductIdList as $wishlist) {
+        if($wishlist["product_id"] == $productID){
+            $_SESSION["isWishlisted"] = true;
+        }
+    }
+
     header("Location: ../View/Product/itemDetail.php");
 } else {
     header("Location: ../View/Error/error.php");
