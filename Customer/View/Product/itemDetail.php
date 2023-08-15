@@ -2,7 +2,7 @@
 session_start();
 $currentDetailProductID = $_SESSION["currentDetailPrdocutID"];
 $currentLoginUserID = (isset($_SESSION["currentLoginUser"])) ? $_SESSION["currentLoginUser"] : false; //session
-if (isset($_SESSION["productDetail"])) $productDetail = $_SESSION["productDetail"];
+(isset($_SESSION["productDetail"])) ? $productDetail = $_SESSION["productDetail"] : header("Location: ../Error/error.php");
 if (isset($_SESSION["averageRating"])) $averageRating = $_SESSION["averageRating"];
 if (isset($_SESSION["totalRatedCustomer"])) $totalRatedCustomer = $_SESSION["totalRatedCustomer"];
 if (isset($_SESSION["totalFivestarRating"])) $totalFivestarRating = $_SESSION["totalFivestarRating"];
