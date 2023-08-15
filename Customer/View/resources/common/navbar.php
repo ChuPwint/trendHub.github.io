@@ -383,7 +383,7 @@ $currentHour = date('H:i');
             <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
             <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
-          <a href="../Checkout/shoppingCart.php">  <ion-icon class="text-3xl text-[<?php
+          <ion-icon id="cartItems" class="cursor-pointer text-3xl text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -401,7 +401,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>]" name="cart-outline"></ion-icon></a>
+      ?>]" name="cart-outline"></ion-icon>
           <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?php
       
       if ($startTime > $endTime) {
@@ -450,7 +450,7 @@ $currentHour = date('H:i');
   <script src="../resources/js/addItemToCart/addToCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
-
+<script src="../js/addItemToCart/cartItems.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 
