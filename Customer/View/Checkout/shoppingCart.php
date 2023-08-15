@@ -23,6 +23,12 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/js/shoppingCart/shoppingCart.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
+
+    <style>
+        .cart_item{
+            display: none;
+        }
+    </style>
 </head>
 <?php
 include "../../Controller/uiElement/editInfoController.php";
@@ -155,7 +161,7 @@ include "../resources/common/navbar.php";
                                         ?>
                                         <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
                                         <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                        <button class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                        <button pID="<?= $itemDetail["id"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                                     </div>
                                     <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
                                     <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
@@ -325,6 +331,17 @@ include "../resources/common/navbar.php";
         </div>
         <!--end of container -->
     </div>
+
+
+    <script>
+        $(document).ready(function (){
+            $(".plusBtn").on("click", function(){
+                var productId = $(this).attr("pID");
+            // console.log(productId);
+            // var $plustBtn = $(".plusBtn[pID='" + productId + "']");
+            })
+        })
+    </script>
 </body>
 <?php include "../resources/common/footer.php" ?>
 
