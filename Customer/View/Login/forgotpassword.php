@@ -92,7 +92,7 @@ $currentHour = date('H:i');
         </div>
 
         <p class="mt-4 text-xs md:text-base text-center absolute right-5 top-2">
-            <a href="./login.php"><button class="bg-tertiary hover:underline text-xs md:text-sm md:w-20 p-1 bg-[<?php
+            <a href="./login.php"><button class="bg-tertiary  text-xs md:text-sm md:w-20 p-1 bg-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
