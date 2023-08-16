@@ -10,7 +10,7 @@ if (isset($_SESSION["selectedOrder"])) {
 if (isset($_SESSION["change"])) {
     $changes = $_SESSION["change"];
 }
-
+include "../../Controller/allOrder/orderDataShowController.php";
 include "../../Controller/allOrder/allOrderShowcontroller.php";
 if (isset($_SESSION["detailViewController"]) && ($_SESSION["detailViewController"] == false)) {
     $_SESSION["detailView"] = 0;
@@ -31,12 +31,14 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Orders</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
+    <script src="../resources/lib/jquery3.6.0.js" defer></script>
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
+    
+  
     <script src="../resources/js/allOrder/allOrder.js" defer></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
+   
 </head>
 <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -354,22 +356,22 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
             <div class="text-white flex justify-between p-5 mb-5">
                 <div class="bg-secondary w-40 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Orders</p>
-                    <p class="text-xl">230</p>
+                    <p class="text-xl"><?= $totalOrders[0]['total_order'] ?></p>
                 </div>
 
                 <div class="bg-secondary w-40 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Revenue</p>
-                    <p class="text-xl">Ks 2,503,000</p>
+                    <p class="text-xl"><?= $earningFromCustomer[0]['earning']?> Ks</p>
                 </div>
 
                 <div class="bg-secondary w-40 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Pending</p>
-                    <p class="text-xl">20</p>
+                    <p class="text-xl"><?=$totalPending[0]['total_pending']?> </p>
                 </div>
 
                 <div class="bg-secondary w-40 h-20 py-2 text-center rounded flex flex-col justify-between">
                     <p>Total Completed</p>
-                    <p class="text-xl">100</p>
+                    <p class="text-xl"><?= $totalComplete[0]['total_complete']?></p>
                 </div>
             </div>
 
@@ -377,15 +379,17 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
             <div class="flex justify-between items-center p-2">
 
                 <!-- end of search button -->
+              
                 <!-- start of select box -->
-                <div>
-                    <span class="mr-2 font-medium">Sort By</span>
-                    <select name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
+                <div  date-rangepicker>
+                    <label class="mr-2 font-medium">Sort By:</label>
+                    <select  id="dropdown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="pending">Pending</option>
-                        <option class="p-2" value="delivered">Completed</option>
+                        <option class="p-2" value="completed">Completed</option>
                     </select>
                 </div>
                 <!-- end of select box -->
+            
             </div>
             <!-- end of search button and select box -->
 
@@ -404,7 +408,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                         <th class="p-2 w-32">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortResult">
                     <?php
                     $counter = 0;
                     foreach ($orderPaymentInfo as $order) :
@@ -463,31 +467,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
         </div>
         <!-- Right-side End -->
     </section>
-    <script>
-        $(document).ready(function() {
-            $("#logoutBtn").click(function() {
-                $("#logoutModal").toggle();
-            });
 
-            $("#confirmLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-
-            $("#cancelLogout").click(function() {
-                $("#logoutModal").toggle();
-            });
-            $("#order").change(function() {
-                $("#orderInput").val($("#order").val());
-                $("#payment").val($("#order").val());
-                $("#pay").val($("#payment").val());
-            });
-            $("#payment").change(function() {
-                $("#pay").val($("#payment").val());
-                $("#order").val($("#payment").val());
-                $("#orderInput").val($("#order").val());
-            });
-        });
-    </script>
 </body>
 
 </html>

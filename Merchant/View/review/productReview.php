@@ -192,9 +192,9 @@ include "../../Controller/allReview/customerReviewController.php";
                 <!-- start of select box -->
                 <div>
                     <span class="mr-2 font-medium">Sort By</span>
-                    <select name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
-                        <option class="p-2" value="pending">Category</option>
-                        <option class="p-2" value="delivered">Product</option>
+                    <select id="dropDown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
+                        <option class="p-2" value="category_name">Category</option>
+                        <option class="p-2" value="p_name">Product</option>
                     </select>
                 </div>
                 <!-- end of select box -->
@@ -216,7 +216,7 @@ include "../../Controller/allReview/customerReviewController.php";
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="sortResult">
                         <?php
                         $counter = 0;
                         foreach ($allReview as $product) {
