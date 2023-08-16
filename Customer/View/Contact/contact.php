@@ -1,3 +1,9 @@
+<?php   
+session_start();
+if(!isset( $_SESSION["currentLoginUser"]) || $_SESSION["currentLoginUser"]==''){
+        header("Location: ../Error/error.php" );
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +80,16 @@ date_default_timezone_set('Asia/Yangon');
 
       ?>] font-roboto">
 
+<div class="contactAdminFinishModal hidden fixed w-full h-full shadow-md z-20 justify-center pt-60">
+    <div class="bg-white m-auto p-5 border rounded-sm w-[90%] md:w-[40%]">
+        <h2 class="text-xl font-bold mb-4 text-center">Message to Admin is Complete!</h2>
+        <hr>
+        <p class="mt-6 text-center">Thank you for contacting us. We appreciate your message and will respond to your inquiry as soon as possible. Your patience is greatly appreciated.</p>
+        <div class="flex mt-5 justify-center">
+            <button id="closeContactCompleteModal" class="mt-4 bg-tertiary text-white font-semibold py-2 px-4 rounded">Close</button>
+        </div>
+    </div>
+</div>
 
 
     <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
@@ -153,8 +169,8 @@ if ($startTime > $endTime) {
   
 
       ?>]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
-                <form action="">
-                    <textarea name="" id="" cols="30" rows="10" class="resize-none border-2 border-[<?php
+                <form id="contactForm" action="">
+                    <textarea name="message" id="messageInput" cols="30" rows="10" class="resize-none border-2 border-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -169,12 +185,12 @@ if ($startTime > $endTime) {
             echo $buttonColor;
         }
     }
-  
+    
 
       ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
                 </form>
 
-                <button type="submit" class="w-full bg-[<?php
+                <button type="submit"  id="sendMessage" class="w-full bg-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -331,7 +347,7 @@ if ($startTime > $endTime) {
         </div>
 
     </section>
-
+<!-- for mobile view -->
     <section class="bg-[#F36823] md:hidden">
         <div class="px-10 py-10 text-white leading-10">
             <p class="text-3xl font-medium">Info</p>
@@ -360,6 +376,44 @@ if ($startTime > $endTime) {
         ?>
     </section>
 
+    <script>
+ $(document).ready(function() {
+            $("#sendMessage").click(function() {
+                $(".contactAdminFinishModal").toggle();
+            });
+
+            $("#closeContactCompleteModal").click(function() {
+                $(".contactAdminFinishModal").toggle();
+            });
+        });
+
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        console.log ("success");
+        // Get user input from textarea
+        var message = document.getElementById("messageInput").value;
+        
+        // Prepare data to send to the server
+        var formData = new FormData();
+        formData.append("message", message);
+        
+        // Send data using AJAX
+        fetch("../../Controller/contactAdminController.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the server (if needed)
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error("Error:", error);
+        });
+    });
+</script>
 
 </body>
 
