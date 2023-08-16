@@ -124,22 +124,21 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
         input[type="file"] {
             display: none;
         }
+
         /* width */
-.scroll::-webkit-scrollbar {
-  width: 5px;
-}
+        .scroll::-webkit-scrollbar {
+            width: 5px;
+        }
 
 
-.scroll::-webkit-scrollbar-track {
-    background: #ffffff;  
-}
+        .scroll::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
 
-.scroll::-webkit-scrollbar-thumb {
-  background: #3d3d3d; 
-  border-radius: 5px;
-}
-
-
+        .scroll::-webkit-scrollbar-thumb {
+            background: #3d3d3d;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -168,22 +167,27 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                     ?>
                     <p><?php echo "Date : $day, $month $date, $year" ?></p>
-                   
 
-<script>
-    function updateLiveTime() {
-        var date = new Date();
-        var options = { hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' };
-        var formattedTime = date.toLocaleTimeString('en-US', options);
-        document.getElementById('liveTime').innerHTML = 'Current Time: ' + formattedTime;
-    }
 
-    // Update the time every second
-    setInterval(updateLiveTime, 1000);
+                    <script>
+                        function updateLiveTime() {
+                            var date = new Date();
+                            var options = {
+                                hour12: true,
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                second: '2-digit'
+                            };
+                            var formattedTime = date.toLocaleTimeString('en-US', options);
+                            document.getElementById('liveTime').innerHTML = 'Current Time: ' + formattedTime;
+                        }
 
-    // Initial call to display time immediately
-    updateLiveTime();
-</script>
+                        // Update the time every second
+                        setInterval(updateLiveTime, 1000);
+
+                        // Initial call to display time immediately
+                        updateLiveTime();
+                    </script>
                 </div>
 
             </div>
@@ -192,28 +196,64 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
 
             <div class="px-[53px] py-8 data-output  overflow-y-scroll h-[750px] scrollbar-hide">
+<div class="flex flex-col">
+                <div class="bg-[red] flex ">
+                    <form  action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
 
-                <form action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
+                        <label class="mx-auto text-center flex justify-center" for="">
+                            <div class="bg-[white] w-[180px] rounded-lg">
+                                <a target="_blank" href="../../../<?= $logo ?>">
+                                    <img id="saveLogo" src="../../..<?= $logo ?>" class="px-[10px] py-[5px] " alt="">
+                                </a>
+                            </div>
 
-                    <label class="mx-auto text-center flex justify-center" for="">
-                        <div class="bg-[white] w-[180px] rounded-lg">
-                            <a target="_blank" href="../../../<?= $logo ?>">
-                                <img id="saveLogo" src="../../..<?= $logo ?>" class="px-[10px] py-[5px] " alt="">
-                            </a>
-                        </div>
-
-                    </label>
-                    <span class="block mx-auto text-center text-white text-2xl font-semibold mt-2 ">Your Logo</span>
-                    <div class="text-white mx-auto text-center mt-5">
-                        <label for=""> Logo</label>
-                        <label for="logo" class="custom-file-upload text-black ml-2">
-                            Choose File
                         </label>
-                        <input accept=".png,.jpg,.svg" name="logoImg" type="file" id="logo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+                        <span class="block mx-auto text-center text-white text-2xl font-semibold mt-2 ">Your Logo</span>
+                        <div class="text-white mx-auto text-center mt-5">
+                            <label for=""> Logo</label>
+                            <label for="logo" class="custom-file-upload text-black ml-2">
+                                Choose File
+                            </label>
+                            <input accept=".png,.jpg,.svg" name="logoImg" type="file" id="logo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
 
-                        <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
-                </form>
+                            <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
+                    </form>
+
+                    </div>
+
+                    
+                    <div class="bg-[red] flex float-right">
+                    <form  action="../../Controller/uiElements/logo/updateLogoController.php" method="post" enctype="multipart/form-data">
+
+                        <label class="mx-auto text-center flex justify-center" for="">
+                            <div class="bg-[white] w-[180px] rounded-lg">
+                                <a target="_blank" href="../../../<?= $logo ?>">
+                                    <img id="saveLogo" src="../../..<?= $logo ?>" class="px-[10px] py-[5px] " alt="">
+                                </a>
+                            </div>
+
+                        </label>
+                        <span class="block mx-auto text-center text-white text-2xl font-semibold mt-2 ">Your Logo</span>
+                        <div class="text-white mx-auto text-center mt-5">
+                            <label for=""> Logo</label>
+                            <label for="logo" class="custom-file-upload text-black ml-2">
+                                Choose File
+                            </label>
+                            <input accept=".png,.jpg,.svg" name="logoImg" type="file" id="logo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+
+
+                            <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
+                    </form>
+
+                    </div>
+
+
+
+                </div>
+
+
+
             </div>
 
             <hr class="mt-10 h-[2px] mx-auto">
@@ -307,19 +347,19 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <span class="text-xl">Set Time(Dark Mode)</span>
                     <form action="../../Controller/uiElements/darkMode/updateDarkMode.php" method="post">
 
-                    <div class="flex justify-between mt-4">
-                            
-                           <p class="" id="liveTime"></p>
+                        <div class="flex justify-between mt-4">
+
+                            <p class="" id="liveTime"></p>
                         </div>
 
                         <div class="flex justify-between mt-4">
                             <span>Start Time</span>
-                            <input  value="<?=$startTime?>" name="startTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
+                            <input value="<?= $startTime ?>" name="startTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
                         </div>
 
                         <div class="flex justify-between mt-4">
                             <span>End Time</span>
-                            <input value="<?= $endTime?>" name="endTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
+                            <input value="<?= $endTime ?>" name="endTime" type="time" class="pl-2 w-[115px] text-black rounded-sm focus:outline-none">
 
                         </div>
 
@@ -487,7 +527,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <input value="" name="banner4" accept=".png,.jpg,.svg" type="file" id="banner4" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                         </div>
-                      
+
                         <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
 
                     </form>
@@ -512,7 +552,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <input value="" name="banner5" accept=".png,.jpg,.svg" type="file" id="banner5" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                         </div>
-                      
+
                         <button type="submit" class="px-[15px] h-6  absolute top-0 inline rounded-sm text-[black] right-0 bg-[white]">Save</button>
 
                     </form>
@@ -596,7 +636,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex  mt-4">
                             <span>Title</span>
-                            <textarea placeholder="Enter Title" class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3"> <?=$sliderTitle1 ?> </textarea>
+                            <textarea placeholder="Enter Title" class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3"> <?= $sliderTitle1 ?> </textarea>
 
                         </div>
 
