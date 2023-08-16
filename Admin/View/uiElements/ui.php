@@ -826,7 +826,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex  mt-4">
                             <span>Terms:</span>
-                            <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[20px] text-start justify-start " name="terms" id="" cols="123" rows="3"><?= $editTerms[0]["terms"] ?></textarea>
+                            <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[20px]  whitespace-pre  " name="terms" id="" cols="123" rows="5"><?= $editTerms[0]["terms"] ?></textarea>
 
                         </div>
 
