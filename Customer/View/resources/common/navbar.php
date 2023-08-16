@@ -300,7 +300,7 @@ $currentHour = date('H:i');
             </button>
           </a>
         <?php  } else { ?>
-          <div>
+          <div class="logged_in">
             <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
           </div>
         <?php  } ?>
@@ -450,7 +450,7 @@ $currentHour = date('H:i');
   <script src="../resources/js/addItemToCart/addToCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
-<script src="../js/addItemToCart/cartItems.js"></script>
+<script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 

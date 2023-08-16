@@ -21,7 +21,6 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../resources/js/shoppingCart/shoppingCart.js" defer></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
 
     <style>
@@ -141,7 +140,7 @@ include "../resources/common/navbar.php";
                     <!-- start of cards -->
                     <?php if (isset($_SESSION["cartItemsDetails"])) {
                         foreach ($cartItemsDetails as $itemDetail) {?>
-                            <div class="itemCard relative bg-white shadow-md m-5 p-4 flex">
+                            <div class="itemCard relative bg-white shadow-md m-5 p-4 flex justify-evenly">
                                 <div class="flex items-center">
                                     <img class=" w-16" src="../../..<?= $itemDetail["p_path"] ?>" alt="">
                                 </div>
@@ -152,22 +151,20 @@ include "../resources/common/navbar.php";
                                         if ($cartItem["productID"] == $itemDetail["id"]) $price =  $cartItem["qty"] * $itemDetail["sell_price"];
                                     }
                                     ?>
-                                    <p class="pPrice pt-3 pb-3 w-48 break-words md:hidden"><?= number_format($price) ?>Ks</p>
+                                    <p class="pPrice mobilePrice pt-3 pb-3 w-48 break-words md:hidden"><?= number_format($price) ?>Ks</p>
                                     <div class="font-semibold pt-1 md:ml-3">
                                     <?php
                                         foreach ($cartItems as $cartItem) {
                                             if ($cartItem["productID"] == $itemDetail["id"]) $value =  $cartItem["qty"];
                                         }
                                         ?>
-                                        <button class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
                                         <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                        <button pID="<?= $itemDetail["id"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                                     </div>
-                                    <p id="desktopPrice" class="pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
-                                    <div><ion-icon class="desktopHeart text-gray-400 hidden md:mr-28 ml-5 md:block w-7 md:text-3xl cursor-pointer" name="heart"></ion-icon></div>
-                                    <div><img class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
+                                    <p id="desktopPrice" class="desktopPrice pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
+                                    <div><img id="<?= $itemDetail["id"] ?>" class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
                                 </div>
-                                <ion-icon class="mobileHeart text-gray-400 text-2xl md:hidden w-7 absolute right-3 top-3 cursor-pointer" name="heart"></ion-icon>
                                 <img class="mTrashImg md:hidden w-7 absolute right-3 bottom-3 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt="">
                             </div>
                     <?php }
@@ -179,7 +176,7 @@ include "../resources/common/navbar.php";
                 <!--end of products card container -->
 
                 <!-- start of order summary container -->
-                <div id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
+                <form id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
                     <!-- start of order summary card -->
                     <div class="p-4 m-5 
     bg-[<?php
@@ -315,15 +312,15 @@ include "../resources/common/navbar.php";
 
 
 
-            ?>]">Proceed to Checkout (<span class="itemAmount">3</span>)</button></a>
+            ?>]">Proceed to Checkout</button></a>
                         </div>
                     </div>
                     <!-- end of order summary card -->
-                </div>
+                </form>
                 <!-- end of order summary container -->
             </div>
             <!-- end of product and summary container -->
-            <div id="totalItem" class="hidden md:<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?> md:font-bold md:p-4 md:text-lg md:w-[70%] md:text-right ">
+            <div id="totalItem" class="md:<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?> md:font-bold md:p-4 md:text-lg md:w-[70%] md:text-right ">
                 Total: <span class="itemAmount"><?=
                                                 (isset($_SESSION["cartItems"])) ? count($_SESSION["cartItems"]) : 0;
                                                 ?></span> items
@@ -332,16 +329,7 @@ include "../resources/common/navbar.php";
         <!--end of container -->
     </div>
 
-
-    <script>
-        $(document).ready(function (){
-            $(".plusBtn").on("click", function(){
-                var productId = $(this).attr("pID");
-            // console.log(productId);
-            // var $plustBtn = $(".plusBtn[pID='" + productId + "']");
-            })
-        })
-    </script>
+    <script src="../resources/js/addItemToCart/removeFromCart.js"></script>
 </body>
 <?php include "../resources/common/footer.php" ?>
 

@@ -11,6 +11,7 @@ if (isset($_SESSION["totalThreestarRating"])) $totalThreestarRating = $_SESSION[
 if (isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["totalTwostarRating"];
 if (isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
 if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
+if (isset($_SESSION["isWishlisted"])) $isWishlisted =  $_SESSION["isWishlisted"];
 
 ?>
 
@@ -61,6 +62,12 @@ if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
             padding-left: 28px !important;
             padding-right: 28px !important;
         }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -100,54 +107,26 @@ if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
                     <!-- <img class="hidden md:block w-24" src="../resources/img/item_detail/4stars.svg" alt=""> -->
                     <input id="" data-role="rating" data-stared-color="#F36823" data-static="true" data-value="<?= $averageRating ?>">
                     <p class="font-semibold md:hidden">
-                        Qty:
-                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
-                        <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
-                        <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
+                        <?php
+                        $wishlistColor = ($isWishlisted == true) ? "text-textOrange" : "text-gray-400";
+                        ?>
+                        <ion-icon id="heartIcon" w_pId=<?= $productDetail[0]["id"] ?> name="heart-circle" class="wishlistAdd cursor-pointer text-4xl <?=$wishlistColor?>"></ion-icon>
                     </p>
-                </div>
-
-                <!-- hidden in desktop view(qty and share icon) -->
-                <div class="hidden md:mt-5 md:flex md:justify-between md:items-center">
-                    <p class="font-semibold">
-                        Qty:
-                        <button class="minusBtn cursor-pointer ml-2 px-2 font-semibold bg-productCardBgColor rounded-lg disabled bg-opacity-50 text-gray-200">-</button>
-                        <input type="number" name="qty" value="1" class="quantityInput text-xl text-center w-10 h-10 rounded-md bg-productCardBgColor">
-                        <button class="plusBtn cursor-pointer px-2 font-semibold text-center bg-productCardBgColor rounded-lg">+</button>
-                    </p>
-                    <ion-icon name="share-social" class="cursor-pointer text-4xl shareLinkIcon"></ion-icon>
                 </div>
 
                 <!-- icons or button for wishlist and add to cart -->
                 <div class="mt-6 flex justify-between items-center md:flex-col">
-                    <div class="md:hidden">
-                        <ion-icon id="heartIcon" name="heart-circle" class="wishlistAdd cursor-pointer text-4xl mr-10 text-gray-400"></ion-icon>
-                        <ion-icon name="share-social" class="cursor-pointer text-4xl shareLinkIcon"></ion-icon>
-                    </div>
-                    <button id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange">Add to Wishlist</button>
+                    <?php
+                        $wishlistBtnTextColor = ($isWishlisted == true) ? "text-textOrange" : "";
+                        $wishlistBtnText = ($isWishlisted == true) ? "Added to Wishlist" : "Add to Wishlist";
+                    ?>
+                    <button w_pId=<?= $productDetail[0]["id"] ?> id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange <?= $wishlistBtnTextColor ?>"><?= $wishlistBtnText ?></button>
                     <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
                 </div>
             </div>
         </div>
     </div>
     <!--End of detail card-->
-
-    <!-- Share Link Modal -->
-    <div id="shareLinkModal" class="hidden fixed w-full h-full pt-64 bg-black bg-opacity-50 z-20">
-        <div class="bg-white m-auto p-2 border rounded-sm w-[30%]">
-            <h2 class="text-xl font-bold mb-4">Share Product</h2>
-            <hr>
-            <div class="p-3">
-                <p class="mb-10">Share this product by copying this link and posting it on social media: </p>
-                <div class="mt-4 flex justify-around">
-                    www.trendhub.com
-                </div>
-            </div>
-            <div>
-                <button class="bg-tertiary px-4 py-2">Close Sharing</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Start of product description -->
     <div class="px-5 md:px-28 ">

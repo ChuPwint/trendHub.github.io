@@ -8,6 +8,15 @@ include "../../Controller/notifyController.php";
 
 if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeController"] == false)) {
     $_SESSION["userChangeView"] = 0;
+
+    include "../../Controller/uiElement/editInfoController.php";
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+$lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H:i'); 
 }
 
 
@@ -18,6 +27,8 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
+
     <title>Profile</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../../View/resources/js/profile.js" defer></script>
@@ -50,43 +61,228 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+    .scrollHide::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
-<body class="bg-secondary">
+<body class="bg-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4f4f4f";
+        }else {
+          echo $secondaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4f4f4f";
+        } else {
+            echo $secondaryColor;
+        }
+    }
+    
+  
+
+      ?>] scrollHide">
     <?php $view = 1 ?>
     <?php include "../resources/common/navbar.php" ?>
-    <div class="bg-primary w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
+    <div class="bg-[<?php
+      
+     
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $primaryColor;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
+    }
+
+      ?>] w-full h-1/3 rounded-br-full flex items-center absolute top-0"></div>
 
 
     <div class="flex justify-center items-center flex-col w-full mt-20  ">
-        <div class="bg-primary relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
-            <p class="text-textWhite p-3 font-bold w-full bg-tertiary relative md:block hidden">User Profile</p>
+        <div class="bg-[<?php
+      
+     
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        }else {
+            echo $primaryColor;
+        }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
+    }
+
+      ?>] relative w-[250px]  md:w-2/3  h-full flex flex-col mt-12  shadow-2xl ">
+            <p class="text-textWhite p-3 font-bold w-full  bg-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $tertiaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $tertiaryColor;
+        }
+    }
+    
+  
+
+      ?>] relative md:block hidden text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+          echo $primaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
+    }
+    
+  
+
+      ?>]">User Profile</p>
             <div class="md:flex">
                 <!--Start Left Side menu bar -->
-                <div class="w-1/4 bg-secondary px-4 py-8 hidden md:block">
+                <div class="w-1/4 bg-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4f4f4f";
+        }else {
+          echo $secondaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#4f4f4f";
+        } else {
+            echo $secondaryColor;
+        }
+    }
+    
+  
+
+      ?>]  px-4 py-8 hidden md:block">
                     <ul class="space-y-4">
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-user-info">
-                                <img src="../resources/img/profile/user.png" alt="user info" class="w-4 mr-2">
-                                <span class="font-medium">User Info</span>
+                            <a href="#" class="flex items-center hover:bg-tertiary text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>] hover:text-white p-2 rounded-md cursor-pointer" id="menu-user-info">
+                                <!-- <img src="../resources/img/profile/user.png" alt="user info" class="w-4 mr-2"> -->
+                                <ion-icon  class="text-lg mr-2" name="person-outline"></ion-icon>
+                                <span class="font-medium ">User Info</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-wishlist">
-                                <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-4 mr-2">
+                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>]  p-2 rounded-md cursor-pointer" id="menu-wishlist">
+                                <!-- <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-4 mr-2"> -->
+                                <ion-icon  class="text-lg mr-2" name="heart-outline"></ion-icon>
                                 <span class="font-medium">Wishlist</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="flex items-center hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-order-history">
-                                <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2">
+                            <a href="#" class="flex items-center hover:bg-tertiary text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>] hover:text-white p-2 rounded-md cursor-pointer" id="menu-order-history">
+                                <!-- <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2"> -->
+                                <ion-icon class="text-lg mr-2" name="newspaper-outline"></ion-icon>
                                 <span class="font-medium">Order History</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center  hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-notification">
-                                <img src="../resources/img/profile/notify.png" alt="Notification Icon" class="w-4 mr-2">
+                            <a href="#" class="flex items-center text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>] hover:bg-tertiary hover:text-white p-2 rounded-md cursor-pointer" id="menu-notification">
+                                <!-- <img src="../resources/img/profile/notify.png" alt="Notification Icon" class="w-4 mr-2"> -->
+                                <ion-icon class="text-lg mr-2" name="notifications-outline"></ion-icon>
                                 <span class="font-medium">Notifications</span>
                             </a>
                         </li>
@@ -118,8 +314,44 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                 </label>
                                 <input type="file" name="userimg" id="photo" accept=".png,.jpeg,.jpg" class="hidden">
                                 <div class="flex flex-col px-3">
-                                    <span class="font-bold"><?= $edit[0]["c_name"]; ?></span>
-                                    <span class="text-xs font-bold"><?= $edit[0]["c_address"]; ?></span>
+                                    <span class="text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>] font-bold"><?= $edit[0]["c_name"]; ?></span>
+                                    <span class="text-xs text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>] font-bold"><?= $edit[0]["c_address"]; ?></span>
                                 </div>
                             </div>
                             <div>
@@ -174,7 +406,43 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
                                         <input type="text" name="address" value="<?= $edit[0]["c_address"]; ?>" class="w-full p-2 border border-borderOrange rounded" placeholder="Address" required>
                                     </div>
                                 </div>
-                                <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-orange-500 text-white rounded mt-10" id="save-profile-btn">Save Changes</button>
+                                <button type="submit" name="saveChange" class="px-6 py-2 mx-auto flex text-center align-middle justify-end hover:text-textBlack  bg-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $tertiaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $tertiaryColor;
+        }
+    }
+    
+  
+
+      ?>] text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+          echo $primaryColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#000000";
+        } else {
+            echo $primaryColor;
+        }
+    }
+    
+  
+
+      ?>] rounded mt-10" id="save-profile-btn">Save Changes</button>
                             </div>
                         </form>
                     </div>
@@ -503,4 +771,6 @@ if (isset($_SESSION["userSaveChangeController"]) && ($_SESSION["userSaveChangeCo
 </html>
 <?php
 $_SESSION["userSaveChangeController"] = false;
+include "../resources/common/footer.php"
+
 ?>
