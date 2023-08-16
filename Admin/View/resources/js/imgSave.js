@@ -1,3 +1,9 @@
+
+
+
+
+
+
 // Banner 1
 document.getElementById('banner1').onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
@@ -93,6 +99,26 @@ document.getElementById('banner5').onchange = function (evt) {
 
 
 
+// Banner 6
+document.getElementById('mobileLogo').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+    
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById("saveMobileLogo").src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+    
+    else {
+   
+    }
+}
+
+
+
 // Slide 1
 document.getElementById('slide1').onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
@@ -150,7 +176,7 @@ document.getElementById('slide3').onchange = function (evt) {
 
 
 
-// Logo
+// Desktop Logo
 document.getElementById('logo').onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
