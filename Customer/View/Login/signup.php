@@ -131,7 +131,7 @@ $currentHour = date('H:i');
 
 
 
-                ?>] hover:underline text-xs md:text-sm md:w-20 p-1 px-2 py-1 rounded-sm 
+                ?>]  text-xs md:text-sm md:w-20 p-1 px-2 py-1 rounded-sm 
             text-[<?php
 
                     if ($startTime > $endTime) {

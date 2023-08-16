@@ -3,6 +3,12 @@ session_start();
 if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin"]==''){
         header("Location: ../Error/error.php" );
 }
+include "../../../Customer/Controller/uiElement/editInfoController.php";
+$editEmail = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $editInfo[0]["email"] : 'trendhub2023.shop@gmail.com';
+$editPhoneNumber = isset($editInfo[0]["phoneNumber"]) && !empty($editInfo[0]["phoneNumber"]) ? $editInfo[0]["phoneNumber"] : '09 40-355-970';
+$editAddress = isset($editInfo[0]["address"]) && !empty($editInfo[0]["address"]) ? $editInfo[0]["address"] : ' No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar';
+$editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
+$editTime = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editInfo[0]["time"] : '08:00 am - 08:00 pm';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,19 +144,19 @@ if(!isset( $_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin
                             <p class="text-3xl font-medium">Info</p>
                             <div class="flex items-center space-x-5 mt-2">
                                 <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_message.svg" alt="message">
-                                <span class="md:text-sm"><a href="mailto:trendhub2023.shop@gmail.com">trendhub2023.shop@gmail.com </a></span>
+                                <span class="md:text-sm"><a href="mailto:<?= $editEmail ?>"><?= $editEmail ?> </a></span>
                             </div>
                             <div class="flex items-center space-x-5">
                                 <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_phone.svg" alt="phone">
-                                <span><a href="tel:09403559701">09 40-355-9701</a></span>
+                                <span><a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
                             </div>
                             <div class="flex items-start space-x-5">
                                 <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_address.svg" alt="address">
-                                <span class="w-[190px] md:text-sm"><a target="_blank" href="https://www.google.com/maps/dir/16.8355994,96.1643746/Yadanar+St,+Yangon/@16.8352103,96.1636821,17.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30c19344dcaf12cb:0x9faa458f191e61fe!2m2!1d96.1643481!2d16.8354793?entry=ttu">Address : No.1200, room(6B), Yadanar Street, South Oakkalapa,Yangon, Myanmar</a></span>
+                                <span class="w-[190px] md:text-sm"><a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
                             </div>
                             <div class="flex items-center space-x-5">
                                 <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_time.svg" alt="time">
-                                <span>09:00 - 17:00</span>
+                                <span><?= $editTime ?></span>
                             </div>
                         </div>
                     </div>

@@ -112,7 +112,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>] hover:underline px-2 py-1 text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
+      ?>] px-2 py-1 text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -212,7 +212,7 @@ $currentHour = date('H:i');
 
       ?>] text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2">Login</button>
                     <a href="./forgotPassword.php">
-                        <p class="text-decoration-line: underline text-xs md:text-sm text-medium py-8">Forget your password?</p>
+                        <p class="text-xs md:text-sm text-medium py-8">Forget your password?</p>
                     </a>
                 </form>
             </div>

@@ -361,7 +361,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                     <form action="../../Controller/uiElements/Information/updateController.php " method="post">
                         <div class="flex justify-between space-x-4 mt-4">
                             <span>Phone No</span>
-                            <input name="phoneNumber" value="<?= $phoneNumber ?>" class="pl-2 rounded-sm text-black w-[300px] ml-[100px]  " type="text" placeholder="09 xxx xxxx xxx">
+                            <input name="phoneNumber" value="<?= $phoneNumber ?>" class="pl-2 rounded-sm   text-black w-[300px] ml-[100px]  " type="text" placeholder="09 xxx xxxx xxx">
                         </div>
 
 
@@ -765,7 +765,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                         <div class="flex justify-between w-[1040px]">
                             <span class="block text-white ">Ques:</span>
-                            <textarea name="questionOne" cols="120" rows="2" class="scroll resize-none text-black" type="text" placeholder="Question 1"><?= $question1 ?></textarea>
+                            <textarea name="questionOne" cols="120" rows="2" class="scroll resize-none  text-black" type="text" placeholder="Question 1"><?= $question1 ?></textarea>
                         </div>
                         <div class="flex  mt-4 justify-between">
                             <span class="block text-white">Ans:</span>
