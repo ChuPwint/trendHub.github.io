@@ -26,6 +26,7 @@ $(document).ready(function () {
   $("#cancelLogout").click(function () {
     $("#logoutModal").toggle();
   });
+  
 
   //Sorting
   $("#dropdown").change(function () {

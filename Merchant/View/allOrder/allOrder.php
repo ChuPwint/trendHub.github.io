@@ -18,6 +18,8 @@ if (isset($_SESSION["detailViewController"]) && ($_SESSION["detailViewController
 if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusController"] == false)) {
     $_SESSION["changeStatus"] = 0;
 }
+
+
 }
 
 
@@ -31,11 +33,11 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Orders</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <script src="../resources/lib/jquery3.6.0.js" defer></script>
+    <script src="../resources/lib/jquery3.6.0.js"></script>
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
-    
-  
     <script src="../resources/js/allOrder/allOrder.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
    
@@ -383,7 +385,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                 <!-- start of select box -->
                 <div  date-rangepicker>
                     <label class="mr-2 font-medium">Sort By:</label>
-                    <select  id="dropdown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
+                    <select  id="orderDropdown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="pending">Pending</option>
                         <option class="p-2" value="completed">Completed</option>
                     </select>
@@ -467,6 +469,98 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
         </div>
         <!-- Right-side End -->
     </section>
+    
+
+<script>
+
+$(document).ready(function () {
+    
+    $("#logoutBtn").click(function () {
+    $("#logoutModal").toggle();
+  });
+
+  $("#confirmLogout").click(function () {
+    $("#logoutModal").toggle();
+  });
+   
+  $("#cancelLogout").click(function () {
+    $("#logoutModal").toggle();
+  });
+
+  $("#order").change(function () {
+    $("#orderInput").val($("#order").val());
+    $("#payment").val($("#order").val());
+    $("#pay").val($("#payment").val());
+  });
+  $("#payment").change(function () {
+    $("#pay").val($("#payment").val());
+    $("#order").val($("#payment").val());
+    $("#orderInput").val($("#order").val());
+  });
+});
+
+
+
+     $("#orderDropdown").change(function () {
+   
+    $.ajax({
+      url: "../../Controller/allOrder/sortOrderController.php",
+      type: "POST",
+      data: {
+        sortText: $(this).val(),
+      },
+      success: function (result) {
+
+        let arrays = JSON.parse(result);
+
+        $("#sortResult").empty();
+        let orderPaymentInfo= arrays[0];
+        let orderDetailsInfo = arrays[1];
+        let counter = 0;
+        let count = 1;
+        for (const order of  orderPaymentInfo) {
+          let paymentStatus = (order.payment_status == 0) ? "Pending" : "Completed";
+          let orderStatus = order.order_status == 0 ? "Pending" : "Completed";
+          let orderDate = moment(order.create_date).format('YYYY/MM/DD');
+         
+          counter ++;
+          let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
+          let totalQuantity = 0; // Initialize a variable to store the total quantity
+          for (const detail of orderDetailsInfo) {
+            if (detail.order_id === order.id) {
+              let qtyAsNumber = detail.qty;
+              totalQuantity += qtyAsNumber; // Add the quantity to the total
+            }
+        }
+       
+        $("#sortResult").append(
+            `<tr class="orderList ${rowClass}">
+                            <td class="viewOrderDetailBtn p-2 text-xl  text-center underline font-bold cursor-pointer"><a href="../../Controller/allOrder/detailViewController.php?id=${order.id}">
+                            ${count++}</a></td>
+                            <td class="p-2 text-center">${order.c_name}</td>
+                            <td class="p-2 text-center">${totalQuantity}</td>
+                            <td class="p-2 text-center">${order.total_amt} Ks</td>
+                            <td class="p-2 text-center">${order.payment_method}</td>
+                            <td class="p-2 text-center">${orderDate}</td>
+                            
+                            <td class="p-2 text-center">${paymentStatus}</td>
+                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
+                                <a href="../../Controller/allOrder/changeStatusController.php?id=${order.id}">
+                                    Change Status
+                                </a>
+
+                            </td>
+                        </tr>`
+          );
+        }
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  });
+  
+</script>
 
 </body>
 
@@ -474,5 +568,6 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
 <?php
 $_SESSION["detailViewController"] = false;
 $_SESSION["changeStatusController"] = false;
+$_SESSION["changedropDownController"] = false;
 
 ?>

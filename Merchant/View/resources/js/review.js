@@ -104,66 +104,7 @@ $(document).ready(function () {
     });
 
 
-    //Sorting
-  $("#dropdown").change(function () {
-    // console.log($(this).val());
-    $.ajax({
-      url: "../../Controller/allReview/sortReviewProductController.php",
-      type: "POST",
-      data: {
-        sortText: $(this).val(),
-         // console.log($(this).val());
-      },
-    
-      success: function (result) {
-        let products = JSON.parse(result);
-        
-        // $("#sortResult").empty();
-        // let counter = 0;
-        // let count = 1;
-        // for (const product of products) {
-        //  counter ++;
-        //   let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
-        //   $("#sortResult").append(
-        //     `<tr class="productSubmitData ${rowClass}">
-        //     <td class="p-2 text-center">${count++}</td>
-        //     <td class="p-2 text-center">${product.p_name}</td>
-        //     <td class="p-2 text-center">${product.category_name}</td>
-        //     <td class="p-2 text-center">${product.p_stock}</td>
-        //     <td class="p-2 text-center">${product.buy_price} Ks</td>
-        //     <td class="p-2 text-center">${product.sell_price} Ks</td>
-        //     <td class=" p-2 text-center font-semibold underline cursor-pointer">
-        //     <a href="../../Controller/allProduct/productDetailShowController.php?id=${product.id}">View Detail</a> 
-        //     </td>
-        //     </tr>
-        //     `
-        //   );
-        // }
-
-        // <?php
-        // $counter = 0;
-        // foreach ($allReview as $product) {
-        //     $counter++;
-        //     $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
-        // ?>
-        //     <tr class="orderList <?= $rowClass ?>">
-        //         <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $product['id'] ?></td>
-        //         <td class="p-2 text-center"><?= $product['p_name'] ?></td>
-        //         <td class="p-2 text-center"><?= $product['category_name'] ?></td>
-        //         <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
-        //         <td class="p-2 text-center"><?= $product['sell_price'] ?> Ks</td>
-        //         <td class="p-2 text-center"><?= $product['p_stock'] * $product['sell_price'] ?> Ks</td>
-
-        //         <td reviewID="<?= $product['id'] ?>" class="showReview p-2 text-center underline font-semibold cursor-pointer"> See Review </td>
-        //     </tr>
-        // <?php  } ?>
-
-      },
-      error: function (error) {
-        console.log(error);
-      },
-    });
-  });
+  
     
   });
   

@@ -1,7 +1,7 @@
-<?php   
+<?php
 session_start();
-if(!isset( $_SESSION["currentLoginUser"]) || $_SESSION["currentLoginUser"]==''){
-        header("Location: ../Error/error.php" );
+if (!isset($_SESSION["currentLoginUser"]) || $_SESSION["currentLoginUser"] == '') {
+    header("Location: ../Error/error.php");
 }
 ?>
 <!DOCTYPE html>
@@ -33,8 +33,8 @@ $startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"])
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
 $background = "/Storage/general/contact_bg.svg";
-$currentHour = date('H:i'); 
-date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H:i');
+date_default_timezone_set('Asia/Yangon');
 ?>
 
 <style>
@@ -44,52 +44,52 @@ date_default_timezone_set('Asia/Yangon');
 </style>
 
 <body class="scrollHide  bg-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-            echo "ffffff";
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        } else {
-            echo "ffffff";
-        }
-    }
-  
 
-      ?>] md:bg-[
+                                if ($startTime > $endTime) {
+                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                        echo "#000000";
+                                    } else {
+                                        echo "ffffff";
+                                    }
+                                } else {
+                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                        echo "#000000";
+                                    } else {
+                                        echo "ffffff";
+                                    }
+                                }
+
+
+                                ?>] md:bg-[
       <?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-            echo $primaryColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
+
+        if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $primaryColor;
+            }
         } else {
-            echo $primaryColor;
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo "#000000";
+            } else {
+                echo $primaryColor;
+            }
         }
-    }
-  
 
-      ?>] font-roboto">
 
-<div class="contactAdminFinishModal hidden fixed w-full h-full shadow-md z-20 justify-center pt-60">
-    <div class="bg-white m-auto p-5 border rounded-sm w-[90%] md:w-[40%]">
-        <h2 class="text-xl font-bold mb-4 text-center">Message to Admin is Complete!</h2>
-        <hr>
-        <p class="mt-6 text-center">Thank you for contacting us. We appreciate your message and will respond to your inquiry as soon as possible. Your patience is greatly appreciated.</p>
-        <div class="flex mt-5 justify-center">
-            <button id="closeContactCompleteModal" class="mt-4 bg-tertiary text-white font-semibold py-2 px-4 rounded">Close</button>
+        ?>] font-roboto">
+
+    <div class="contactAdminFinishModal hidden fixed w-full h-full shadow-md z-20 justify-center pt-60">
+        <div class="bg-white m-auto p-5 border rounded-sm w-[90%] md:w-[40%]">
+            <h2 class="text-xl font-bold mb-4 text-center">Message to Admin is Complete!</h2>
+            <hr>
+            <p class="mt-6 text-center">Thank you for contacting us. We appreciate your message and will respond to your inquiry as soon as possible. Your patience is greatly appreciated.</p>
+            <div class="flex mt-5 justify-center">
+                <button id="closeContactCompleteModal" class="mt-4 bg-tertiary text-white font-semibold py-2 px-4 rounded">Close</button>
+            </div>
         </div>
     </div>
-</div>
 
 
     <div class="absolute bg-white w-full h-[250px] rounded-br-[70%] rounded-tr-none rounded-bl-none md:hidden z-[-1]">
@@ -98,116 +98,117 @@ date_default_timezone_set('Asia/Yangon');
     <section class="container mt-[120px] w-full mx-auto md:h-[80vh] flex justify-center items-center px-10 py-10 md:py-0">
         <!-- contact container -->
         <div class="bg-[<?php
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-            echo "ffffff";
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        } else {
-            echo "ffffff";
-        }
-    }
-  
+                        if ($startTime > $endTime) {
+                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                echo "#000000";
+                            } else {
+                                echo "ffffff";
+                            }
+                        } else {
+                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                echo "#000000";
+                            } else {
+                                echo "ffffff";
+                            }
+                        }
 
-      ?>] md:bg-[url('../../../<?php
-      
 
-if ($startTime > $endTime) {
-    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo 'Storage/general/darkContactBg.svg';
-    }else {
-        echo $background ;
-    }
-} else {
-    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-        echo 'Storage/general/darkContactBg.svg';
-    } else {
-        echo $background ;
-    }
-}
+                        ?>] md:bg-[url('../../../<?php
 
- ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
+
+                                if ($startTime > $endTime) {
+                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                        echo 'Storage/general/darkContactBg.svg';
+                                    } else {
+                                        echo $background;
+                                    }
+                                } else {
+                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                        echo 'Storage/general/darkContactBg.svg';
+                                    } else {
+                                        echo $background;
+                                    }
+                                }
+
+                                ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
             <!-- left side -->
             <div class="text-center md:text-start px-5 py-5">
                 <h1 class="text-xl font-bold md:text-4xl text-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $navColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $navColor;
-        }
-    }
-  
 
-      ?>]">Contact Us</h1>
+                                                                if ($startTime > $endTime) {
+                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                        echo "#ffffff";
+                                                                    } else {
+                                                                        echo $navColor;
+                                                                    }
+                                                                } else {
+                                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                        echo "#ffffff";
+                                                                    } else {
+                                                                        echo $navColor;
+                                                                    }
+                                                                }
+
+
+                                                                ?>]">Contact Us</h1>
                 <p class="text-sm pt-5 pb-10 md:text-xl md:w-[350px] text-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $navColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $navColor;
-        }
-    }
-  
 
-      ?>]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
+                                                                            if ($startTime > $endTime) {
+                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                    echo "#ffffff";
+                                                                                } else {
+                                                                                    echo $navColor;
+                                                                                }
+                                                                            } else {
+                                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                    echo "#ffffff";
+                                                                                } else {
+                                                                                    echo $navColor;
+                                                                                }
+                                                                            }
+
+
+                                                                            ?>]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
                 <form id="contactForm" action="">
                     <textarea name="message" id="messageInput" cols="30" rows="10" class="resize-none border-2 border-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-            echo $buttonColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        } else {
-            echo $buttonColor;
-        }
-    }
-    
 
-      ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
+                                                                                                                        if ($startTime > $endTime) {
+                                                                                                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                echo "#000000";
+                                                                                                                            } else {
+                                                                                                                                echo $buttonColor;
+                                                                                                                            }
+                                                                                                                        } else {
+                                                                                                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                echo "#000000";
+                                                                                                                            } else {
+                                                                                                                                echo $buttonColor;
+                                                                                                                            }
+                                                                                                                        }
+
+
+                                                                                                                        ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
+
+
+                    <button type="submit" id="sendMessage" class="w-full bg-[<?php
+
+                                                                                if ($startTime > $endTime) {
+                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                        echo "#000000";
+                                                                                    } else {
+                                                                                        echo $buttonColor;
+                                                                                    }
+                                                                                } else {
+                                                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                        echo "#000000";
+                                                                                    } else {
+                                                                                        echo $buttonColor;
+                                                                                    }
+                                                                                }
+
+
+                                                                                ?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
                 </form>
-
-                <button type="submit"  id="sendMessage" class="w-full bg-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-            echo $buttonColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        } else {
-            echo $buttonColor;
-        }
-    }
-  
-
-      ?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
             </div>
 
             <?php
@@ -222,122 +223,122 @@ if ($startTime > $endTime) {
             <!-- right side  -->
             <div class="hidden md:block ">
                 <div class="px-10 py-10 mr-[3px] bg-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#3d3d3d";
-        }else {
-            echo $secondaryColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#3d3d3d";
-        } else {
-            echo $secondaryColor;
-        }
-    }
 
-      ?>] leading-10 pr-18">
+                                                        if ($startTime > $endTime) {
+                                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                echo "#3d3d3d";
+                                                            } else {
+                                                                echo $secondaryColor;
+                                                            }
+                                                        } else {
+                                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                echo "#3d3d3d";
+                                                            } else {
+                                                                echo $secondaryColor;
+                                                            }
+                                                        }
+
+                                                        ?>] leading-10 pr-18">
                     <p class="text-3xl font-medium text-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $titleColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $titleColor;
-        }
-    }
-  
 
-      ?>]">Info</p>
+                                                            if ($startTime > $endTime) {
+                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                    echo "#ffffff";
+                                                                } else {
+                                                                    echo $titleColor;
+                                                                }
+                                                            } else {
+                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                    echo "#ffffff";
+                                                                } else {
+                                                                    echo $titleColor;
+                                                                }
+                                                            }
+
+
+                                                            ?>]">Info</p>
                     <div class="flex items-center space-x-5 mt-2 text-[<?php
-    if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $navColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $navColor;
-        }
-    }
-  
+                                                                        if ($startTime > $endTime) {
+                                                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                echo "#ffffff";
+                                                                            } else {
+                                                                                echo $navColor;
+                                                                            }
+                                                                        } else {
+                                                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                echo "#ffffff";
+                                                                            } else {
+                                                                                echo $navColor;
+                                                                            }
+                                                                        }
 
-      ?>]">
+
+                                                                        ?>]">
                         <ion-icon class="w-[20px] h-[20px]" name="mail-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_message.svg" alt="message"> -->
                         <span class="md:text-sm"><a href="mailto:<?= $editEmail ?>"><?= $editEmail ?> </a></span>
                     </div>
                     <div class="flex items-center space-x-5 text-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $titleColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $titleColor;
-        }
-    }; 
-    
-  
 
-      ?>]">
+                                                                    if ($startTime > $endTime) {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    } else {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    };
+
+
+
+                                                                    ?>]">
                         <ion-icon class="w-[20px] h-[20px]" name="call-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_phone.svg" alt="phone"> -->
                         <span><a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
                     </div>
                     <div class="flex items-start space-x-5 text-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $titleColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $titleColor;
-        }
-    }
-  
 
-      ?>]">
+                                                                    if ($startTime > $endTime) {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    } else {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    }
+
+
+                                                                    ?>]">
                         <ion-icon class="w-[20px] h-[20px]" name="location-outline"></ion-icon>
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_address.svg" alt="address"> -->
                         <span class="w-[190px] md:text-sm"><a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
                     </div>
                     <div class="flex items-center space-x-5 text-[<?php
-     if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        }else {
-            echo $titleColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#ffffff";
-        } else {
-            echo $titleColor;
-        }
-    }
+                                                                    if ($startTime > $endTime) {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    } else {
+                                                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo "#ffffff";
+                                                                        } else {
+                                                                            echo $titleColor;
+                                                                        }
+                                                                    }
 
-      ?>]">
+                                                                    ?>]">
                         <!-- <img class="w-[20px] h-[20px]" src="../resources/img/contact/black_time.svg" alt="time"> -->
                         <ion-icon class="w-[20px] h-[20px]" name="time-outline"></ion-icon>
                         <span><?= $editTime ?></span>
@@ -347,7 +348,7 @@ if ($startTime > $endTime) {
         </div>
 
     </section>
-<!-- for mobile view -->
+    <!-- for mobile view -->
     <section class="bg-[#F36823] md:hidden">
         <div class="px-10 py-10 text-white leading-10">
             <p class="text-3xl font-medium">Info</p>
@@ -377,7 +378,7 @@ if ($startTime > $endTime) {
     </section>
 
     <script>
- $(document).ready(function() {
+        $(document).ready(function() {
             $("#sendMessage").click(function() {
                 $(".contactAdminFinishModal").toggle();
             });
@@ -388,32 +389,32 @@ if ($startTime > $endTime) {
         });
 
 
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission
-        console.log ("success");
-        // Get user input from textarea
-        var message = document.getElementById("messageInput").value;
-        
-        // Prepare data to send to the server
-        var formData = new FormData();
-        formData.append("message", message);
-        
-        // Send data using AJAX
-        fetch("../../Controller/contactAdminController.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response from the server (if needed)
-            console.log(data);
-        })
-        .catch(error => {
-            // Handle any errors
-            console.error("Error:", error);
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            console.log("success");
+            // Get user input from textarea
+            var message = document.getElementById("messageInput").value;
+            console.log(message);
+            // Prepare data to send to the server
+            var formData = new FormData();
+            formData.append("message", message);
+
+            // Send data using AJAX
+            fetch("../../Controller/contactAdminController.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response from the server (if needed)
+                    console.log(data);
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error("Error:", error);
+                });
         });
-    });
-</script>
+    </script>
 
 </body>
 
