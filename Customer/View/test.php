@@ -72,6 +72,8 @@ include "../Controller/homePage/homeProductController.php";
 <?php
 
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+$mobileLogo = isset($editInfo[0]["mobileLogo"]) && !empty($editInfo[0]["mobileLogo"]) ? $editInfo[0]["mobileLogo"] : '/Storage/logo/mobileLogo.svg';
+
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
@@ -172,26 +174,41 @@ bg-[<?php
 
 
         <!-- mobile logo -->
-        <img class="md:hidden w-[90px] order-none" src="./resources/img/header/headerLogo.svg " alt="">
+        <img class="md:hidden mx-auto h-[50px] order-none" src=" ../../<?php
+                                                                        if ($startTime > $endTime) {
+                                                                          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo 'Storage/logo/darkMobileLogo.svg';
+                                                                          } else {
+                                                                            echo $mobileLogo;
+                                                                          }
+                                                                        } else {
+                                                                          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo 'Storage/logo/darkMobileLogo.svg';
+                                                                          } else {
+                                                                            echo $mobileLogo;
+                                                                          }
+                                                                        }
+
+                                                                        ?>" alt="">
 
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
           <a href="./Login/login.php">
             <button class="bg-[<?php
-              if ($startTime > $endTime) {
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                  echo '#ffffff';
-                } else {
-                  echo $tertiaryColor;
-                }
-              } else {
-                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                  echo '#ffffff';
-                } else {
-                  echo $tertiaryColor;
-                }
-              }
-              ?>] 
+                                if ($startTime > $endTime) {
+                                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo '#ffffff';
+                                  } else {
+                                    echo $tertiaryColor;
+                                  }
+                                } else {
+                                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo '#ffffff';
+                                  } else {
+                                    echo $tertiaryColor;
+                                  }
+                                }
+                                ?>] 
         text-[<?php
               if ($startTime > $endTime) {
                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -221,24 +238,24 @@ bg-[<?php
         <!-- mobile menu -->
         <span class=" text-3xl order-first cursor-pointer mx-2 md:hidden block">
           <ion-icon class="  text-[<?php
-              if ($startTime > $endTime) {
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                  echo $primaryColor;
-                } else {
-              echo "#000000";
-                }
-              } else {
-                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                  echo $primaryColor;
-                } else {
-                echo "#000000"; 
-                }
-              }
-              ?>]" name="menu" onclick="Menu(this)"></ion-icon>
+                                    if ($startTime > $endTime) {
+                                      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                        echo $primaryColor;
+                                      } else {
+                                        echo "#000000";
+                                      }
+                                    } else {
+                                      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                        echo $primaryColor;
+                                      } else {
+                                        echo "#000000";
+                                      }
+                                    }
+                                    ?>]" name="menu" onclick="Menu(this)"></ion-icon>
         </span>
       </div>
 
-      <ul class="md:flex md:items-center z-50  md:z-auto md:static absolute 
+      <ul class="md:flex md:items-center z-50 md:mt-0 -mt-[23px]  md:z-auto md:static absolute 
       bg-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -454,13 +471,22 @@ bg-[<?php
             </ul>
           </div>
           <!-- <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt=""> -->
-          <ion-icon id="menu-toggle" class="text-2xl mt-1 mr-2  md:hidden cursor-pointer     text-[<?php
-              if ($startTime > $endTime) {
-                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                  echo '#000000';
+          <ion-icon id="menu-toggle" class="text-2xl mt-1 mr-2  md:hidden cursor-pointer     
+          text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
                 } else {
-                  echo $tertiaryColor;
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
                 }
+<<<<<<< HEAD
               } else {
                 if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                   echo '#000000';
@@ -472,8 +498,13 @@ bg-[<?php
               <form action="../Controller/homePage/searchProductController.php" method="post">
                 <input name="searchHome" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
               </form>
+=======
+                ?>] " name="grid"></ion-icon>
+          <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+>>>>>>> origin/main
         </div>
-        <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
+        <a href="../View/Checkout/shoppingCart.php">
+          <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
         
       text-[<?php
             if ($startTime > $endTime) {
@@ -490,7 +521,8 @@ bg-[<?php
               }
             }
             ?>]" name="cart-outline"></ion-icon>
-        <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full 
+        </a>
+        <span class="cart_item absolute md:right-5 right-1 md:top-[70px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
         bg-[<?php
             if ($startTime > $endTime) {
               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -613,7 +645,7 @@ bg-[<?php
           }
         }
         ?>] flex justify-around relative">
-          <div class="  img w-[300px]  ">
+          <div class="img md:w-[300px] w-[180px]">
             <img src="../../<?= $sliderImg2 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
@@ -675,7 +707,7 @@ bg-[<?php
         }
         ?>]                                                                                                     
     flex justify-around relative">
-          <div class="img w-[300px] ">
+          <div class="img md:w-[300px] w-[180px]">
             <img src="../../<?= $sliderImg3 ?>" alt="">
           </div>
           <div class="content w-[400px] h-[250px] ">
@@ -726,7 +758,7 @@ bg-[<?php
   <!-- start deals -->
   <div class=" max-w-[1700px] mx-auto">
     <div class="pt-[120px] -z-50 ">
-      <h2 class="px-8 -mt-[60px] md:py-4 ml-[60px] text-xl font-bold  
+      <h2 class="md:px-8 -mt-[60px] md:py-4 ml-[20px] md:ml-[60px] text-xl font-bold  
     text-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -825,7 +857,8 @@ bg-[<?php
 
   <!-- start trending products -->
   <div id="trending" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  
+
+    <h2 class="md:px-8 mt-[80px] mb-[40px]  md:py-4  ml-[20px] md:ml-[60px] text-xl font-bold  
     text-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -914,7 +947,7 @@ bg-[<?php
 
   <!-- start bestsellers products -->
   <div id="best" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold 
+    <h2 class="md:px-8 mt-[80px] mb-[40px]  md:py-4  ml-[20px] md:ml-[60px] text-xl font-bold  
    text-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1002,7 +1035,8 @@ bg-[<?php
 
   <!-- start new products -->
   <div id="new" class="max-w-[1700px] mx-auto relative">
-    <h2 class="ml-[60px] px-8 mt-[80px] mb-[40px] text-xl font-bold  
+    <h2 class="md:px-8 mt-[80px] mb-[40px]  md:py-4  ml-[20px] md:ml-[60px] text-xl font-bold  
+ 
     text-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1292,19 +1326,19 @@ bg-[<?php
       <div class="">
         <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 
       text-[<?php
-           if ($startTime > $endTime) {
-            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-              echo '#ffffff';
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo '#ffffff';
+              } else {
+                echo $navColor;
+              }
             } else {
-              echo $navColor;
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo '#ffffff';
+              } else {
+                echo $navColor;
+              }
             }
-          } else {
-            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-              echo '#ffffff';
-            } else {
-              echo $navColor;
-            }
-          }
             ?>]">Contact Us</span>
         <span class="block cursor-pointer
         text-[<?php

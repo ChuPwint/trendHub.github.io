@@ -145,13 +145,13 @@ if (!isset($_SESSION["eachMonthHistory"]) && !isset($_SESSION["eachMonthEarning"
                 ?>
                 <p class="px-4 py-2 text-white bg-secondary"><?php echo "Date : $day, $month $date, $year" ?></p>
                 <!-- start of select box -->
-                <div>
+                <!-- <div>
                     <span class="mr-2 font-medium">Sort By</span>
                     <select name="paymentHistoryTable" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="paymentDate">Payment Date</option>
                         <option class="p-2" value="paymentType">Payment Type</option>
                     </select>
-                </div>
+                </div> -->
                 <!-- end of select box -->
             </div>
             <!-- end of search button and select box -->
