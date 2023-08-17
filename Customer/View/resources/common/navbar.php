@@ -376,7 +376,7 @@ $currentHour = date('H:i');
 
               <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
                 <?php foreach ($categoriesResult as $category) { ?>
-                  <li><a href="../Product/category.php" class="block bg-white px-4 py-2 text-gray-800  duration-400"><?= $category["category_name"] ?></a></li>
+                  <li><a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg-white px-4 py-2 text-gray-800  duration-400"><?= $category["category_name"] ?></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -433,7 +433,7 @@ $currentHour = date('H:i');
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
         <?php foreach ($categoriesResult as $category) { ?>
-          <a href="../Product/category.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
+          <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
         <?php } ?>
       </div>
     </button>
