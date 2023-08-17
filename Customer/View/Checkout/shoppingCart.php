@@ -158,7 +158,7 @@ include "../resources/common/navbar.php";
                                             if ($cartItem["productID"] == $itemDetail["id"]) $value =  $cartItem["qty"];
                                         }
                                         ?>
-                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md disabled bg-opacity-50 text-gray-200">-</button>
+                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md bg-opacity-50">-</button>
                                         <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
                                         <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                                     </div>

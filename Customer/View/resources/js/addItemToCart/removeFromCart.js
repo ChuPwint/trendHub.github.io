@@ -1,10 +1,17 @@
 $(document).ready(() => {
   const totalProductCount = $(".itemCard").length;
+  $(".quantityInput").each(function(){
+    let value = $(this).val();
+    if(value == 1) $(this).parent().find(".minusBtn").attr("disabled", true);
+  })
 
   $(".plusBtn").on("click", function () {
+    $(".minusBtn").attr("disabled", false);
     var pricePerItem = Number($(this).attr("pricePerItem"));
     var inputElement = $(this).parent().find("input[name='qty']");
     var inputValue = Number(inputElement.val());
+    inputElement.val(++inputValue);
+    (inputValue == 10) ? $(".plusBtn").attr("disabled", true) : false;
     var pPriceElement = $(this).parent().parent().find(".desktopPrice");
     var mobilePriceElement = $(this).parent().parent().find(".mobilePrice");
     var total = pricePerItem * inputValue;
@@ -13,9 +20,12 @@ $(document).ready(() => {
   });
 
   $(".minusBtn").on("click", function () {
+    $(".plusBtn").attr("disabled", false);
     var pricePerItem = Number($(this).attr("pricePerItem"));
     var inputElement = $(this).parent().find("input[name='qty']");
     var inputValue = Number(inputElement.val());
+    inputElement.val(--inputValue);
+    (inputValue == 1) ? $(".minusBtn").attr("disabled", true) : false;
     var pPriceElement = $(this).parent().parent().find(".desktopPrice");
     var mobilePriceElement = $(this).parent().parent().find(".mobilePrice");
     var total = pricePerItem * inputValue;
