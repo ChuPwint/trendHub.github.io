@@ -14,7 +14,7 @@
 <?php
 session_start();
 $_SESSION["loginError"];
-ini_set('display_errors', 1);
+
 
 
 ?>
