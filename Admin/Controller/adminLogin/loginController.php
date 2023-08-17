@@ -1,9 +1,9 @@
 <?php
 
-ini_set('display_errors', 1);
+
 
 session_start();
-if(count($_POST) == 0){
+
 if (isset($_POST["login"])) {
 
     $name = $_POST['username'];
@@ -11,7 +11,7 @@ if (isset($_POST["login"])) {
     include "../../Model/model.php";
 
     $sql = $pdo->prepare(
-        "SELECT * FROM m_admin WHERE name=:name"
+        "SELECT * FROM m_admin WHERE BINARY name=:name"
     );
 
     $sql->bindValue(":name", $name);
@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
     if (count($result) == 0) {
 
         $_SESSION["loginError"] = "User not found!";
-        header("Location: ../../View/testindex.php");
+        header("Location: ../../View/index.php");
     } else {
         if (password_verify($passwords, $result[0]["password"])) {
             header("Location: ../../../Admin/View/Analytics/analytics.php");
@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
          
         } else {
             $_SESSION["loginError"] = "Email or Password incorrect";
-            header("Location: ../../View/testindex.php");
+            header("Location: ../../View/index.php");
             
         }
     }
@@ -38,9 +38,7 @@ if (isset($_POST["login"])) {
     header("Location: ../../../View/Error/error.php");
 
 }
-header("Location: ../../View//Error/error.php");
 
-}
 
 
 

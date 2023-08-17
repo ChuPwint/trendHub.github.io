@@ -12,7 +12,8 @@ $sql = $pdo->prepare("
     FROM m_products
     JOIN m_categories ON m_products.category_id = m_categories.id
     WHERE m_products.merchant_id = :id
-    AND m_products.del_flg = 0;
+    AND m_products.del_flg = 0
+    ORDER BY m_products.p_name;
 ");
 
 $sql->bindValue(":id", $merchantId);

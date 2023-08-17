@@ -61,7 +61,7 @@ $currentHour = date('H:i');
 
       ?>] w-full h-auto font-roboto mt-[90px]">
 <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
-    <div class="">
+    <div class="itemDetail">
         <span class="block text-[18px] font-semibold text-[<?php
       
       if ($startTime > $endTime) {

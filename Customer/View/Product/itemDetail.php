@@ -12,6 +12,15 @@ if (isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["tot
 if (isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
 if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
 if (isset($_SESSION["isWishlisted"])) $isWishlisted =  $_SESSION["isWishlisted"];
+include "../resources/common/navbar.php";
+include "../../Controller/uiElement/editInfoController.php";
+$primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
+$lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
+$navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
+$startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00';
+$endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00';
+date_default_timezone_set('Asia/Yangon'); 
+$currentHour = date('H:i'); 
 
 ?>
 

@@ -112,7 +112,7 @@ if ($startTime > $endTime) {
     
   
 
-      ?>] hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
+      ?>] text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {

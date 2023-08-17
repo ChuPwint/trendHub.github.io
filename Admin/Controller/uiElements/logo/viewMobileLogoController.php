@@ -6,6 +6,6 @@ $sql = $pdo->prepare(
     "SELECT * FROM ui_setting WHERE id =0"
 );
 $sql->execute();
-$editLogo = $sql->fetchAll(PDO::FETCH_ASSOC);
+$editMobileLogo = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
