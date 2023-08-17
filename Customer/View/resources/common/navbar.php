@@ -322,7 +322,7 @@ $currentHour = date('H:i');
       ?>] duration-300">Contact</a>
         </li>
         <?php if (!isset($loginId)) { ?>
-          <a href="./Login/login.php">
+          <a href="../Login/login.php">
             <button class=" bg-[<?php
       
       if ($startTime > $endTime) {
