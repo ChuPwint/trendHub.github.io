@@ -39,22 +39,22 @@ include "../resources/common/navbar.php";
 
 <body class="scrollHide md:bg-[<?php
 
-if ($startTime > $endTime) {
-    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
-    }else {
-        echo $primaryColor;
-    }
-} else {
-    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
-    } else {
-        echo $primaryColor;
-    }
-}
+                                if ($startTime > $endTime) {
+                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                        echo "#000000";
+                                    } else {
+                                        echo $primaryColor;
+                                    }
+                                } else {
+                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                        echo "#000000";
+                                    } else {
+                                        echo $primaryColor;
+                                    }
+                                }
 
 
-                    ?>] bg-secondary font-roboto">
+                                ?>] bg-secondary font-roboto">
 
 
 
@@ -69,63 +69,63 @@ if ($startTime > $endTime) {
             <!-- start of receipt card -->
             <div class="px-3 py-2 bg-[<?php
 
-if ($startTime > $endTime) {
-    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#4f4f4f";
-    } else {
-        echo $secondaryColor;
-    }
-} else {
-    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-        echo "#4f4f4f";
-    } else {
-        echo $secondaryColor;
-    }
-}
+                                        if ($startTime > $endTime) {
+                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                echo "#4f4f4f";
+                                            } else {
+                                                echo $secondaryColor;
+                                            }
+                                        } else {
+                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                echo "#4f4f4f";
+                                            } else {
+                                                echo $secondaryColor;
+                                            }
+                                        }
 
 
 
-?>] shadow-md md:shadow-none text-[<?php
+                                        ?>] shadow-md md:shadow-none text-[<?php
 
-if ($startTime > $endTime) {
-    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
-    } else {
-        echo $navColor;
-    }
-} else {
-    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-        echo "#ffffff";
-    } else {
-        echo $navColor;
-    }
-}
+                                    if ($startTime > $endTime) {
+                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#ffffff";
+                                        } else {
+                                            echo $navColor;
+                                        }
+                                    } else {
+                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                            echo "#ffffff";
+                                        } else {
+                                            echo $navColor;
+                                        }
+                                    }
 
 
-?>]">
+                                    ?>]">
                 <p class="text-center 
  font-medium mt-2">Thank you, <span>John</span></p>
                 <p class="text-center mt-2">You will receive a confirmation email soon.</p>
                 <!-- start of order detail card -->
                 <div class="bg-secondary md:bg-[<?php
 
-if ($startTime > $endTime) {
-    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
-    } else {
-        echo $primaryColor;
-    }
-} else {
-    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-        echo "#000000";
-    } else {
-        echo $primaryColor;
-    }
-}
+                                                if ($startTime > $endTime) {
+                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                        echo "#000000";
+                                                    } else {
+                                                        echo $primaryColor;
+                                                    }
+                                                } else {
+                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                        echo "#000000";
+                                                    } else {
+                                                        echo $primaryColor;
+                                                    }
+                                                }
 
 
 
-?>] mt-10 p-4 rounded-md mb-2">
+                                                ?>] mt-10 p-4 rounded-md mb-2">
                     <p class="font-semibold mb-2">Order Details</p>
                     <div class="flex justify-between items-center">
                         <div class="font-medium">
