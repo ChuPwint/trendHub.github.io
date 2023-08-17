@@ -51,6 +51,7 @@ $sql = $pdo->prepare(
     FROM t_orders o
     JOIN m_months m ON MONTH(o.create_date) = m.id 
     WHERE o.merchant_id = 1
+    ORDER BY m.id
     "
 );
 $sql->execute();

@@ -469,7 +469,9 @@ bg-[<?php
                 }
               }
               ?>] " name="grid"></ion-icon>
-          <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+              <form action="../Controller/homePage/searchProductController.php" method="post">
+                <input name="searchHome" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+              </form>
         </div>
         <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
         
@@ -1450,6 +1452,7 @@ bg-[<?php
   <script src="./resources/js/addItemToCart/addToCart.js"></script>
   <script src="./resources/js/addItemToCart/cartItems.js"></script>
   <script src="./resources/js/homePage/header/wishlistAjax.js"></script>
+  <script src="./resources/js/homePage/header/searchProduct.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
