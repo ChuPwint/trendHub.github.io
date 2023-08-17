@@ -13,7 +13,7 @@ if (!isset($_POST["sortText"])) {
         ON m_products.category_id = m_categories.id 
         WHERE m_products.merchant_id = :id 
         AND m_products.del_flg = 0
-        ORDER BY m_products.$sortProduct"
+        ORDER BY $sortProduct"
     );
     $sql->bindValue(":id", $merchantId);
     $sql->execute();

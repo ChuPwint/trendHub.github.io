@@ -114,7 +114,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>] hover:underline text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
+      ?>] text-xs md:text-sm md:w-20 p-1 rounded-sm text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -191,7 +191,7 @@ if ($startTime > $endTime) {
 ?>] text-white rounded hover:[#FF5500] focus:outline-none focus:ring-2 mt-3">Verify</button>
                 </form>
                 <form action="../../Controller/pwVerifyTokenController.php" method="post">
-                    If you dont receive code <button type="submit" name="resendToken" class="text-xs md:text-sm text-medium mt-2 ml-2 font-bold underline text-tertiary">Resend</button>
+                    If you dont receive code <button type="submit" name="resendToken" class="text-xs md:text-sm text-medium mt-2 ml-2 font-bold text-tertiary">Resend</button>
 
                 </form>
                 <small class="text-textRed">

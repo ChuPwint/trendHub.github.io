@@ -1135,10 +1135,13 @@ video {
   max-height: 200px;
 }
 
+<<<<<<< HEAD
 .max-h-full {
   max-height: 100%;
 }
 
+=======
+>>>>>>> origin/main
 .min-h-\[250px\] {
   min-height: 250px;
 }
@@ -1327,6 +1330,10 @@ video {
   width: 365px;
 }
 
+.w-\[40\%\] {
+  width: 40%;
+}
+
 .w-\[400px\] {
   width: 400px;
 }
@@ -1353,6 +1360,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .max-w-\[1700px\] {
@@ -2026,6 +2037,17 @@ video {
   padding-top: 1.25rem;
 }
 
+<<<<<<< HEAD
+=======
+.pt-60 {
+  padding-top: 15rem;
+}
+
+.pt-64 {
+  padding-top: 16rem;
+}
+
+>>>>>>> origin/main
 .pt-8 {
   padding-top: 2rem;
 }
@@ -2733,6 +2755,10 @@ video {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:max-w-\[250px\] {
