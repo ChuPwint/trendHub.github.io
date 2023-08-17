@@ -486,22 +486,10 @@ bg-[<?php
                     echo $tertiaryColor;
                   }
                 }
-<<<<<<< HEAD
-              } else {
-                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                  echo '#000000';
-                } else {
-                  echo $tertiaryColor;
-                }
-              }
               ?>] " name="grid"></ion-icon>
               <form action="../Controller/homePage/searchProductController.php" method="post">
                 <input name="searchHome" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
               </form>
-=======
-                ?>] " name="grid"></ion-icon>
-          <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
->>>>>>> origin/main
         </div>
         <a href="../View/Checkout/shoppingCart.php">
           <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
