@@ -232,7 +232,7 @@ $currentHour = date('H:i');
       ?>]  p-2 rounded-md cursor-pointer" id="menu-wishlist">
                                 <!-- <img src="../resources/img/profile/wishlist.png" alt="Wishlist Icon" class="w-4 mr-2"> -->
                                 <ion-icon  class="text-lg mr-2" name="heart-outline"></ion-icon>
-                                <span class="font-medium">Wishlist</span>
+                                <span class="font-medium   ">Wishlist</span>
                             </a>
                         </li>
 
@@ -258,7 +258,7 @@ $currentHour = date('H:i');
       ?>] hover:text-white p-2 rounded-md cursor-pointer" id="menu-order-history">
                                 <!-- <img src="../resources/img/profile/orderhistory.png" alt="Order history Icon" class="w-4 mr-2"> -->
                                 <ion-icon class="text-lg mr-2" name="newspaper-outline"></ion-icon>
-                                <span class="font-medium">Order History</span>
+                                <span class="font-medium ">Order History</span>
                             </a>
                         </li>
                         <li>
@@ -487,7 +487,25 @@ $currentHour = date('H:i');
                 <!-- wishlist mobile view -->
                 <div class="wishlistMobile container mt-2 hidden md:hidden relative ">
                     <div class="block md:hidden">
-                        <p class="flex justify-center items-center mt-4 text-lg font-bold">My Wishlists</p>
+                        <p class="flex justify-center items-center mt-4 text-lg font-bold text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>]">My Wishlists</p>
                         <!-- Loop through the $wishlistProducts array and display each product in a div -->
                         <div class="bg-secondary shadow-lg m-4 p-4 wDelete_Mobile">
                             <?php foreach ($wishlistProducts as $product) : ?>
@@ -512,7 +530,7 @@ $currentHour = date('H:i');
                 <!-- Destop View: order history-->
                 <div class="container mx-auto mt-2 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="orderHistoryDestop">
                     <div class="bg-primary shadow-md rounded-lg p-6  hidden md:block">
-                        <h2 class="text-2xl font-semibold mb-4">Order History</h2>
+                        <h2 class="text-2xl font-semibold mb-4 ">Order History</h2>
                         <table class="w-full border-separate border-spacing-y-3 ">
                             <thead class="bg-secondary">
                                 <tr>
@@ -636,7 +654,25 @@ $currentHour = date('H:i');
 
                 <!-- Start Notifications Card -->
                 <div class="container mx-auto mt-8 p-4 hidden md:h-[540px] md:overflow-y-scroll scrollbar-hide" id="notification">
-                    <h2 class="text-2xl font-semibold mb-4  flex justify-center ">Notifications</h2>
+                    <h2 class="text-2xl font-semibold mb-4  flex justify-center text-[<?php
+      
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        }else {
+          echo $navColor;
+      }
+    } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+            echo "#ffffff";
+        } else {
+            echo $navColor;
+        }
+    }
+    
+  
+
+      ?>]">Notifications</h2>
                     <?php foreach ($notifications as $notification) { ?>
                         <div class="w-full mx-auto mt-8">
                             <div class="bg-white shadow-lg rounded-lg px-6 py-4 mb-4">
@@ -668,7 +704,7 @@ $currentHour = date('H:i');
                 <!-- Modal Box for log out -->
                 <div class="flex justify-center items-center ">
                     <div class="fixed  w-full flex items-center justify-center hidden" id="logoutModal">
-                        <div class="bg-white p-6 rounded-md shadow-lg w-2/3 md:w-1/4 ">
+                        <div class="bg-white p-6 mx-auto rounded-md shadow-lg w-2/3 md:w-1/4 ">
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
                                 <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
@@ -682,26 +718,32 @@ $currentHour = date('H:i');
     </div>
 
     <!-- Mobile menu button-->
-    <div class="fixed md:hidden w-full bottom-0  flex justify-center bg-tertiary rounded-lg shadow-lg p-2">
+    <div class="fixed md:hidden w-full bottom-0  flex justify-center bg-tertiary z-30 rounded-lg shadow-lg p-2">
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
-            <img id="mobile-user" src="../resources/img/profile/user.png" alt="" class="w-6">
+            <!-- <img id="mobile-user" src="../resources/img/profile/user.png" alt="" class="w-6"> -->
+            <ion-icon id="mobile-user" class="text-3xl text-white hover:text-black " name="person-circle-outline"></ion-icon>
         </div>
 
 
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
-            <img id="mobile-wishlist" src="../resources/img/profile/wishlist.png" alt="" class="w-6">
+            <!-- <img id="mobile-wishlist" src="../resources/img/profile/wishlist.png" alt="" class="w-6"> -->
+            <ion-icon id="mobile-wishlist" class="text-3xl text-white hover:text-black " name="heart-outline"></ion-icon>
+
         </div>
 
 
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
-            <img id="mobile-order" src="../resources/img/profile/orderhistory.png" alt="" class="w-6">
+            <!-- <img id="mobile-order" src="../resources/img/profile/orderhistory.png" alt="" class="w-6"> -->
+            <ion-icon id="mobile-order" class="text-3xl text-white hover:text-black " name="newspaper-outline"></ion-icon>
         </div>
 
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
-            <img id="mobile-notify" src="../resources/img/profile/notify.png" alt="" class="w-6">
+            <!-- <img id="mobile-notify" src="../resources/img/profile/notify.png" alt="" class="w-6"> -->
+            <ion-icon id="mobile-notify" class="text-3xl text-white hover:text-black " name="notifications-outline"></ion-icon>
         </div>
         <div class="hover:bg-white hover:text-white p-4 rounded-md cursor-pointer">
-            <img id="mobile-logout" src="../resources/img/login/logout1.png" alt="" class="w-6">
+            <!-- <img id="mobile-logout" src="../resources/img/login/logout1.png" alt="" class="w-6"> -->
+            <ion-icon id="mobile-logout"class="text-3xl text-white hover:text-black " name="log-out-outline"></ion-icon>
         </div>
 
     </div>
