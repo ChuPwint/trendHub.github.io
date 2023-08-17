@@ -1,6 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
+
 
 session_start();
 if(count($_POST) == 0){
@@ -38,7 +38,7 @@ if (isset($_POST["login"])) {
     header("Location: ../../../View/Error/error.php");
 
 }
-header("Location: ../../View//Error/error.php");
+
 
 }
 
