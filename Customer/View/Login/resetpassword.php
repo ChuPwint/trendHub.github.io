@@ -6,6 +6,8 @@ if (!isset($_SESSION["changeAccept"])) {
 }
 include "../../Controller/uiElement/editInfoController.php";
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+$mobileLogo = isset($editInfo[0]["mobileLogo"]) && !empty($editInfo[0]["mobileLogo"]) ? $editInfo[0]["mobileLogo"] : '/Storage/logo/mobileLogo.svg';
+
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
@@ -26,7 +28,8 @@ $currentHour = date('H:i');
 
     <!-- Include Tailwind CSS -->
     <link href="../resources/lib/tailwind/output.css" rel="stylesheet">
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body class="bg-[<?php
@@ -90,7 +93,25 @@ if ($startTime > $endTime) {
             </div>
         </div>
         <div class="block md:hidden absolute left-5 top-2 mt-4">
-            <img src="../resources/img/login/backIcon.png" alt="back to home" srcset="" class="w-4">
+            <!-- <img src="../resources/img/login/backIcon.png" alt="back to home" srcset="" class="w-4"> -->
+            <a href="../../View/index.php">
+                <ion-icon class=" text-[<?php
+                                        if ($startTime > $endTime) {
+                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                echo '#ffffff';
+                                            } else {
+                                                echo $navColor;
+                                            }
+                                        } else {
+                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                echo '#ffffff';
+                                            } else {
+                                                echo $navColor;
+                                            }
+                                        }
+                                        ?>]" name="chevron-back-outline"></ion-icon>
+
+            </a>
         </div>
 
         <p class="mt-4 text-xs md:text-base text-center absolute right-5 top-2">
@@ -134,7 +155,22 @@ if ($startTime > $endTime) {
         </p>
     </div>
     <div class="flex justify-center items-center flex-col px-5">
-        <img src="../resources/img/login/TH Logo 3.png" alt="logo" class="w-16 md:w-24 object-cover top-2  relative md:mt-8 mt-12">
+    <img src="../../../<?php
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo 'Storage/logo/darkMobileLogo.svg';
+                                } else {
+                                    echo $mobileLogo;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo 'Storage/logo/darkMobileLogo.svg';
+                                } else {
+                                    echo $mobileLogo;
+                                }
+                            }
+
+                            ?>" alt="logo" class="w-20 md:w-24 object-cover top-2  relative md:mt-8 mt-12">
         <div class="bg-primary relative md:w-1/2 flex justify-center items-center  shadow-2xl md:mt-5 mt-10  py-8">
             <div class="hidden md:block w-1/2 p-8 mt-10 mb-10">
                 <img src="../resources/img/login/reset_password.png" alt="Illustration Photo" class="w-full h-full object-cover">

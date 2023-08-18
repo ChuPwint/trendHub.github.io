@@ -117,6 +117,7 @@ $currentHour = date('H:i');
   }
 </style>
 
+
 <body class=" font-roboto 
 bg-[<?php
     if ($startTime > $endTime) {
@@ -135,6 +136,8 @@ bg-[<?php
     ?>] scrollHide">
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
+
+  <!-- <marquee style="color:white" behavior="" direction="">Hello</marquee> -->
     <!-- start first navbar -->
     <nav class="py-2 px-4 bg-[<?php
                               if ($startTime > $endTime) {
@@ -486,10 +489,8 @@ bg-[<?php
                     echo $tertiaryColor;
                   }
                 }
-              ?>] " name="grid"></ion-icon>
-              <form action="../Controller/homePage/searchProductController.php" method="post">
-                <input name="searchHome" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
-              </form>
+                ?>] " name="grid"></ion-icon>
+          <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
         <a href="../View/Checkout/shoppingCart.php">
           <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
@@ -1130,6 +1131,7 @@ bg-[<?php
     <div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
       <div class="">
         <span class="block text-[18px] font-semibold py-3 
+        
     text-[<?php
           if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1375,7 +1377,7 @@ bg-[<?php
                 echo $navColor;
               }
             }
-            ?>]  w-[400px]">Address : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
+            ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
@@ -1474,7 +1476,6 @@ bg-[<?php
   <script src="./resources/js/addItemToCart/addToCart.js"></script>
   <script src="./resources/js/addItemToCart/cartItems.js"></script>
   <script src="./resources/js/homePage/header/wishlistAjax.js"></script>
-  <script src="./resources/js/homePage/header/searchProduct.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- end navbar -->
 
