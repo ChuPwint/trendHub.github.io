@@ -4,6 +4,12 @@ if (!isset($_SESSION)) {
 }
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
+  $profilePic = $_SESSION["userProfilePic"];
+  if ($profilePic == null) {
+    $setProfile = "../../Storage/profiles/noProfile.jpg";
+  } else {
+    $setProfile = "../.." . $profilePic;
+  }
 }
 if (!isset($view)) {
   include "../../Controller/commonCategoryController.php";
@@ -173,7 +179,7 @@ $currentHour = date('H:i');
          
         <?php  } else { ?>
           <div class="md:hidden order-last">
-            <a href=""><img class="w-12 cursor-pointer" src="../resources/img/profile/profile.png" alt=""></a>
+            <a href=""><img class="w-12 cursor-pointer" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
 
@@ -365,7 +371,7 @@ $currentHour = date('H:i');
           </a>
         <?php  } else { ?>
           <div class="logged_in">
-            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
+            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
