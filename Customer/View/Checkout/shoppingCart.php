@@ -4,6 +4,7 @@ session_start();
 
 if (isset($_SESSION["cartItemsDetails"])) $cartItemsDetails = $_SESSION["cartItemsDetails"];
 if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
+
 ?>
 
 
@@ -17,15 +18,29 @@ if (isset($_SESSION["cartItems"])) $cartItems = $_SESSION["cartItems"];
     <link rel="icon" href="../resources/img/header/headerLogo.svg" type="image/icon type">
 
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
-    <link rel="stylesheet" href="../resources/css/itemDetail.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script>
+        // Detect page refresh
+        if (performance.navigation.type === 1) {
+            // Redirect to controller.php
+            const cartItems = localStorage.getItem("cartItems");
+            const encodedCartItems = encodeURIComponent(cartItems);
+            window.location.href = "../../Controller/shoppingCartController.php?cartItems=" + encodedCartItems;
 
+        }
+    </script>
     <style>
-        .cart_item{
+        .cart_item {
             display: none;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
     </style>
 </head>
@@ -139,7 +154,7 @@ include "../resources/common/navbar.php";
                 <div class="md:w-[70%]">
                     <!-- start of cards -->
                     <?php if (isset($_SESSION["cartItemsDetails"])) {
-                        foreach ($cartItemsDetails as $itemDetail) {?>
+                        foreach ($cartItemsDetails as $itemDetail) { ?>
                             <div class="itemCard relative bg-white shadow-md m-5 p-4 flex justify-evenly">
                                 <div class="flex items-center">
                                     <img class=" w-16" src="../../..<?= $itemDetail["p_path"] ?>" alt="">
@@ -153,13 +168,13 @@ include "../resources/common/navbar.php";
                                     ?>
                                     <p class="pPrice mobilePrice pt-3 pb-3 w-48 break-words md:hidden"><?= number_format($price) ?>Ks</p>
                                     <div class="font-semibold pt-1 md:ml-3">
-                                    <?php
+                                        <?php
                                         foreach ($cartItems as $cartItem) {
                                             if ($cartItem["productID"] == $itemDetail["id"]) $value =  $cartItem["qty"];
                                         }
                                         ?>
                                         <button pricePerItem="<?= $itemDetail["sell_price"] ?>" productId="<?= $itemDetail["id"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md bg-opacity-50">-</button>
-                                        <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
+                                        <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor" readonly>
                                         <button pricePerItem="<?= $itemDetail["sell_price"] ?>" productId="<?= $itemDetail["id"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                                     </div>
                                     <p id="desktopPrice" class="desktopPrice pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
@@ -176,7 +191,7 @@ include "../resources/common/navbar.php";
                 <!--end of products card container -->
 
                 <!-- start of order summary container -->
-                <form id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>" action="../../Controller/checkOutController.php" method="post">
+                <div id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
                     <!-- start of order summary card -->
                     <div class="p-4 m-5 
     bg-[<?php
@@ -274,7 +289,7 @@ include "../resources/common/navbar.php";
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <button class="
+                            <button class="proceedCheckout
     bg-[<?php
 
         if ($startTime > $endTime) {
@@ -312,11 +327,11 @@ include "../resources/common/navbar.php";
 
 
 
-            ?>]" type="submit" name="checkout">Proceed to Checkout</button>
+            ?>]" name="checkout">Proceed to Checkout</button>
                         </div>
                     </div>
                     <!-- end of order summary card -->
-                </form>
+                </div>
                 <!-- end of order summary container -->
             </div>
             <!-- end of product and summary container -->
@@ -330,7 +345,15 @@ include "../resources/common/navbar.php";
     </div>
 
     <script src="../resources/js/addItemToCart/removeFromCart.js"></script>
+    <script>
+        $(".proceedCheckout").on("click", function() {
+            const cartItems = localStorage.getItem("cartItems");
+            const encodedCartItems = encodeURIComponent(cartItems);
+            window.location.href = "../../Controller/checkProductQtyController.php?cartItems=" + encodedCartItems;
+        })
+    </script>
 </body>
-<?php include "../resources/common/footer.php" ?>
+<?php include "../resources/common/footer.php"
+?>
 
 </html>

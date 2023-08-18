@@ -4,6 +4,12 @@ if (!isset($_SESSION)) {
 }
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
+  $profilePic = $_SESSION["userProfilePic"];
+  if ($profilePic == null) {
+    $setProfile = "../../Storage/profiles/noProfile.jpg";
+  } else {
+    $setProfile = "../.." . $profilePic;
+  }
 }
 if (!isset($view)) {
   include "../../Controller/commonCategoryController.php";
@@ -33,7 +39,7 @@ $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ?
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-
+  <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- tailwind link -->
   <!-- <link href="../lib/tailwind/output.css?id=<?= time() ?>" rel="stylesheet" /> -->
 
@@ -173,7 +179,7 @@ $currentHour = date('H:i');
          
         <?php  } else { ?>
           <div class="md:hidden order-last">
-            <a href=""><img class="w-12 cursor-pointer" src="../resources/img/profile/profile.png" alt=""></a>
+            <a href=""><img class="w-12 cursor-pointer" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
 
@@ -365,7 +371,7 @@ $currentHour = date('H:i');
           </a>
         <?php  } else { ?>
           <div class="logged_in">
-            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../resources/img/profile/profile.png" alt=""></a>
+            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
@@ -526,12 +532,13 @@ $currentHour = date('H:i');
     <script src="../resources/js/homePage/header/categoryDesktop.js"></script>
     <script src="../resources/js/homePage/header/categoryMobile.js"></script>
   <?php } ?>
+
+
   <script src="../resources/js/addItemToCart/addToCart.js"></script>
-  <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
 <script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
   <script src="../../View/resources/js/homePage/header/searchProduct.js"></script>
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- navbar -->
 
 

@@ -117,21 +117,21 @@ date_default_timezone_set('Asia/Yangon');
                         ?>] md:bg-[url('../../../<?php
 
 
-                                if ($startTime > $endTime) {
-                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                        echo 'Storage/general/darkContactBg.svg';
-                                    } else {
-                                        echo $background;
-                                    }
-                                } else {
-                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                        echo 'Storage/general/darkContactBg.svg';
-                                    } else {
-                                        echo $background;
-                                    }
-                                }
+                                                    if ($startTime > $endTime) {
+                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                            echo 'Storage/general/darkContactBg.svg';
+                                                        } else {
+                                                            echo $background;
+                                                        }
+                                                    } else {
+                                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                            echo 'Storage/general/darkContactBg.svg';
+                                                        } else {
+                                                            echo $background;
+                                                        }
+                                                    }
 
-                                ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
+                                                    ?>')] bg-cover bg-center py-5 rounded-md drop-shadow-xl md:flex md:items-center md:drop-shadow-none md:pl-20 md:space-x-28">
             <!-- left side -->
             <div class="text-center md:text-start px-5 py-5">
                 <h1 class="text-xl font-bold md:text-4xl text-[<?php
@@ -171,44 +171,44 @@ date_default_timezone_set('Asia/Yangon');
 
                                                                             ?>]">Feel free to contact us any time. We will get back to you as soon as we can!</p>
                 <form id="contactForm" action="">
-                    <textarea name="message" id="messageInput" cols="30" rows="10" class="resize-none border-2 border-[<?php
+                    <textarea name="message" id="messageInput" cols="30" rows="10" class="resize-none border-2 
+                    border-[<?php
 
-                                                                                                                        if ($startTime > $endTime) {
-                                                                                                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                                                echo "#000000";
-                                                                                                                            } else {
-                                                                                                                                echo $buttonColor;
-                                                                                                                            }
-                                                                                                                        } else {
-                                                                                                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                                                echo "#000000";
-                                                                                                                            } else {
-                                                                                                                                echo $buttonColor;
-                                                                                                                            }
-                                                                                                                        }
-
-
-                                                                                                                        ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
+                            if ($startTime > $endTime) {
+                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                } else {
+                                    echo $buttonColor;
+                                }
+                            } else {
+                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo "#000000";
+                                } else {
+                                    echo $buttonColor;
+                                }
+                            }
 
 
-                    <button type="submit" id="sendMessage" class="w-full bg-[<?php
-
-                                                                                if ($startTime > $endTime) {
-                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                        echo "#000000";
-                                                                                    } else {
-                                                                                        echo $buttonColor;
-                                                                                    }
-                                                                                } else {
-                                                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                        echo "#000000";
-                                                                                    } else {
-                                                                                        echo $buttonColor;
-                                                                                    }
-                                                                                }
+                            ?>] rounded py-2 px-2 outline-none bg-white md:bg-[#F7F7F7] w-full md:w-auto" placeholder="Message"></textarea>
 
 
-                                                                                ?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
+                    <button type="submit" id="sendMessage" class="w-full block 
+                    bg-[<?php
+
+                        if ($startTime > $endTime) {
+                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                echo "#000000";
+                            } else {
+                                echo $buttonColor;
+                            }
+                        } else {
+                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                echo "#000000";
+                            } else {
+                                echo $buttonColor;
+                            }
+                        }
+                        ?>] py-2 rounded text-white mt-5 md:w-[277px]">Send</button>
                 </form>
             </div>
 
