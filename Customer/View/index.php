@@ -505,7 +505,7 @@ bg-[<?php
                 ?>] " name="grid"></ion-icon>
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
-        <a href="../View/Checkout/shoppingCart.php">
+
           <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
         
       text-[<?php
@@ -523,8 +523,8 @@ bg-[<?php
               }
             }
             ?>]" name="cart-outline"></ion-icon>
-        </a>
-        <span class="cart_item absolute md:right-5 right-1 md:top-[5px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
+
+        <span class="cart_item absolute md:right-5 right-1 md:top-[70px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
         bg-[<?php
             if ($startTime > $endTime) {
               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {

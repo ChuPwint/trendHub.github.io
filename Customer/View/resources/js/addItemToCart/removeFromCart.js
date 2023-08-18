@@ -8,7 +8,6 @@ $(document).ready(() => {
     var inputElement = $(this).parent().find("input[name='qty']");
     var inputValue = Number(inputElement.val());
     inputElement.val(++inputValue);
-    (inputValue == 10) ? $(this).attr("disabled", true) : false;
     var pPriceElement = $(this).parent().parent().find(".desktopPrice");
     var mobilePriceElement = $(this).parent().parent().find(".mobilePrice");
     var total = pricePerItem * inputValue;
@@ -64,21 +63,27 @@ $(document).ready(() => {
 
   function addToStorage(productID){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    let currentItems = Number(localStorage.getItem("currentItems"));
     let indexToAdd = cartItems.findIndex((item) => item.productID == productID);
     if (indexToAdd !== -1) {
         cartItems[indexToAdd].qty++;
+        currentItems++;
         const updatedCartItemsJSON = JSON.stringify(cartItems);
         localStorage.setItem("cartItems", updatedCartItemsJSON);
+        localStorage.setItem("currentItems", currentItems);
     }
   }
 
   function removeFromStorage(productID){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    let currentItems = Number(localStorage.getItem("currentItems"));
     let indexToRemove = cartItems.findIndex((item) => item.productID == productID);
     if (indexToRemove !== -1) {
         cartItems[indexToRemove].qty--;
+        currentItems--;
         const updatedCartItemsJSON = JSON.stringify(cartItems);
         localStorage.setItem("cartItems", updatedCartItemsJSON);
+        localStorage.setItem("currentItems", currentItems);
     }
   }
 

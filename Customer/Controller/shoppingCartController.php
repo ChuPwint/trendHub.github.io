@@ -6,8 +6,6 @@ if (!isset($_GET["cartItems"])) {
 } elseif (!isset($_SESSION["currentLoginUser"])) {
     header("Location: ../View/Login/login.php");
 } else {
-
-    session_start();
     $cartItemsJson = urldecode($_GET["cartItems"]);
     $cartItems = json_decode($cartItemsJson, true);
 

@@ -80,9 +80,6 @@ $currentHour = date('H:i');
 </head>
 
 <body class="bg-primary font-roboto scrollbar-hide">
-    <?php
-    include "../resources/common/navbar.php";
-    ?>
 
 
     <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">

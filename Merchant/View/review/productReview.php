@@ -24,7 +24,18 @@ include "../../Controller/allReview/customerReviewController.php";
         }
     </style>
 </head>
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+       
+        scrollbar-width: none;
+    }
+</style>
 <body>
     <section class="sectionContainer w-full flex relative">
         <!-- space for the main page to not move -->
@@ -187,7 +198,7 @@ include "../../Controller/allReview/customerReviewController.php";
         <div class="mainPage h-screen overflow-hidden w-full p-3">
             <h1 class="text-darkGreenColor text-3xl font-bold mb-5">Customer Reviews</h1>
             <!-- start of search button and select box -->
-            <div class="flex justify-between items-center p-2">
+            <!-- <div class="flex justify-between items-center p-2"> -->
 
                 <!-- start of select box -->
                 <!-- <div>
@@ -198,13 +209,13 @@ include "../../Controller/allReview/customerReviewController.php";
                     </select>
                 </div> -->
                 <!-- end of select box -->
-            </div>
+            <!-- </div> -->
             <!-- end of search button and select box -->
 
             <!-- Start of order table -->
-            <div class="flex justify-between items-center p-2">
-                <table class="table-fixed mt-10 w-full">
-                    <thead class="bg-darkGreenColor text-white font-semibold text-lg">
+            <div class="  flex justify-between items-center  ">
+                <table class="table-sticky w-full ">
+                    <thead class="bg-secondary text-white font-semibold text-lg ">
                         <tr>
                             <th class="p-2 w-20">Product Id</th>
                             <th class="p-2 w-40">Product Name</th>
@@ -219,12 +230,13 @@ include "../../Controller/allReview/customerReviewController.php";
                     <tbody id="sortResult">
                         <?php
                         $counter = 0;
+                        $count = 1;
                         foreach ($allReview as $product) {
                             $counter++;
                             $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                         ?>
                             <tr class="orderList <?= $rowClass ?>">
-                                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $product['id'] ?></td>
+                                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $product['id']?></td>
                                 <td class="p-2 text-center"><?= $product['p_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
