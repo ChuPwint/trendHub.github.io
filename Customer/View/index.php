@@ -3,6 +3,12 @@
 session_start();
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
+  $profilePic = $_SESSION["userProfilePic"];
+  if ($profilePic == null) {
+    $setProfile = "../Storage/profiles/noProfile.jpg";
+  } else {
+    $setProfile = ".." . $profilePic;
+  }
   include "../Controller/homePage/homeWishlistedController.php";
 }
 
@@ -230,7 +236,7 @@ bg-[<?php
         <?php  } else { ?>
           <div class="md:hidden order-last">
             <a href="../View/Profile/user_profile.php">
-              <img class="w-12 cursor-pointer" src="../View/resources/img/profile/profile.png" alt="">
+              <img class="w-12 cursor-pointer" src="<?= $setProfile ?>" alt="">
             </a>
           </div>
         <?php  } ?>
@@ -401,7 +407,7 @@ bg-[<?php
           </a>
         <?php  } else { ?>
           <div class="logged_in">
-            <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="../View/resources/img/profile/profile.png" alt=""></a>
+            <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="<?= $setProfile ?>" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
@@ -466,7 +472,9 @@ bg-[<?php
 
             <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[<?= $primaryColor ?>] rounded-md shadow-lg">
               <?php foreach ($categoriesResult as $category) { ?>
-                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400"><li><?= $category["category_name"] ?></li></a>
+                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">
+                  <li><?= $category["category_name"] ?></li>
+                </a>
               <?php } ?>
             </ul>
           </div>
@@ -1374,7 +1382,7 @@ bg-[<?php
                 echo $navColor;
               }
             }
-            ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
+            ?>]  w-[400px]">Address : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">
