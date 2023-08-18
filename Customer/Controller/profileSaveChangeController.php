@@ -57,6 +57,14 @@ if (!isset($_POST["saveChange"])) {
 
     $_SESSION["userSaveChangeController"] = true;
     $_SESSION["userChangeView"] = 1;
+    
+    $sql = $pdo->prepare(
+        "SELECT * FROM m_customers WHERE id = :id"
+    );
+    $sql->bindValue(":id", $id);
+    $sql->execute();
+    $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION["userProfilePic"] = $result[0]["c_profile"];
     header("Location: ../View/Profile/user_profile.php");
     exit();
 }

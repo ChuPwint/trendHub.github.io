@@ -32,7 +32,8 @@ if(!isset($_POST["login"])){
         header("Location: ../View/Login/login.php");
     }else{
         $_SESSION["currentLoginUser"] = $result[0]["id"];
-        header("Location: ../View/test.php");
+        $_SESSION["userProfilePic"] = $result[0]["c_profile"];
+        header("Location: ../View/index.php");
     }
     
 }
