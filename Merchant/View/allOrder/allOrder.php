@@ -383,13 +383,13 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
                 <!-- end of search button -->
               
                 <!-- start of select box -->
-                <div  date-rangepicker>
+                <!-- <div  date-rangepicker>
                     <label class="mr-2 font-medium">Sort By:</label>
                     <select  id="orderDropdown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="pending">Pending</option>
                         <option class="p-2" value="completed">Completed</option>
                     </select>
-                </div>
+                </div> -->
                 <!-- end of select box -->
             
             </div>
@@ -501,64 +501,64 @@ $(document).ready(function () {
 
 
 
-     $("#orderDropdown").change(function () {
+//      $("#orderDropdown").change(function () {
    
-    $.ajax({
-      url: "../../Controller/allOrder/sortOrderController.php",
-      type: "POST",
-      data: {
-        sortText: $(this).val(),
-      },
-      success: function (result) {
+//     $.ajax({
+//       url: "../../Controller/allOrder/sortOrderController.php",
+//       type: "POST",
+//       data: {
+//         sortText: $(this).val(),
+//       },
+//       success: function (result) {
 
-        let arrays = JSON.parse(result);
+//         let arrays = JSON.parse(result);
 
-        $("#sortResult").empty();
-        let orderPaymentInfo= arrays[0];
-        let orderDetailsInfo = arrays[1];
-        let counter = 0;
-        let count = 1;
-        for (const order of  orderPaymentInfo) {
-          let paymentStatus = (order.payment_status == 0) ? "Pending" : "Completed";
-          let orderStatus = order.order_status == 0 ? "Pending" : "Completed";
-          let orderDate = moment(order.create_date).format('YYYY/MM/DD');
+//         $("#sortResult").empty();
+//         let orderPaymentInfo= arrays[0];
+//         let orderDetailsInfo = arrays[1];
+//         let counter = 0;
+//         let count = 1;
+//         for (const order of  orderPaymentInfo) {
+//           let paymentStatus = (order.payment_status == 0) ? "Pending" : "Completed";
+//           let orderStatus = order.order_status == 0 ? "Pending" : "Completed";
+//           let orderDate = moment(order.create_date).format('YYYY/MM/DD');
          
-          counter ++;
-          let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
-          let totalQuantity = 0; // Initialize a variable to store the total quantity
-          for (const detail of orderDetailsInfo) {
-            if (detail.order_id === order.id) {
-              let qtyAsNumber = detail.qty;
-              totalQuantity += qtyAsNumber; // Add the quantity to the total
-            }
-        }
+//           counter ++;
+//           let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
+//           let totalQuantity = 0; // Initialize a variable to store the total quantity
+//           for (const detail of orderDetailsInfo) {
+//             if (detail.order_id === order.id) {
+//               let qtyAsNumber = detail.qty;
+//               totalQuantity += qtyAsNumber; // Add the quantity to the total
+//             }
+//         }
        
-        $("#sortResult").append(
-            `<tr class="orderList ${rowClass}">
-                            <td class="viewOrderDetailBtn p-2 text-xl  text-center underline font-bold cursor-pointer"><a href="../../Controller/allOrder/detailViewController.php?id=${order.id}">
-                            ${count++}</a></td>
-                            <td class="p-2 text-center">${order.c_name}</td>
-                            <td class="p-2 text-center">${totalQuantity}</td>
-                            <td class="p-2 text-center">${order.total_amt} Ks</td>
-                            <td class="p-2 text-center">${order.payment_method}</td>
-                            <td class="p-2 text-center">${orderDate}</td>
+//         $("#sortResult").append(
+//             `<tr class="orderList ${rowClass}">
+//                             <td class="viewOrderDetailBtn p-2 text-xl  text-center underline font-bold cursor-pointer"><a href="../../Controller/allOrder/detailViewController.php?id=${order.id}">
+//                             ${count++}</a></td>
+//                             <td class="p-2 text-center">${order.c_name}</td>
+//                             <td class="p-2 text-center">${totalQuantity}</td>
+//                             <td class="p-2 text-center">${order.total_amt} Ks</td>
+//                             <td class="p-2 text-center">${order.payment_method}</td>
+//                             <td class="p-2 text-center">${orderDate}</td>
                             
-                            <td class="p-2 text-center">${paymentStatus}</td>
-                            <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
-                                <a href="../../Controller/allOrder/changeStatusController.php?id=${order.id}">
-                                    Change Status
-                                </a>
+//                             <td class="p-2 text-center">${paymentStatus}</td>
+//                             <td class="changeStatusBtn p-2 text-center underline font-semibold cursor-pointer">
+//                                 <a href="../../Controller/allOrder/changeStatusController.php?id=${order.id}">
+//                                     Change Status
+//                                 </a>
 
-                            </td>
-                        </tr>`
-          );
-        }
-      },
-      error: function (error) {
-        console.log(error);
-      },
-    });
-  });
+//                             </td>
+//                         </tr>`
+//           );
+//         }
+//       },
+//       error: function (error) {
+//         console.log(error);
+//       },
+//     });
+//   });
   
 </script>
 

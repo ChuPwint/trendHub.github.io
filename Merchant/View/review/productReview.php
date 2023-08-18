@@ -190,13 +190,13 @@ include "../../Controller/allReview/customerReviewController.php";
             <div class="flex justify-between items-center p-2">
 
                 <!-- start of select box -->
-                <div>
+                <!-- <div>
                     <span class="mr-2 font-medium">Sort By</span>
                     <select id="reviewDropDown" name="allOrderTableSort" class="border border-darkGreenColor p-2 font-medium">
                         <option class="p-2" value="category_name">Category</option>
                         <option class="p-2" value="p_name">Product</option>
                     </select>
-                </div>
+                </div> -->
                 <!-- end of select box -->
             </div>
             <!-- end of search button and select box -->
@@ -273,50 +273,47 @@ include "../../Controller/allReview/customerReviewController.php";
         });
 
         //Sorting
-        $("#reviewDropDown").change(function() {
-            console.log($(this).val());
-            $.ajax({
-                url: "../../Controller/allReview/sortReviewProductController.php",
-                type: "POST",
-                data: {
-                    sortText: $(this).val(),
-                  
-                },
+        // $("#reviewDropDown").change(function() {
+        //     console.log($(this).val());
+        //     $.ajax({
+        //         url: "../../Controller/allReview/sortReviewProductController.php",
+        //         type: "POST",
+        //         data: {
+        //             sortText: $(this).val(),
+        //         },
 
-                success: function(result) {
-                    let products = JSON.parse(result);
-                   
-                    $("#sortResult").empty();
-                    let counter = 0;
-                    let count = 1;
-                  
-                    for (const product of products) {
-                     counter ++;
-                     let totalAmount = (product.p_stock) * (product.sell_price);
-                      let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
-                      $("#sortResult").append(
-                        ` <tr class="orderList ${rowClass}">
-                       <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer">${product.id}</td>
-                                <td class="p-2 text-center">${product.p_name}</td>
-                                <td class="p-2 text-center">${product.category_name}</td>
-                                <td class="p-2 text-center">${product.p_stock}</td>
-                                <td class="p-2 text-center">${product.sell_price} Ks</td>
-                                <td class="p-2 text-center">${totalAmount} Ks</td>
+        //         success: function(result) {
+        //             let products = JSON.parse(result);
+        //             $("#sortResult").empty();
+        //             let counter = 0;
+        //             let count = 1;
+        //             for (const product of products) {
+        //              counter ++;
+        //              let totalAmount = (product.p_stock) * (product.sell_price);
+        //               let rowClass = (counter % 2 === 0) ? 'bg-gray-200' : 'bg-white';
+        //               $("#sortResult").append(
+        //                 ` <tr class="orderList ${rowClass}">
+        //                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer">${product.id}</td>
+        //                         <td class="p-2 text-center">${product.p_name}</td>
+        //                         <td class="p-2 text-center">${product.category_name}</td>
+        //                         <td class="p-2 text-center">${product.p_stock}</td>
+        //                         <td class="p-2 text-center">${product.sell_price} Ks</td>
+        //                         <td class="p-2 text-center">${totalAmount} Ks</td>
 
-                                <td reviewID="${product.id}" class="showReview p-2 text-center underline font-semibold cursor-pointer"> See Review </td>
-                            </tr>
-                        `
-                      );
-                    }
+        //                         <td reviewID="${product.id}" class="showReview p-2 text-center underline font-semibold cursor-pointer"> See Review </td>
+        //                     </tr>
+        //                 `
+        //               );
+        //             }
 
 
 
-                },
-                error: function(error) {
-                    console.log(error);
-                },
-            });
-        });
+        //         },
+        //         error: function(error) {
+        //             console.log(error);
+        //         },
+        //     });
+        // });
     </script>
 
 </body>
