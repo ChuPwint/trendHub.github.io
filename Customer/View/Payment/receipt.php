@@ -142,7 +142,7 @@ include "../resources/common/navbar.php";
                                 <p>Payment Method</p>
                             </div>
                             <div class="text-right">
-                                <p><?= $order['id']; ?></p>
+                                <p><?= $orderDetails[0]['order_id']; ?></p>
                                 <p><?= date('Y/m/d', strtotime($order['create_date'])); ?></p>
                                 <p><?= $order['payment_method']; ?></p>
                             </div>
