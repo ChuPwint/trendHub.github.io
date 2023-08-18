@@ -202,7 +202,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <label class="mx-auto text-center flex justify-center" for="">
                                 <div class="bg-[white]  rounded-lg">
                                     <a target="_blank" href="../../../<?= $logo ?>">
-                                        <img id="saveLogo" src="../../..<?= $logo ?>" class="px-[5px] py-[5px] " alt="">
+                                        <img id="saveLogo" src="../../..<?= $logo ?>" class="px-[5px] max-h-[100px] py-[5px] " alt="">
                                     </a>
                                 </div>
 
@@ -229,7 +229,7 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <label class="mx-auto text-center flex justify-center" for="">
                                 <div class="bg-[white]  rounded-lg">
                                     <a target="_blank" href="../../../<?= $mobileLogo ?>">
-                                        <img id="saveMobileLogo" src="../../..<?= $mobileLogo ?>" class="px-[5px] py-[5px] " alt="">
+                                        <img id="smlogo" src="../../..<?= $mobileLogo ?>" class="px-[5px] max-h-[100px]  py-[5px] " alt="">
                                     </a>
                                 </div>
 
@@ -237,10 +237,10 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
                             <span class="block mx-auto text-center text-white text-2xl font-semibold mt-2 ">Mobile Logo</span>
                             <div class="text-white mx-auto text-center mt-5">
                                 <label for=""> Logo</label>
-                                <label for="mobileLogo" class="custom-file-upload text-black ml-2">
+                                <label for="mlogo" class="custom-file-upload text-black ml-2">
                                     Choose File
                                 </label>
-                                <input accept=".png,.jpg,.svg" name="mobileLogoImg" type="file" id="mobileLogo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
+                                <input accept=".png,.jpg,.svg" name="mobileLogoImg" type="file" id="mlogo" class="bg-[black] w-[270px] h-[27px] rounded-sm" />
 
                                 <button type="submit" class="px-[15px] rounded-sm text-[black] ml-2 bg-[white]">Save</button>
                             </div>

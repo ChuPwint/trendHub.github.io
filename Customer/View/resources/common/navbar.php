@@ -12,6 +12,8 @@ include "../../Controller/uiElement/editInfoController.php";
 
 // print_r($editInfo);
 $logo = isset($editInfo[0]["logo"]) && !empty($editInfo[0]["logo"]) ? $editInfo[0]["logo"] : '/Storage/logo/logo.svg';
+$mobileLogo = isset($editInfo[0]["mobileLogo"]) && !empty($editInfo[0]["mobileLogo"]) ? $editInfo[0]["mobileLogo"] : '/Storage/logo/mobileLogo.svg';
+
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
@@ -114,22 +116,84 @@ $currentHour = date('H:i');
 
       ?>" alt="">
         <!-- mobile logo -->
-        <img class="md:hidden w-[90px] order-2" src="../resources/img/header/headerLogo.svg " alt="">
+        <img class="md:hidden mx-auto w-[90px] order-none" src=" ../../../<?php
+                                                                        if ($startTime > $endTime) {
+                                                                          if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo 'Storage/logo/darkMobileLogo.svg';
+                                                                          } else {
+                                                                            echo $mobileLogo;
+                                                                          }
+                                                                        } else {
+                                                                          if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                            echo 'Storage/logo/darkMobileLogo.svg';
+                                                                          } else {
+                                                                            echo $mobileLogo;
+                                                                          }
+                                                                        }
+
+                                                                        ?>" alt="">
 
         <!-- mobile login -->
         <?php if (!isset($loginId)) { ?>
-          <button class="bg-[<?= $buttonColor?>] text-[<?= $primaryColor ?>]   py-2 px-6 rounded md:hidden order-3">
-            <a href="../Login/login.php">Login</a>
-          </button>
+         
+            <a href="../Login/login.php">
+            <button class="bg-[<?php
+                                if ($startTime > $endTime) {
+                                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                    echo '#ffffff';
+                                  } else {
+                                    echo $tertiaryColor;
+                                  }
+                                } else {
+                                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                    echo '#ffffff';
+                                  } else {
+                                    echo $tertiaryColor;
+                                  }
+                                }
+                                ?>] 
+        text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $primaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $primaryColor;
+                }
+              }
+              ?>] py-2 px-6 rounded md:hidden order-last">
+              Login
+            </button>
+            </a>
+         
         <?php  } else { ?>
-          <div class="md:hidden order-3">
+          <div class="md:hidden order-last">
             <a href=""><img class="w-12 cursor-pointer" src="../resources/img/profile/profile.png" alt=""></a>
           </div>
         <?php  } ?>
 
         <!-- mobile menu -->
-        <span class=" text-3xl order-1 cursor-pointer mx-2 md:hidden block">
-          <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+        <span class=" text-3xl order-first cursor-pointer mx-2 md:hidden block">
+        <ion-icon class="  text-[<?php
+                                    if ($startTime > $endTime) {
+                                      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                        echo $primaryColor;
+                                      } else {
+                                        echo "#000000";
+                                      }
+                                    } else {
+                                      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                        echo $primaryColor;
+                                      } else {
+                                        echo "#000000";
+                                      }
+                                    }
+                                    ?>]" name="menu" onclick="Menu(this)"></ion-icon>
         </span>
       </div>
 
@@ -258,7 +322,7 @@ $currentHour = date('H:i');
       ?>] duration-300">Contact</a>
         </li>
         <?php if (!isset($loginId)) { ?>
-          <a href="./Login/login.php">
+          <a href="../Login/login.php">
             <button class=" bg-[<?php
       
       if ($startTime > $endTime) {
@@ -376,11 +440,27 @@ $currentHour = date('H:i');
 
               <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
                 <?php foreach ($categoriesResult as $category) { ?>
-                  <li><a href="../Product/category.php" class="block bg-white px-4 py-2 text-gray-800  duration-400"><?= $category["category_name"] ?></a></li>
+                  <li><a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg-white px-4 py-2 text-gray-800  duration-400"><?= $category["category_name"] ?></a></li>
                 <?php } ?>
               </ul>
             </div>
-            <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt="">
+            <!-- <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer" src="../resources/img/header/category.svg" alt=""> -->
+            <ion-icon id="menu-toggle" class="text-2xl mt-1 mr-2  md:hidden cursor-pointer     
+          text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                }
+                ?>] " name="grid"></ion-icon>
             <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
           </div>
           <ion-icon id="cartItems" class="cursor-pointer text-3xl text-[<?php
@@ -402,25 +482,22 @@ $currentHour = date('H:i');
   
 
       ?>]" name="cart-outline"></ion-icon>
-          <span class="cart_item absolute md:right-5 right-3 md:top-[70px] top-[80px] w-5 h-5 text-sm text-white text-center rounded-full bg-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        }else {
-          echo $buttonColor;
-      }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#000000";
-        } else {
-            echo $buttonColor;
-        }
-    }
-    
-  
-
-      ?>]">0</span>
+      <span class="cart_item absolute md:right-5 right-1 md:top-[70px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
+        bg-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $buttonColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $buttonColor;
+              }
+            }
+            ?>]">0</span>
 
         </div>
       </nav>
@@ -433,7 +510,7 @@ $currentHour = date('H:i');
     <button id="menu-close">
       <div class="mt-10 flex flex-wrap space-x-2">
         <?php foreach ($categoriesResult as $category) { ?>
-          <a href="../Product/category.php"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
+          <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>"><span class="px-2 mt-2 block py-2 hover:bg-tertiary hover:text-white shadow-md rounded-md"><?= $category["category_name"] ?></span></a>
         <?php } ?>
       </div>
     </button>

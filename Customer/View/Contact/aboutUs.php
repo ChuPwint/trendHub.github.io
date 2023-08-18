@@ -17,6 +17,12 @@
     .scrollHide::-webkit-scrollbar {
         display: none;
     }
+    .mobileMenu{
+        color: red !important;
+        background-color: red;
+        width: 400px;
+
+    }
 </style>
 
 <?php
@@ -74,7 +80,7 @@ $currentHour = date('H:i');
     }
 
       ?>] py-11">
-            <h1 class="md:text-3xl text-[<?php
+            <h1 class="md:text-3xl text-2xl text-[<?php
       
       
       if ($startTime > $endTime) {
