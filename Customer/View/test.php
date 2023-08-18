@@ -1375,7 +1375,7 @@ bg-[<?php
                 echo $navColor;
               }
             }
-            ?>]  w-[400px]">Addres : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
+            ?>]  w-[400px]">Address : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
       </div>
 
       <div class="">

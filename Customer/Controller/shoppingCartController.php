@@ -1,8 +1,12 @@
 <?php
+session_start();
 
 if (!isset($_GET["cartItems"])) {
     header("Location: ../View/Error/error.php");
-}else{
+} elseif (!isset($_SESSION["currentLoginUser"])) {
+    header("Location: ../View/Login/login.php");
+} else {
+
     session_start();
     $cartItemsJson = urldecode($_GET["cartItems"]);
     $cartItems = json_decode($cartItemsJson, true);
@@ -10,7 +14,7 @@ if (!isset($_GET["cartItems"])) {
     $_SESSION["cartItems"] = $cartItems;
     include "../Model/model.php";
     $cartItemsDetails = [];
-    foreach($cartItems as $item){
+    foreach ($cartItems as $item) {
         $id = $item["productID"];
         $sql = $pdo->prepare(
             "SELECT * FROM m_products WHERE id = :id"
@@ -22,14 +26,6 @@ if (!isset($_GET["cartItems"])) {
     }
     $_SESSION["cartItemsDetails"] = $cartItemsDetails;
 
-    
+
     header("Location: ../View/Checkout/shoppingCart.php");
 }
-
-
-
-
-
-
-
-?>

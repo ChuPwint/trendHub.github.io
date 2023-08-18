@@ -461,8 +461,10 @@ $currentHour = date('H:i');
                   }
                 }
                 ?>] " name="grid"></ion-icon>
-            <input type="search" placeholder="Search..." class="md:text-[#000000]  md:rounded-l-none px-3 outline-none  md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
-          </div>
+              <form action="../../Controller/commonSearchProductController.php" method="post">
+                <input name="searchCommon" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+              </form>          
+            </div>
           <ion-icon id="cartItems" class="cursor-pointer text-3xl text-[<?php
       
       if ($startTime > $endTime) {
@@ -528,6 +530,7 @@ $currentHour = date('H:i');
   <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
 <script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
+  <script src="../../View/resources/js/homePage/header/searchProduct.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- navbar -->
 

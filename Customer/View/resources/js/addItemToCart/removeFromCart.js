@@ -1,36 +1,37 @@
 $(document).ready(() => {
   const totalProductCount = $(".itemCard").length;
-  $(".quantityInput").each(function(){
-    let value = $(this).val();
-    if(value == 1) $(this).parent().find(".minusBtn").attr("disabled", true);
-  })
+  calculateTotal();
 
   $(".plusBtn").on("click", function () {
-    $(".minusBtn").attr("disabled", false);
+    $(this).parent().find(".minusBtn").attr("disabled", false);
     var pricePerItem = Number($(this).attr("pricePerItem"));
     var inputElement = $(this).parent().find("input[name='qty']");
     var inputValue = Number(inputElement.val());
     inputElement.val(++inputValue);
-    (inputValue == 10) ? $(".plusBtn").attr("disabled", true) : false;
+    (inputValue == 10) ? $(this).attr("disabled", true) : false;
     var pPriceElement = $(this).parent().parent().find(".desktopPrice");
     var mobilePriceElement = $(this).parent().parent().find(".mobilePrice");
     var total = pricePerItem * inputValue;
     pPriceElement.text(total.toLocaleString("en-US") + " Ks");
     mobilePriceElement.text(total.toLocaleString("en-US") + " Ks");
+    calculateTotal();
+    addToStorage($(this).attr("productId"));
   });
 
   $(".minusBtn").on("click", function () {
-    $(".plusBtn").attr("disabled", false);
+    $(this).parent().find(".plusBtn").attr("disabled", false);
     var pricePerItem = Number($(this).attr("pricePerItem"));
     var inputElement = $(this).parent().find("input[name='qty']");
     var inputValue = Number(inputElement.val());
     inputElement.val(--inputValue);
-    (inputValue == 1) ? $(".minusBtn").attr("disabled", true) : false;
+    (inputValue == 1) ? $(this).attr("disabled", true) : false;
     var pPriceElement = $(this).parent().parent().find(".desktopPrice");
     var mobilePriceElement = $(this).parent().parent().find(".mobilePrice");
     var total = pricePerItem * inputValue;
     pPriceElement.text(total.toLocaleString("en-US") + " Ks");
     mobilePriceElement.text(total.toLocaleString("en-US") + " Ks");
+    calculateTotal();
+    removeFromStorage($(this).attr("productId"));
   });
 
   $(".dTrashImg").on("click", function () {
@@ -61,6 +62,26 @@ $(document).ready(() => {
     removeFromCard(currentItemID);
   });
 
+  function addToStorage(productID){
+    let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    let indexToAdd = cartItems.findIndex((item) => item.productID == productID);
+    if (indexToAdd !== -1) {
+        cartItems[indexToAdd].qty++;
+        const updatedCartItemsJSON = JSON.stringify(cartItems);
+        localStorage.setItem("cartItems", updatedCartItemsJSON);
+    }
+  }
+
+  function removeFromStorage(productID){
+    let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    let indexToRemove = cartItems.findIndex((item) => item.productID == productID);
+    if (indexToRemove !== -1) {
+        cartItems[indexToRemove].qty--;
+        const updatedCartItemsJSON = JSON.stringify(cartItems);
+        localStorage.setItem("cartItems", updatedCartItemsJSON);
+    }
+  }
+
   function removeFromCard(productID) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));
     let totalProducts = Number(localStorage.getItem("currentItems"));
@@ -74,4 +95,23 @@ $(document).ready(() => {
         localStorage.setItem("currentItems", totalProducts);
     }
   }
+
+  function calculateTotal() {
+    const totalDesktopPrice = $("desktopPrice").text();
+    let subTotal = 0;
+    $(".desktopPrice").each(function(){
+      let price = $(this).text();
+      var numericPrice = parseFloat(price.replace(/[^\d]/g, ""));
+      subTotal += numericPrice;
+    })
+    $(".subTotal").text(subTotal.toLocaleString("en-US") + " Ks");
+    $(".totalPrice").text(subTotal.toLocaleString("en-US") + " Ks");
+    $("#hiddenSubTotal").val(subTotal);
+  }
+
+  $(".quantityInput").each(function(){
+    let value = $(this).val();
+    if(value == 1) $(this).parent().find(".minusBtn").attr("disabled", true);
+  })
+
 });
