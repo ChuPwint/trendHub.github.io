@@ -1,7 +1,4 @@
 <?php
-
-
-
 session_start();
 
 if (isset($_POST["login"])) {
@@ -25,7 +22,7 @@ if (isset($_POST["login"])) {
     } else {
         if (password_verify($passwords, $result[0]["password"])) {
             header("Location: ../../../Admin/View/Analytics/analytics.php");
-        
+           
          
         } else {
             $_SESSION["loginError"] = "Email or Password incorrect";
