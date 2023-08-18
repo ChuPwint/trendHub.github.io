@@ -535,6 +535,7 @@ $currentHour = date('H:i');
   <script src="../resources/js/addItemToCart/addToCart.js"></script>
   <script src="../resources/lib/jquery3.6.0.js"></script>
 <script src="../../View/resources/js/navbar/navbar.js"></script>
+
 <script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
   <script src="../../View/resources/js/homePage/header/searchProduct.js"></script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
