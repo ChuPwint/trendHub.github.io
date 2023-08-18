@@ -117,6 +117,7 @@ $currentHour = date('H:i');
   }
 </style>
 
+
 <body class=" font-roboto 
 bg-[<?php
     if ($startTime > $endTime) {
@@ -135,6 +136,8 @@ bg-[<?php
     ?>] scrollHide">
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
+
+  <!-- <marquee style="color:white" behavior="" direction="">Hello</marquee> -->
     <!-- start first navbar -->
     <nav class="py-2 px-4 bg-[<?php
                               if ($startTime > $endTime) {
