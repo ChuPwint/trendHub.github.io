@@ -137,7 +137,7 @@ bg-[<?php
   <!-- start header  -->
   <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
 
-  <!-- <marquee style="color:white" behavior="" direction="">Hello</marquee> -->
+  <!-- <marquee style="color:white;font-size:20px;background:black; " behavior="" direction="">Hello, Warmly Welcome From Trend Hub</marquee> -->
     <!-- start first navbar -->
     <nav class="py-2 px-4 bg-[<?php
                               if ($startTime > $endTime) {
@@ -428,7 +428,7 @@ bg-[<?php
           echo $secondaryColor;
         }
       }
-      ?>] py-2 px-3 md:px-7 shadow-md">
+      ?>] py-2 px-3 md:px-7 shadow-md relative">
       <div class="flex justify-between">
         <div class="flex">
           <!-- desktop categories -->
@@ -511,7 +511,7 @@ bg-[<?php
             }
             ?>]" name="cart-outline"></ion-icon>
         </a>
-        <span class="cart_item absolute md:right-5 right-1 md:top-[70px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
+        <span class="cart_item absolute md:right-5 right-1 md:top-[5px] top-[70px] w-5 h-5 text-sm text-white text-center rounded-full 
         bg-[<?php
             if ($startTime > $endTime) {
               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {

@@ -12,7 +12,6 @@ if (isset($_SESSION["totalTwostarRating"])) $totalTwostarRating = $_SESSION["tot
 if (isset($_SESSION["totalOnestarRating"])) $totalOnestarRating = $_SESSION["totalOnestarRating"];
 if (isset($_SESSION["reviews"])) $totalReviews =  $_SESSION["reviews"];
 if (isset($_SESSION["isWishlisted"])) $isWishlisted =  $_SESSION["isWishlisted"];
-include "../resources/common/navbar.php";
 include "../../Controller/uiElement/editInfoController.php";
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $lightTertiary = isset($editInfo[0]["light_tertiary"]) && !empty($editInfo[0]["light_tertiary"]) ? $editInfo[0]["light_tertiary"] : '#F5F5F5';
