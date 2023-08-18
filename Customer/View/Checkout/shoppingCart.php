@@ -158,9 +158,9 @@ include "../resources/common/navbar.php";
                                             if ($cartItem["productID"] == $itemDetail["id"]) $value =  $cartItem["qty"];
                                         }
                                         ?>
-                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md bg-opacity-50">-</button>
+                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" productId="<?= $itemDetail["id"] ?>" class="minusBtn cursor-pointer mr-1 px-1 bg-productCardBgColor font-semibold rounded-md bg-opacity-50">-</button>
                                         <input type="number" name="qty" value="<?= $value ?>" class="quantityInput text-xl text-center w-10 py-1 rounded-md bg-productCardBgColor">
-                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
+                                        <button pricePerItem="<?= $itemDetail["sell_price"] ?>" productId="<?= $itemDetail["id"] ?>" class="plusBtn cursor-pointer ml-1 px-1 font-semibold text-center bg-productCardBgColor rounded-md">+</button>
                                     </div>
                                     <p id="desktopPrice" class="desktopPrice pt-3 pb-3 w-48 break-words hidden md:block md:ml-16"><?= number_format($price) ?> Ks</p>
                                     <div><img id="<?= $itemDetail["id"] ?>" class="dTrashImg hidden md:block w-7 cursor-pointer" src="../resources/img/shoppingCart/Trash.svg" alt=""></div>
@@ -176,7 +176,7 @@ include "../resources/common/navbar.php";
                 <!--end of products card container -->
 
                 <!-- start of order summary container -->
-                <form id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>">
+                <form id="orderCard" class="md:w-[28%] <?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?>" action="../../Controller/checkOutController.php" method="post">
                     <!-- start of order summary card -->
                     <div class="p-4 m-5 
     bg-[<?php
@@ -241,14 +241,14 @@ include "../resources/common/navbar.php";
             ?>]">
                             <div>
                                 <p class="mb-3">Sub-total</p>
-                                <p>Delivery</p>
                             </div>
                             <div>
-                                <p class="mb-3 subTotal">$800</p>
-                                <p class="deliPrice">$80</p>
+                                <p class="mb-3 subTotal"></p>
                             </div>
                         </div>
-                        <hr class="border border-dashed border-gray-400">
+                        <input id="hiddenSubTotal" type="hidden" name="subTotal">
+                        <p class=" text-base">Delivery fee will be added in the checkout.</p>
+                        <hr class="border border-dashed border-gray-400 mt-2">
                         <div class="flex justify-between items-center mt-5 
     text-[<?php
 
@@ -274,7 +274,7 @@ include "../resources/common/navbar.php";
                         </div>
                         <!-- end of prices -->
                         <div class="flex justify-center mt-6 mb-4">
-                            <a href="./checkout.php"><button class="
+                            <button class="
     bg-[<?php
 
         if ($startTime > $endTime) {
@@ -312,7 +312,7 @@ include "../resources/common/navbar.php";
 
 
 
-            ?>]">Proceed to Checkout</button></a>
+            ?>]" type="submit" name="checkout">Proceed to Checkout</button>
                         </div>
                     </div>
                     <!-- end of order summary card -->
