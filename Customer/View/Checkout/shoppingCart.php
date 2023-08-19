@@ -155,7 +155,12 @@ include "../resources/common/navbar.php";
                     <!-- start of cards -->
                     <?php if (isset($_SESSION["cartItemsDetails"])) {
                         foreach ($cartItemsDetails as $itemDetail) { ?>
-                            <div class="itemCard relative bg-white shadow-md m-5 p-4 flex justify-evenly">
+                            <?php 
+                            if (isset($_SESSION["noStock".$itemDetail["id"]])) { ?>
+                                <small class=" text-red-400"><?= $_SESSION["noStock".$itemDetail["id"]] ?></small>
+                            <?php unset($_SESSION["noStock".$itemDetail["id"]]);}
+                            ?>
+                            <div class="itemCard relative bg-white shadow-md mb-5 mt-0 p-4 flex justify-evenly">
                                 <div class="flex items-center">
                                     <img class=" w-16" src="../../..<?= $itemDetail["p_path"] ?>" alt="">
                                 </div>
@@ -349,7 +354,8 @@ include "../resources/common/navbar.php";
         $(".proceedCheckout").on("click", function() {
             const cartItems = localStorage.getItem("cartItems");
             const encodedCartItems = encodeURIComponent(cartItems);
-            window.location.href = "../../Controller/checkProductQtyController.php?cartItems=" + encodedCartItems;
+            const subTotal = $(".subTotal").text();
+            window.location.href = "../../Controller/checkProductQtyController.php?cartItems=" + encodedCartItems + "&subTotal=" + subTotal;
         })
     </script>
 </body>
