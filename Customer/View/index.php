@@ -111,6 +111,8 @@ $editAddress = isset($editInfo[0]["email"]) && !empty($editInfo[0]["email"]) ? $
 $editAddressLink = isset($editInfo[0]["locationLink"]) && !empty($editInfo[0]["locationLink"]) ? $editInfo[0]["locationLink"] : 'https://www.google.com/maps/place/Ex;braiN+Office/@16.8430957,96.1949609,17z/data=!3m1!4b1!4m6!3m5!1s0x30c193f51faa68ff:0x72868c60b69532c4!8m2!3d16.8430906!4d96.1975358!16s%2Fg%2F11scs4qwp8?entry=tts&shorturl=1';
 $startTime = isset($editInfo[0]["h1_color"]) && !empty($editInfo[0]["h1_color"]) ? $editInfo[0]["h1_color"] : '00:00';
 $endTime = isset($editInfo[0]["h2_color"]) && !empty($editInfo[0]["h2_color"]) ? $editInfo[0]["h2_color"] : '00:00';
+$showAnnounce = isset($editInfo[0]["displayAnno"]) && !empty($editInfo[0]["displayAnno"]) ? $editInfo[0]["displayAnno"] : 'hidden';
+
 date_default_timezone_set('Asia/Yangon');
 $currentHour = date('H:i');
 
@@ -142,11 +144,14 @@ bg-[<?php
     }
     ?>] scrollHide">
   <!-- start header  -->
-  <div id="navbar" class="fixed top-0 w-full shadow-md z-30">
 
-    <!-- <marquee style="color:white;font-size:20px;background:black; " behavior="" direction="">Hello, Warmly Welcome From Trend Hub</marquee> -->
+  <div id="navbar" class="sticky top-0 w-full shadow-md z-30">
+
+   
     <!-- start first navbar -->
-    <nav class="py-2 px-4 bg-[<?php
+  <marquee behavior="" class="text-white text-xl py-4 bg-black <?= $showAnnounce   ?>  " direction="right"><?= $editInfo[0]["textAnno"] ?></marquee>
+
+    <nav class="py-2 px-4 -mt-[6px] bg-[<?php
                               if ($startTime > $endTime) {
                                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                   echo "#000000";
@@ -482,7 +487,7 @@ bg-[<?php
               <?php } ?>
             </ul>
           </div>
-          <!-- <img id="menu-toggle" class="h-[40px] md:hidden cursor-pointer   " src="./resources/img/header/category.svg" alt=""> -->
+          
           <ion-icon id="menu-toggle" class="text-2xl mt-1 mr-2  md:hidden cursor-pointer     
           text-[<?php
                 if ($startTime > $endTime) {
@@ -564,7 +569,7 @@ bg-[<?php
         <!-- end set default value -->
 
 
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] 
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center 
     bg-[<?php
         if ($startTime > $endTime) {
           if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -627,7 +632,7 @@ bg-[<?php
 
       <!-- Slide2 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] 
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center 
     bg-[<?php
         if ($startTime > $endTime) {
           if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -688,7 +693,7 @@ bg-[<?php
 
       <!-- Slide3 -->
       <div class="swiper-slide">
-        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center mt-[120px] 
+        <div class="w-full md:h-[320px] h-[220px] md:px-0 px-6 space-x-4 md:space-x-0 items-center
     bg-[<?php
         if ($startTime > $endTime) {
           if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1481,6 +1486,7 @@ bg-[<?php
   <script src="./resources/js/homePage/header/navbarMobile.js"></script>
   <script src="./resources/js/homePage/header/categoryDesktop.js"></script>
   <script src="./resources/js/navbar/navbar.js"></script>
+ 
   <script src="./resources/js/homePage/header/categoryMobile.js"></script>
   <script src="./resources/js/addItemToCart/addToCart.js"></script>
   <script src="./resources/js/addItemToCart/cartItems.js"></script>

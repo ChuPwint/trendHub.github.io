@@ -83,7 +83,7 @@ $currentHour = date('H:i');
             <?php
             $banner3 = isset($editInfo[0]["banner3"]) && !empty($editInfo[0]["banner3"]) ? $editInfo[0]["banner3"] : '/Storage/banner/bannerP2.svg';
             $banner4 = isset($editInfo[0]["banner4"]) && !empty($editInfo[0]["banner4"]) ? $editInfo[0]["banner4"] : '/Storage/banner/bannerP2.svg';
-            $banner5 = isset($editInfo[0]["banner5"]) && !empty($editInfo[0]["banner5"]) ? $editInfo[0]["banner5"] : '/Storage/banner/banner5.svg';
+            $banner5 = isset($editInfo[0]["banner5"]) && !empty($editInfo[0]["banner5"]) ? $editInfo[0]["banner5"] : '/Storage/banner/banner2.svg';
             ?>
 
             <!-- 1st Banner -->
@@ -103,7 +103,10 @@ $currentHour = date('H:i');
         <div class="flex flex-col space-y-5 md:pr-7 px-5 md:min-w-[1000px]">
             <!-- Bannner -->
             <div class="rounded overflow-hidden">
-                <img class="w-full md:h-[170px] object-cover" src="../../../<?= $banner5 ?>" alt="banner">
+            
+
+                <img class="w-full md:h-[170px] object-cover"src="../../../<?= $banner5 ?>" alt="banner5">
+               
             </div>
 
             <?php foreach ($categoryProducts as $cProduct) { ?>

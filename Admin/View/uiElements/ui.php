@@ -2,6 +2,7 @@
 
 
 include "../../Controller/uiElements/logo/viewLogoController.php";
+include "../../Controller/uiElements/announcement/viewController.php";
 include "../../Controller/uiElements/Information/viewController.php";
 include "../../Controller/uiElements/pointEdit/viewPointControllerl.php";
 include "../../Controller/uiElements/imgSlider1/viewController.php";
@@ -28,6 +29,7 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 
 $logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
 $mobileLogo = isset($editMobileLogo[0]["mobileLogo"]) && !empty($editMobileLogo[0]["mobileLogo"]) ? $editMobileLogo[0]["mobileLogo"] : '/Storage/logo/mobileLogo.svg';
+
 $primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacground[0]["primary_color"]) ? $editBacground[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editBacground[0]["secondary_color"]) && !empty($editBacground[0]["secondary_color"]) ? $editBacground[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editBacground[0]["tertiary_color"]) && !empty($editBacground[0]["tertiary_color"]) ? $editBacground[0]["tertiary_color"] : '#F36823';
@@ -47,7 +49,7 @@ $bannerImg1 = isset($editbanner1[0]["banner1"]) && !empty($editbanner1[0]["banne
 $bannerImg2 = isset($editbanner2[0]["banner2"]) && !empty($editbanner2[0]["banner2"]) ? $editbanner2[0]["banner2"] : '/Storage/banner/bannerP1.svg';
 $bannerImg3 = isset($editbanner3[0]["banner3"]) && !empty($editbanner3[0]["banner3"]) ? $editbanner3[0]["banner3"] : '/Storage/banner/bannerP2.svg';
 $bannerImg4 = isset($editbanner4[0]["banner4"]) && !empty($editbanner4[0]["banner4"]) ? $editbanner4[0]["banner4"] : '/Storage/banner/bannerP2.svg';
-$bannerImg5 = isset($editbanner5[0]["banner5"]) && !empty($editbanner5[0]["banner5"]) ? $editbanner5[0]["banner5"] : '/Storage/banner/banner5.svg';
+$bannerImg5 = isset($editbanner5[0]["banner5"]) && !empty($editbanner5[0]["banner5"]) ? $editbanner5[0]["banner5"] : '/Storage/banner/banner2.svg';
 $moneyAmount = isset($editPoint[0]["money_amout"]) && !empty($editPoint[0]["money_amout"]) ? $editPoint[0]["money_amout"] : '10000';
 $pointAmount = isset($editPoint[0]["point_amount"]) && !empty($editPoint[0]["point_amount"]) ? $editPoint[0]["point_amount"] : '1';
 $slideImg1 = isset($editSlide1[0]["image_silder1"]) && !empty($editSlide1[0]["image_silder1"]) ? $editSlide1[0]["image_silder1"] : '/Storage/slider/acer.png';
@@ -73,6 +75,8 @@ $answer2 = isset($editInfo[0]["answer2"]) && !empty($editInfo[0]["answer2"]) ? $
 $answer3 = isset($editInfo[0]["answer3"]) && !empty($editInfo[0]["answer3"]) ? $editInfo[0]["answer3"] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta ipsa quibusdam laudantium dolor placeat repudiandae, sunt et nostrum voluptatem architecto eius vel modi porro perspiciatis dicta harum similique! Quas, ab sit! Consectetur num ';
 $startTime = isset($editDark[0]["h1_color"]) && !empty($editDark[0]["h1_color"]) ? $editDark[0]["h1_color"] : '00:00';
 $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ? $editDark[0]["h2_color"] : '00:00';
+$showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnouncement[0]["displayAnno"]) ? $editAnnouncement[0]["displayAnno"] : 'hidden';
+
 
 
 
@@ -223,8 +227,8 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
 
 
-                        <!-- start mobile logo -->
-                        <div>
+                    <!-- start mobile logo -->
+                    <div>
                         <form action="../../Controller/uiElements/logo/updateMobileLogoController.php" method="post" enctype="multipart/form-data">
                             <label class="mx-auto text-center flex justify-center" for="">
                                 <div class="bg-[white]  rounded-lg">
@@ -249,24 +253,16 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
 
 
-                
+
                     <!-- end mobile logo -->
 
 
                 </div>
-
-
-
-
-
-
-
-
-
-
-
+                <!-- end logo -->
 
                 <hr class="mt-10 h-[2px] mx-auto">
+
+
 
                 <!-- start color -->
                 <div class="text-white flex justify-between mt-10">
@@ -388,6 +384,42 @@ $endTime = isset($editDark[0]["h2_color"]) && !empty($editDark[0]["h2_color"]) ?
 
                 </div>
                 <!-- end color -->
+
+
+                <hr class="mt-10 h-[2px] mx-auto">
+
+                <!-- start announcements -->
+
+                <div class="text-white flex  justify-between mt-10 mb-[100px]">
+
+
+                    <div class="mx-auto">
+                        <h1 class="text-2xl text-center">Announcement</h1>
+                        <form action="../../Controller/uiElements/announcement/updateController.php" method="post">
+
+                            <div class="flex justify-center mx-auto  mt-4">
+
+                                <textarea class="resize-none scroll text-black outline-none rounded-sm   " name="textAnno" id="" cols="123" rows="5"><?= $editAnnouncement[0]["textAnno"] ?></textarea>
+
+                            </div>
+
+                            <div class="float-right">
+                                <select class="text-black focus:outline-none rounded-sm px-2" name="displayAnno" id="">
+                                    <option value="hidden" <?= $showAnnounce === "hidden" ? 'selected' : '' ?>>None</option>
+
+                                    <option value="block" <?= $showAnnounce === "block" ? 'selected' : '' ?>>Show</option>
+                                </select>
+
+                                <button class="px-[15px] py-[2px] mt-4 rounded-sm text-[black]  bg-[white]">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- end announcements -->
 
 
                 <hr class="mt-10 h-[2px] mx-auto">
