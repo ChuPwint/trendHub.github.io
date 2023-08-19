@@ -129,7 +129,7 @@
 
 
 
-
+    <!-- logOut Modal Start-->
     <div id="modalLogout" class="modal hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="modal-content bg-[#FEFEFE] w-[340px] h-[300px] rounded shadow-md relative">
             <button onclick="hideLogout()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
@@ -144,17 +144,15 @@
             </div>
 
             <button onclick="hideLogout()" class="block px-4 py-3 rounded-md bg-[#12141B] text-white mx-auto w-[200px] mt-4">Just Kidding</button>
+            <a href="../../Controller/adminLogin/logOutController.php">
             <button onclick="hideLogout()" class="block px-4 py-3 rounded-md border border-black text-black mx-auto w-[200px] mt-4">Yes, Log Me Out</button>
-
-
-
-
-
-
-
+            </a>
         </div>
 
     </div>
+
+    <!-- logOut Modal End-->
+
     </div>
 
 
