@@ -4,13 +4,14 @@ if (!isset($_SESSION)) {
 }
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
-  $profilePic = $_SESSION["userProfilePic"];
-  if ($profilePic == null) {
-    $setProfile = "../../Storage/profiles/noProfile.jpg";
-  } else {
-    $setProfile = "../.." . $profilePic;
-  }
 }
+$profilePic = (isset($_SESSION["userProfilePic"])) ? $_SESSION["userProfilePic"] : null;
+if ($profilePic == null) {
+  $setProfile = "../../Storage/profiles/noProfile.jpg";
+} else {
+  $setProfile = "../.." . $profilePic;
+}
+
 if (!isset($view)) {
   include "../../Controller/commonCategoryController.php";
 }
@@ -179,7 +180,7 @@ $currentHour = date('H:i');
          
         <?php  } else { ?>
           <div class="md:hidden order-last">
-            <a href=""><img class="w-12 cursor-pointer" src="<?=$setProfile?>" alt=""></a>
+            <a href="../Profile/user_profile.php"><img class="w-12 h-10 rounded-full cursor-pointer" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
 
@@ -371,7 +372,7 @@ $currentHour = date('H:i');
           </a>
         <?php  } else { ?>
           <div class="logged_in">
-            <a href="../Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="<?=$setProfile?>" alt=""></a>
+            <a href="../Profile/user_profile.php"><img class="w-10 h-10 rounded-full cursor-pointer hidden md:block mx-4" src="<?=$setProfile?>" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
@@ -535,9 +536,8 @@ $currentHour = date('H:i');
 
 
   <script src="../resources/js/addItemToCart/addToCart.js"></script>
-<script src="../../View/resources/js/navbar/navbar.js"></script>
-
-<script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
+  <script src="../../View/resources/js/navbar/navbar.js"></script>
+  <script src="../../View/resources/js/addItemToCart/cartItems.js"></script>
   <script src="../../View/resources/js/homePage/header/searchProduct.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- navbar -->

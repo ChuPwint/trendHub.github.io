@@ -148,20 +148,20 @@ $currentHour = date('H:i');
                             <div class="pl-5">
                                 <p class="text-sm md:text-xl"><?= $cProduct["p_name"] ?></p>
                                 <p class="md:text-xl mt-4 mb-4 text-[<?php
-                                                            if ($startTime > $endTime) {
-                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                    echo "#ffffff";
-                                                                } else {
-                                                                    echo $priceColor;
-                                                                }
-                                                            } else {
-                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                    echo "#ffffff";
-                                                                } else {
-                                                                    echo $priceColor;
-                                                                }
-                                                            }
-                                                            ?>] pb-0"><?= number_format($cProduct["sell_price"]) ?> Ks</p>
+                                                                        if ($startTime > $endTime) {
+                                                                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                echo "#ffffff";
+                                                                            } else {
+                                                                                echo $priceColor;
+                                                                            }
+                                                                        } else {
+                                                                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                echo "#ffffff";
+                                                                            } else {
+                                                                                echo $priceColor;
+                                                                            }
+                                                                        }
+                                                                        ?>] pb-0"><?= number_format($cProduct["sell_price"]) ?> Ks</p>
                                 <?php
                                 $text = ($cProduct["p_stock"] <= 5) ? "Only " . $cProduct["p_stock"] . " left in stock!" : $cProduct["p_stock"] . " stocks available!";
                                 ?>
@@ -172,7 +172,7 @@ $currentHour = date('H:i');
                         </div>
                     </a>
                     <div class="flex justify-end pb-3">
-                        <button class="bg-[<?php
+                        <button id="<?= $cProduct["id"] ?>" class="cartBtn bg-[<?php
                                             if ($startTime > $endTime) {
                                                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                     echo "#000000";
@@ -196,62 +196,61 @@ $currentHour = date('H:i');
             <!-- Pagination -->
             <div class="flex mx-auto">
                 <?php $disabledOrNot = ($page <= 1) ? "pointer-events-none" : ""; ?>
-                <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $page - 1 ?>" class="<?= $disabledOrNot ?> border-2 px-3 py-1 border-textGray flex items-center 
-                text-[<?php
-
-                        if ($startTime > $endTime) {
-                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        } else {
-                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        }
-
-
-                        ?>]"><ion-icon name="chevron-back-outline"></ion-icon></a>
+                <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $page - 1 ?>" class="<?= $disabledOrNot ?> border-2 px-3 py-1 border-textGray flex items-center text-[<?php
+                                                                                                                                                                                                                            if ($startTime > $endTime) {
+                                                                                                                                                                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                                    echo "#ffffff";
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                    echo $navColor;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                                    echo "#ffffff";
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                    echo $navColor;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                            ?>]">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
                 <?php for ($i = 1; $i <= $pageTotal; $i++) { ?>
                     <?php $shownPage = ($page == $i) ? "bg-tertiary text-white" : ""; ?>
-                    <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $i ?>" class="<?= $shownPage ?> border-2 w-9 py-1 border-textGray text-center 
-                text-[<?php
-                        if ($startTime > $endTime) {
-                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        } else {
-                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        }
-                        ?>]"><?= $i ?></a>
+                    <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $i ?>" class="<?= $shownPage ?> border-2 w-9 py-1 border-textGray text-center text-[<?php
+                                                                                                                                                                                                                if ($startTime > $endTime) {
+                                                                                                                                                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                        echo "#ffffff";
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        echo $navColor;
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                        echo "#ffffff";
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        echo $navColor;
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                                ?>]">
+                        <?= $i ?>
+                    </a>
                 <?php } ?>
 
                 <?php $disabledOrNot = ($page >= $pageTotal) ? "pointer-events-none" : ""; ?>
-                <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $page + 1 ?>" class="<?= $disabledOrNot ?> border-2 px-3 py-1 border-textGray flex items-center 
-                text-[<?php
-
-                        if ($startTime > $endTime) {
-                            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        } else {
-                            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                echo "#ffffff";
-                            } else {
-                                echo $navColor;
-                            }
-                        } ?>]"><ion-icon name="chevron-forward-outline"></ion-icon></a>
+                <a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $cId ?>&page=<?= $page + 1 ?>" class="<?= $disabledOrNot ?> border-2 px-3 py-1 border-textGray flex items-center text-[<?php
+                                                                                                                                                                                                                            if ($startTime > $endTime) {
+                                                                                                                                                                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                                    echo "#ffffff";
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                    echo $navColor;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                                                                                                                                                                    echo "#ffffff";
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                    echo $navColor;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            } ?>]">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
             </div>
             <!-- Pagination End-->
 

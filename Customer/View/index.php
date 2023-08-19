@@ -3,14 +3,15 @@
 session_start();
 if (isset($_SESSION["currentLoginUser"])) {
   $loginId = $_SESSION["currentLoginUser"];
-  $profilePic = $_SESSION["userProfilePic"];
-  if ($profilePic == null) {
-    $setProfile = "../Storage/profiles/noProfile.jpg";
-  } else {
-    $setProfile = ".." . $profilePic;
-  }
   include "../Controller/homePage/homeWishlistedController.php";
 }
+$profilePic = (isset($_SESSION["userProfilePic"])) ? $_SESSION["userProfilePic"] : null;
+if ($profilePic == null) {
+  $setProfile = "../Storage/profiles/noProfile.jpg";
+} else {
+  $setProfile = ".." . $profilePic;
+}
+
 
 include "../Controller/homePageCategoryController.php";
 include "../Controller/uiElement/editInfoControllerIndex.php";
@@ -272,7 +273,7 @@ bg-[<?php
         <?php  } else { ?>
           <div class="md:hidden order-last">
             <a href="../View/Profile/user_profile.php">
-              <img class="w-12 cursor-pointer" src="<?= $setProfile ?>" alt="">
+              <img class="w-12 h-10 rounded-full cursor-pointer" src="<?= $setProfile ?>" alt="">
             </a>
           </div>
         <?php  } ?>
@@ -443,7 +444,7 @@ bg-[<?php
           </a>
         <?php  } else { ?>
           <div class="logged_in">
-            <a href="../View/Profile/user_profile.php"><img class="w-10 cursor-pointer hidden md:block mx-4" src="<?= $setProfile ?>" alt=""></a>
+            <a href="../View/Profile/user_profile.php"><img class="w-10 h-10 rounded-full cursor-pointer hidden md:block mx-4" src="<?= $setProfile ?>" alt=""></a>
           </div>
         <?php  } ?>
         <h2 class=""></h2>
@@ -534,7 +535,7 @@ bg-[<?php
           <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
         </div>
 
-          <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
+        <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
         
       text-[<?php
             if ($startTime > $endTime) {
@@ -552,7 +553,11 @@ bg-[<?php
             }
             ?>]" name="cart-outline"></ion-icon>
 
+<<<<<<< HEAD
         <span class="cart_item absolute md:right-5 right-1 md:top-[10px] top-[10px] w-5 h-5 text-sm text-white text-center rounded-full 
+=======
+        <span class="cart_item absolute md:right-5 right-1 md:top-[0px] top-[0px] w-5 h-5 text-sm text-white text-center rounded-full 
+>>>>>>> origin/main
         bg-[<?php
             if ($startTime > $endTime) {
               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
