@@ -97,13 +97,13 @@ include "../resources/common/navbar.php";
                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                     echo "#ffffff";
                 } else {
-                    echo $titleColor;
+                    echo "#c0c0c0";
                 }
             } else {
                 if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                     echo "#ffffff";
                 } else {
-                    echo $titleColor;
+                    echo "#c0c0c0";
                 }
             }
 
@@ -335,7 +335,7 @@ include "../resources/common/navbar.php";
                 <!-- end of order summary container -->
             </div>
             <!-- end of product and summary container -->
-            <div id="totalItem" class="md:<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?> md:font-bold md:p-4 md:text-lg md:w-[70%] md:text-right ">
+            <div id="totalItem" class="md:<?= (count($_SESSION["cartItemsDetails"]) == 0) ? "hidden" : "block" ?> md:font-bold text-[#c0c0c0] md:p-4 md:text-lg md:w-[70%] md:text-right ">
                 Total: <span class="itemAmount"><?=
                                                 (isset($_SESSION["cartItems"])) ? count($_SESSION["cartItems"]) : 0;
                                                 ?></span> items
