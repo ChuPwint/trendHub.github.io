@@ -28,11 +28,12 @@ if (!isset($_SESSION["currentMerchantLogin"]) || $_SESSION["currentMerchantLogin
   
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
-    <script src="../resources/js/sideBar/sideBar.js" defer></script>
+    
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmission.js" defer></script>
     <script src="../resources/js/productSubmission/productSubmit.js" defer></script>
 </head>

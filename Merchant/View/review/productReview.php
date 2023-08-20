@@ -236,7 +236,7 @@ include "../../Controller/allReview/customerReviewController.php";
                             $rowClass = ($counter % 2 === 0) ? 'bg-gray-200' : '';
                         ?>
                             <tr class="orderList <?= $rowClass ?>">
-                                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $product['id']?></td>
+                                <td class="viewOrderDetailBtn p-2 text-center  font-semibold cursor-pointer"><?= $count++?></td>
                                 <td class="p-2 text-center"><?= $product['p_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['category_name'] ?></td>
                                 <td class="p-2 text-center"><?= $product['p_stock'] ?></td>
