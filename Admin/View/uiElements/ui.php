@@ -30,6 +30,8 @@ include ".././../Controller/uiElements/terms/viewtermsController.php";
 $logo = isset($editLogo[0]["logo"]) && !empty($editLogo[0]["logo"]) ? $editLogo[0]["logo"] : '/Storage/logo/logo.svg';
 $mobileLogo = isset($editMobileLogo[0]["mobileLogo"]) && !empty($editMobileLogo[0]["mobileLogo"]) ? $editMobileLogo[0]["mobileLogo"] : '/Storage/logo/mobileLogo.svg';
 
+
+
 $primaryColor = isset($editBacground[0]["primary_color"]) && !empty($editBacground[0]["primary_color"]) ? $editBacground[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editBacground[0]["secondary_color"]) && !empty($editBacground[0]["secondary_color"]) ? $editBacground[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editBacground[0]["tertiary_color"]) && !empty($editBacground[0]["tertiary_color"]) ? $editBacground[0]["tertiary_color"] : '#F36823';
@@ -232,8 +234,9 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                         <form action="../../Controller/uiElements/logo/updateMobileLogoController.php" method="post" enctype="multipart/form-data">
                             <label class="mx-auto text-center flex justify-center" for="">
                                 <div class="bg-[white]  rounded-lg">
-                                    <a target="_blank" href="../../../<?= $mobileLogo ?>">
-                                        <img id="smlogo" src="../../..<?= $mobileLogo ?>" class="px-[5px] max-h-[100px]  py-[5px] " alt="">
+                                   
+                                        <a target="_blank" href="../../../<?= $mobileLogo ?>">
+                                        <img id="smlogo" src="../../..<?= $mobileLogo ?>" class="px-[5px] max-h-[100px] py-[5px] " alt="">
                                     </a>
                                 </div>
 
@@ -586,9 +589,9 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                 <hr class="mt-10 h-[2px] mx-auto">
 
                 <!-- start slider -->
-                <div class="text-white flex  justify-between mt-10">
+                <div class="text-white flex  justify-between mt-10 shadow-lg">
                     <!-- start slider 1 -->
-                    <div>
+                    <div class="">
                         <span class="text-xl">Image Slider1</span>
                         <form action="../../Controller/uiElements/imgSlider1/updateController.php" method="post" class="mt-[40px]" enctype="multipart/form-data">
                             <div class="flex mt-4  w-[330px]  relative">
@@ -615,13 +618,13 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
 
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea placeholder="Enter Title" class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="32" rows="3"> <?= $sliderTitle1 ?> </textarea>
+                                <textarea placeholder="Enter Title" class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleOne" id="" cols="36" rows="3"> <?= $sliderTitle1 ?> </textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea placeholder="Enter Description" class="resize-none scroll text-black outline-none rounded-sm ml-[27px]  " name="imgDscOne" id="" cols="32" rows="5"> <?= $sliderDsc1 ?></textarea>
+                                <textarea placeholder="Enter Description" class="resize-none scroll text-black outline-none rounded-sm ml-[27px]  " name="imgDscOne" id="" cols="36" rows="5"> <?= $sliderDsc1 ?></textarea>
 
                             </div>
                             <div class="flex justify-between mt-4">

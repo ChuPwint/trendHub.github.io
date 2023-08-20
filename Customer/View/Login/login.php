@@ -155,13 +155,13 @@ $currentHour = date('H:i');
                                                                                                                                         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                             echo "#000000";
                                                                                                                                         } else {
-                                                                                                                                            echo $primaryColor;
+                                                                                                                                            echo "#ffffff";
                                                                                                                                         }
                                                                                                                                     } else {
                                                                                                                                         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                             echo "#000000";
                                                                                                                                         } else {
-                                                                                                                                            echo $primaryColor;
+                                                                                                                                            echo "#ffffff";
                                                                                                                                         }
                                                                                                                                     }
 

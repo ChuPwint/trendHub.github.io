@@ -149,7 +149,35 @@ bg-[<?php
 
    
     <!-- start first navbar -->
-  <marquee behavior="" class="text-white text-xl py-4 bg-black <?= $showAnnounce   ?>  " direction="right"><?= $editInfo[0]["textAnno"] ?></marquee>
+  <marquee behavior="" class=" whitespace-pre-line text-[<?php
+    if ($startTime > $endTime) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+      } else {
+        echo "#ffffff";
+      }
+    } else {
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#ffffff";
+      } else {
+        echo "#ffffff";
+      }
+    }
+    ?>] text-xl py-4 bg-[<?php
+    if ($startTime > $endTime) {
+      if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+        echo "#3d3d3d";
+      } else {
+        echo "#000000";
+      }
+    } else {
+      if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+        echo "#3d3d3d";
+      } else {
+        echo "#000000";
+      }
+    }
+    ?>]  <?= $showAnnounce   ?>  " direction="right"><?= $editInfo[0]["textAnno"] ?></marquee>
 
     <nav class="py-2 px-4 -mt-[6px] bg-[<?php
                               if ($startTime > $endTime) {
@@ -401,13 +429,13 @@ bg-[<?php
                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                   echo '#000000';
                 } else {
-                  echo $primaryColor;
+                  echo "#ffffff";
                 }
               } else {
                 if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                   echo '#000000';
                 } else {
-                  echo $primaryColor;
+                  echo "#ffffff";
                 }
               }
               ?>] duration-500 py-2 px-6 hidden md:block mx-4 hover:bg-tertiary rounded ">
@@ -895,7 +923,21 @@ bg-[<?php
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="../Controller/itemDetailController.php?productId=<?= $trending["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $trending["p_path"] ?>" alt=""></a>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              }
+              ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 
         text-[<?php
               if ($startTime > $endTime) {
@@ -984,7 +1026,21 @@ bg-[<?php
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="../Controller/itemDetailController.php?productId=<?= $bestSeller["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $bestSeller["p_path"] ?>" alt=""></a>
-          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
+          <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              }
+              ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 
     text-[<?php if ($startTime > $endTime) {
             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1073,7 +1129,21 @@ bg-[<?php
             <i class="fa fa-heart absolute right-3 top-3 text-lg "></i>
           </button>
           <a href="../Controller/itemDetailController.php?productId=<?= $newProduct["id"] ?>"><img class="imgEffect w-[160px] max-h-[200px] cursor-pointer mx-auto" src="../..<?= $newProduct["p_path"] ?>" alt=""></a>
-          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-textBlack max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
+          <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#ffffff';
+                } else {
+                  echo $navColor;
+                }
+              }
+              ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
           <div class="price absolute bottom-[92px] text-md pt-8 pl-5 
     text-[<?php
           if ($startTime > $endTime) {
