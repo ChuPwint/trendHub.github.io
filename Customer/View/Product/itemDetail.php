@@ -80,7 +80,7 @@ $currentHour = date('H:i');
 </head>
 
 <body class="bg-primary font-roboto scrollbar-hide">
-
+    <?php include "../resources/common/navbar.php" ?>
 
     <div class="mt-36 text-textGray py-2 text-lg md:text-sm md:px-7 px-5">
         <span>Home > </span>
@@ -126,7 +126,7 @@ $currentHour = date('H:i');
                         $wishlistBtnText = ($isWishlisted == true) ? "Added to Wishlist" : "Add to Wishlist";
                     ?>
                     <button w_pId=<?= $productDetail[0]["id"] ?> id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange <?= $wishlistBtnTextColor ?>"><?= $wishlistBtnText ?></button>
-                    <button class="cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
+                    <button id="<?= $productDetail[0]["id"]?>" class="cartBtn cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-tertiary text-white md:w-72">Add to Cart</button>
                 </div>
             </div>
         </div>

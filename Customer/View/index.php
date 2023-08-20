@@ -553,11 +553,7 @@ bg-[<?php
             }
             ?>]" name="cart-outline"></ion-icon>
 
-<<<<<<< HEAD
-        <span class="cart_item absolute md:right-5 right-1 md:top-[10px] top-[10px] w-5 h-5 text-sm text-white text-center rounded-full 
-=======
         <span class="cart_item absolute md:right-5 right-1 md:top-[0px] top-[0px] w-5 h-5 text-sm text-white text-center rounded-full 
->>>>>>> origin/main
         bg-[<?php
             if ($startTime > $endTime) {
               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
