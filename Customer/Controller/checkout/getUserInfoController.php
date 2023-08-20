@@ -22,4 +22,13 @@ $sql->bindValue(":id", $customerInfo[0]["region_id"]);
 $sql->execute();
 $townshipLists = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = $pdo->prepare(
+    "SELECT delivery_fee
+    FROM m_regions
+    WHERE id = :id"
+);
+$sql->bindValue(":id", $customerInfo[0]["region_id"]);
+$sql->execute();
+$deliFee = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>

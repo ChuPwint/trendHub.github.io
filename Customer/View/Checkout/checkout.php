@@ -1,19 +1,29 @@
 <?php
 session_start();
-include "../../Controller/regionAndTownshipController.php";
-if (!isset($_SESSION["saveDeliveryAddress"])) {
+if (!isset($_SESSION["currentLoginUser"])) {
+	header("Location: ../Error/error.php");
+} else {
+	include "../../Controller/regionAndTownshipController.php";
 	include "../../Controller/checkout/getUserInfoController.php";
 	$name = $customerInfo[0]["c_name"];
 	$phone = $customerInfo[0]["c_phone"];
 	$email = $customerInfo[0]["c_email"];
-	$region = $customerInfo[0]["region_id"];
-	$township = $customerInfo[0]["township_id"];
-	$address = $customerInfo[0]["c_address"];
-} else {
-	$customerInfo = $_SESSION["saveDeliveryAddress"];
+	if (!isset($_SESSION["saveDeliveryAddress"])) {
+		$region = $customerInfo[0]["region_id"];
+		$township = $customerInfo[0]["township_id"];
+		$address = $customerInfo[0]["c_address"];
+		$deliFee = $deliFee[0]["delivery_fee"];
+	} else {
+		$region = $_SESSION["regionChangeCheckout"];
+		$township = $_SESSION["townshipChangeCheckout"];
+		$address = $_SESSION["addressChangeCheckout"];
+		$townshipLists = $_SESSION["checkoutTownshipList"];
+		$deliFee = $_SESSION["checkoutDeliFee"];
+	}
+
+	$subTotal = (isset($_SESSION["subTotal"])) ? $_SESSION["subTotal"] : false;
 }
 
-$subTotal = (isset($_SESSION["subTotal"])) ? $_SESSION["subTotal"] : false;
 
 ?>
 
@@ -28,9 +38,10 @@ $subTotal = (isset($_SESSION["subTotal"])) ? $_SESSION["subTotal"] : false;
 
 	<link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-	
+
 	<script src="../resources/lib/jquery3.6.0.js"></script>
 	<script src="../resources/js/checkout/checkout.js" defer></script>
+	<script src="../resources/js/checkout/regionTownshipCheck.js" defer></script>
 </head>
 <?php
 include "../resources/common/navbar.php";
@@ -103,7 +114,7 @@ $currentHour = date('H:i');
 			<!-- start of delivery information and order summary container -->
 			<div class="md:p-1">
 				<!-- start of delivery information container -->
-				<form class="md:px-10 py-4 px-4 md:flex md:justify-between ">
+				<form action="../Payment/payment.php" method="post" class="md:px-10 py-4 px-4 md:flex md:justify-between ">
 					<div class="md:space-y-5">
 						<div>
 							<h2 class="md:text-xl font-semibold text-[<?php
@@ -190,55 +201,21 @@ $currentHour = date('H:i');
 																						}
 																						?>]">Phone Number</label>
 									<div class="mt-2">
-										<input type="text" name="phone" class="border border-1 p-2 border-[<?php
-																											if ($startTime > $endTime) {
-																												if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											} else {
-																												if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											}
-																											?>] w-full rounded-md bg-slate-200 bg-opacity-50 outline-none py-1.5 placeholder:text-gray-400" value="<?= $phone ?>" readonly>
-									</div>
-								</div>
-								<div class="mt-3">
-									<label for="email" class="block font-medium text-[<?php
-																						if ($startTime > $endTime) {
-																							if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																								echo "#ffffff";
-																							} else {
-																								echo $navColor;
-																							}
-																						} else {
-																							if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																								echo "#ffffff";
-																							} else {
-																								echo $navColor;
-																							}
-																						}
-																						?>]">Email address</label>
-									<div class="mt-2">
-										<input name="email" type="email" class="border border-1 p-2 border-[<?php
-																											if ($startTime > $endTime) {
-																												if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											} else {
-																												if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											}
-																											?>] w-full rounded-md bg-slate-200 bg-opacity-50 outline-none py-1.5 placeholder:text-gray-400" value="<?= $email ?>" readonly>
+										<input type="text" name="deliverPhone" class="border border-1 p-2 border-[<?php
+																													if ($startTime > $endTime) {
+																														if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+																															echo "#000000";
+																														} else {
+																															echo $buttonColor;
+																														}
+																													} else {
+																														if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+																															echo "#000000";
+																														} else {
+																															echo $buttonColor;
+																														}
+																													}
+																													?>] w-full rounded-md bg-slate-200 bg-opacity-50 outline-none py-1.5 placeholder:text-gray-400" value="<?= $phone ?>" readonly>
 									</div>
 								</div>
 
@@ -259,26 +236,26 @@ $currentHour = date('H:i');
 																						}
 																						?>]">Region</label>
 									<div class="mt-2">
-										<select id="deliRegion" name="region" class="border border-1 p-2 border-[<?php
-																									if ($startTime > $endTime) {
-																										if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																											echo "#000000";
-																										} else {
-																											echo $buttonColor;
-																										}
-																									} else {
-																										if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																											echo "#000000";
-																										} else {
-																											echo $buttonColor;
-																										}
-																									}
-																									?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400">
+										<select id="deliRegion" name="deliverRegion" class="border border-1 p-2 border-[<?php
+																														if ($startTime > $endTime) {
+																															if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+																																echo "#000000";
+																															} else {
+																																echo $buttonColor;
+																															}
+																														} else {
+																															if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+																																echo "#000000";
+																															} else {
+																																echo $buttonColor;
+																															}
+																														}
+																														?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400">
 											<?php
 											foreach ($totalRegions as $regionLoop) { ?>
 												<option value="<?= $regionLoop["id"] ?>" <?php
-																						if (($regionLoop["id"] == $region)) { ?> selected <?php }
-																																						?>><?= $regionLoop["name"] ?></option>
+																							if (($regionLoop["id"] == $region)) { ?> selected <?php }
+																																				?>><?= $regionLoop["name"] ?></option>
 											<?php }
 											?>
 										</select>
@@ -301,21 +278,21 @@ $currentHour = date('H:i');
 																							}
 																							?>]">Township</label>
 									<div class="mt-2">
-										<select id="deliTownship" name="township" class="border border-1 p-2 border-[<?php
-																									if ($startTime > $endTime) {
-																										if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																											echo "#000000";
-																										} else {
-																											echo $buttonColor;
-																										}
-																									} else {
-																										if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																											echo "#000000";
-																										} else {
-																											echo $buttonColor;
-																										}
-																									}
-																									?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400">
+										<select id="deliTownship" name="deliverTownship" class="border border-1 p-2 border-[<?php
+																															if ($startTime > $endTime) {
+																																if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+																																	echo "#000000";
+																																} else {
+																																	echo $buttonColor;
+																																}
+																															} else {
+																																if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+																																	echo "#000000";
+																																} else {
+																																	echo $buttonColor;
+																																}
+																															}
+																															?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400">
 											<?php
 											foreach ($townshipLists as $townshipLoop) { ?>
 												<option value="<?= $townshipLoop["id"] ?>" <?php if (($townshipLoop["id"] == $township)) { ?> selected <?php } ?>>
@@ -344,26 +321,26 @@ $currentHour = date('H:i');
 																						}
 																						?>]">Address</label>
 									<div class="mt-2">
-										<input type="text" name="address" class="border border-1 p-2 border-[<?php
-																											if ($startTime > $endTime) {
-																												if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											} else {
-																												if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																													echo "#000000";
-																												} else {
-																													echo $buttonColor;
-																												}
-																											}
-																											?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" value="<?= $address ?>">
+										<input id="deliAddress" type="text" name="deliverAddress" class="border border-1 p-2 border-[<?php
+																																		if ($startTime > $endTime) {
+																																			if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+																																				echo "#000000";
+																																			} else {
+																																				echo $buttonColor;
+																																			}
+																																		} else {
+																																			if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+																																				echo "#000000";
+																																			} else {
+																																				echo $buttonColor;
+																																			}
+																																		}
+																																		?>] w-full rounded-md outline-none py-1.5 placeholder:text-gray-400" value="<?= $address ?>">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="flex items-center justify-center">
+						<div class="flex items-center justify-center mt-4 md:mt-0">
 							<button type="button" id="saveDeliInfoBtn" class="rounded-md bg-[<?php
 																								if ($startTime > $endTime) {
 																									if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -436,9 +413,10 @@ $currentHour = date('H:i');
 									<p class="mb-3">Sub-total</p>
 									<p>Delivery</p>
 								</div>
-								<div>
-									<p class="mb-3"><?= number_format($subTotal) ?> Ks</p>
-									<p>$80</p>
+								<div class="text-right">
+									<p class="mb-3"><?= ($subTotal) ?></p>
+									<p id="deliFee"><?= $deliFee ?> Ks</p>
+									<input id="hiddenDeliFee" type="hidden" name="deliFee" value="<?= $deliFee ?>">
 								</div>
 							</div>
 							<hr class="border border-dashed border-gray-400">
@@ -458,26 +436,33 @@ $currentHour = date('H:i');
 																						}
 																						?>]">
 								<p>Grand Total</p>
-								<p>$880</p>
+								<?php
+								$amountString = preg_replace("/[^0-9]/", "", $subTotal);
+
+								// Convert the result to an integer
+								$amountInteger = (int)$amountString;
+								$grandTotal = $amountInteger + $deliFee;
+								?>
+								<p id="grandTotal"><?= number_format($grandTotal) ?> Ks</p>
+								<input id="hiddenGrandTotal" type="hidden" name="grandTotal" value="<?= $grandTotal ?>">
 							</div>
 							<!-- end of prices -->
 							<div class="flex justify-center mt-6 mb-4">
-								<a href="../Payment/payment.php">
-									<button type="submit" id="placeOrderBtn" class="bg-[<?php
-																						if ($startTime > $endTime) {
-																							if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-																								echo "#000000";
-																							} else {
-																								echo $buttonColor;
-																							}
+								<button type="submit" id="placeOrderBtn" class="bg-[<?php
+																					if ($startTime > $endTime) {
+																						if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+																							echo "#000000";
 																						} else {
-																							if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-																								echo "#000000";
-																							} else {
-																								echo $buttonColor;
-																							}
+																							echo $buttonColor;
 																						}
-																						?>] bg-opacity-50 rounded-md px-8 py-2 text-[<?php
+																					} else {
+																						if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+																							echo "#000000";
+																						} else {
+																							echo $buttonColor;
+																						}
+																					}
+																					?>] bg-opacity-50 rounded-md px-8 py-2 text-[<?php
 																																		if ($startTime > $endTime) {
 																																			if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 																																				echo "#ffffff";
@@ -492,9 +477,8 @@ $currentHour = date('H:i');
 																																			}
 																																		}
 																																		?>]">
-										Place Order
-									</button>
-								</a>
+									Place Order
+								</button>
 							</div>
 						</div>
 						<!-- end of order summary card -->
