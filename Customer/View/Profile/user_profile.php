@@ -725,7 +725,7 @@ if ($startTime > $endTime) {
                         <div class="bg-white p-6 mx-auto  rounded-md shadow-lg w-2/3 md:w-1/4 ">
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
-                                <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
+                                <a href="../../Controller/logoutController.php"><button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button></a>
                                 <button class="bg-[<?php
 
 if ($startTime > $endTime) {
