@@ -14,7 +14,7 @@ if(isset($_POST["regionCheckOutId"])){
     $sql = $pdo->prepare(
         "SELECT delivery_fee
         FROM m_regions
-        WHERE region_id = :id"
+        WHERE id = :id"
     );
     $sql->bindValue(":id", $regionId);
     $sql->execute();
