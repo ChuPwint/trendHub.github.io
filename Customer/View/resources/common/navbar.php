@@ -204,7 +204,7 @@ $currentHour = date('H:i');
         </span>
       </div>
 
-      <ul class="navUL md:flex md:items-center z-50  md:z-auto md:static absolute bg-[<?php
+      <ul class="navUL md:flex md:items-center z-50 -mt-[14px]  md:z-auto md:static absolute bg-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -242,7 +242,21 @@ $currentHour = date('H:i');
     
   
 
-      ?>]  duration-300">Home</a>
+      ?>]  hover:text-[<?php
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      }
+      ?>] duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="../Contact/aboutUs.php" class="text-md text-[<?php
@@ -263,7 +277,21 @@ $currentHour = date('H:i');
     
   
 
-      ?>]  duration-300">About</a>
+      ?>]  hover:text-[<?php
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      }
+      ?>] duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="../Contact/services.php" class="text-md text-[<?php
@@ -284,7 +312,21 @@ $currentHour = date('H:i');
     
   
 
-      ?>]  duration-300">Service</a>
+      ?>]  hover:text-[<?php
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      }
+      ?>] duration-300">Service</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="../Contact/help.php" class="text-md text-[<?php
@@ -305,7 +347,21 @@ $currentHour = date('H:i');
     
   
 
-      ?>]  duration-300">Help</a>
+      ?>]  hover:text-[<?php
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      }
+      ?>] duration-300">Help</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="../Contact/contact.php" class="text-md text-[<?php
@@ -326,6 +382,20 @@ $currentHour = date('H:i');
     
   
 
+      ?>]  hover:text-[<?php
+      if ($startTime > $endTime) {
+        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      } else {
+        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+          echo  "#3d3d3d";
+        } else {
+          echo $tertiaryColor;
+        }
+      }
       ?>] duration-300">Contact</a>
         </li>
         <?php if (!isset($loginId)) { ?>
@@ -447,7 +517,22 @@ $currentHour = date('H:i');
 
               <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
                 <?php foreach ($categoriesResult as $category) { ?>
-                  <li><a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg-white px-4 py-2 text-gray-800  duration-400"><?= $category["category_name"] ?></a></li>
+                  <li><a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg-white px-4 py-2 text-gray-800  hover:bg-[<?php
+          if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          }
+
+          ?>] hover:text-white duration-400"><?= $category["category_name"] ?></a></li>
                 <?php } ?>
               </ul>
             </div>
