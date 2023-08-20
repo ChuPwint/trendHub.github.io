@@ -84,7 +84,7 @@ $mobileLogo = isset($editInfo[0]["mobileLogo"]) && !empty($editInfo[0]["mobileLo
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
 $secondaryColor = isset($editInfo[0]["secondary_color"]) && !empty($editInfo[0]["secondary_color"]) ? $editInfo[0]["secondary_color"] : '#E4E4D2';
 $tertiaryColor = isset($editInfo[0]["tertiary_color"]) && !empty($editInfo[0]["tertiary_color"]) ? $editInfo[0]["tertiary_color"] : '#F36823';
-$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#F36823';
+$priceColor = isset($editInfo[0]["price_text_color"]) && !empty($editInfo[0]["price_text_color"]) ? $editInfo[0]["price_text_color"] : '#000000';
 $navColor = isset($editInfo[0]["nav_text_color"]) && !empty($editInfo[0]["nav_text_color"]) ? $editInfo[0]["nav_text_color"] : '#000000';
 $titleColor = isset($editInfo[0]["title_color"]) && !empty($editInfo[0]["title_color"]) ? $editInfo[0]["title_color"] : '#000000';
 $buttonColor = isset($editInfo[0]["buy_button_color"]) && !empty($editInfo[0]["buy_button_color"]) ? $editInfo[0]["buy_button_color"] : '#F36823';
@@ -385,6 +385,20 @@ bg-[<?php
                         echo $navColor;
                     }
                 }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                }
                 ?>]  duration-300">Help</a>
                 </li>
                 <li class="mx-4 my-6 md:my-0">
@@ -402,6 +416,20 @@ bg-[<?php
                     } else {
                         echo $navColor;
                     }
+                }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
                 }
                 ?>] duration-300">Contact</a>
                 </li>
@@ -1297,6 +1325,20 @@ bg-[<?php
                     echo $navColor;
                 }
             }
+            ?>] hover:text-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
+            }
             ?>] block">Exchange Points</span>
                 </a>
                 <a href="./Contact/privacyAndPolicy.php">
@@ -1477,6 +1519,20 @@ bg-[<?php
                     echo $navColor;
                 }
             }
+            ?>] hover:text-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
+            }
             ?>] ">Phone : <a href="tel:<?= $editPhoneNumber ?>"><?= $editPhoneNumber ?></a></span>
                 <span class="block cursor-pointer 
       text-[<?php
@@ -1492,6 +1548,20 @@ bg-[<?php
                 } else {
                     echo $navColor;
                 }
+            }
+            ?>] hover:text-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo '#000000';
+              } else {
+                echo $tertiaryColor;
+              }
             }
             ?>]  w-[400px]">Address : <a target="_blank" href="<?= $editAddressLink ?>"><?= $editAddress ?></a></span>
             </div>
@@ -1529,6 +1599,20 @@ bg-[<?php
                     } else {
                         echo $navColor;
                     }
+                }
+                ?>] hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#000000';
+                  } else {
+                    echo $tertiaryColor;
+                  }
                 }
                 ?>]" name="logo-facebook"></ion-icon>
                     </a>
