@@ -125,24 +125,7 @@ $order = "/Storage/general/my_orders.svg";
 
       ?>]">Common Topics</p>
             <div class="flex justify-evenly mt-5 md:mt-10 flex-wrap">
-                <div class="bg-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#fafafa";
-        }else {
-            echo $primaryColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#fafafa";
-        } else {
-            echo $primaryColor;
-        }
-    }
-  
-
-      ?>] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
+                <div class="bg-[#FEFEFE] rounded drop-shadow-xl px-5 py-5 flex flex-col items-center space-y-3 md:w-[170px]">
                     <img class="md:w-20 md:h-20 " src="../../../<?php
       
       if ($startTime > $endTime) {
@@ -487,13 +470,13 @@ $order = "/Storage/general/my_orders.svg";
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
           echo '#000000';
         }else {
-          echo $primaryColor;
+          echo "#ffffff";
         }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
           echo '#000000';
         } else {
-          echo $primaryColor;
+          echo "#ffffff";
         }
     }
   
@@ -510,3 +493,4 @@ $order = "/Storage/general/my_orders.svg";
 </body>
 
 </html>
+

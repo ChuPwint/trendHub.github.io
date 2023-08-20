@@ -142,19 +142,19 @@ $currentHour = date('H:i');
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
         } else {
-          echo $primaryColor;
+          echo "#ffffff";
       }
     } else {
         if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
             echo "#000000";
         } else {
-            echo $primaryColor;
+            echo "#ffffff";
         }
     }
     
   
 
-      ?>] px-2 py-1">Log In</button></a>
+      ?>] px-2 py-1">Login</button></a>
         </p>
     </div>
     <div class="flex justify-center items-center flex-col px-5">

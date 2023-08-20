@@ -7,8 +7,13 @@ $(document).ready(() => {
   $(".cart_item").text(currentItems);
 
 
-  $(".cartBtn").on("click", function(){
+  $(".cartBtn").on("click", function () {
     let currentItemID = this.id;
+    let currentMerchantID =
+      localStorage.getItem("currentMerchant") != null
+        ? localStorage.getItem("currentMerchant")
+        : "";
+    if(currentMerchantID == null || currentMerchantID == "")
     var currentItem = $(".cart_item").text();
     $(".cart_item").text(Number(currentItem) + 1);
     localStorage.setItem("currentItems", Number(currentItem) + 1);

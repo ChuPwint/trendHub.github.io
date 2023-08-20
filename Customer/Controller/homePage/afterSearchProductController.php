@@ -14,7 +14,7 @@ include "../../Model/model.php";
 $sql = $pdo->prepare(
     "SELECT p.*
     FROM m_products p
-    WHERE p.p_name LIKE :search
+    WHERE p.p_name LIKE :search AND p.del_flg = 0
     ORDER BY p.p_name
     LIMIT $pageStart, $rowLimit
     "
@@ -26,7 +26,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->prepare(
     "SELECT p.*
     FROM m_products p
-    WHERE p.p_name LIKE :search
+    WHERE p.p_name LIKE :search AND p.del_flg = 0
     ORDER BY p.p_name
     "
 );

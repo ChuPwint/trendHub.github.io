@@ -50,13 +50,13 @@ date_default_timezone_set('Asia/Yangon');
                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                         echo "#000000";
                                     } else {
-                                        echo "ffffff";
+                                        echo $primaryColor;
                                     }
                                 } else {
                                     if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                                         echo "#000000";
                                     } else {
-                                        echo "ffffff";
+                                        echo $primaryColor;
                                     }
                                 }
 
@@ -140,13 +140,13 @@ date_default_timezone_set('Asia/Yangon');
                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#ffffff";
                                                                     } else {
-                                                                        echo $navColor;
+                                                                        echo "#000000";
                                                                     }
                                                                 } else {
                                                                     if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                                                                         echo "#ffffff";
                                                                     } else {
-                                                                        echo $navColor;
+                                                                        echo "#000000";
                                                                     }
                                                                 }
 
@@ -158,13 +158,13 @@ date_default_timezone_set('Asia/Yangon');
                                                                                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                     echo "#ffffff";
                                                                                 } else {
-                                                                                    echo $navColor;
+                                                                                    echo "#000000";
                                                                                 }
                                                                             } else {
                                                                                 if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
                                                                                     echo "#ffffff";
                                                                                 } else {
-                                                                                    echo $navColor;
+                                                                                    echo "#000000";
                                                                                 }
                                                                             }
 

@@ -825,7 +825,7 @@ if ($startTime > $endTime) {
                                 <td class="px-4 py-2">${product.p_name}</td>
                                 <td class="px-4 py-2">${product.sell_price} Ks</td>
                                 <td class="px-4 py-2">
-                                    <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                    <button class="bg-[red] text-white text-xs px-4 py-2 rounded">Add to cart</button>
                                 </td>
                                 <td class="px-4 py-2 pl-10">
                                     <img w-productId="${product.id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
