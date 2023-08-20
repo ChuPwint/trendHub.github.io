@@ -1,11 +1,10 @@
 <?php
 session_start(); 
-
-$_SESSION['currentLoginUser'] = ""; 
-
-
+unset($_SESSION['currentLoginUser']);
+// $_SESSION["currentLoginUser"] = false; 
+// echo "<" . $_SESSION["currentLoginUser"] . ">";
+// echo $_SESSION["currentLoginUser"];
+echo "Ok";
 header("Location: ../View/index.php");
 
-
-exit;
 ?>

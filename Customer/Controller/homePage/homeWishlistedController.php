@@ -3,6 +3,7 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 include "../Model/model.php";
+
 $customerId = $_SESSION["currentLoginUser"];
 $sql = $pdo->prepare(
     "SELECT wishlist_id
@@ -23,4 +24,5 @@ $sql = $pdo->prepare(
 $sql->bindValue(":id", $wishlistId);
 $sql->execute();
 $wishlistedProductIdList = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
