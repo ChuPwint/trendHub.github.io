@@ -560,7 +560,10 @@ bg-[<?php
                     }
                 }
                 ?>] " name="grid"></ion-icon>
-                    <input type="search" placeholder="Search..." class="md:text-textBlack px-3 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+                
+                <form action="../Controller/homePage/searchProductController.php" method="post">
+                    <input name="searchHome" type="search" placeholder="Search by product name" class="md:text-textBlack px-3 py-2 outline-none md:rounded-l-none md:w-[300px] w-[200px] rounded-md md:rounded-r-md">
+                </form>
                 </div>
 
                 <ion-icon cartId="homePage" class="cartItems cursor-pointer text-3xl 
@@ -989,8 +992,8 @@ bg-[<?php
                                                                                         echo $priceColor;
                                                                                     }
                                                                                 }
-                                                                                ?>] ">From: <?= $trending["merchant_id"] ?></div>
-                    <div id="<?= $trending["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+                                                                                ?>] ">From: <?= $trending["m_name"] ?></div>
+                    <div id="<?= $trending["id"] ?>" mID=<?= $trending["merchant_id"] ?> class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                                                             if ($startTime > $endTime) {
                                                                                                                                                                 if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                                     echo '#ffffff';
@@ -1102,8 +1105,8 @@ bg-[<?php
                                                                                         echo $priceColor;
                                                                                     }
                                                                                 }
-                                                                                ?>] ">From: <?= $bestSeller["merchant_id"] ?></div>
-                    <div id="<?= $bestSeller["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer  text-[<?php
+                                                                                ?>] ">From: <?= $bestSeller["m_name"] ?></div>
+                    <div id="<?= $bestSeller["id"] ?>" mID=<?= $bestSeller["merchant_id"] ?> class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer  text-[<?php
                                                                                                                                                                 if ($startTime > $endTime) {
                                                                                                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                                         echo '#ffffff';
@@ -1219,8 +1222,8 @@ bg-[<?php
                                                                                                 echo $priceColor;
                                                                                             }
                                                                                         }
-                                                                                        ?>] ">From: <?= $newProduct["merchant_id"] ?></div>
-                    <div id="<?= $newProduct["id"] ?>" class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
+                                                                                        ?>] ">From: <?= $newProduct["m_name"] ?></div>
+                    <div id="<?= $newProduct["id"] ?>" mID=<?= $newProduct["merchant_id"] ?> class="cartBtn py-[5px]  absolute inset-x-0 bottom-4 w-[200px] mx-auto rounded-md cursor-pointer text-[<?php
                                                                                                                                                                 if ($startTime > $endTime) {
                                                                                                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                                         echo '#ffffff';
