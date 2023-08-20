@@ -20,7 +20,7 @@ if (!isset($_GET["categoryId"])) {
         "SELECT p.*, c.category_name
         FROM m_products p
         JOIN m_categories c ON p.category_id = c.id
-        WHERE c.id = :id
+        WHERE c.id = :id AND p.del_flg = 0
         ORDER BY p.p_name
         LIMIT $pageStart, $rowLimit
         "
@@ -33,7 +33,7 @@ if (!isset($_GET["categoryId"])) {
         "SELECT p.*, c.category_name
         FROM m_products p
         JOIN m_categories c ON p.category_id = c.id
-        WHERE c.id = :id
+        WHERE c.id = :id AND p.del_flg = 0
         ORDER BY p.p_name
         "
     );
