@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["currentLoginUser"]) || $_SESSION["currentLoginUser"] == '') {
-    header("Location: ../Error/error.php");
+    header("Location: ../Login/login.php");
 }
 ?>
 <!DOCTYPE html>

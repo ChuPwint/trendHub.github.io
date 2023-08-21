@@ -76,6 +76,9 @@ $currentHour = date('H:i');
             -webkit-appearance: none;
             margin: 0;
         }
+        
+
+
     </style>
 </head>
 
@@ -222,7 +225,7 @@ $currentHour = date('H:i');
                         $wishlistBtnText = ($isWishlisted == true) ? "Added to Wishlist" : "Add to Wishlist";
                     ?>
                     <button w_pId=<?= $productDetail[0]["id"] ?> id="wishListText" class="wishlistAdd md:block md:mb-5 md:w-72 hidden cursor-pointer font-bold text-lg px-5 py-2 rounded-md bg-white border border-borderOrange <?= $wishlistBtnTextColor ?>"><?= $wishlistBtnText ?></button>
-                    <button id="<?= $productDetail[0]["id"]?>" class="cartBtn cursor-pointer font-bold text-lg px-5 py-2 rounded-md  bg-[<?php
+                    <button id="<?= $productDetail[0]["id"]?>" mID="<?= $productDetail[0]["merchant_id"]?>" class="cartBtn cursor-pointer font-bold text-lg px-5 py-2 rounded-md  bg-[<?php
         if ($startTime > $endTime) {
           if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
             echo '#000000';

@@ -448,7 +448,7 @@ $currentHour = date('H:i');
 							</div>
 							<!-- end of prices -->
 							<div class="flex justify-center mt-6 mb-4">
-								<button type="submit" id="placeOrderBtn" class="bg-[<?php
+								<button type="submit" name="checkout" id="placeOrderBtn" class="bg-[<?php
 																					if ($startTime > $endTime) {
 																						if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
 																							echo "#000000";

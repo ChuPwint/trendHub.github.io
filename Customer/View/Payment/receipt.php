@@ -1,7 +1,8 @@
 <?php
 include "../../Controller/receiptShowController.php";
 
-
+unset($_SESSION["hasEnough"]);
+(!isset($_GET["checkout"])) ? header("Location: ../Error/error.php") : "";
 ?>
 
 <!DOCTYPE html>
