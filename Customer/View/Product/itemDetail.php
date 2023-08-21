@@ -157,7 +157,7 @@ $currentHour = date('H:i');
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <?php
-                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalFivestarRating) / $totalRatedCustomer;
+                                    $width = ($totalRatedCustomer == "none") ? 0 : (100 * $totalFivestarRating) / $totalRatedCustomer;
                                     ?>
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
@@ -170,7 +170,7 @@ $currentHour = date('H:i');
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <?php
-                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalFourstarRating) / $totalRatedCustomer;
+                                    $width = ($totalRatedCustomer == "none") ? 0 : (100 * $totalFourstarRating) / $totalRatedCustomer;
                                     ?>
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
@@ -183,7 +183,7 @@ $currentHour = date('H:i');
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <?php
-                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalThreestarRating) / $totalRatedCustomer;
+                                    $width = ($totalRatedCustomer == "none") ? 0 : (100 * $totalThreestarRating) / $totalRatedCustomer;
                                     ?>
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
@@ -196,7 +196,7 @@ $currentHour = date('H:i');
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <?php
-                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalTwostarRating) / $totalRatedCustomer;
+                                    $width = ($totalRatedCustomer == "none") ? 0 : (100 * $totalTwostarRating) / $totalRatedCustomer;
                                     ?>
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
@@ -209,7 +209,7 @@ $currentHour = date('H:i');
                             <div class="flex items-center mb-3">
                                 <div class="w-64 bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
                                     <?php
-                                    $width = ($totalRatedCustomer = "none") ? 0 : (100 * $totalOnestarRating) / $totalRatedCustomer;
+                                    $width = ($totalRatedCustomer == "none") ? 0 : (100 * $totalOnestarRating) / $totalRatedCustomer;
                                     ?>
                                     <div class="bg-tertiary h-2.5 rounded dark:bg-blue-500" style="width: <?= $width ?>%"></div>
                                 </div>
