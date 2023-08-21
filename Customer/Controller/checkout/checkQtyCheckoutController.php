@@ -27,6 +27,47 @@ if (!isset($_GET["cartItems"])) {
         }
     }
 
+    //stock update
+    foreach ($cartItems as $item) {
+        $id = $item["productID"];
+        $inputQty = $item["qty"];
+        //get stock from each product
+        $sql = $pdo->prepare(
+            "SELECT p_stock FROM m_products WHERE id = :id"
+        );
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        //remain stock
+        $remainQty = $result[0]["p_stock"] - $inputQty;
+
+        if($remainQty == 0){
+            $sql = $pdo->prepare(
+                "UPDATE m_products SET
+                del_flg = 1
+                WHERE id = :id"
+            );
+            $sql->bindValue(":id", $id);
+        }else{
+            $sql = $pdo->prepare(
+                "UPDATE m_products SET
+                p_stock = :stock
+                WHERE id = :id"
+            );
+            $sql->bindValue(":id", $id);
+            $sql->bindValue(":stock", $remainQty);
+        }
+        $sql->execute();
+    }
+
+    $sql = $pdo->prepare(
+        "SELECT merchant_id FROM m_products WHERE id = :id LIMIT 1"
+    );
+    $sql->bindValue(":id", $cartItems[0]["productID"]);
+    $sql->execute();
+    $merchantIDResult = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $merchantId = $merchantIDResult[0]["merchant_id"];
+
     $customerId = $_SESSION["currentLoginUser"];
     $regionId = $_SESSION["regionChangeCheckout"];
     $townshipId = $_SESSION["townshipChangeCheckout"];
@@ -78,7 +119,7 @@ if (!isset($_GET["cartItems"])) {
     $sql->execute();
 
     $sql = $pdo->prepare(
-        "SELECT id FROM t_orders WHERE customer_d = :id ORDER BY id DESC LIMIT 1"
+        "SELECT id FROM t_orders WHERE customer_id = :id ORDER BY id DESC LIMIT 1"
     );
     $sql->bindValue(":id", $customerId);
     $sql->execute();
@@ -150,5 +191,6 @@ if (!isset($_GET["cartItems"])) {
     $sql->execute();
 
     $_SESSION["hasEnough"] = true;
+    $_SESSION["orderId"] = $orderId;
     header("Location: ../../View/Payment/payment.php");
 }

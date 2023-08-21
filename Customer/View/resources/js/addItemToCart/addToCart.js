@@ -9,16 +9,26 @@ $(document).ready(() => {
 
   $(".cartBtn").on("click", function () {
     let currentItemID = this.id;
-    let currentMerchantID =
-      localStorage.getItem("currentMerchant") != null
-        ? localStorage.getItem("currentMerchant")
-        : "";
-    if(currentMerchantID == null || currentMerchantID == "")
-    var currentItem = $(".cart_item").text();
-    $(".cart_item").text(Number(currentItem) + 1);
-    localStorage.setItem("currentItems", Number(currentItem) + 1);
+    let currentMerchantID = $(this).attr("mID");
+    if (localStorage.getItem("currentMerchant") != null) {
+      let storageMerchantID = localStorage.getItem("currentMerchant");
+      if (currentMerchantID == storageMerchantID) {
+        var currentItem = $(".cart_item").text();
+        $(".cart_item").text(Number(currentItem) + 1);
+        localStorage.setItem("currentItems", Number(currentItem) + 1);
 
-    addToCart(currentItemID);
+        addToCart(currentItemID);
+      }else{
+        window.alert("Must buy from same merchant!");
+      }
+    }else{
+      localStorage.setItem("currentMerchant", currentMerchantID);
+      var currentItem = $(".cart_item").text();
+        $(".cart_item").text(Number(currentItem) + 1);
+        localStorage.setItem("currentItems", Number(currentItem) + 1);
+
+        addToCart(currentItemID);
+    }
   })
 
   function addToCart(productID) {

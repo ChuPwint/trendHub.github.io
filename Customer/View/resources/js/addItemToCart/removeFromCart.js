@@ -43,6 +43,7 @@ $(document).ready(() => {
         $("#orderCard").addClass("hidden");
         $("#totalItem").removeClass("md:block");
         $("#totalItem").addClass("hidden");
+        localStorage.removeItem("currentMerchant");
     };
     removeFromCard(currentItemID);
   });
@@ -57,6 +58,7 @@ $(document).ready(() => {
         $("#orderCard").addClass("hidden");
         $("#totalItem").removeClass("md:block");
         $("#totalItem").addClass("hidden");
+        localStorage.removeItem("currentMerchant");
     };    
     removeFromCard(currentItemID);
   });

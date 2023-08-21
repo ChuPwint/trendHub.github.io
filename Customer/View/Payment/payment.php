@@ -584,7 +584,10 @@ include "../../View/resources/common/navbar.php"
 
             $("#confirmCod").click(function() {
                 $(".cod").hide();
-                $(".points").show();
+                const cartItems = localStorage.getItem("cartItems");
+                const encodedCartItems = encodeURIComponent(cartItems);
+                const paymentMethod = 3;
+                window.location.href = "../../Controller/checkout/checkQtyCheckoutController.php?cartItems=" + encodedCartItems + "&paymentMethod=" + paymentMethod;
             })
 
             $("#confirm").click(function() {
@@ -609,10 +612,6 @@ include "../../View/resources/common/navbar.php"
                     const encodedCartItems = encodeURIComponent(cartItems);
                     const paymentMethod = (cardFieldsFilled) ? 1 : 2;
                     window.location.href = "../../Controller/checkout/checkQtyCheckoutController.php?cartItems=" + encodedCartItems + "&paymentMethod=" + paymentMethod;
-                    // $(".points").show();
-                    // $("#paymentForm [required]").each(function() {
-                    //     $(this).val("");
-                    // });
                 } else {
                     alert("Please fill in all required input fields.");
                 }
@@ -661,6 +660,10 @@ include "../../View/resources/common/navbar.php"
 
             $("#closePoints").click(function() {
                 $(".points").hide();
+                localStorage.removeItem("cartItems");
+                localStorage.removeItem("currentItems");
+                localStorage.removeItem("currentMerchant");
+                window.location.href = "../Payment/receipt.php";
             })
             $("#closeModalButton").click(function() {
                 $(".cod").hide();

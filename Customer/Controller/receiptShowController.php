@@ -1,13 +1,10 @@
 <?php
 session_start();
-// $orderId = $_GET["order_id"];
 
-// print_r($orderId);
-// if(!isset($orderId)){
-//     header("Location: ../../View/Error/error.php");
-// }
-// else{
-    $orderId = 1;
+if(!isset($_SESSION["orderId"])){
+    header("Location: ../../View/Error/error.php");
+}else{
+    $orderId = $_SESSION["orderId"];
 
     include "../../Model/model.php";
     $sql = $pdo->prepare(
@@ -35,5 +32,6 @@ session_start();
     $sql2->bindValue(":id", $orderId);
     $sql2->execute();
     $orderDetails= $sql2->fetchAll(PDO::FETCH_ASSOC);
+}
     
 ?>
