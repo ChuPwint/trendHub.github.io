@@ -124,6 +124,7 @@ $currentHour = date('H:i');
   .scrollHide::-webkit-scrollbar {
     display: none;
   }
+
 </style>
 
 
@@ -149,7 +150,7 @@ bg-[<?php
 
 
     <!-- start first navbar -->
-    <marquee behavior="" class=" whitespace-pre-line text-[<?php
+    <marquee behavior="" class=" marquee text-[<?php
                                                             if ($startTime > $endTime) {
                                                               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                 echo "#ffffff";
@@ -164,6 +165,22 @@ bg-[<?php
                                                               }
                                                             }
                                                             ?>] text-xl py-4 bg-[<?php
+<<<<<<< HEAD
+                                                                                      if ($startTime > $endTime) {
+                                                                                        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                          echo "#3d3d3d";
+                                                                                        } else {
+                                                                                          echo "#000000";
+                                                                                        }
+                                                                                      } else {
+                                                                                        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                          echo "#3d3d3d";
+                                                                                        } else {
+                                                                                          echo "#000000";
+                                                                                        }
+                                                                                      }
+                                                                                      ?>]  <?= $showAnnounce   ?>  " direction="left"><?= $editInfo[0]["textAnno"] ?></marquee>
+=======
                                                                                   if ($startTime > $endTime) {
                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                       echo "#3d3d3d";
@@ -178,6 +195,7 @@ bg-[<?php
                                                                                     }
                                                                                   }
                                                                                   ?>]  <?= $showAnnounce   ?>  " direction="right"><?= $editInfo[0]["textAnno"] ?></marquee>
+>>>>>>> origin/main
 
     <nav class="py-2 px-4 -mt-[6px] bg-[<?php
                                         if ($startTime > $endTime) {
@@ -1344,7 +1362,7 @@ bg-[<?php
                   echo $navColor;
                 }
               }
-              ?>] block">Privay & Policy</span>
+              ?>] block">Privacy & Policy</span>
         </a>
 
         <a href="../../Merchant/View/Login/login.php">

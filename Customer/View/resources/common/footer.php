@@ -188,7 +188,7 @@ $currentHour = date('H:i');
           echo $tertiaryColor;
         }
       }
-      ?>] block">Privay & Policy</span>
+      ?>] block">Privacy & Policy</span>
 
         </a>
         <a href="../../../Merchant/View/Login/login.php">
