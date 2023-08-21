@@ -368,7 +368,21 @@ include "../../View/resources/common/navbar.php"
                                                                 }
                                                             }
                                                             ?>]">Login with <span class="text-blue-500">Wave Id</span> to make the purchase</span>
-                        <input required type="number" placeholder="Wave Account Phone Number" class="border pl-3 mt-5 h-[40px] border-[<?php
+                        <input required type="number" placeholder="Wave Account Phone Number" class="border pl-3 mt-5 h-[40px] bg-[white] text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#ffffff';
+                  } else {
+                    echo $navColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#ffffff';
+                  } else {
+                    echo $navColor;
+                  }
+                }
+                ?>] border-[<?php
                                                                                                                                         if ($startTime > $endTime) {
                                                                                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                                 echo "#ffffff";
@@ -384,7 +398,21 @@ include "../../View/resources/common/navbar.php"
                                                                                                                                         }
                                                                                                                                         ?>] rounded-md w-[338px] outline-none bg-transparent [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
                         <div class="mt-5">
-                            <input required type="number" placeholder="One Time Password" class="border pl-3 h-[40px] border-[<?php
+                            <input required type="number" placeholder="One Time Password" class="border pl-3 h-[40px] text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#ffffff';
+                  } else {
+                    echo $navColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo '#ffffff';
+                  } else {
+                    echo $navColor;
+                  }
+                }
+                ?>] border-[<?php
                                                                                                                                 if ($startTime > $endTime) {
                                                                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                                                                         echo "#ffffff";

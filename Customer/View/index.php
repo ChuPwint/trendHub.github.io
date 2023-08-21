@@ -818,81 +818,87 @@ bg-[<?php
   </div>
   <!-- Slider end -->
 
-  <div class="hidden md:block">
+  <div class="hidden md:block mt-10">
     <div class=" flex justify-center space-x-4 mt-4">
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=1">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Women & Girls' Fashion</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/girlFashion.png" alt="">
+          <span class="absolute bottom-1 text-sm">Women & Girls' Fashion</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=2">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Men & Boys' Fashion</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/men.png" alt="">
+          <span class="absolute bottom-1 text-sm">Men & Boys' Fashion</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=3">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Sports & Outdoors</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-24" src="./resources/img/category/sportWear.png" alt="">
+          <span class="absolute bottom-1 text-sm">Sports & Outdoors</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=4">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Health & Beauty</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-28" src="./resources/img/category/cosmatic.png" alt="">
+          <span class="absolute bottom-1 text-sm">Health & Beauty</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=5">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Jewelry</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/jwellery.png" alt="">
+          <span class="absolute bottom-1 text-sm">Jewelry</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=6">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Watches</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/watch.png" alt="">
+          <span class="absolute bottom-1 text-sm">Watches</span>
         </div>
       </a>
     </div>
 
     <div class=" flex justify-center space-x-4 mt-4">
     <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=7">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Home & Lifestyle</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32 " src="./resources/img/category/lifeStyle.png" alt="">
+          <span class="absolute bottom-1 text-sm">Home & Lifestyle</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=8">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Mother & Baby</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/baby.png" alt="">
+          <span class="absolute bottom-1 text-sm">Mother & Baby</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=9">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Bags</span>
+        <div class="relative w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-24" src="./resources/img/category/bags (2).png" alt="">
+          <span class="absolute bottom-1 text-sm">Bags</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=10">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">TV & Home Appliances</span>
+        <div class=" w-40 h-40 bg-white relative
+         rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/homeAppliance.png" alt="">
+          <span class=" text-sm absolute bottom-1
+          ">TV & Home Appliances</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=11">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Electronic Devices</span>
+        <div class=" w-40 h-40 bg-white relative
+         rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/electronicDevice.png" alt="">
+          <span class=" text-sm absolute bottom-1
+          ">Electronic Devices</span>
         </div>
       </a>
       <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=12">
-        <div class=" w-40 h-40 bg-white rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
-          <img class=" w-32" src="./resources/img/category/fashion.png" alt="">
-          <span class=" text-sm">Groceries</span>
+        <div class=" w-40 h-40 bg-white relative
+         rounded flex flex-col items-center justify-center space-y-2 cursor-pointer border hover:shadow-md hover:scale-[1.05] transition-all">
+          <img class=" w-32" src="./resources/img/category/grocies.png" alt="">
+          <span class=" text-sm absolute bottom-1
+          ">Groceries</span>
         </div>
       </a>
     </div>

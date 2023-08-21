@@ -135,7 +135,7 @@ include "../../../Customer/Controller/uiElement/editInfoController.php";
                             <p>Welcome to TrendHUB. These terms govern your relationship with us as a registered merchant and outline the rights and responsibilities associated with your merchant account. These terms also govern the service-based commission structure and one-time registration fees for merchants using our platform. Please read these terms carefully before proceeding with the registration process. If you do not agree with any part of these terms, please refrain from using our platform.</p>
                             <br>
                         </div>
-                        <div class="text-black h-60 overflow-y-auto" id="term">
+                        <div class="text-black h-60 overflow-y-auto whitespace-pre-line" id="term">
 <?= $editInfo[0]["terms"]  ?>
 
                         </div>
