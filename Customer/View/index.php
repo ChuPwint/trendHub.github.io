@@ -2,6 +2,7 @@
 
 session_start();
 if (isset($_SESSION["currentLoginUser"])) {
+
   $loginId = $_SESSION["currentLoginUser"];
   include "../Controller/homePage/homeWishlistedController.php";
 }

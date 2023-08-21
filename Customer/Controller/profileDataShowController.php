@@ -1,8 +1,12 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
+if(!isset($_SESSION)) {
+    header("Location: ../Error/error.php");
+}else{
     session_start(); 
-}
+    if (!isset($_SESSION["currentLoginUser"])) {
+        header("Location: ../Error/error.php");
+    } else {
+
     include "../../Model/model.php";
     $id =  $_SESSION["currentLoginUser"];
     
@@ -14,6 +18,8 @@ if(!isset($_SESSION))
     // $_SESSION["edit"] = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     $edit = $sql->fetchAll(PDO::FETCH_ASSOC);
-  
+    }
+}
+   
 
 ?>
