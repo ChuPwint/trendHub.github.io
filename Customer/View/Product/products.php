@@ -189,7 +189,7 @@ $currentHour = date('H:i');
                         </div>
                     </a>
                     <div class="flex justify-end items-center pb-3">
-                        <button id="<?= $searched["id"] ?>" class="cartBtn bg-[<?php
+                        <button id="<?= $searched["id"] ?>" mID="<?= $searched["merchant_id"]?>" class="cartBtn bg-[<?php
                                                                                 if ($startTime > $endTime) {
                                                                                     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                                         echo "#000000";
