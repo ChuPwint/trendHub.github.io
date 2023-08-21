@@ -1,7 +1,7 @@
 <?php
 include "../../Controller/receiptShowController.php";
 
-
+unset($_SESSION["hasEnough"]);
 ?>
 
 <!DOCTYPE html>
