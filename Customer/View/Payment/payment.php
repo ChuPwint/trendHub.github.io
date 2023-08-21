@@ -664,7 +664,7 @@ include "../../View/resources/common/navbar.php"
                 localStorage.removeItem("cartItems");
                 localStorage.removeItem("currentItems");
                 localStorage.removeItem("currentMerchant");
-                window.location.href = "../Payment/receipt.php:checkout=" + 1;
+                window.location.href = "../Payment/receipt.php?checkout=" + 1;
             })
             $("#closeModalButton").click(function() {
                 $(".cod").hide();
