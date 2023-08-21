@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["order_id"])){
+if(!isset($_SESSION["orderId"])){
     header("Location: ../../View/Error/error.php");
 }else{
-    $orderId = $_SESSION["order_id"];
+    $orderId = $_SESSION["orderId"];
 
     include "../../Model/model.php";
     $sql = $pdo->prepare(
