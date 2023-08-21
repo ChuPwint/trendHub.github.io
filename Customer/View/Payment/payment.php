@@ -1,5 +1,6 @@
 <?php
-(!isset($_POST["checkout"])) ? header("Location: ../Error/error.php") : "";
+
+
 include "../../Controller/uiElement/editInfoController.php";
 
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
@@ -16,6 +17,9 @@ date_default_timezone_set('Asia/Yangon');
 $currentHour = date('H:i');
 
 session_start();
+if(!isset($_POST["checkout"]) && (!isset($_SESSION["passCheckout"]))) {
+    header("Location: ../Error/error.php");
+}
 $subTotal = (isset($_SESSION["subTotal"])) ? $_SESSION["subTotal"] : false;
 $deliFee = (isset($_SESSION["checkoutDeliFee"])) ? $_SESSION["checkoutDeliFee"] : false;;
 ?>

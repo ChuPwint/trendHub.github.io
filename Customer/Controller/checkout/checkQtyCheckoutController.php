@@ -192,5 +192,6 @@ if (!isset($_GET["cartItems"])) {
 
     $_SESSION["hasEnough"] = true;
     $_SESSION["orderId"] = $orderId;
+    $_SESSION["passCheckout"] = true;
     header("Location: ../../View/Payment/payment.php");
 }
