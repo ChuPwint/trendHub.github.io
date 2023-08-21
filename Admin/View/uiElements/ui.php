@@ -408,9 +408,9 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
 
                             <div class="float-right">
                                 <select class="text-black focus:outline-none rounded-sm px-2" name="displayAnno" id="">
-                                    <option value="hidden" <?= $showAnnounce === "hidden" ? 'selected' : '' ?>>None</option>
+                                    <option value="hidden" <?= $showAnnounce === "hidden" ? 'selected' : '' ?>>Hide</option>
 
-                                    <option value="block" <?= $showAnnounce === "block" ? 'selected' : '' ?>>Show</option>
+                                    <option value="block" <?= $showAnnounce === "block" ? 'selected' : '' ?>>Display</option>
                                 </select>
 
                                 <button class="px-[15px] py-[2px] mt-4 rounded-sm text-[black]  bg-[white]">Save</button>
