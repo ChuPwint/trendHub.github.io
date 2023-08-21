@@ -624,7 +624,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea placeholder="Enter Description" class="resize-none scroll text-black outline-none rounded-sm ml-[27px]  " name="imgDscOne" id="" cols="36" rows="5"> <?= $sliderDsc1 ?></textarea>
+                                <textarea placeholder="Enter Description" class="resize-none scroll text-black outline-none rounded-sm ml-[27px]  " name="imgDscOne" id="" cols="37" rows="5"> <?= $sliderDsc1 ?></textarea>
 
                             </div>
                             <div class="flex justify-between mt-4">
@@ -638,7 +638,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
 
 
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[274px] bg-[white]">Save</button>
                         </form>
 
 
@@ -674,13 +674,13 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                         <form action="../../Controller/uiElements/imgSlider2/updateTextController.php" method="post">
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="32" rows="3"><?= $sliderTitle2 ?></textarea>
+                                <textarea class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgTitleTwo" id="" cols="36" rows="3"><?= $sliderTitle2 ?></textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class=" scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="32" rows="5"><?= $sliderDsc2 ?></textarea>
+                                <textarea class=" scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscTwo" id="" cols="37" rows="5"><?= $sliderDsc2 ?></textarea>
 
                             </div>
 
@@ -697,7 +697,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                             </div>
 
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[274px] bg-[white]">Save</button>
                         </form>
 
 
@@ -733,13 +733,13 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                         <form action="../../Controller/uiElements/imgSlider3/updateTextController.php" method="post">
                             <div class="flex  mt-4">
                                 <span>Title</span>
-                                <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="32" rows="3"> <?= $sliderTitle3 ?></textarea>
+                                <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[27px]" name="imgTitleThree" id="" cols="36" rows="3"> <?= $sliderTitle3 ?></textarea>
 
                             </div>
 
                             <div class="flex  mt-4">
                                 <span>Des</span>
-                                <textarea class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="32" rows="5"><?= $sliderDsc3 ?></textarea>
+                                <textarea class="scroll resize-none text-black outline-none rounded-sm ml-[27px]" name="imgDscThree" id="" cols="37" rows="5"><?= $sliderDsc3 ?></textarea>
 
                             </div>
 
@@ -754,7 +754,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                                 <input name="slide_text_color3" value="<?= $slideTextColor3 ?>" class="rounded-sm w-[60px]" type="color">
                             </div>
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[260px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[274px] bg-[white]">Save</button>
 
                         </form>
 
@@ -773,7 +773,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                     <option value="faq3">FAQ3</option>
                 </select>
 
-                <div class="text-white flex  mt-5">
+                <div class="text-white flex -ml-[95px] mt-5">
                     <div class="faq text-black" id="faq1">
 
 
@@ -788,7 +788,7 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                                 <span class="block text-white">Ans:</span>
                                 <textarea cols="120" rows="4" name="answerOne" class="resize-none scroll  text-black" type="text" placeholder="Answer 1"><?= $answer1 ?></textarea>
                             </div>
-                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[977px] bg-[white]">Save</button>
 
                         </form>
                     </div>
@@ -804,9 +804,9 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                             </div>
                             <div class="flex  mt-4 justify-between">
                                 <span class="block text-white">Ans:</span>
-                                <textarea cols="120" rows="4" name="answerTwo" class="resize-none scroll text-black" type="text" placeholder="Answer 1"><?= $answer2 ?> </textarea>
+                                <textarea cols="120" rows="4" name="answerTwo" class="resize-none scroll text-black" type="text" placeholder="Answer 2"><?= $answer2 ?> </textarea>
                             </div>
-                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[977px] bg-[white]">Save</button>
 
                         </form>
                     </div>
@@ -820,9 +820,9 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
                             </div>
                             <div class="flex  mt-4 justify-between">
                                 <span class="block text-white">Ans:</span>
-                                <textarea cols="120" rows="4" name="answerThree" class="resize-none scroll text-black" type="text" placeholder="Answer 1"><?= $answer3 ?></textarea>
+                                <textarea cols="120" rows="4" name="answerThree" class="resize-none scroll text-black" type="text" placeholder="Answer 3"><?= $answer3 ?></textarea>
                             </div>
-                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[973px] bg-[white]">Save</button>
+                            <button type="submit" class="px-[15px] mt-4 rounded-sm text-[black] ml-[977px] bg-[white]">Save</button>
 
                         </form>
                     </div>
@@ -845,12 +845,12 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
 
                             <div class="flex  mt-4">
                                 <span>Terms:</span>
-                                <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[20px]  whitespace-pre  " name="terms" id="" cols="123" rows="5"><?= $editTerms[0]["terms"] ?></textarea>
+                                <textarea class="resize-none scroll text-black outline-none rounded-sm ml-[20px]   " name="terms" id="" cols="123" rows="5"><?= $editTerms[0]["terms"] ?></textarea>
 
                             </div>
 
 
-                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[1002px] bg-[white]">Save</button>
+                            <button class="px-[15px] mt-4 rounded-sm text-[black] ml-[907px] bg-[white]">Save</button>
                         </form>
 
                     </div>
