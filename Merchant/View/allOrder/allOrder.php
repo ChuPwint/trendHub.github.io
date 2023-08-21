@@ -34,6 +34,7 @@ if (isset($_SESSION["changeStatusController"]) && ($_SESSION["changeStatusContro
     <title>All Orders</title>
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
+    <link rel="stylesheet" href="../resources/css/sideBar/sideBar.css">
     <script src="../resources/js/sideBar/sideBar.js" defer></script>
     <script src="../resources/js/allOrder/allOrder.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
