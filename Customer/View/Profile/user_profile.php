@@ -461,7 +461,7 @@ $currentHour = date('H:i');
                                     <th class="px-4 py-2 border">Thumbnail</th>
                                     <th class="px-4 py-2 border">Product</th>
                                     <th class="px-4 py-2 border">Price</th>
-                                    <th class="px-4 py-2 border">Add to Cart</th>
+                                    <th class="px-4 py-2 border">Detail</th>
                                     <th class="px-4 py-2 border">Remove</th>
                                 </tr>
                             </thead>
@@ -474,7 +474,7 @@ $currentHour = date('H:i');
                                         <td class="px-4 py-2"><?php echo $product['p_name']; ?></td>
                                         <td class="px-4 py-2"><?php echo number_format($product['sell_price']); ?> Ks</td>
                                         <td class="px-4 py-2">
-                                            <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                            <a href="../../Controller/itemDetailController.php?productId=<?= $product["id"] ?>"><button class="bg-tertiary text-white text-xs px-4 py-2 rounded">See Detail</button></a>
                                         </td>
                                         <td class="px-4 py-2 pl-10">
                                             <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
@@ -518,7 +518,7 @@ $currentHour = date('H:i');
                                     <div class="mt-3"><?php echo number_format($product['sell_price']); ?> Ks</div>
                                 </div>
                                 <div class="flex justify-around">
-                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
+                                    <a href="../../Controller/itemDetailController.php?productId=<?= $product["id"] ?>"><button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">See Detail</button></a>
                                     <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
                                 </div>
                             <?php endforeach; ?>
@@ -566,8 +566,8 @@ $currentHour = date('H:i');
                                             }
                                             ?>
                                         </td>
-                                        <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
-                                        <td class="px-4 py-2"><?php number_format($order['total_amt']); ?> Ks</td>
+                                        <td class="px-4 py-2"><?= $order['payment_method']; ?></td>
+                                        <td class="px-4 py-2"><?= number_format($order['total_amt']); ?> Ks</td>
                                         <td class="px-4 py-2">
                                             <?php
                                             if ($order['order_status'] == 0) {

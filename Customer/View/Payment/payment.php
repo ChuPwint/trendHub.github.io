@@ -1,4 +1,5 @@
 <?php
+(!isset($_POST["checkout"])) ? header("Location: ../Error/error.php") : "";
 include "../../Controller/uiElement/editInfoController.php";
 
 $primaryColor = isset($editInfo[0]["primary_color"]) && !empty($editInfo[0]["primary_color"]) ? $editInfo[0]["primary_color"] : '#FAFAFA';
@@ -663,7 +664,7 @@ include "../../View/resources/common/navbar.php"
                 localStorage.removeItem("cartItems");
                 localStorage.removeItem("currentItems");
                 localStorage.removeItem("currentMerchant");
-                window.location.href = "../Payment/receipt.php";
+                window.location.href = "../Payment/receipt.php:checkout=" + 1;
             })
             $("#closeModalButton").click(function() {
                 $(".cod").hide();

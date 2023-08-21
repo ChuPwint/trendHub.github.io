@@ -2,7 +2,9 @@
 if(!isset($_SESSION)) {
     header("Location: ../Error/error.php");
 }else{
-    session_start(); 
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
     if (!isset($_SESSION["currentLoginUser"])) {
         header("Location: ../Error/error.php");
     } else {
