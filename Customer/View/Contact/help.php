@@ -82,24 +82,7 @@ $order = "/Storage/general/my_orders.svg";
   
 
       ?>]">Hello, What can we help you with?</p>
-            <input type="text" name="" id="" class="border-2 border-[<?php
-      
-      if ($startTime > $endTime) {
-        if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-            echo "#4d4d4d";
-        }else {
-            echo $tertiaryColor;
-        }
-    } else {
-        if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-            echo "#4d4d4d";
-        } else {
-            echo $tertiaryColor;
-        }
-    }
-  
-
-      ?>] bg-primary text-xs md:text-xl md:w-80 outline-none px-5 py-1 rounded" placeholder="Question about order">
+            
         </div>
     </section>
 

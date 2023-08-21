@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include "../../Controller/regionAndTownshipController.php";
 include "../../Controller/profileDataShowController.php";
 include "../../Controller/userWishlistShowController.php";
@@ -460,7 +461,7 @@ $currentHour = date('H:i');
                                     <th class="px-4 py-2 border">Thumbnail</th>
                                     <th class="px-4 py-2 border">Product</th>
                                     <th class="px-4 py-2 border">Price</th>
-                                    <th class="px-4 py-2 border">Add to Cart</th>
+                                    <th class="px-4 py-2 border">Detail</th>
                                     <th class="px-4 py-2 border">Remove</th>
                                 </tr>
                             </thead>
@@ -473,10 +474,10 @@ $currentHour = date('H:i');
                                         <td class="px-4 py-2"><?php echo $product['p_name']; ?></td>
                                         <td class="px-4 py-2"><?php echo number_format($product['sell_price']); ?> Ks</td>
                                         <td class="px-4 py-2">
-                                            <button class="bg-tertiary text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                            <a href="../../Controller/itemDetailController.php?productId=<?= $product["product_id"] ?>"><button class="bg-tertiary text-white text-xs px-4 py-2 rounded">See Detail</button></a>
                                         </td>
                                         <td class="px-4 py-2 pl-10">
-                                            <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
+                                            <img w-productId="<?= $product["product_id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -517,8 +518,8 @@ $currentHour = date('H:i');
                                     <div class="mt-3"><?php echo number_format($product['sell_price']); ?> Ks</div>
                                 </div>
                                 <div class="flex justify-around">
-                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
-                                    <img w-productId="<?= $product["id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
+                                    <a href="../../Controller/itemDetailController.php?productId=<?= $product["product_id"] ?>"><button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">See Detail</button></a>
+                                    <img w-productId="<?= $product["product_id"] ?>" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -565,8 +566,8 @@ $currentHour = date('H:i');
                                             }
                                             ?>
                                         </td>
-                                        <td class="px-4 py-2"><?php echo $order['payment_method']; ?></td>
-                                        <td class="px-4 py-2"><?php number_format($order['total_amt']); ?> Ks</td>
+                                        <td class="px-4 py-2"><?= $order['payment_method']; ?></td>
+                                        <td class="px-4 py-2"><?= number_format($order['total_amt']); ?> Ks</td>
                                         <td class="px-4 py-2">
                                             <?php
                                             if ($order['order_status'] == 0) {
@@ -725,8 +726,8 @@ if ($startTime > $endTime) {
                         <div class="bg-white p-6 mx-auto  rounded-md shadow-lg w-2/3 md:w-1/4 ">
                             <p class="text-lg text-center font-medium mb-4">Are you sure you want to log out?</p>
                             <div class="flex justify-around">
-                                <a href="../../Controller/logoutController.php"><button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button></a>
-                                <button class="bg-[<?php
+                              <button class="bg-gray-200 hover:bg-gray-300 font-medium px-4 py-1 rounded-md ml-4" id="cancelLogout">Cancel</button>
+                              <a href="../../Controller/logoutController.php">  <button class="bg-[<?php
 
 if ($startTime > $endTime) {
     if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -744,7 +745,7 @@ if ($startTime > $endTime) {
 
 
 
-?>] hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button>
+?>] hover:bg-red-600 text-white font-medium px-4 py-1 rounded-md mr-2" id="confirmLogout">Logout</button></a>
                             </div>
                         </div>
                     </div>
@@ -810,7 +811,6 @@ if ($startTime > $endTime) {
                         productId: $(this).attr("w-productId"),
                     },
                     success: function(result) {
-
                         let products = JSON.parse(result);
                         console.log(products);
                         $(".wDelete_Desktop").empty();
@@ -825,10 +825,10 @@ if ($startTime > $endTime) {
                                 <td class="px-4 py-2">${product.p_name}</td>
                                 <td class="px-4 py-2">${product.sell_price} Ks</td>
                                 <td class="px-4 py-2">
-                                    <button class="bg-[red] text-white text-xs px-4 py-2 rounded">Add to cart</button>
+                                    <a href="../../Controller/itemDetailController.php?productId=${product.product_id}"><button class="bg-tertiary text-white text-xs px-4 py-2 rounded">See Detail</button></a>
                                 </td>
                                 <td class="px-4 py-2 pl-10">
-                                    <img w-productId="${product.id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
+                                    <img w-productId="${product.product_id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-5 cursor-pointer">
                                 </td>
                             </tr>
                             `
@@ -843,8 +843,8 @@ if ($startTime > $endTime) {
                                     <div class="mt-3">${product.sell_price} Ks</div>
                                 </div>
                                 <div class="flex justify-around">
-                                    <button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">Add</button>
-                                    <img w-productId="${product.id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
+                                    <a href="../../Controller/itemDetailController.php?productId=${product.product_id}"><button class="bg-tertiary text-white text-sm px-4 py-2 rounded-sm">See Detail</button></a>
+                                    <img w-productId="${product.product_id}" src="../resources/img/orderHistory/trash.png" alt="delete" class="deleteWishlist w-6 flex button-2 right-2">
                                 </div>
                             `
                             );

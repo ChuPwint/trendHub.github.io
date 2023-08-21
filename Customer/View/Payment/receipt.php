@@ -1,7 +1,8 @@
 <?php
 include "../../Controller/receiptShowController.php";
 
-
+unset($_SESSION["hasEnough"]);
+(!isset($_GET["checkout"])) ? header("Location: ../Error/error.php") : "";
 ?>
 
 <!DOCTYPE html>
@@ -95,22 +96,22 @@ include "../resources/common/navbar.php";
 
                                             ?>] shadow-md md:shadow-none text-[<?php
 
-                                                                            if ($startTime > $endTime) {
-                                                                                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                    echo "#ffffff";
+                                                                                if ($startTime > $endTime) {
+                                                                                    if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                                                                                        echo "#ffffff";
+                                                                                    } else {
+                                                                                        echo $navColor;
+                                                                                    }
                                                                                 } else {
-                                                                                    echo $navColor;
+                                                                                    if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                                                                                        echo "#ffffff";
+                                                                                    } else {
+                                                                                        echo $navColor;
+                                                                                    }
                                                                                 }
-                                                                            } else {
-                                                                                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                    echo "#ffffff";
-                                                                                } else {
-                                                                                    echo $navColor;
-                                                                                }
-                                                                            }
 
 
-                                                                            ?>]">
+                                                                                ?>]">
                     <p class="text-center 
  font-medium mt-2">Thank you, <span><?= $order['c_name']; ?></span></p>
                     <p class="text-center mt-2">You will receive a confirmation email soon.</p>
@@ -159,7 +160,7 @@ include "../resources/common/navbar.php";
                                         <p>Quantity: <span></span><?= $detail['qty'] ?></p>
                                     </div>
                                 </div>
-                                <p><?= number_format( $detail['total_amt'],2). " Ks" ?></p>
+                                <p><?= number_format($detail['total_amt'], 2) . " Ks" ?></p>
                             </div>
                             <!-- end of ordered items -->
                             <hr class="mt-3 mb-3 border  border-gray-300">
@@ -167,20 +168,13 @@ include "../resources/common/navbar.php";
 
                         <div class="flex justify-end items-center">
                             <?php
-                           $subTotal = 0;
-                           $grandTotal = 0; // Initialize a variable to store the total product items
-                           
-                           foreach ($orderDetails as $detail) {
-                               if ($detail['order_id'] === $order['id']) {
-                                   // Append each product name to the $totalItems variable
-                                   $subTotal += $detail['total_amt'];
-                               }
-                           }
-                           
-                           $subTotalPrice = number_format($subTotal, 2); // Moved this line outside the loop
-                           $delivaryFee = number_format($order["delivery_fee"], 2);
-                           $grandTotal = number_format($subTotal + $order["delivery_fee"],2); // Simplified the calculation
-                           
+                            $subTotal = $order["total_amt"] - $order["delivery_fee"];
+                            $grandTotal = 0; // Initialize a variable to store the total product items
+
+                            $subTotalPrice = number_format($subTotal, 2); // Moved this line outside the loop
+                            $delivaryFee = number_format($order["delivery_fee"], 2);
+                            $grandTotal = number_format($order["total_amt"], 2); // Simplified the calculation
+
                             ?>
 
                             <div>
@@ -189,9 +183,9 @@ include "../resources/common/navbar.php";
                                 <p>Grand Total</p>
                             </div>
                             <div class="ml-20 text-right">
-                                <p><?=$subTotalPrice . " Ks"?></p>
+                                <p><?= $subTotalPrice . " Ks" ?></p>
                                 <p><?= $delivaryFee . " Ks" ?></p>
-                                <p><?=$grandTotal . " Ks"  ?></p>
+                                <p><?= $grandTotal . " Ks"  ?></p>
                             </div>
                         </div>
 
