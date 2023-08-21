@@ -17,9 +17,10 @@ if (!isset($_GET["categoryId"])) {
     $categoryId = $_GET["categoryId"];
     include "../../Model/model.php";
     $sql = $pdo->prepare(
-        "SELECT p.*, c.category_name
+        "SELECT p.*, c.category_name, m.m_name
         FROM m_products p
         JOIN m_categories c ON p.category_id = c.id
+        JOIN m_marchents m ON p.merchant_id = m.id
         WHERE c.id = :id AND p.del_flg = 0
         ORDER BY p.p_name
         LIMIT $pageStart, $rowLimit
@@ -30,9 +31,10 @@ if (!isset($_GET["categoryId"])) {
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     $sql = $pdo->prepare(
-        "SELECT p.*, c.category_name
+        "SELECT p.*, c.category_name, m.m_name
         FROM m_products p
         JOIN m_categories c ON p.category_id = c.id
+        JOIN m_marchents m ON p.merchant_id = m.id
         WHERE c.id = :id AND p.del_flg = 0
         ORDER BY p.p_name
         "

@@ -147,6 +147,7 @@ $currentHour = date('H:i');
                             </div>
                             <div class="pl-5">
                                 <p class="text-sm md:text-xl"><?= $cProduct["p_name"] ?></p>
+                                <p class="text-sm mt-4 md:text-xl">From: <?= $cProduct["m_name"] ?></p>
                                 <p class="md:text-xl mt-4 mb-4 text-[<?php
                                                                         if ($startTime > $endTime) {
                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -161,7 +162,7 @@ $currentHour = date('H:i');
                                                                                 echo $priceColor;
                                                                             }
                                                                         }
-                                                                        ?>] pb-0"><?= number_format($cProduct["sell_price"]) ?> Ks</p>
+                                                                        ?>] pb-0">Price: <?= number_format($cProduct["sell_price"]) ?> Ks</p>
                                 <?php
                                 $text = ($cProduct["p_stock"] <= 5) ? "Only " . $cProduct["p_stock"] . " left in stock!" : $cProduct["p_stock"] . " stocks available!";
                                 ?>

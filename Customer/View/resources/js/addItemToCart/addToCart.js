@@ -18,6 +18,8 @@ $(document).ready(() => {
         localStorage.setItem("currentItems", Number(currentItem) + 1);
 
         addToCart(currentItemID);
+      }else{
+        window.alert("Must buy from same merchant!");
       }
     }else{
       localStorage.setItem("currentMerchant", currentMerchantID);
