@@ -431,7 +431,7 @@ $order = "/Storage/general/my_orders.svg";
 
       ?>]">To contact our customer services:</p>
             </div>
-            <button class="bg-[<?php
+            <a href="./contact.php"><button class="bg-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -464,7 +464,7 @@ $order = "/Storage/general/my_orders.svg";
     }
   
 
-      ?>] px-9 py-2 rounded">Contact Admin</button>
+      ?>] px-9 py-2 rounded">Contact Admin</button></a>
         </div>
     </section>
 
