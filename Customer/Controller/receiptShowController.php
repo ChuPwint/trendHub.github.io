@@ -49,7 +49,7 @@ if (!isset($_SESSION["orderId"])) {
 
     $merchantName =  $merchant[0]['m_name'];
 
-    $title = "New Order for Your Products ,Dear [ $merchantName]";
+    $title = "New Order for Your Products";
     $text = "A new order has been placed for your products. Please review the order details and prepare for delivery.";
     if (($merchant[0]['merchantId']) == 1) {
         $sql = $pdo->prepare(
