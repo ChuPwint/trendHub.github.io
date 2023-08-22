@@ -83,7 +83,7 @@ $totalContact = $_SESSION["totalContact"];
                 <!-- Noti Start  -->
                 <div class="flex space-x-5 mt-3">
                     <!-- Left-side start  -->
-                    <div id="leftSide">
+                    <div id="leftSide" class="h-[70vh] overflow-y-scroll scrollbar-hide w-[900px]">
                         <!-- Noti card 1 start  -->
                         <?php
                         foreach ($totalContact as $contact) { ?>
@@ -93,9 +93,9 @@ $totalContact = $_SESSION["totalContact"];
                                 <div class="flex justify-between">
                                     <div class="flex items-center">
                                         <img src="../resources/img/profile/notifyProfile.png" alt="">
-                                        <p class="px-2"><?= $name ?></p>
+                                        <p class="px-2 text-sm"><?= $name ?></p>
                                     </div>
-                                    <p class="ml-56"><?= $contactDate ?></p>
+                                    <p><?= $contactDate ?></p>
                                 </div>
                                 <div class="px-6 w-[500px] overflow-hidden">
                                     <p class="text-sm truncate"><?= $contact["msg_text"] ?></p>

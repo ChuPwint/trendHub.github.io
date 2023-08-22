@@ -602,7 +602,7 @@ $currentHour = date('H:i');
   
 
       ?>] w-full h-auto font-roboto mt-[90px]">
-<div class="flex md:flex-row md:justify-around py-8 flex-col md:text-justify text-center ">
+<div class="flex md:flex-row md:justify-around py-8 flex-col md:text-left text-center ">
     <div class="itemDetail">
         <span class="block text-[18px] mt-[16px] font-semibold text-[<?php
       
@@ -661,7 +661,7 @@ $currentHour = date('H:i');
 
 
         </a>
-        <a class="no-underline text-center md:text-left" href="../Point/points.php">
+        <a class="no-underline sm:text-center md:text-center" href="../Point/points.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -733,7 +733,7 @@ $currentHour = date('H:i');
       ?>] block">Privacy & Policy</span>
 
         </a>
-        <a class="no-underline text-center md:text-left" href="../../../Merchant/View/Login/login.php">
+        <a class="no-underline  md:text-center sm:text-center" href="../../../Merchant/View/Login/login.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {

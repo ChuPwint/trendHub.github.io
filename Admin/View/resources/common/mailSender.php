@@ -21,8 +21,8 @@ class SendMail
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'warmanethepriest@gmail.com';   //<< change   
-            $mail->Password   = 'sqkkoxwigwhdtfdh';          //<< change                     
+            $mail->Username   = 'trendhub.shop.mm@gmail.com';   //<< change   
+            $mail->Password   = 'abomtelorheznvnx';          //<< change                     
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
 
@@ -33,7 +33,7 @@ class SendMail
             }
 
             //Recipients
-            $mail->setFrom('warmanethepriest@gmail.com', "TrendHUB"); //<<change
+            $mail->setFrom('trendhub.shop.mm@gmail.com', "TrendHUB"); //<<change
             $mail->addAddress($toMail);
 
             //Content
