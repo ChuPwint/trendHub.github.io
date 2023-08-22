@@ -333,6 +333,20 @@ bg-[<?php
                     echo $navColor;
                   }
                 }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                }
                 ?>]  duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
@@ -351,7 +365,21 @@ bg-[<?php
                 echo $navColor;
               }
             }
-            ?>]  duration-300">About</a>
+            ?>]  hover:text-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo  "#3d3d3d";
+              } else {
+                echo $tertiaryColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo  "#3d3d3d";
+              } else {
+                echo $tertiaryColor;
+              }
+            }
+            ?>]   duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/services.php" class="text-md 
@@ -367,6 +395,20 @@ bg-[<?php
                     echo '#ffffff';
                   } else {
                     echo $navColor;
+                  }
+                }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
                   }
                 }
                 ?>]  duration-300">Service</a>
