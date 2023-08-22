@@ -386,6 +386,7 @@ date_default_timezone_set('Asia/Yangon');
 
             $("#closeContactCompleteModal").click(function() {
                 $(".contactAdminFinishModal").toggle();
+                document.getElementById("messageInput").value = "";
             });
         });
 

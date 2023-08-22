@@ -4,9 +4,9 @@ session_start();
 
 if (!isset($_POST["submitReview"])) {
     header("Location: ../View/Error/error.php");
-}elseif(isset($_POST["submitReview"]) && !isset($_SESSION["currentLoginUser"])){
+} elseif (isset($_POST["submitReview"]) && !isset($_SESSION["currentLoginUser"])) {
     header("Location: ../View/Login/login.php");
-}else {
+} else {
     include "../Model/model.php";
     $rating = $_POST["rating"];
     $title = $_POST["reviewTitle"];
@@ -21,8 +21,8 @@ if (!isset($_POST["submitReview"])) {
         AND product_id = :productID
         "
     );
-    $sql->bindValue("customerID",$customerID);
-    $sql->bindValue("productID",$productID);
+    $sql->bindValue("customerID", $customerID);
+    $sql->bindValue("productID", $productID);
     $sql->execute();
     $alreadyReviewd = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -33,10 +33,10 @@ if (!isset($_POST["submitReview"])) {
     $sql->execute();
     $searchOrderIDs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-    if(count($alreadyReviewd) > 0) {
+    if (count($alreadyReviewd) > 0) {
         $_SESSION["alreadyReview"] = "You already reviewed this product!";
         header("Location: ./itemDetailController.php?productId=$productID");
-    }elseif (count($searchOrderIDs) == 0) {
+    } elseif (count($searchOrderIDs) == 0) {
         // have not ordered this product
         $_SESSION["cannotReview"] = "You haven't not buy this product yet!";
         header("Location: ./itemDetailController.php?productId=$productID");
@@ -49,7 +49,7 @@ if (!isset($_POST["submitReview"])) {
             $sql->bindValue(":id", $orderID["id"]);
             $sql->execute();
             $productIDsResult = $sql->fetchAll(PDO::FETCH_ASSOC);
-            
+
             foreach ($productIDsResult as $productIDResult) {
                 if ($productIDResult["product_id"] == $productID) {
                     $sql = $pdo->prepare(
@@ -78,17 +78,81 @@ if (!isset($_POST["submitReview"])) {
                     $sql->bindValue(":reviewTitle", $title);
                     $sql->bindValue(":reviewText", $text);
                     $sql->bindValue(":rating", $rating);
-                    $sql->bindValue(":reviewDate", date("Y-m-d"));               
-                    $sql->execute();                    
+                    $sql->bindValue(":reviewDate", date("Y-m-d"));
+                    $sql->execute();
                     $productIDFound = true;
                     break;
-                }
 
+                   
+                }
             }
 
             if ($productIDFound) {
+                $sql = $pdo->prepare(
+                    "SELECT m_marchents.*,m_products.p_name
+                    FROM m_marchents
+                    JOIN m_products ON m_marchents.id = m_products.merchant_id
+                    WHERE m_products.id = :id;"
+                );
+                $sql->bindValue(":id", $productID);
+                $sql->execute();
+                $merchant = $sql->fetchAll(PDO::FETCH_ASSOC);
+               
+            
+                $productName=  $merchant[0]['p_name'];
+                print_r( $productName);
+                $title ="New Review for Your Product: [ $productName ]";
+                $text = "A new review has been posted for your product ' $productName'.See the review details and reply.";
+             
+                if (($merchant[0]['id']) == 1) {
+                    $sql = $pdo->prepare(
+                        "INSERT INTO t_contact_customers
+                        (
+                          customer_id,
+                          msg_text,
+                          create_date
+                        )
+                        VALUES
+                        (
+                          :customerID,
+                          :msg_text,
+                          :create_date
+                        )
+                        "
+                    );
+                   
+                    $sql->bindValue(":customerID", $customerID);
+                    $sql->bindValue(":msg_text", $text);
+                    $sql->bindValue(":create_date", date("Y-m-d"));
+                    $sql->execute();
+                } else {
+                    $sql = $pdo->prepare(
+                        "INSERT INTO t_notify_to_merchant
+                        (
+                           merchant_id,
+                           title,
+                           message,
+                           create_date
+                        )
+                        VALUES
+                        (
+                           :merchant_id,
+                           :title,
+                           :message,
+                           :create_date
+                        )
+                        "
+                    );
+                    $sql->bindValue(":merchant_id",($merchant[0]['id']));
+                    $sql->bindValue(":title", $title);
+                    $sql->bindValue(":message", $text);
+                    $sql->bindValue(":create_date", date("Y-m-d"));
+                    $sql->execute();
+                }
+            
+          
                 break;
-            }           
+            }
         }
 
         if (!$productIDFound) {
@@ -100,6 +164,4 @@ if (!isset($_POST["submitReview"])) {
             header("Location: ./itemDetailController.php?productId=$productID");
         }
     }
-
-
 }
