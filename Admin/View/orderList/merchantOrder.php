@@ -102,7 +102,7 @@ include "../../Controller/orderList/merchantOrders/merchantOrderListController.p
                                                 ?>
                                             </td>
                                             <td class="p-3 text-center">
-                                                <?= number_format($order["total_amt"]) ?>
+                                                <?= number_format($order["total_amt"]) ?> Ks
                                             </td>
                                             <td class="p-3 text-center">
                                                 <?= $order["payment_method"] ?>

@@ -130,7 +130,7 @@ include "../../Controller/orderList/adminOrders/adminOrderListController.php";
                                                 ?>
                                             </td>
                                             <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $order["id"] ?>">
-                                                <?= number_format($order["total_amt"]) ?>
+                                                <?= number_format($order["total_amt"]) ?> Ks
                                             </td>
                                             <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $order["id"] ?>">
                                                 <?= $order["payment_method"] ?>
