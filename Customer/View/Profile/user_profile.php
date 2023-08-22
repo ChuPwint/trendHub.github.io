@@ -711,7 +711,7 @@ if ($startTime > $endTime) {
                 <?php if (isset($_SESSION["userChangeView"]) && ($_SESSION["userChangeView"] == 1)) { ?>
                     <!-- Modal for save change-->
                     <div class="flex justify-center items-center">
-                        <div class="fixed w-full   flex items-center justify-center " id="modal">
+                        <div class="fixed w-[70%]" id="modal">
                             <div class="bg-white rounded-lg p-6 shadow-xl w-2/3 md:w-1/4">
                                 <p class="text-center font-bold">Your profile change is complete!</p>
                                 <button class="block w-full mt-4 bg-tertiary text-white rounded px-2 py-1" id="close-modal-btn">Close</button>
