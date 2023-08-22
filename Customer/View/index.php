@@ -573,15 +573,30 @@ bg-[<?php
                         echo $buttonText;
                       }
                     }
-                    ?>] rounded-l-md cursor-pointer">
+                    ?>]  rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
             <ion-icon class="relative top-1" name="caret-down-outline"></ion-icon>
 
-            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[<?= $primaryColor ?>] rounded-md shadow-lg">
+            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[white] rounded-md shadow-lg">
               <?php foreach ($categoriesResult as $category) { ?>
-                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">
+                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-[<?php
+          if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          }
+
+          ?>] hover:text-white duration-400">
                   <li><?= $category["category_name"] ?></li>
                 </a>
               <?php } ?>
