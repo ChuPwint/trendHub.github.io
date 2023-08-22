@@ -76,7 +76,7 @@ $currentHour = date('H:i');
             -webkit-appearance: none;
             margin: 0;
         }
-        
+      
 
 
     </style>
@@ -624,7 +624,7 @@ $currentHour = date('H:i');
 
       ?>] py-3">Customer Care</span>
 
-        <a class="no-underline text-left" href="../Contact/help.php">
+        <a class="no-underline text-center md:text-left" href="../Contact/help.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -661,7 +661,7 @@ $currentHour = date('H:i');
 
 
         </a>
-        <a class="no-underline text-left" href="../Point/points.php">
+        <a class="no-underline text-center md:text-left" href="../Point/points.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -697,7 +697,7 @@ $currentHour = date('H:i');
       ?>] block">Exchange Points</span>
 
         </a>
-        <a class="no-underline text-left" href="../Contact/privacyAndPolicy.php">
+        <a class="no-underline text-center md:text-left" href="../Contact/privacyAndPolicy.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -733,7 +733,7 @@ $currentHour = date('H:i');
       ?>] block">Privacy & Policy</span>
 
         </a>
-        <a class="no-underline text-left" href="../../../Merchant/View/Login/login.php">
+        <a class="no-underline text-center md:text-left" href="../../../Merchant/View/Login/login.php">
         <span class="cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -772,7 +772,7 @@ $currentHour = date('H:i');
     </div>
 
     <div class="">
-        <span class="block text-[18px] font-semibold py-3 text-left text-[<?php
+        <span class="block text-[18px] font-semibold py-3 text-center md:text-left text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -791,7 +791,7 @@ $currentHour = date('H:i');
   
 
       ?>] md:mt-0 mt-5">Shop</span>
-        <a class="no-underline text-left" href="../index.php">
+        <a class="no-underline text-center md:text-left" href="../index.php">
         <span class="block cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -827,7 +827,7 @@ $currentHour = date('H:i');
       ?>]">Shop</span>
 
         </a>
-        <a class="no-underline text-left" href="../#trending">
+        <a class="no-underline text-center md:text-left" href="../#trending">
         <span class="block cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -900,7 +900,7 @@ $currentHour = date('H:i');
 
         </a>
 
-        <a class="no-underline text-left" href="../#new">
+        <a class="no-underline text-center md:text-left" href="../#new">
         <span class="block cursor-pointer text-[<?php
       
       if ($startTime > $endTime) {
@@ -948,7 +948,7 @@ $currentHour = date('H:i');
 
 ?>
     <div class="">
-        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-left text-[<?php
+        <span class="block text-[18px] font-semibold py-3 md:mt-0 mt-5 text-center md:text-left text-[<?php
       
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -985,7 +985,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>] text-left hover:text-[<?php
+      ?>] text-center md:text-left hover:text-[<?php
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
           echo '#000000';
@@ -1018,7 +1018,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>] text-left hover:text-[<?php
+      ?>] text-center md:text-left hover:text-[<?php
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
           echo '#000000';
@@ -1051,7 +1051,7 @@ $currentHour = date('H:i');
     
   
 
-      ?>]  w-[400px] text-left hover:text-[<?php
+      ?>]  w-[400px] text-center md:text-left hover:text-[<?php
       if ($startTime > $endTime) {
         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
           echo '#000000';

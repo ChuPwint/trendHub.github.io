@@ -515,7 +515,7 @@ $currentHour = date('H:i');
               <ion-icon class="relative top-1" name="caret-down-outline"></ion-icon>
 
 
-              <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md shadow-lg">
+              <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-white rounded-md category shadow-lg">
                 <?php foreach ($categoriesResult as $category) { ?>
                   <li><a href="../../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg-white px-4 py-2 text-gray-800  hover:bg-[<?php
           if ($startTime > $endTime) {
