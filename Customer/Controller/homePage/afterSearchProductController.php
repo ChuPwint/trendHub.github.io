@@ -12,8 +12,9 @@ $pageStart = ($pageStart < 0) ? 1 : $pageStart;
 
 include "../../Model/model.php";
 $sql = $pdo->prepare(
-    "SELECT p.*
+    "SELECT p.*, m.m_name
     FROM m_products p
+    JOIN m_marchents m ON p.merchant_id = m.id
     WHERE p.p_name LIKE :search AND p.del_flg = 0
     ORDER BY p.p_name
     LIMIT $pageStart, $rowLimit
@@ -24,8 +25,9 @@ $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->prepare(
-    "SELECT p.*
+    "SELECT p.*, m.m_name
     FROM m_products p
+    JOIN m_marchents m ON p.merchant_id = m.id
     WHERE p.p_name LIKE :search AND p.del_flg = 0
     ORDER BY p.p_name
     "

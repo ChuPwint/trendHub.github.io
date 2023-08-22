@@ -87,7 +87,7 @@ $currentHour = date('H:i');
         </div>
     </section>
 
-    <section class="w-full container mx-auto flex md:space-x-2 pt-5">
+    <section class="w-full container mx-auto flex justify-center md:space-x-2 pt-5">
         <!--Left Side Brand, Price and Banner -->
         <div class="hidden md:block w-80 px-5 pr-5 pl-7">
             <?php
@@ -104,11 +104,16 @@ $currentHour = date('H:i');
                 <img src="../../../<?= $banner2 ?>" alt="banner1">
             </div>
 
+            <!-- 3rd Banner -->
+            <div class="mt-2">
+                <img src="../../../<?= $banner2 ?>" alt="banner1">
+            </div>
+
         </div>
         <!--Left Side Brand, Price and Banner End -->
 
         <!--Right Side Products -->
-        <div class="flex flex-col space-y-5 md:pr-7 px-5 md:min-w-[1000px]">
+        <div class="flex flex-col space-y-5 md:pr-7 px-5 md:min-w-[1200px]">
             <?php foreach ($searchProducts as $searched) { ?>
                 <!-- product-card -->
                 <div class="shadow-md bg-[<?php
@@ -129,7 +134,7 @@ $currentHour = date('H:i');
                     <a href="../../Controller/itemDetailController.php?productId=<?= $searched["id"] ?>">
                         <div class="flex items-center">
                             <div class="w-[250px] flex justify-center item-center p-2">
-                                <img src="../../..<?= $searched["p_path"] ?>" alt="msi">
+                                <img class="max-h-[150px]" src="../../..<?= $searched["p_path"] ?>" alt="msi">
                             </div>
 
                             <div class="pl-5">

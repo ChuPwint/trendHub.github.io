@@ -77,7 +77,7 @@ $currentHour = date('H:i');
         </div>
     </section>
 
-    <section class="w-full container mx-auto flex justify-between pt-5">
+    <section class="w-full container mx-auto flex justify-center pt-5">
         <!--Left Side Brand, Price and Banner -->
         <div class="hidden md:block w-80 pr-5 pl-7">
             <?php
@@ -96,11 +96,16 @@ $currentHour = date('H:i');
                 <img src="../../../<?= $banner4 ?>" alt="banner2">
             </div>
 
+            <!-- 3rd Banner -->
+            <div class="mt-2 w-[200px]">
+                <img src="../../../<?= $banner4 ?>" alt="banner2">
+            </div>
+
         </div>
         <!--Left Side Brand, Price and Banner End -->
 
         <!--Right Side Products -->
-        <div class="flex flex-col space-y-5 md:pr-7 px-5 md:min-w-[1000px]">
+        <div class="flex flex-col space-y-5 md:pr-7 px-5 md:min-w-[1200px]">
             <!-- Bannner -->
             <div class="rounded overflow-hidden">
             
@@ -143,7 +148,7 @@ $currentHour = date('H:i');
                     <a href="../../Controller/itemDetailController.php?productId=<?= $cProduct["id"] ?>">
                         <div class="flex items-center cursor-pointer">
                             <div class="w-[250px] flex justify-center item-center p-2">
-                                <img class="max-h-[200px]" src="../../..<?= $cProduct["p_path"] ?>" alt="">
+                                <img class="max-h-[150px]" src="../../..<?= $cProduct["p_path"] ?>" alt="">
                             </div>
                             <div class="pl-5">
                                 <p class="text-sm md:text-xl"><?= $cProduct["p_name"] ?></p>

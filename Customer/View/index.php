@@ -333,6 +333,20 @@ bg-[<?php
                     echo $navColor;
                   }
                 }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                }
                 ?>]  duration-300">Home</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
@@ -351,7 +365,21 @@ bg-[<?php
                 echo $navColor;
               }
             }
-            ?>]  duration-300">About</a>
+            ?>]  hover:text-[<?php
+            if ($startTime > $endTime) {
+              if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                echo  "#3d3d3d";
+              } else {
+                echo $tertiaryColor;
+              }
+            } else {
+              if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                echo  "#3d3d3d";
+              } else {
+                echo $tertiaryColor;
+              }
+            }
+            ?>]   duration-300">About</a>
         </li>
         <li class="mx-4 my-6 md:my-0">
           <a href="./Contact/services.php" class="text-md 
@@ -367,6 +395,20 @@ bg-[<?php
                     echo '#ffffff';
                   } else {
                     echo $navColor;
+                  }
+                }
+                ?>]  hover:text-[<?php
+                if ($startTime > $endTime) {
+                  if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
+                  }
+                } else {
+                  if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                    echo  "#3d3d3d";
+                  } else {
+                    echo $tertiaryColor;
                   }
                 }
                 ?>]  duration-300">Service</a>
@@ -531,15 +573,30 @@ bg-[<?php
                         echo $buttonText;
                       }
                     }
-                    ?>] rounded-l-md cursor-pointer">
+                    ?>]  rounded-l-md cursor-pointer">
             Categories
             <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
             <!-- <img class="inline" src="./resources/img/header/down-arrow.png" alt=""> -->
             <ion-icon class="relative top-1" name="caret-down-outline"></ion-icon>
 
-            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[<?= $primaryColor ?>] rounded-md shadow-lg">
+            <ul id="dropdownMenu" class="absolute hidden z-50  mt-5 py-2 w-[300px] bg-[white] rounded-md shadow-lg">
               <?php foreach ($categoriesResult as $category) { ?>
-                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-tertiary hover:text-white duration-400">
+                <a href="../Controller/homePage/redirectCategoryPageController.php?categoryId=<?= $category["id"] ?>" class="block bg:bg-white px-4 py-2 text-gray-800 hover:bg-[<?php
+          if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          }
+
+          ?>] hover:text-white duration-400">
                   <li><?= $category["category_name"] ?></li>
                 </a>
               <?php } ?>
@@ -1302,6 +1359,20 @@ bg-[<?php
               echo $navColor;
             }
           }
+          ?>] hover:text-[<?php
+          if ($startTime > $endTime) {
+            if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          } else {
+            if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+              echo '#000000';
+            } else {
+              echo $tertiaryColor;
+            }
+          }
           ?>] block">FAQs</span>
         </a>
         <a href="./Point/points.php">
@@ -1352,6 +1423,20 @@ bg-[<?php
                   echo $navColor;
                 }
               }
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
               ?>] block">Privacy & Policy</span>
         </a>
 
@@ -1369,6 +1454,20 @@ bg-[<?php
                   echo '#ffffff';
                 } else {
                   echo $navColor;
+                }
+              }
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
                 }
               }
               ?>] block">Sell on Shop</span>
@@ -1408,6 +1507,20 @@ bg-[<?php
                   echo $navColor;
                 }
               }
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
               ?>]">Shop</span>
         </a>
         <a href="#trending">
@@ -1426,7 +1539,21 @@ bg-[<?php
                   echo $navColor;
                 }
               }
-              ?>]">Trending Products</span>
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
+              ?>] ">Trending Products</span>
         </a>
         <a href="#best">
           <span class="block cursor-pointer 
@@ -1442,6 +1569,20 @@ bg-[<?php
                   echo '#ffffff';
                 } else {
                   echo $navColor;
+                }
+              }
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
                 }
               }
               ?>]">Bestsellers Product</span>
@@ -1460,6 +1601,20 @@ bg-[<?php
                   echo '#ffffff';
                 } else {
                   echo $navColor;
+                }
+              }
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
                 }
               }
               ?>]">New Products</span>
@@ -1498,7 +1653,21 @@ bg-[<?php
                   echo $navColor;
                 }
               }
-              ?>] ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
+              ?>]  ">Email : <a href="mailto:<?= $editEmail ?>"><?= $editEmail ?></a></span>
         <span class="block cursor-pointer 
       text-[<?php
             if ($startTime > $endTime) {
@@ -1626,7 +1795,21 @@ bg-[<?php
                   echo $navColor;
                 }
               }
-              ?>]" name="logo-instagram"></ion-icon>
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
+              ?>] cursor-pointer" name="logo-instagram"></ion-icon>
           <ion-icon class="text-2xl 
         text-[<?php
               if ($startTime > $endTime) {
@@ -1642,7 +1825,21 @@ bg-[<?php
                   echo $navColor;
                 }
               }
-              ?>]" name="logo-twitter"></ion-icon>
+              ?>] hover:text-[<?php
+              if ($startTime > $endTime) {
+                if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              } else {
+                if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
+                  echo '#000000';
+                } else {
+                  echo $tertiaryColor;
+                }
+              }
+              ?>] cursor-pointer" name="logo-twitter"></ion-icon>
         </div>
       </div>
     </div>
