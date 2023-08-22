@@ -145,10 +145,10 @@ if (!isset($_SESSION["totalCount"]) || !isset($_SESSION["adminProducts"]) || !is
 
                                                 </td>
                                                 <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
-                                                    <?= number_format($product["buy_price"]) ?>
+                                                    <?= number_format($product["buy_price"]) ?> Ks
                                                 </td>
                                                 <td class="p-3 text-center cursor-pointer showDetail" detailID="<?= $product["id"] ?>">
-                                                    <?= number_format($product["sell_price"]) ?>
+                                                    <?= number_format($product["sell_price"]) ?> Ks
                                                 </td>
                                                 <td class="p-3 text-center  space-x-2 ">
                                                     <span id="<?= $product["id"] ?>" class="editProduct px-4 py-2 cursor-pointer bg-[#396C21] text-white rounded-md">EDIT</span>

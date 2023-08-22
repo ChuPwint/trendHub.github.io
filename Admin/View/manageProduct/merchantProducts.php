@@ -136,7 +136,7 @@ if (!isset($_SESSION["totalMerchantProduct"]) || !isset($_SESSION["merchantProdu
                         <?= $product["category_name"] ?>
                       </td>
                       <td class="p-3 text-center ">
-                        <?= $product["sell_price"] ?>
+                        <?= $product["sell_price"] ?> Ks
                       </td>
                     </tr>
                   <?php }
