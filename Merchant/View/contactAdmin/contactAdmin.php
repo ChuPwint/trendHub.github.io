@@ -172,6 +172,7 @@ $editTime = isset($editInfo[0]["time"]) && !empty($editInfo[0]["time"]) ? $editI
 
             $("#closeContactCompleteModal").click(function() {
                 $(".contactAdminFinishModal").toggle();
+                document.getElementById("messageInput").value = "";
             });
 
             $("#logoutBtn").click(function() {
