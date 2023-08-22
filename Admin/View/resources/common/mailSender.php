@@ -33,7 +33,7 @@ class SendMail
             }
 
             //Recipients
-            $mail->setFrom('warmanethepriest@gmail.com', "TrendHUB"); //<<change
+            $mail->setFrom('trendhub.shop.mm@gmail.com', "TrendHUB"); //<<change
             $mail->addAddress($toMail);
 
             //Content
