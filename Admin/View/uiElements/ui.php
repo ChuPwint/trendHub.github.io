@@ -99,6 +99,8 @@ $showAnnounce = isset($editAnnouncement[0]["displayAnno"]) && !empty($editAnnoun
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Elements</title>
+  <link rel="icon" href="../resources/img/headerLogo.svg" type="image/icon type">
+    
     <link rel="stylesheet" href="./resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
     <link rel="stylesheet" href="../resources/css/faq.css">
