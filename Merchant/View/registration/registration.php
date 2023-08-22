@@ -142,8 +142,8 @@ include "../../../Customer/Controller/uiElement/editInfoController.php";
                     </div>
 
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="accept" class="bg-secondary  shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded  focus:outline-none focus:ring focus:ring-red-300" >Accept T & C</button>
-                        <button id="decline" class="bg-primary shadow-md w-1/3 border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Decline</button>
+                        <button type="button" id="accept" class="bg-secondary  shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded  focus:outline-none focus:ring focus:ring-red-300" >Accept T & C</button>
+                        <button type="button" id="decline" class="bg-primary shadow-md w-1/3 border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Decline</button>
                     </div>
 
                 </div>
@@ -175,8 +175,8 @@ include "../../../Customer/Controller/uiElement/editInfoController.php";
                     </div>
 
                     <div class="mt-4 flex justify-around space-x-4">
-                        <button id="acceptPrivacy" class="bg-secondary shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-red-300">Accept T & C</button>
-                        <button id="declinePrivacy" class="bg-primary shadow-md w-1/3 border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Decline</button>
+                        <button type="button" id="acceptPrivacy" class="bg-secondary shadow-md w-1/3 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-red-300">Accept Privacy</button>
+                        <button type="button" id="declinePrivacy" class="bg-primary shadow-md w-1/3 border border-secondary text-secondary font-semibold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">Decline</button>
                     </div>
 
                 </div>
@@ -239,24 +239,20 @@ include "../../../Customer/Controller/uiElement/editInfoController.php";
         //         acceptBtn.classList.add('opacity-50');
         //     }
         // }
-      
 
         acceptBtn.setAttribute("disabled", "disabled");
         acceptBtn.classList.add("opacity-50");
 
         function updateAcceptTermBtn() {
-            if (termText.scrollHeight - termText.scrollTop >= termText.clientHeight) {
+            if (termText.scrollHeight - termText.scrollTop == termText.clientHeight) {
                 acceptBtn.removeAttribute("disabled");
                 acceptBtn.classList.remove("opacity-50");
                 acceptBtn.classList.add("opacity-100");
-
             }
-
         }
-       
         
         function updateAcceptPrivacyBtn() {
-            if (privacyText.scrollHeight - privacyText.scrollTop >= privacyText.clientHeight) {
+            if (privacyText.scrollHeight - privacyText.scrollTop == privacyText.clientHeight) {
                 acceptBtnPrivacy.removeAttribute("disabled");
                 acceptBtnPrivacy.classList.remove("opacity-50");
                 acceptBtnPrivacy.classList.add("opacity-100");
