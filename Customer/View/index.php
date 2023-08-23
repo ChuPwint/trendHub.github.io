@@ -1000,18 +1000,18 @@ bg-[<?php
           <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
                                                                                           if ($startTime > $endTime) {
                                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                              echo '#ffffff';
+                                                                                              echo '#000000';
                                                                                             } else {
-                                                                                              echo $navColor;
+                                                                                              echo $priceColor;
                                                                                             }
                                                                                           } else {
                                                                                             if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                              echo '#ffffff';
+                                                                                              echo '#000000';
                                                                                             } else {
-                                                                                              echo $navColor;
+                                                                                              echo $priceColor;
                                                                                             }
                                                                                           }
-                                                                                          ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $trending["p_name"] ?></div>
+                                                                                          ?>] max-w-[250px] mx-auto break-normal   font-semibold "><?= $trending["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                       if ($startTime > $endTime) {
                                                                         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
@@ -1115,18 +1115,18 @@ bg-[<?php
           <div class="pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
                                                                                           if ($startTime > $endTime) {
                                                                                             if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                              echo '#ffffff';
+                                                                                              echo '#000000';
                                                                                             } else {
-                                                                                              echo $navColor;
+                                                                                              echo $priceColor;
                                                                                             }
                                                                                           } else {
                                                                                             if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                              echo '#ffffff';
+                                                                                              echo '#000000';
                                                                                             } else {
-                                                                                              echo $navColor;
+                                                                                              echo $priceColor;
                                                                                             }
                                                                                           }
-                                                                                          ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $bestSeller["p_name"] ?></div>
+                                                                                          ?>] max-w-[250px] mx-auto break-normal   font-semibold "><?= $bestSeller["p_name"] ?></div>
           <div class="absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php if ($startTime > $endTime) {
                                                                         if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
                                                                           echo '#000000';
@@ -1230,18 +1230,18 @@ bg-[<?php
           <div class="title pl-[6px] text-lg absolute inset-x-0 bottom-[120px] text-left text-[<?php
                                                                                                 if ($startTime > $endTime) {
                                                                                                   if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                    echo '#ffffff';
+                                                                                                    echo '#000000';
                                                                                                   } else {
-                                                                                                    echo $navColor;
+                                                                                                    echo $priceColor;
                                                                                                   }
                                                                                                 } else {
                                                                                                   if (strtotime($currentHour) >= strtotime($startTime) && strtotime($currentHour) < strtotime($endTime)) {
-                                                                                                    echo '#ffffff';
+                                                                                                    echo '#000000';
                                                                                                   } else {
-                                                                                                    echo $navColor;
+                                                                                                    echo $priceColor;
                                                                                                   }
                                                                                                 }
-                                                                                                ?>] max-w-[250px] mx-auto break-normal font-semibold "><?= $newProduct["p_name"] ?></div>
+                                                                                                ?>] max-w-[250px] mx-auto break-normal  ] font-semibold "><?= $newProduct["p_name"] ?></div>
           <div class="price absolute bottom-[92px] text-md pt-8 pl-5 text-[<?php
                                                                             if ($startTime > $endTime) {
                                                                               if (strtotime($currentHour) >= strtotime($startTime) || strtotime($currentHour) < strtotime($endTime)) {

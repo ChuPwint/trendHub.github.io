@@ -20,6 +20,8 @@ if (!isset($_SESSION["totalMerchantProduct"]) || !isset($_SESSION["merchantProdu
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merchant's Products</title>
+  <link rel="icon" href="../resources/img/headerLogo.svg" type="image/icon type">
+
   <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
   <script src="../resources/lib/jquery3.6.0.js"></script>
   <!-- google font link -->

@@ -9,6 +9,8 @@ include "../../Controller/productRequest/productRequestController.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Requests</title>
+  <link rel="icon" href="../resources/img/headerLogo.svg" type="image/icon type">
+
     <link rel="stylesheet" href="../resources/lib/tailwind/output.css?id=<?= time() ?>">
     <script src="../resources/lib/jquery3.6.0.js"></script>
 </head>
