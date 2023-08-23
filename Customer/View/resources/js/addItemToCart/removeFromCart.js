@@ -46,6 +46,7 @@ $(document).ready(() => {
         localStorage.removeItem("currentMerchant");
     };
     removeFromCard(currentItemID);
+    changeTotal();
   });
 
   $(".mTrashImg").on("click", function () {
@@ -61,7 +62,20 @@ $(document).ready(() => {
         localStorage.removeItem("currentMerchant");
     };    
     removeFromCard(currentItemID);
+    changeTotal();
   });
+
+  function changeTotal(){
+    let subTotal = 0;
+    $(".desktopPrice:visible").each(function(){
+      let price = $(this).text();
+      var numericPrice = parseFloat(price.replace(/[^\d]/g, ""));
+      subTotal += numericPrice;
+    })
+    $(".subTotal").text(subTotal.toLocaleString("en-US") + " Ks");
+    $(".totalPrice").text(subTotal.toLocaleString("en-US") + " Ks");
+    $("#hiddenSubTotal").val(subTotal);
+  }
 
   function addToStorage(productID){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"));

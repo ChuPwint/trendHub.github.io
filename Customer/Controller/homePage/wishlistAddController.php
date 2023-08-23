@@ -19,9 +19,10 @@ $wishlistId = $result[0]["wishlist_id"];
 $sql = $pdo->prepare(
     "SELECT product_id
     FROM t_wishlist_details
-    WHERE product_id = :id"
+    WHERE product_id = :id AND wishlist_id = :wId"
 );
 $sql->bindValue(":id", $productId);
+$sql->bindValue(":wId", $wishlistId);
 $sql->execute();
 $existProductId = $sql->fetchAll(PDO::FETCH_ASSOC);
 
